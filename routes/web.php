@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/reels', function () {
     return '<h1>Reels and Meals</h1>';
 });
+
+Route::get('/meal', function () {
+    return view('welcome');
+});
