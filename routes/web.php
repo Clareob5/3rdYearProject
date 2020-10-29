@@ -1,9 +1,4 @@
 <?php
-# @Date:   2020-10-19T20:17:47+01:00
-# @Last modified time: 2020-10-19T20:44:43+01:00
-
-
-
 
 use Illuminate\Support\Facades\Route;
 
@@ -18,10 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/reels', function () {
+    return '<h1>Reels and Meals</h1>';
 });
 
-Route::get('reelsandmeals', function () {
-    return '<h1>Reels and Meals</h1>';
+Route::get('/meal', function () {
+    return view('welcome');
 });
