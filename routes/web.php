@@ -23,5 +23,5 @@ Route::get('/', function () {
 });
 
 Route::get('reelsandmeals', function () {
-    return '<h1>Reels and Meals</h1>';
+    return '<h1>Reels</h1>';
 });
