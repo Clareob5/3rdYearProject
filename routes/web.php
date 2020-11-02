@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\dummyAPI;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/reels', function () {
     return '<h1>Reels and Meals</h1>';
 });
 
-Route::get('/meal', function () {
-    return view('welcome');
+Route::get('/admin', function () {
+    return view('admin.dashboard');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
