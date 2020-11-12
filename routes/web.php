@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dummyAPI;
 
+use App\Http\Controllers\User\HomeController as UserHomeController;
+use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +22,9 @@ use App\Http\Controllers\dummyAPI;
 
 
 
-Route::get('/reels', function () {
-    return '<h1>Reels and Meals</h1>';
-});
+// Route::get('/reels', function () {
+//     return '<h1>Reels and Meals</h1>';
+// });
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,9 +38,18 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['middleware'=>['auth','admin']],function(){
+//routes to admin and user home dashboards
+Route::get('/admin/home', [AdminHomeController::class, 'index'])->name('admin.home');
+Route::get('/user/home', [UserHomeController::class, 'index'])->name('user.home');
 
-  Route::get('/dashboard', function () {
-      return view('admin.dashboard');
-  });
-});
+
+// Route::group(['middleware'=>['auth','admin']],function(){
+//
+// Route::get('/dashboard', function () {
+//       return view('admin.dashboard');
+//   });
+// });
+
+// Auth::routes();
+//
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
