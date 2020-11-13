@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\dummyAPI;
 
 use App\Http\Controllers\User\HomeController as UserHomeController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
-
 
 
 /*
@@ -21,18 +21,12 @@ use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 */
 
 
-
-// Route::get('/reels', function () {
-//     return '<h1>Reels and Meals</h1>';
-// });
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Route::get('/admin', function () {
 //     return view('admin.dashboard');
 // });
+
+Route::get('/', [PageController::class, 'welcome'])->name('welcome'); //when user enters / , it uses wlecome method to take them to welcome view
+Route::get('/about', [PageController::class, 'about'])->name('about'); //when user goes to /about , it uses welcome method to take them to about view
 
 Auth::routes();
 
