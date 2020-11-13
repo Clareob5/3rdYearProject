@@ -6,6 +6,10 @@ use App\Http\Controllers\dummyAPI;
 
 use App\Http\Controllers\User\HomeController as UserHomeController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\MovieController as UserMovieController;
+use App\Http\Controllers\Admin\MovieController as AdminMovieController;
+
 
 
 /*
@@ -36,6 +40,19 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/admin/home', [AdminHomeController::class, 'index'])->name('admin.home');
 Route::get('/user/home', [UserHomeController::class, 'index'])->name('user.home');
 
+Route::get('/profile',[ProfileController::class, 'index'])->name('profile.index');
+Route::put('/profile',[ProfileController::class, 'update'])->name('profile.update');
+
+Route::get('/user/movies', [UserMovieController::class, 'index'])->name('user.movies.index');
+Route::get('/user/movies/{id}', [UserMovieController::class, 'show'])->name('user.movies.show');
+
+Route::get('/admin/movies', [AdminMovieController::class, 'index'])->name('admin.movies.index');
+Route::get('/admin/movies/create', [AdminMovieController::class, 'create'])->name('admin.movies.create');
+Route::get('/admin/movies/{id}', [AdminMovieController::class, 'show'])->name('admin.movies.show');
+Route::post('/admin/movies/store', [AdminMovieController::class, 'store'])->name('admin.movies.store');
+Route::get('/admin/movies/{id}/edit', [AdminMovieController::class, 'edit'])->name('admin.movies.edit');
+Route::put('/admin/movies/{id}', [AdminMovieController::class, 'update'])->name('admin.movies.update');
+Route::delete('/admin/movies/{id}', [AdminMovieController::class, 'destroy'])->name('admin.movies.destroy');
 
 // Route::group(['middleware'=>['auth','admin']],function(){
 //

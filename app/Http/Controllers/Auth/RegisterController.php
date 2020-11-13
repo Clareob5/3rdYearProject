@@ -75,6 +75,6 @@ class RegisterController extends Controller
 
         $user->roles()->attach(Role::where('name','user')->first()); //attach new user to user role
 
-        return $user; //returns new user. By defailt, new users will have a user role, not admin
+        return $user; //returns new user. By default, new users will have a user role, not admin
     }
 }
