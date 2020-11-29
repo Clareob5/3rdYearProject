@@ -20,22 +20,30 @@
                       <table id="table-movies" class="table table-hover">
                         <thead>
                           <th>Title</th>
-                          <th>Description</th>
-                          <th>Genre</th>
                           <th>Director</th>
-                          <th>Actor</th>
-                          <th>Release Date</th>
+                          <th>Cast</th>
+                          <th>Country</th>
+                          <th>Date Added</th>
+                          <th>Release Year</th>
+                          <th>Rating</th>
+                          <th>Duration</th>
+                          <th>Listed In</th>
+                          <th>Description</th>
                           <th>Actions</th>
                         </thead>
                         <tbody>
                           @foreach ($movies as $movie)
                             <tr data-id="{{ $movie->id }}">
                               <td>{{ $movie->title }}</td>
-                              <td>{{ $movie->description }}</td>
-                              <td>{{ $movie->genre }}</td>
                               <td>{{ $movie->director }}</td>
-                              <td>{{ $movie->actor }}</td>
-                              <td>{{ $movie->release_date }}</td>
+                              <td>{{ $movie->cast }}</td>
+                              <td>{{ $movie->country }}</td>
+                              <td>{{ $movie->date_added }}</td>
+                              <td>{{ $movie->release_year }}</td>
+                              <td>{{ $movie->rating }}</td>
+                              <td>{{ $movie->duration }}</td>
+                              <td>{{ $movie->listed_in }}</td>
+                              <td>{{ $movie->description }}</td>
                               <td>
                                 <a href="{{ route('admin.movies.show', $movie->id )}}" class="btn btn-primary">View</a>
                                 <a href="{{ route('admin.movies.edit', $movie->id )}}" class="btn btn-warning">Edit</a>

@@ -57,21 +57,29 @@ public function __construct()
      {
          $request ->validate([
            'title' => 'required|max:191',
-           'description' => 'required|max:255',
-           'genre' => 'required|max:191',
-           'director' => 'required|max:50',
-           'actor' => 'required|max:50',
-           'release_date' => 'required|date'
+           'director' => 'required|max:2000',
+           'cast' => 'required|max:2000',
+           'country' => 'required|max:191',
+           'date_added' => 'required|max:1900',
+           'release_year' => 'required|integer|min:1900',
+           'rating' => 'required|max:50',
+           'duration' => 'required|max:50',
+           'listed_in' => 'required|max:191',
+           'description' => 'required|max:555'
          ]);
 
          $movie = new Movie();
 
          $movie->title = $request->input('title');
-         $movie->description = $request->input('description');
-         $movie->genre = $request->input('genre');
          $movie->director = $request->input('director');
-         $movie->actor = $request->input('actor');
-         $movie->release_date = $request->input('release_date');
+         $movie->cast = $request->input('cast');
+         $movie->country = $request->input('country');
+         $movie->date_added = $request->input('date_added');
+         $movie->release_year = $request->input('release_year');
+         $movie->rating = $request->input('rating');
+         $movie->duration = $request->input('duration');
+         $movie->listed_in = $request->input('listed_in');
+         $movie->description = $request->input('description');
          $movie->save();
 
          return redirect()->route('admin.movies.index');
@@ -119,21 +127,29 @@ public function __construct()
 
        $request ->validate([
          'title' => 'required|max:191',
-         'description' => 'required|max:255',
-         'genre' => 'required|max:191',
-         'director' => 'required|max:50',
-         'actor' => 'required|max:50',
-         'release_date' => 'required|date'
+         'director' => 'required|max:2000',
+         'cast' => 'required|max:2000',
+         'country' => 'required|max:191',
+         'date_added' => 'required|max:1900',
+         'release_year' => 'required|integer|min:1900',
+         'rating' => 'required|max:50',
+         'duration' => 'required|max:50',
+         'listed_in' => 'required|max:191',
+         'description' => 'required|max:555'
        ]);
 
        $movie = Movie::findOrFail($id);
 
        $movie->title = $request->input('title');
-       $movie->description = $request->input('description');
-       $movie->genre = $request->input('genre');
        $movie->director = $request->input('director');
-       $movie->actor = $request->input('actor');
-       $movie->release_date = $request->input('release_date');
+       $movie->cast = $request->input('cast');
+       $movie->country = $request->input('country');
+       $movie->date_added = $request->input('date_added');
+       $movie->release_year = $request->input('release_year');
+       $movie->rating = $request->input('rating');
+       $movie->duration = $request->input('duration');
+       $movie->listed_in = $request->input('listed_in');
+       $movie->description = $request->input('description');
        $movie->save();
 
        return redirect()->route('admin.movies.index');

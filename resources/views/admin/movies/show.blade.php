@@ -16,26 +16,52 @@
                               <td>Title</td>
                               <td>{{ $movie->title }}</td>
                             </tr>
-                            <tr>
-                              <td>Description</td>
-                              <td>{{ $movie->description }}</td>
-                            </tr>
-                            <tr>
-                              <td>Genre</td>
-                              <td>{{ $movie->genre }}</td>
-                            </tr>
+
                             <tr>
                               <td>Director</td>
                               <td>{{ $movie->director }}</td>
                             </tr>
+
                             <tr>
-                              <td>Actor</td>
-                              <td>{{ $movie->actor }}</td>
+                              <td>Cast</td>
+                              <td>{{ $movie->cast }}</td>
                             </tr>
+
                             <tr>
-                              <td>Release Date</td>
-                              <td>{{ $movie->release_date }}</td>
+                              <td>Country</td>
+                              <td>{{ $movie->country }}</td>
                             </tr>
+
+                            <tr>
+                              <td>Date Added</td>
+                              <td>{{ $movie->date_added }}</td>
+                            </tr>
+
+                            <tr>
+                              <td>Release Year</td>
+                              <td>{{ $movie->release_year }}</td>
+                            </tr>
+
+                            <tr>
+                              <td>Rating</td>
+                              <td>{{ $movie->rating }}</td>
+                            </tr>
+
+                            <tr>
+                              <td>Duration</td>
+                              <td>{{ $movie->duration }}</td>
+                            </tr>
+
+                            <tr>
+                              <td>Listed In</td>
+                              <td>{{ $movie->listed_in }}</td>
+                            </tr>
+
+                            <tr>
+                              <td>Description</td>
+                              <td>{{ $movie->description }}</td>
+                            </tr>
+
                         </tbody>
                       </table>
                     <a href="{{ route('admin.movies.index')}}" class="btn ">Back</a>
