@@ -64,9 +64,56 @@
 
                         </tbody>
                       </table>
-                    <a href="{{ route('admin.movies.index')}}" class="btn ">Back</a>
+
+
+                      <a href="{{ route('admin.movies.index') }}" class="btn btn-default">Back</a>
+                      <a href="{{ route('admin.movies.edit', $movie->id) }}" class="btn btn-warning">Edit</a>
+                      <form style="display:inline-block" method="POST" action="{{ route('admin.movies.destroy', $movie->id) }}">
+                          <input type="hidden" name="_method" value="DELETE">
+                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                          <button type="submit" class="form-control btn btn-danger">Delete</a>
+                      </form>
+
+
                 </div>
             </div>
+
+            <div class="card">
+        <div class="card-header">
+          Reviews
+        </div>
+        <div class="card-body">
+          @if (count($movie->reviews) == 0)
+          <p>There are no reviews for this movie.</p>
+          @else
+          <table class="table">
+              <thead>
+                  <th>Review</th>
+                  <th>Rating</th>
+                  <th>Actions</th>
+              </thead>
+              <tbody>
+                  @foreach ($movie->reviews as $review)
+                  <tr>
+                      <th>{{ $review->review }}</th>
+                      <th>{{ $review->rating }}</th>
+                      <th>
+                          <form style="display:inline-block" method="POST" action="{{ route('admin.reviews.destroy', [ 'id' => $movie->id, 'rid' => $review->id]) }}">
+                              <input type="hidden" name="_method" value="DELETE">
+                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                              <button type="submit" class="form-control btn btn-danger">Delete</a>
+                          </form>
+                      </th>
+                  </tr>
+                  @endforeach
+              </tbody>
+          </table>
+          @endif
+        </div>
+      </div>
+
+
+
         </div>
     </div>
 </div>

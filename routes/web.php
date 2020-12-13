@@ -10,6 +10,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\MovieController as UserMovieController;
 use App\Http\Controllers\Admin\MovieController as AdminMovieController;
 
+use App\Http\Controllers\User\ReviewController as UserReviewController;
+use App\Http\Controllers\Admin\ReviewController as AdminReviewController;
+
 
 
 /*
@@ -46,6 +49,7 @@ Route::put('/profile',[ProfileController::class, 'update'])->name('profile.updat
 Route::get('/user/movies', [UserMovieController::class, 'index'])->name('user.movies.index');
 Route::get('/user/movies/{id}', [UserMovieController::class, 'show'])->name('user.movies.show');
 
+//ADMIN CRDU ROUTES
 Route::get('/admin/movies', [AdminMovieController::class, 'index'])->name('admin.movies.index');
 Route::get('/admin/movies/create', [AdminMovieController::class, 'create'])->name('admin.movies.create');
 Route::get('/admin/movies/{id}', [AdminMovieController::class, 'show'])->name('admin.movies.show');
@@ -54,13 +58,9 @@ Route::get('/admin/movies/{id}/edit', [AdminMovieController::class, 'edit'])->na
 Route::put('/admin/movies/{id}', [AdminMovieController::class, 'update'])->name('admin.movies.update');
 Route::delete('/admin/movies/{id}', [AdminMovieController::class, 'destroy'])->name('admin.movies.destroy');
 
-// Route::group(['middleware'=>['auth','admin']],function(){
-//
-// Route::get('/dashboard', function () {
-//       return view('admin.dashboard');
-//   });
-// });
+//ADMIN review  ROUTE
+Route::delete('/admin/books/{id}/reviews/{rid}', [AdminReviewController::class, 'destroy'])->name('admin.reviews.destroy');
 
-// Auth::routes();
-//
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//USER REVIEWS routes
+Route::get('/user/movies/{id}/reviews/create', [UserReviewController::class, 'create'])->name('user.reviews.create');
+Route::post('/user/movies/{id}/reviews/store', [UserReviewController::class, 'store'])->name('user.reviews.store');
