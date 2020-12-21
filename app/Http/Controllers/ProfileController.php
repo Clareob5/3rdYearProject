@@ -40,7 +40,7 @@ class ProfileController extends Controller
         //make a unique name
         $filename = uniqid().'.'.$ext;
         //upload the image
-        $image->storeAs('public/images',$filename);
+        $image->storeAs('public/images', $filename);
         //delete the previous image
         Storage::delete("public/images/{$user->image}");
         //this col has a default value so we dont need to set it empty
