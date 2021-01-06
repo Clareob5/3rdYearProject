@@ -82,6 +82,8 @@ public function __construct()
          $movie->description = $request->input('description');
          $movie->save();
 
+         $request->session()->flash('success', 'Movie added successfully');
+
          return redirect()->route('admin.movies.index');
      }
 
@@ -152,6 +154,8 @@ public function __construct()
        $movie->description = $request->input('description');
        $movie->save();
 
+       $request->session()->flash('info', 'Movie edited successfully');
+
        return redirect()->route('admin.movies.index');
      }
 
@@ -161,10 +165,12 @@ public function __construct()
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-     public function destroy($id)
+     public function destroy(Request $request, $id)
      {
          $movie = Movie::findOrFail($id);
          $movie->delete();
+
+         $request->session()->flash('danger', 'Movie deleted');
 
          return redirect()->route('admin.movies.index');
      }
