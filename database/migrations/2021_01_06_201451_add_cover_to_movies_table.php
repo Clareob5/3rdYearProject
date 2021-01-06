@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddImageColumnToUsersTable extends Migration
+class AddCoverToMoviesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddImageColumnToUsersTable extends Migration
      */
     public function up()
     {
-      Schema::table('users', function (Blueprint $table) {
-          $table->string('image')->nullable()->default('image.png');
-      });
+        Schema::table('movies', function (Blueprint $table) {
+            $table->string('cover')->nullable()->default('default-cover.png');
+        });
     }
 
     /**
@@ -25,8 +25,8 @@ class AddImageColumnToUsersTable extends Migration
      */
     public function down()
     {
-      Schema::table('users', function (Blueprint $table) {
-          $table->dropColumn('image');
-      });
+        Schema::table('movies', function (Blueprint $table) {
+            $table->dropColumn('cover');
+        });
     }
 }

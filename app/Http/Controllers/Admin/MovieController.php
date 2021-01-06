@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Movie;
 
+use Storage;
+
 class MovieController extends Controller
 {
 
@@ -61,6 +63,7 @@ public function __construct()
            'cast' => 'required|max:2000',
            'country' => 'required|max:191',
            'date_added' => 'required|max:1900',
+           'cover' => 'file|image',
            'release_year' => 'required|integer|min:1900',
            'rating' => 'required|max:50',
            'duration' => 'required|max:50',
@@ -69,6 +72,16 @@ public function __construct()
          ]);
 
          $movie = new Movie();
+
+         if($request->hasFile('cover'))
+         {
+          $cover= $request->file('cover');
+          $extension = $cover->getClientOriginalExtension();
+          $filename = date('Y-m-d-His') . '_' . $request->input('date_added') . '.' . $extension;
+
+          $path = $cover->storeAs('public/covers', $filename);
+          $movie->cover = $filename;
+         }
 
          $movie->title = $request->input('title');
          $movie->director = $request->input('director');
@@ -142,6 +155,16 @@ public function __construct()
 
        $movie = Movie::findOrFail($id);
 
+       if($request->hasFile('cover'))
+      {
+        $cover= $request->file('cover');
+        $extension = $cover->getClientOriginalExtension();
+        $filename = date('Y-m-d-His') . '_' . $request->input('date_added') . '.' . $extension;
+
+        $path = $cover->storeAs('public/covers', $filename);
+        $movie->cover = $filename;
+     }
+
        $movie->title = $request->input('title');
        $movie->director = $request->input('director');
        $movie->cast = $request->input('cast');
@@ -168,6 +191,7 @@ public function __construct()
      public function destroy(Request $request, $id)
      {
          $movie = Movie::findOrFail($id);
+         Storage::delete("public/covers/{$movie->cover}");
          $movie->delete();
 
          $request->session()->flash('danger', 'Movie deleted');

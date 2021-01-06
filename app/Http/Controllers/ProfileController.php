@@ -23,7 +23,7 @@ class ProfileController extends Controller
         'dob'        => 'required|date',
         'email'      => 'required|email|min:3|max:191',
         'password'   => 'nullable|string|min:5|max:191',
-        'image'      => 'nullable|image|max:1999', //formats jpg, png, bmp etc
+        'image'      => 'file|image', //formats jpg, png, bmp etc
       ];
       $request->validate($rules);
 
@@ -34,13 +34,13 @@ class ProfileController extends Controller
 
       if($request->hasFile('image')){
         //get image file
-        $image = $request->image;
+        $image = $request->file('image');
         //get just extension
-        $ext = $image->getClientOriginalExtension();
+        $extension = $image->getClientOriginalExtension();
         //make a unique name
-        $filename = uniqid().'.'.$ext;
+        $filename = uniqid().'.'.$extension;
         //upload the image
-        $image->storeAs('public/images', $filename);
+        $path = $image->storeAs('public/images', $filename);
         //delete the previous image
         Storage::delete("public/images/{$user->image}");
         //this col has a default value so we dont need to set it empty
@@ -55,10 +55,6 @@ class ProfileController extends Controller
       return redirect()
           ->route('profile.index')
           ->with('status','Your profile has been updated!');
-
-
-
-
 
     }
 }

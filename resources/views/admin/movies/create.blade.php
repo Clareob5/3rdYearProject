@@ -19,8 +19,14 @@
                </ul>
              </div>
          @endif
-        <form action="{{ route('admin.movies.store') }}" method="POST">
+        <form action="{{ route('admin.movies.store') }}" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                <div class="form-group">
+                    <label for="cover">Cover</label>
+                    <input type="file" class="form-control" name="cover" id="cover" />
+                </div>
+
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}" />
