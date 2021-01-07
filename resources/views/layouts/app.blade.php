@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,6 +23,7 @@
 
 
 </head>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
@@ -36,9 +38,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                      <li class="nav-item">
-                          <a class="nav-link" href="{{ route('admin.movies.index') }}">{{ __('Movies') }}</a>
-                      </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.movies.index') }}">{{ __('Movies') }}</a>
+                        </li>
 
                     </ul>
 
@@ -46,14 +48,14 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                        @endif
                         @else
 
                         <li class="nav-item">
@@ -64,34 +66,34 @@
                             <a class="nav-link" href="{{ route('about') }}">{{ __('About') }}</a>
                         </li>
 
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img src="{{asset('storage/images/'.Auth::user()->image)}}" class="rounded-circle mr-1" height="30px" width="30px"/>
-                                    {{ Auth::user()->name }}
-                                    <span class="caret"></span>
-                                </a>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <img src="{{asset('storage/images/'.Auth::user()->image)}}" class="rounded-circle mr-1" height="30px" width="30px" />
+                                {{ Auth::user()->name }}
+                                <span class="caret"></span>
+                            </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="{{ route('home') }}">
-                              Dashboard
-                          </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('home') }}">
+                                    Dashboard
+                                </a>
 
                                 <a class="dropdown-item" href="{{ route('profile.index') }}">
-                              Profile
+                                    Profile
                                 </a>
 
-                                    <a class="dropdown-item" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                            Logout
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
+                                <a class="dropdown-item" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                         @endguest
                     </ul>
                 </div>
@@ -99,28 +101,31 @@
         </nav>
 
         <main class="py-4">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-md-12">
-                <div class="flash-message">
-                  @foreach(['danger','warning','success','info'] as $key)
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="flash-message">
+                            @foreach(['danger','warning','success','info'] as $key)
 
-                  @if(Session::has($key))
-                    <div class="flash alert alert-{{$key}}">{{ Session::get($key) }}
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            @if(Session::has($key))
+                            <div class="flash alert alert-{{$key}}">{{ Session::get($key) }}
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            </div>
+                            @endif
+
+                            @endforeach
+                        </div>
                     </div>
-                  @endif
-
-                  @endforeach
                 </div>
-              </div>
             </div>
-          </div>
             @yield('content')
         </main>
     </div>
 </body>
 <script>
-setTimeout(function(){ $('.flash').alert('close') }, 3000);
+    setTimeout(function() {
+        $('.flash').alert('close')
+    }, 3000);
 </script>
+
 </html>
