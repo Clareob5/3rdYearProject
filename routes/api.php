@@ -26,13 +26,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::middleware('api')->group(function() {
 
   //GET /api/movies - display all boooks
-  Route::get('/movies', [APIMovieController::class, 'index'])->middleware('api');
+  Route::get('/movies', [APIMovieController::class, 'index']);
 
   //GET /api/movies/$id - display a specific movie
-  Route::get('/movies/{id}', [APIMovieController::class, 'show'])->middleware('api');
+  Route::get('/movies/{id}', [APIMovieController::class, 'show']);
 
   //POST /api/movies - add new movie to db
+  Route::post('/movies', [APIMovieController::class, 'store']);
+
   //PUT /api/movies/$id - edit existing movies
+    Route::put('/movies/{id}', [APIMovieController::class, 'update']);
+
   //DELTE /api/movies/$id - selete existing movie
+    Route::delete('/movies/{id}', [APIMovieController::class, 'destroy']);
 
 });
