@@ -90,11 +90,13 @@ class ReviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id, $rid)
+    public function destroy(Request $request, $id, $rid)
     {
       $review = Reviews::findOrFail($rid);
 
       $review->delete();
+
+      $request->session()->flash('danger', 'Review deleted');
 
       return redirect()->route('admin.movies.show', $id);
     }

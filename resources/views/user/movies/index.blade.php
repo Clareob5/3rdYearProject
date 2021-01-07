@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.user')
 
 @section('content')
 <div class="container">
@@ -8,7 +8,9 @@
           <p id="alert-message" class"alert collapse"></p>
 
             <div class="card">
-                <div class="card-header">Movies</div>
+                <div class="card-header">
+                  Movies
+                </div>
 
                 <div class="card-body">
                     @if (count($movies) === 0)

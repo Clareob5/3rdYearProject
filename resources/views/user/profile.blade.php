@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.user')
 @section('content')
     <h3 class="text-center">Edit Profile</h3>
-    <form action="{{route('profile.update')}}" method="post" enctype="multipart/form-data"> 
+    <form action="{{route('profile.update')}}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group">

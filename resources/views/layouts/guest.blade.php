@@ -33,9 +33,6 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                      <li class="nav-item">
-                          <a class="nav-link" href="{{ route('admin.movies.index') }}">{{ __('Movies') }}</a>
-                      </li>
 
                     </ul>
 
@@ -54,7 +51,7 @@
                         @else
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.home') }}">{{ __('Home') }}</a>
+                            <a class="nav-link" href="{{ route('user.home') }}">{{ __('Home') }}</a>
                         </li>
 
                         <li class="nav-item">
@@ -76,6 +73,7 @@
                                 <a class="dropdown-item" href="{{ route('profile.index') }}">
                               Profile
                                 </a>
+
 
                                     <a class="dropdown-item" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                             Logout
