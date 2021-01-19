@@ -6,7 +6,7 @@
           <div class="col-md-8 col-md-offset-2">
               <div class="card">
                   <div class="card-header">
-                    {{ $movie->title }}: Add a Review
+                    Create Group
                   </div>
 
                   <div class="panel-body">
@@ -19,17 +19,20 @@
                               </ul>
                           </div>
                       @endif
-                      <form method="POST" action="{{ route('user.reviews.store', $movie->id) }}">
+                      <form method="POST" action="{{ route('user.groups.store') }}">
                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
                           <div class="form-group">
-                              <label for="review">Review</label>
-                              <input type="text" class="form-control" id="review" name="review" value="{{ old('review') }}" />
+                              <label for="group_name">Name</label>
+                              <input type="text" class="form-control" id="group_name" name="group_name" value="{{ old('group_name') }}" />
                           </div>
                           <div class="form-group">
-                              <label for="rating">Rating</label>
-                              <input type="text" class="form-control" id="rating" name="rating" value="{{ old('rating') }}" />
-                          </div>
-                          <a href="{{ route('user.movies.show', $movie->id) }}" class="btn btn-default">Cancel</a>
+                              <label for="user">Members</label>
+                              <select class="form-control col-6" name='user_id'>
+                                @foreach ($users as $user)
+                                  <option value="{{ $user->id }}" {{ (Auth::user()->id == $user->id) ? "selected" : "" }}>{{ $user->name }}</option>
+                                @endforeach
+                              </select>
+                          <a href="{{ route('user.home') }}" class="btn btn-default">Cancel</a>
                           <button type="submit" class="btn btn-primary pull-right">Submit</button>
                       </form>
                   </div>

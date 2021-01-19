@@ -1,4 +1,4 @@
-@extends('layouts.guest')
+@extends('layouts.app')
 
 @section('content')
 <div class="container background-dark">
@@ -17,42 +17,17 @@
                       <h3>Popular Movies</h3>
                     </div>
                     <div class="row">
-                            <div class="col-md-2 active">
-                                <div class="card my_card">
-                                    <img class="card-img-top img-fluid" src="assets/img/image.jpg" height="300" alt="Card image cap">
-                                    <div class="card-body card_padding">
-                                        <h4 class="card-title title_size">Annabelle</h4>
+                      @foreach ($movies as $movie)
+                      <div class="col-md-2 active">
+                          <div class="card my_card">
+                              <img class="card-img-top img-fluid" src="{{ 'assets/img/' . $movie->cover }}" height="300" alt="Card image cap">
+                              <div class="card-body card_padding">
+                                  <h4 class="card-title title_size">{{ $movie->title }}</h4>
 
-                                    </div>
-                                </div>
-                            </div>
-                            <div class=" col-md-2">
-                                <div class="card my_card">
-                                    <img class="card-img-top img-fluid" src="assets/img/image2.jpg" alt="Card image cap">
-                                    <div class="card-body card_padding">
-                                        <h4 class="card-title title_size">IO</h4>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class=" col-md-2">
-                                <div class="card my_card">
-                                    <img class="card-img-top img-fluid" src="assets/img/image3.jpg" alt="Card image cap">
-                                    <div class="card-body card_padding">
-                                        <h4 class="card-title title_size">The Last Jedi</h4>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="card my_card">
-                                    <img class="card-img-top img-fluid" src="assets/img/image4.jpg" alt="Card image cap">
-                                    <div class="card-body card_padding">
-                                        <h4 class="card-title title_size">The Equalizer</h4>
-
-                                    </div>
-                                </div>
-                            </div>
+                              </div>
+                          </div>
+                      </div>
+                    @endforeach
                             <div class="col-md-2">
                                 <div class="card my_card">
                                     <img class="card-img-top img-fluid" src="assets/img/image5.jpeg" alt="Card image cap">

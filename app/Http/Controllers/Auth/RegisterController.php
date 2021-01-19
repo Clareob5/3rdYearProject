@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Register;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -77,4 +78,6 @@ class RegisterController extends Controller
 
         return $user; //returns new user. By default, new users will have a user role, not admin
     }
+
+
 }

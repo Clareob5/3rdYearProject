@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Movie;
 use Auth;
 
 class PageController extends Controller
 {
     public function welcome()
     {
-      return view('welcome'); //redirects to welcome page by redirecting to welcome view
+      $movies = Movie::all();
+      return view('welcome', [
+        'movies' => $movies,
+      ]);
+      //redirects to welcome page by redirecting to welcome view
 
     }
 

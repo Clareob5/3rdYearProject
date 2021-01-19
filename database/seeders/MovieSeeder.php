@@ -25,6 +25,7 @@ class MovieSeeder extends Seeder
       $movie->duration = "190 min";
       $movie->listed_in = "Action";
       $movie->description = "Before planning an awesome wedding for his grandfather, a polar bear king must take back a stolen artifact from an evil archaeologist first.";
+      $movie->cover = "image.jpg";
       $movie->save();
 
       $movie = new Movie();
@@ -38,6 +39,7 @@ class MovieSeeder extends Seeder
       $movie->duration = "190 min";
       $movie->listed_in = "Action";
       $movie->description = "Before planning an awesome wedding for his grandfather, a polar bear king must take back a stolen artifact from an evil archaeologist first.";
+      $movie->cover = "image2.jpg";
       $movie->save();
 
       $movie = new Movie();
@@ -51,6 +53,7 @@ class MovieSeeder extends Seeder
       $movie->duration = "190 min";
       $movie->listed_in = "Action";
       $movie->description = "Before planning an awesome wedding for his grandfather, a polar bear king must take back a stolen artifact from an evil archaeologist first.";
+      $movie->cover = "image3.jpg";
       $movie->save();
 
       $movie = new Movie();
@@ -64,6 +67,7 @@ class MovieSeeder extends Seeder
       $movie->duration = "190 min";
       $movie->listed_in = "Action";
       $movie->description = "Before planning an awesome wedding for his grandfather, a polar bear king must take back a stolen artifact from an evil archaeologist first.";
+      $movie->cover = "image4.jpg";
       $movie->save();
     }
 }

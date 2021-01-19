@@ -60,6 +60,9 @@ class User extends Authenticatable
       return $this->hasMany('App\Models\UserWatchlist');
     }
 
+    public function groups(){
+        return $this->belongsToMany('App\Models\Group', 'user_group');
+    }
 
     public function roles()
     {

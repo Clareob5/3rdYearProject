@@ -13,6 +13,10 @@ use App\Http\Controllers\Admin\MovieController as AdminMovieController;
 use App\Http\Controllers\User\ReviewController as UserReviewController;
 use App\Http\Controllers\Admin\ReviewController as AdminReviewController;
 
+use App\Http\Controllers\User\GroupController as UserGroupController;
+
+use App\Http\Controllers\User\EventController as UserEventController;
+
 
 
 /*
@@ -64,3 +68,14 @@ Route::delete('/admin/books/{id}/reviews/{rid}', [AdminReviewController::class, 
 //USER REVIEWS routes
 Route::get('/user/movies/{id}/reviews/create', [UserReviewController::class, 'create'])->name('user.reviews.create');
 Route::post('/user/movies/{id}/reviews/store', [UserReviewController::class, 'store'])->name('user.reviews.store');
+
+Route::get('/user/group/create', [UserGroupController::class, 'create'])->name('user.groups.create');
+Route::post('/user/group/store', [UserGroupController::class, 'store'])->name('user.groups.store');
+
+Route::get('/user/event/create', [UserEventController::class, 'create'])->name('user.groups.event.create');
+Route::post('/user/event/store', [UserEventController::class, 'store'])->name('user.groups.event.store');
+Route::get('/user/event/{id}', [UserEventController::class, 'show'])->name('user.groups.event.show');
+Route::post('/user/event/store', [UserEventController::class, 'store'])->name('user.groups.event.store');
+Route::get('/user/event/{id}/edit', [UserEventController::class, 'edit'])->name('user.groups.event.edit');
+Route::put('/user/event/{id}', [UserEventController::class, 'update'])->name('user.groups.event.update');
+Route::delete('/user/event/{id}', [UserEventController::class, 'destroy'])->name('user.groups.event.destroy');
