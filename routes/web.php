@@ -6,7 +6,7 @@ use App\Http\Controllers\dummyAPI;
 
 use App\Http\Controllers\User\HomeController as UserHomeController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfileController as ProfileController;
 use App\Http\Controllers\User\MovieController as UserMovieController;
 use App\Http\Controllers\Admin\MovieController as AdminMovieController;
 
@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\ReviewController as AdminReviewController;
 use App\Http\Controllers\User\GroupController as UserGroupController;
 
 use App\Http\Controllers\User\EventController as UserEventController;
+
+use App\Http\Controllers\User\UserRecsController as UserRecsController;
 
 
 
@@ -47,8 +49,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/admin/home', [AdminHomeController::class, 'index'])->name('admin.home');
 Route::get('/user/home', [UserHomeController::class, 'index'])->name('user.home');
 
+
 Route::get('/profile',[ProfileController::class, 'index'])->name('profile.index');
 Route::put('/profile',[ProfileController::class, 'update'])->name('profile.update');
+Route::get('/profile/show',[ProfileController::class, 'show'])->name('profile_show.show');
+
 
 Route::get('/user/movies', [UserMovieController::class, 'index'])->name('user.movies.index');
 Route::get('/user/movies/{id}', [UserMovieController::class, 'show'])->name('user.movies.show');
@@ -79,3 +84,6 @@ Route::post('/user/event/store', [UserEventController::class, 'store'])->name('u
 Route::get('/user/event/{id}/edit', [UserEventController::class, 'edit'])->name('user.groups.event.edit');
 Route::put('/user/event/{id}', [UserEventController::class, 'update'])->name('user.groups.event.update');
 Route::delete('/user/event/{id}', [UserEventController::class, 'destroy'])->name('user.groups.event.destroy');
+
+Route::get('/user/genres/create', [UserRecsController::class, 'create'])->name('user.recs.genres');
+Route::post('/user/genres/store', [UserRecsController::class, 'store'])->name('user.recs.genres.store');

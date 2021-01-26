@@ -6,7 +6,7 @@
           <div class="col-md-8 col-md-offset-2">
               <div class="card">
                   <div class="card-header">
-                    Create Group
+                    Create Group {{ Auth::user()->name}}
                   </div>
 
                   <div class="panel-body">
@@ -29,7 +29,7 @@
                               <label for="user">Members</label>
                               <select class="form-control col-6" name='user_id'>
                                 @foreach ($users as $user)
-                                  <option value="{{ $user->id }}" {{ (Auth::user()->id == $user->id) ? "selected" : "" }}>{{ $user->name }}</option>
+                                  <option value="{{ $user->id }}" {{ ($user->id) ? "selected" : "" }}>{{ $user->name }}</option>
                                 @endforeach
                               </select>
                           <a href="{{ route('user.home') }}" class="btn btn-default">Cancel</a>

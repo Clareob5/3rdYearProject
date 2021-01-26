@@ -15,7 +15,7 @@ class CreateUserRecsTable extends Migration
     {
         Schema::create('user_recs', function (Blueprint $table) {
             $table->id();
-            $table->string('fave_genre');
+            $table->string('genres');
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('movie_id')->unsigned();
             $table->timestamps();

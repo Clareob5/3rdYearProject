@@ -18,4 +18,21 @@ class UserRecs extends Model
     {
       return $this->belongsTo('App\Models\User');
     }
+
+    protected $fillable = ['genres'];
+
+    protected $casts = [
+        'genres' => 'json'
+    ];
+
+    public function setGenreAttribute($value)
+    {
+        $this->attributes['genres'] = json_encode($value);
+    }
+
+    public function getGenreAttribute($value)
+    {
+        return $this->attributes['genres'] = json_decode($value);
+    }
+
 }

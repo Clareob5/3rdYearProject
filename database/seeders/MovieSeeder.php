@@ -37,7 +37,7 @@ class MovieSeeder extends Seeder
       $movie->release_year = 2019;
       $movie->rating = "TV-PG";
       $movie->duration = "190 min";
-      $movie->listed_in = "Action";
+      $movie->listed_in = "Drama";
       $movie->description = "Before planning an awesome wedding for his grandfather, a polar bear king must take back a stolen artifact from an evil archaeologist first.";
       $movie->cover = "image2.jpg";
       $movie->save();
@@ -51,7 +51,7 @@ class MovieSeeder extends Seeder
       $movie->release_year = 2019;
       $movie->rating = "TV-PG";
       $movie->duration = "190 min";
-      $movie->listed_in = "Action";
+      $movie->listed_in = "Horror";
       $movie->description = "Before planning an awesome wedding for his grandfather, a polar bear king must take back a stolen artifact from an evil archaeologist first.";
       $movie->cover = "image3.jpg";
       $movie->save();
@@ -65,7 +65,7 @@ class MovieSeeder extends Seeder
       $movie->release_year = 2019;
       $movie->rating = "TV-PG";
       $movie->duration = "190 min";
-      $movie->listed_in = "Action";
+      $movie->listed_in = "Comedy";
       $movie->description = "Before planning an awesome wedding for his grandfather, a polar bear king must take back a stolen artifact from an evil archaeologist first.";
       $movie->cover = "image4.jpg";
       $movie->save();

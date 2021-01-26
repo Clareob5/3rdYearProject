@@ -10,6 +10,6 @@ class Event extends Model
     use HasFactory;
 
     public function group(){
-        return $this->belongsTo('App\Models\Group', 'user_group');
+        return $this->belongsTo('App\Models\Group');
     }
 }

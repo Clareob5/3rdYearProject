@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Movie;
+use App\Models\Group;
 
 class HomeController extends Controller
 {
@@ -27,8 +28,10 @@ class HomeController extends Controller
   public function index()
   {
       $movies = Movie::All();
+      $groups = Group::ALL();
       return view('user.home', [
-        'movies' => $movies
+        'movies' => $movies,
+        'groups' => $groups
       ]);
   }
 }

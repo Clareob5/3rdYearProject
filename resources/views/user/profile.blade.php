@@ -1,5 +1,6 @@
-@extends('layouts.user')
+@extends('layouts.app')
 @section('content')
+  <div class="col-md-9 col-md-offset-1">
     <h3 class="text-center">Edit Profile</h3>
     <form action="{{route('profile.update')}}" method="post" enctype="multipart/form-data">
         @csrf
@@ -50,5 +51,7 @@
             @endif
         </div>
         <button type="submit" class="btn btn-primary mt-3">Update</button>
+
     </form>
+  </div>
 @endsection

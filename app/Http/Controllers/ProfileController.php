@@ -17,17 +17,19 @@ class ProfileController extends Controller
       return view('user.profile');
     }
 
+    public function show(){
+        return view('user.profile_show');
+    }
     public function update(Request $request){
-      $rules = [
+      $request->validate([
         'name'       => 'required|string|min:3|max:191',
         'dob'        => 'required|date',
         'email'      => 'required|email|min:3|max:191',
         'password'   => 'nullable|string|min:5|max:191',
         'image'      => 'file|image', //formats jpg, png, bmp etc
-      ];
-      $request->validate($rules);
-
-      return Auth::user();
+      ]);
+    
+      $user = Auth::user();
       $user->name = $request->name;
       $user->dob = $request->dob;
       $user->email = $request->email;
@@ -53,7 +55,7 @@ class ProfileController extends Controller
 
       $user->save();
       return redirect()
-          ->route('profile.index')
+          ->route('profile_show.show')
           ->with('status','Your profile has been updated!');
 
     }
