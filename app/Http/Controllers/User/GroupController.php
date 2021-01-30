@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Group;
+use App\Models\Event;
 use Auth;
 class GroupController extends Controller
 {
@@ -40,6 +41,20 @@ class GroupController extends Controller
       $group->save();
 
       return redirect()->route('user.groups.event.create', $group->id);
+  }
+
+  public function show($id)
+  {
+      $group = Group::findOrFail($id);
+      $groups = Group::All();
+      $events = Event::All();
+      $users = User::All();
+      return view('user.groups.show', [
+        'group' => $group,
+          'groups' => $groups,
+        'events' => $events,
+        'users' => $users
+      ]);
   }
 }
 

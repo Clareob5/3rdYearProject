@@ -9,12 +9,7 @@ class UserRecs extends Model
 {
     use HasFactory;
 
-    public function movie()
-    {
-      return $this->belongsTo('App\Models\Movie');
-    }
-
-    public function user()
+   public function user()
     {
       return $this->belongsTo('App\Models\User');
     }
@@ -22,7 +17,8 @@ class UserRecs extends Model
     protected $fillable = ['genres'];
 
     protected $casts = [
-        'genres' => 'json'
+        'genres' => 'json',
+        'movie_ids' => 'json'
     ];
 
     public function setGenreAttribute($value)
@@ -33,6 +29,16 @@ class UserRecs extends Model
     public function getGenreAttribute($value)
     {
         return $this->attributes['genres'] = json_decode($value);
+    }
+
+    public function setMovieIdAttribute($value)
+    {
+        $this->attributes['movie_ids'] = json_encode($value);
+    }
+
+    public function getMovieIdAttribute($value)
+    {
+        return $this->attributes['movie_ids'] = json_decode($value);
     }
 
 }

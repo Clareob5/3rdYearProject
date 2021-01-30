@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\UserRecs;
+use App\Models\Movie;
 
 class UserRecsController extends Controller
 {
@@ -24,9 +25,10 @@ class UserRecsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createGenre(Request $request)
     {
-        return view('user.recs.genres');
+        $userRec = $request->session()->get('user_recs');
+        return view('user.recs.genres',compact('userRec'));
     }
 
     /**
@@ -35,17 +37,26 @@ class UserRecsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeGenre(Request $request)
     {
-      $input = $request->all();
-      $userRec = new UserRecs();
-      $userRec->user_id = 1;
-      $userRec->movie_id = 1;
-      $userRec['genres'] = $request->input('genres');
-      $userRec->save();
-      //UserRecs::create($input);
+      $validatedData = $request->validate([
+        'genres' => 'nullable',
+      ]);
 
-     return redirect()->route('profile_show.show');
+      if(empty($request->session()->get('user_recs'))){
+        $userRec = new UserRecs();
+        $userRec->user_id = 3;
+        $userRec['genres'] = $request->input('genres');
+        $request->session()->put('user_recs', $userRec);
+        $userRec->save();
+      }else{
+        $userRec = $request->session()->get('user_recs');
+        $userRec->fill($validatedData);
+        $request->session()->put('user_recs', $userRec);
+        $userRec->save();
+      }
+
+     return redirect()->route('user.recs.movies');
     }
 
     /**
@@ -54,9 +65,14 @@ class UserRecsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function createMovie(Request $request)
     {
-        //
+
+      $userRec = $request->session()->get('user_recs');
+      $movies = Movie::All();
+      return view('user.recs.movies',compact('userRec'), [
+        'movies' => $movies
+      ]);
     }
 
     /**
@@ -65,9 +81,25 @@ class UserRecsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function storeMovie(Request $request, $id)
     {
-        //
+      $validatedData = $request->validate([
+        'movie_ids' => 'nullable',
+      ]);
+
+      if(empty($request->session()->get('user_recs'))){
+        $userRec = UserRecs::findOrFail($id);
+        $userRec['movie_ids'] = $request->input('movie_ids');
+        $request->session()->put('user_recs', $userRec);
+        $userRec->save();
+      }else{
+        $userRec = $request->session()->get('user_recs');
+        $userRec['movie_ids'] = $request->input('movie_ids');
+        $request->session()->put('user_recs', $userRec);
+        $userRec->save();
+      }
+
+     return redirect()->route('profile_show.show');
     }
 
     /**

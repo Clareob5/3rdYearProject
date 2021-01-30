@@ -18,6 +18,7 @@ use App\Http\Controllers\User\GroupController as UserGroupController;
 use App\Http\Controllers\User\EventController as UserEventController;
 
 use App\Http\Controllers\User\UserRecsController as UserRecsController;
+use App\Http\Controllers\User\UserWatchlistController as UserWatchlistController;
 
 
 
@@ -54,6 +55,8 @@ Route::get('/profile',[ProfileController::class, 'index'])->name('profile.index'
 Route::put('/profile',[ProfileController::class, 'update'])->name('profile.update');
 Route::get('/profile/show',[ProfileController::class, 'show'])->name('profile_show.show');
 
+Route::get('/watchlist',[UserWatchlistController::class, 'index'])->name('user.watchlist');
+
 
 Route::get('/user/movies', [UserMovieController::class, 'index'])->name('user.movies.index');
 Route::get('/user/movies/{id}', [UserMovieController::class, 'show'])->name('user.movies.show');
@@ -76,6 +79,7 @@ Route::post('/user/movies/{id}/reviews/store', [UserReviewController::class, 'st
 
 Route::get('/user/group/create', [UserGroupController::class, 'create'])->name('user.groups.create');
 Route::post('/user/group/store', [UserGroupController::class, 'store'])->name('user.groups.store');
+Route::get('/user/group/{id}', [UserGroupController::class, 'show'])->name('user.groups.show');
 
 Route::get('/user/event/create', [UserEventController::class, 'create'])->name('user.groups.event.create');
 Route::post('/user/event/store', [UserEventController::class, 'store'])->name('user.groups.event.store');
@@ -87,3 +91,9 @@ Route::delete('/user/event/{id}', [UserEventController::class, 'destroy'])->name
 
 Route::get('/user/genres/create', [UserRecsController::class, 'create'])->name('user.recs.genres');
 Route::post('/user/genres/store', [UserRecsController::class, 'store'])->name('user.recs.genres.store');
+
+Route::get('/user/genres/create', [UserRecsController::class, 'createGenre'])->name('user.recs.genres');
+Route::post('/user/genres/store', [UserRecsController::class, 'storeGenre'])->name('user.recs.genres.store');
+Route::get('/user/movies', [UserRecsController::class, 'createMovie'])->name('user.recs.movies');
+Route::post('/user/store/{id}', [UserRecsController::class, 'storeMovie'])->name('user.recs.movies.store');
+Route::post('/user/recs/store', [UserRecsController::class, 'store'])->name('user.recs.store');

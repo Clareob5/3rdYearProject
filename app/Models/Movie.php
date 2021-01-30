@@ -15,16 +15,9 @@ class Movie extends Model
       return $this->hasMany('App\Models\Reviews');
     }
 
-    public function userRecs()
-    {
-      //user has many user recs
-      return $this->hasMany('App\Models\UserRecs');
-    }
-
-    public function userWatchlist()
+    public function users()
     {
       //user has many user watchlist
-      return $this->hasMany('App\Models\UserWatchlist');
+      return $this->belongsToMany('App\Models\UserWatchlist',  'user_watchlist');
     }
 }
-
