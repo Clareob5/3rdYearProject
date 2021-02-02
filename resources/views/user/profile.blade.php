@@ -1,6 +1,27 @@
-@extends('layouts.user')
+@extends('layouts.app')
 @section('content')
-    <h3 class="text-center">Edit Profile</h3>
+<div class="container background-dark">
+    <div class="row">
+
+      <div class="container-fluid">
+        <div class="row">
+
+          <div class="col-8">
+            <h1><i class="fas fa-user-alt"></i></h1>
+          </div>
+
+      <div class="col-4">
+    <h3 class="text-center">Ted Bo</h3>
+  </div>
+
+</div>
+  </div>
+
+
+    <div class="container-fluid">
+      <div class="row">
+
+      <div class="col-8">
     <form action="{{route('profile.update')}}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
@@ -49,6 +70,144 @@
                 </span>
             @endif
         </div>
-        <button type="submit" class="btn btn-primary mt-3">Update</button>
+        <button type="submit" class="btn btn-primary mt-3">Update Details</button>
     </form>
+  </div>
+
+
+  <div class="col-4 bt_space">
+    <button type="button" class="btn btn-success">View Watchlist</button>
+    <br>
+    <br>
+    <button type="button" class="btn btn-success">Create Group<i class="fas fa-plus-circle"></i></button>
+    <br>
+    <br>
+    <button type="button" class="btn btn-success">View Groups</button>
+  </div>
+
+</div>
+</div>
+
+
+<section>
+  <br>
+  <br>
+  <p class="text-light">YOUR MOVIE RECOMMENDATIONS</p>
+  <div class="row">
+    <div class="card-group">
+          <div class="col-md-2 active">
+              <div class="card">
+                  <img class="card-img-top img-top" src="/assets/img/moonrise.jpg" height="240" alt="Card image cap">
+                  <div class="card-img-overlay">
+                    <h3 class="card-title"><i class="fas fa-heart"></i></h3>
+                  </div>
+                  <div class="bg-dark text-white">
+                  <h6>Moonrise Kingdom <br>(2019)</h6>
+                  <div>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                </div>
+              </div>
+
+              </div>
+          </div>
+          <div class=" col-md-2">
+              <div class="card">
+                  <img class="card-img-top img-top" src="/assets/img/image2.jpg" height="240" alt="Card image cap">
+                  <div class="card-img-overlay">
+                    <h3 class="card-title"><i class="fas fa-heart"></i></h3>
+                  </div>
+                  <div class="bg-dark text-white">
+                  <h6>The IO <br>(2019)</h6>
+                  <div>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                </div>
+              </div>
+
+              </div>
+          </div>
+          <div class=" col-md-2">
+              <div class="card">
+                  <img class="card-img-top img-top" src="/assets/img/image4.jpg" height="240" alt="Card image cap">
+                  <div class="card-img-overlay">
+                    <h3 class="card-title"><i class="fas fa-heart"></i></h3>
+                  </div>
+                  <div class="bg-dark text-white">
+                  <h6>The Equalizer 2 <br>(2019)</h6>
+                  <div>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                </div>
+              </div>
+
+              </div>
+          </div>
+          <div class="col-md-2">
+              <div class="card">
+                  <img class="card-img-top img-top" src="/assets/img/shedies.jpg" height="240" alt="Card image cap">
+                  <div class="card-img-overlay">
+                    <h3 class="card-title"><i class="fas fa-heart"></i></h3>
+                  </div>
+                  <div class="bg-dark text-white">
+                  <h6>She Dies Tomorrow <br>(2019)</h6>
+                  <div>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                </div>
+              </div>
+
+              </div>
+          </div>
+          <div class="col-md-2">
+              <div class="card">
+                  <img class="card-img-top img-top" src="/assets/img/cheaper.jpg" height="240" alt="Card image cap">
+                  <div class="card-img-overlay">
+                    <h3 class="card-title"><i class="fas fa-heart"></i></h3>
+                  </div>
+                  <div class="bg-dark text-white">
+                  <h6>Cheaper by the Dozen <br>(2019)</h6>
+                  <div>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                </div>
+              </div>
+
+
+              </div>
+          </div>
+          <div class="col-md-2">
+              <div class="card">
+                  <img class="card-img-top img-top" src="/assets/img/apocalypse.jpg" height="240" alt="Card image cap">
+                  <div class="card-img-overlay">
+                    <h3 class="card-title"><i class="fas fa-heart"></i></h3>
+                  </div>
+                  <div class="bg-dark text-white">
+                  <h6>Apocalypse Now <br>(2019)</h6>
+                  <div>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                </div>
+              </div>
+
+              </div>
+              </div>
+          </div>
+    </section>
+
+  
+      <br>
+      <br>
+
+      <div class="container-fluid see_more">
+      <div class="row justify-content-center">
+
+        <p><u>See More<u></p>
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+  </div>
+</div>
 @endsection
