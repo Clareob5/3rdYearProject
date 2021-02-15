@@ -70,7 +70,7 @@
                                 <div class="card">
                                     <img class="card-img-top img-top" src="assets/img/onenight.jpg" height="240" alt="Card image cap">
                                     <div class="bg-dark text-white">
-                                    <h6>One Night in Miami (2019)</h6>
+                                    <h6>One Night in Miamii (2019)</h6>
                                     <div>
                                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
                                   </div>
