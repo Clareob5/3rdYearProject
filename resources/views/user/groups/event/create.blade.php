@@ -6,7 +6,7 @@
           <div class="col-md-8 col-md-offset-2">
               <div class="card">
                   <div class="card-header">
-                    {{ $movie->title }}: Add a Review
+                    Create Event
                   </div>
 
                   <div class="panel-body">
@@ -19,17 +19,21 @@
                               </ul>
                           </div>
                       @endif
-                      <form method="POST" action="{{ route('user.reviews.store', $movie->id) }}">
+                      <form method="POST" action="{{ route('user.groups.event.store') }}">
                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
                           <div class="form-group">
-                              <label for="review">Review</label>
-                              <input type="text" class="form-control" id="review" name="review" value="{{ old('review') }}" />
+                              <label for="date">Date</label>
+                              <input type="date" class="form-control" id="date" name="date" value="{{ old('date') }}" />
                           </div>
                           <div class="form-group">
-                              <label for="rating">Rating</label>
-                              <input type="text" class="form-control" id="rating" name="rating" value="{{ old('rating') }}" />
+                              <label for="time">Time</label>
+                              <input type="time" class="form-control" id="time" name="time" value="{{ old('time') }}" />
                           </div>
-                          <a href="{{ route('user.movies.show', $movie->id) }}" class="btn btn-default">Cancel</a>
+                          <div class="form-group">
+                              <label for="group">Group</label>
+                              <input type="text" class="form-control" id="text" name="text" value="{{ $group->group_name }}" />
+                          </div>
+                            <a href="{{ route('user.home') }}" class="btn btn-default">Cancel</a>
                           <button type="submit" class="btn btn-primary pull-right">Submit</button>
                       </form>
                   </div>

@@ -33,8 +33,15 @@
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
-                    @endif
+                    </div>
+                    @endforeach
+                    <div class="col-md-2">
+                        <div class="card my_card">
+                            <img class="card-img-top img-fluid" src="../assets/img/image5.jpeg" alt="Card image cap">
+                            <div class="card-body card_padding">
+                                <h4 href="" class="card-title title_size">Insidious</h4>
 
+<<<<<<< HEAD
                     <p class="text-light">YOUR MOVIE RECOMMENDATIONS</p>
                     <div class="row">
                       <div class="card-group">
@@ -484,8 +491,41 @@
                       </section>
 
 
+=======
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card my_card">
+                            <img class="card-img-top img-fluid" src="../assets/img/image6.jpeg" alt="Card image cap">
+                            <div class="card-body card_padding">
+                                <h4 class="card-title title_size">The Dark Knight</h4>
+
+                            </div>
+                        </div>
+                    </div>
+            </section>
+            <br>
+            <div class="card-header">
+                <h3>Groups</h3>
             </div>
-        </div>
+            <div class="row">
+
+                @foreach ($groups as $group)
+                <div class="col-md-3 active">
+                    <div class="card ">
+                        <div class="card-body card_padding">
+                            <h4 href="" class="card-title"><strong>{{ $group->group_name }}</strong></h4>
+
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+>>>>>>> c7dab86fe06d7ce342562ce5f02ebe7bd9360ec4
+            </div>
+            </div>
+
     </div>
+</div>
 </div>
 @endsection

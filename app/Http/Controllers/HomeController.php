@@ -33,6 +33,7 @@ class HomeController extends Controller
       else if($user->hasRole('user')){ //check if user has an ordinary users role and direct them to correct users home page
         $home = 'user.home';
       }
+
         return redirect()->route($home); //redirect using home route
     }
 }

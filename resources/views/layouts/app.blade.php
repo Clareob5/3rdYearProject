@@ -39,10 +39,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                      @auth
+                        @if( Auth::user()->hasRole('admin') )
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.movies.index') }}">{{ __('Movies') }}</a>
                         </li>
-
+                      @endif
+                      @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -57,16 +60,18 @@
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                         @endif
-                        @else
+                        @endguest
 
+                       @auth
+                         @if( Auth::user()->hasRole('admin') )
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.home') }}">{{ __('Home') }}</a>
                         </li>
-
+                      @elseif( Auth::user()->hasRole('user') )
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('about') }}">{{ __('About') }}</a>
                         </li>
-
+                      @endif
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <img src="{{asset('storage/images/'.Auth::user()->image)}}" class="rounded-circle mr-1" height="30px" width="30px" />
@@ -79,7 +84,7 @@
                                     Dashboard
                                 </a>
 
-                                <a class="dropdown-item" href="{{ route('profile.index') }}">
+                                <a class="dropdown-item" href="{{ route('profile_show.show') }}">
                                     Profile
                                 </a>
 
@@ -95,7 +100,7 @@
                                 </form>
                             </div>
                         </li>
-                        @endguest
+                      @endauth
                     </ul>
                 </div>
             </div>

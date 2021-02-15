@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Movie;
 use Auth;
 use Hash;
 use Storage;
@@ -17,17 +18,22 @@ class ProfileController extends Controller
       return view('user.profile');
     }
 
+    public function show(){
+      $movies = Movie::All();
+        return view('user.profile_show', [
+          'movies' => $movies
+        ]);
+    }
     public function update(Request $request){
-      $rules = [
+      $request->validate([
         'name'       => 'required|string|min:3|max:191',
         'dob'        => 'required|date',
         'email'      => 'required|email|min:3|max:191',
         'password'   => 'nullable|string|min:5|max:191',
         'image'      => 'file|image', //formats jpg, png, bmp etc
-      ];
-      $request->validate($rules);
+      ]);
 
-      return Auth::user();
+      $user = Auth::user();
       $user->name = $request->name;
       $user->dob = $request->dob;
       $user->email = $request->email;
@@ -53,7 +59,7 @@ class ProfileController extends Controller
 
       $user->save();
       return redirect()
-          ->route('profile.index')
+          ->route('profile_show.show')
           ->with('status','Your profile has been updated!');
 
     }

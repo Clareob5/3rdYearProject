@@ -70,6 +70,7 @@
                 </span>
             @endif
         </div>
+<<<<<<< HEAD
         <button type="submit" class="btn btn-primary mt-3">Update Details</button>
     </form>
   </div>
@@ -189,7 +190,7 @@
           </div>
     </section>
 
-  
+
       <br>
       <br>
 
@@ -210,4 +211,10 @@
 
   </div>
 </div>
+=======
+        <button type="submit" class="btn btn-primary mt-3">Update</button>
+
+    </form>
+  </div>
+>>>>>>> c7dab86fe06d7ce342562ce5f02ebe7bd9360ec4
 @endsection

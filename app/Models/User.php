@@ -54,12 +54,15 @@ class User extends Authenticatable
       return $this->hasMany('App\Models\UserRecs');
     }
 
-    public function userWatchlist()
+    public function movies()
     {
       //user has many user watchlist
-      return $this->hasMany('App\Models\UserWatchlist');
+      return $this->belongsToMany('App\Models\UserWatchlist', 'user_watchlist');
     }
 
+    public function groups(){
+        return $this->belongsToMany('App\Models\Group', 'user_group');
+    }
 
     public function roles()
     {
