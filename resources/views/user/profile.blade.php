@@ -210,6 +210,4 @@
 
   </div>
 </div>
-=======
->>>>>>> c7dab86fe06d7ce342562ce5f02ebe7bd9360ec4
 @endsection
