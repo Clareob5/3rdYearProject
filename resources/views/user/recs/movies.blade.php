@@ -26,7 +26,7 @@
                           @endforeach
                             <br>
                             <button type="submit" class="btn btn-primary pull-right">Next</button>
-                            <a href="{{ route('profile_show.show')}}" class="btn pull-right">Skip</button>
+                            <a href="{{ route('profile_show.show', Auth::user()->id)}}" class="btn pull-right">Skip</button>
                         </fieldset>
                     </form>
                 </div>

@@ -18,7 +18,7 @@
                     </div>
                     @endif
 
-                    <form method="POST" action="{{ route('user.recs.genres.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('user.recs.genres.update', Auth::user()->id) }}" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <fieldset>
                             <legend>Select</legend>

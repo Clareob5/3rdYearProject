@@ -29,7 +29,7 @@
               <div class="card col-md-3">
                 <div class="card-header"><p></p></div>
                   <a href="{{ route('user.watchlist') }}" class="btn btn">View Watchlist</a>
-                  <a href="{{ route('user.groups.create') }}" class="btn btn">Create Group</a>
+                  <a href="{{ route('user.groups.create',Auth::user()->id) }}" class="btn btn">Create Group</a>
                   <a href="" class="btn btn ">View Groups</a>
               </div>
         </div>
@@ -37,7 +37,7 @@
         <div class="row">
 
             @foreach ($movies as $movie)
-              @if($movie->id < 3)
+              @if($movie->id == 2)
             <div class="col-md-2 active">
                 <div class="card my_card">
                     <img class="card-img-top img-fluid" src="{{ '../assets/img/' . $movie->cover}}" height="300" alt="Card image cap">

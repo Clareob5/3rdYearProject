@@ -1,0 +1,185 @@
+@extends('layouts.app')
+@section('content')
+<div class="container">
+    <div class="row">
+            <div class="card col-md-9">
+                <div class="card-header">
+                    Profile of {{ Auth::user()->name }}
+                </div>
+
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <tbody>
+                            <tr>
+                                <td>Date of Birth</td>
+                                <td>{{ date('j F, Y', strtotime(Auth::user()->dob)) }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Email</td>
+                                <td>{{ Auth::user()->email }}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <a href="{{ route('user.recs.genres') }}" class="btn btn-primary ">Update Recs</a>
+                    <a href="{{ route('profile.index') }}" class="btn btn-primary ">Update Details</a>
+                </div>
+              </div>
+              <div class="card col-md-3">
+                <div class="card-header"><p></p></div>
+                  <a href="{{ route('user.watchlist') }}" class="btn btn">View Watchlist</a>
+                  <a href="{{ route('user.groups.create',Auth::user()->id) }}" class="btn btn">Create Group</a>
+                  <a href="" class="btn btn ">View Groups</a>
+              </div>
+        </div>
+        <h3>Recommendend Movies</h3>
+        <div class="row">
+
+            @foreach ($movies as $movie)
+              @if($movie->id == 2)
+            <div class="col-md-2 active">
+                <div class="card my_card">
+                    <img class="card-img-top img-fluid" src="{{ '../assets/img/' . $movie->cover}}" height="300" alt="Card image cap">
+                    <div class="card-body card_padding">
+                        <h4 class="card-title title_size">{{ $movie->title }}</h4>
+
+                    </div>
+                </div>
+            </div>
+          @endif
+            @endforeach
+
+        </div>
+
+
+</div>
+@endsection
+
+@extends('layouts.app')
+
+@section('content')
+<div class="container background-dark">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card header">
+                <img src="assets/img/headerimg2.jpg" class="img-fluid" alt="...">
+            </div>
+            <section>
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                    <div>
+                      <h3>Popular Movies</h3>
+                    </div>
+                    <div class="row">
+                      @foreach ($movies as $movie)
+                      <div class="col-md-2 active">
+                          <div class="card my_card">
+                              <img class="card-img-top img-fluid" src="{{ 'assets/img/' . $movie->cover }}" height="300" alt="Card image cap">
+                              <div class="card-body card_padding">
+                                  <h4 class="card-title title_size">{{ $movie->title }}</h4>
+
+                              </div>
+                          </div>
+                      </div>
+                    @endforeach
+                            <div class="col-md-2">
+                                <div class="card my_card">
+                                    <img class="card-img-top img-fluid" src="assets/img/image5.jpeg" alt="Card image cap">
+                                    <div class="card-body card_padding">
+                                        <h4 class="card-title title_size">Insidious</h4>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="card my_card">
+                                    <img class="card-img-top img-fluid" src="assets/img/image6.jpeg" alt="Card image cap">
+                                    <div class="card-body card_padding">
+                                        <h4 class="card-title title_size">The Dark Knight</h4>
+
+                                    </div>
+                                </div>
+                            </div>
+                      </section>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card header">
+                <img src="../assets/img/headerimg2.jpg" class="img-fluid" alt="...">
+            </div>
+            <section>
+                @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+                @endif
+                <div>
+                    <h3>Popular Movies</h3>
+                </div>
+                <div class="row">
+                    @foreach ($movies as $movie)
+                    <div class="col-md-2 active">
+                        <div class="card my_card">
+                            <img class="card-img-top img-fluid" src="{{ '../assets/img/' . $movie->cover}}" height="300" alt="Card image cap">
+                            <div class="card-body card_padding">
+                                <h4 class="card-title title_size">{{ $movie->title }}</h4>
+
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    <div class="col-md-2">
+                        <div class="card my_card">
+                            <img class="card-img-top img-fluid" src="../assets/img/image5.jpeg" alt="Card image cap">
+                            <div class="card-body card_padding">
+                                <h4 href="" class="card-title title_size">Insidious</h4>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card my_card">
+                            <img class="card-img-top img-fluid" src="../assets/img/image6.jpeg" alt="Card image cap">
+                            <div class="card-body card_padding">
+                                <h4 class="card-title title_size">The Dark Knight</h4>
+
+                            </div>
+                        </div>
+                    </div>
+            </section>
+            <br>
+            <div class="card-header">
+                <h3>Groups</h3>
+            </div>
+            <div class="row">
+
+                @foreach ($groups as $group)
+                <div class="col-md-3 active">
+                    <div class="card ">
+                        <div class="card-body card_padding">
+                            <h4 href="" class="card-title"><strong>{{ $group->group_name }}</strong></h4>
+
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            </div>
+
+    </div>
+</div>
+</div>
+@endsection

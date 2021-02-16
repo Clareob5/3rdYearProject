@@ -25,7 +25,7 @@ class UserRecsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function createGenre(Request $request)
+    public function editGenre(Request $request, $id)
     {
         $userRec = $request->session()->get('user_recs');
         return view('user.recs.genres',compact('userRec'));
@@ -37,7 +37,7 @@ class UserRecsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeGenre(Request $request)
+    public function updateGenre(Request $request)
     {
       $validatedData = $request->validate([
         'genres' => 'nullable',
@@ -65,7 +65,7 @@ class UserRecsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function createMovie(Request $request)
+    public function editMovie(Request $request)
     {
 
       $userRec = $request->session()->get('user_recs');
@@ -81,7 +81,7 @@ class UserRecsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function storeMovie(Request $request, $id)
+    public function updateMovie(Request $request, $id)
     {
       $validatedData = $request->validate([
         'movie_ids' => 'nullable',
