@@ -491,32 +491,6 @@
                       </section>
 
 
-=======
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card my_card">
-                            <img class="card-img-top img-fluid" src="../assets/img/image6.jpeg" alt="Card image cap">
-                            <div class="card-body card_padding">
-                                <h4 class="card-title title_size">The Dark Knight</h4>
-
-                            </div>
-                        </div>
-                    </div>
-            </section>
-            <br>
-            <div class="card-header">
-                <h3>Groups</h3>
-            </div>
-            <div class="row">
-
-                @foreach ($groups as $group)
-                <div class="col-md-3 active">
-                    <div class="card ">
-                        <div class="card-body card_padding">
-                            <h4 href="" class="card-title"><strong>{{ $group->group_name }}</strong></h4>
-
                         </div>
                     </div>
                 </div>
