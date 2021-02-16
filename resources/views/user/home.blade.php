@@ -29,19 +29,10 @@
 
 
             <section>
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    </div>
-                    @endforeach
-                    <div class="col-md-2">
-                        <div class="card my_card">
-                            <img class="card-img-top img-fluid" src="../assets/img/image5.jpeg" alt="Card image cap">
-                            <div class="card-body card_padding">
-                                <h4 href="" class="card-title title_size">Insidious</h4>
 
-<<<<<<< HEAD
+                    </div>
+
+
                     <p class="text-light">YOUR MOVIE RECOMMENDATIONS</p>
                     <div class="row">
                       <div class="card-group">
@@ -147,7 +138,7 @@
                       <section>
                         <br>
                         <br>
-                      <div class="row justify-content-center">
+                      <div class="row justify-content-center push2">
                         <img src="/assets/img/midbanner.png">
 
                       </div>
@@ -494,8 +485,6 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
->>>>>>> c7dab86fe06d7ce342562ce5f02ebe7bd9360ec4
             </div>
             </div>
 

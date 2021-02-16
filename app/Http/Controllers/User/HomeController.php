@@ -27,7 +27,6 @@ class HomeController extends Controller
    */
   public function index()
   {
-=======
       $movies = Movie::All();
       $groups = Group::ALL();
       return view('user.home', [

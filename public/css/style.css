@@ -43,6 +43,10 @@ h2{
   padding-left: 550px;
 }
 
+.push2{
+  padding-left: 450px;
+}
+
 .bg_img {
     background-image: url(../../img/headerimg.jpg);
     min-height: 100vh;
