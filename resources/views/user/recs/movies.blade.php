@@ -18,8 +18,9 @@
                     </div>
                     @endif
 
-                    <form method="POST" action="{{ route('user.recs.movies.store', Auth::user()->id ) }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('user.recs.movies.update', Auth::user()->id ) }}" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="_method" value="PUT">
                         <fieldset>
                           @foreach($movies as $movie)
                             <input type="checkbox" name="movie_ids[]" value="{{ $movie->id }}">{{ $movie->title }}<br>

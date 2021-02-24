@@ -22,8 +22,8 @@
                       <form method="POST" action="{{ route('user.groups.store') }}">
                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
                           <div class="form-group">
-                              <label for="user_id">Admin</label>
-                          <input type="hidden" class="form-control" id="user_id" name="user_id" value="{{ Auth::user()->id}}" placeholder="{{ Auth::user()->name}}"/>
+                              <label for="user_id">Admin {{ Auth::user()->name}}</label>
+                          <input type="hidden" class="form-control" id="user_id" name="user_id" value="{{ Auth::user()->id}}"/>
                           </div>
                           <div class="form-group">
                               <label for="group_name">Name</label>

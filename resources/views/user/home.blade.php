@@ -14,7 +14,7 @@
           <br>
 
           <div class="row justify-content-center">
-            <h4 class="text-light">Welcome back Ted Bo</h4>
+            <h4 class="text-light">Welcome back {{ Auth::user()->name }}</h4>
 
           </div>
 
@@ -37,22 +37,26 @@
                     <div class="row">
                       <div class="card-group">
 
+                        @foreach ($movies as $movie)
+                          @if ($movie->id < 7)
                             <div class="col-md-2 active">
                                 <div class="card">
-                                    <img class="card-img-top img-top" src="/assets/img/moonrise.jpg" height="240" alt="Card image cap">
+                                    <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" height="240" alt="Card image cap">
                                     <div class="card-img-overlay">
                                       <h3 class="card-title"><i class="fas fa-heart"></i></h3>
                                     </div>
                                     <div class="bg-dark text-white">
-                                    <h6>Moonrise Kingdom <br>(2019)</h6>
+                                    <h6>{{ $movie->title }}<br>{{ $movie->release_year }}</h6>
                                     <div>
                                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
                                   </div>
                                 </div>
                                 </div>
                             </div>
+                             @endif
+                       @endforeach
 
-                            <div class=" col-md-2">
+                            {{--<div class=" col-md-2">
                                 <div class="card">
                                     <img class="card-img-top img-top" src="/assets/img/image2.jpg" height="240" alt="Card image cap">
                                     <div class="card-img-overlay">
@@ -127,7 +131,7 @@
                                 </div>
 
                                 </div>
-                                </div>
+                                </div> --}}
 
                             </div>
                       </section>

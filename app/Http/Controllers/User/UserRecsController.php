@@ -37,7 +37,7 @@ class UserRecsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function updateGenre(Request $request)
+    public function updateGenre(Request $request, $id)
     {
       $validatedData = $request->validate([
         'genres' => 'nullable',
@@ -45,7 +45,7 @@ class UserRecsController extends Controller
 
       if(empty($request->session()->get('user_recs'))){
         $userRec = new UserRecs();
-        $userRec->user_id = 3;
+        $userRec->user_id = $id;
         $userRec['genres'] = $request->input('genres');
         $request->session()->put('user_recs', $userRec);
         $userRec->save();
@@ -56,7 +56,7 @@ class UserRecsController extends Controller
         $userRec->save();
       }
 
-     return redirect()->route('user.recs.movies');
+     return redirect()->route('user.recs.movies', $id);
     }
 
     /**
@@ -65,7 +65,7 @@ class UserRecsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function editMovie(Request $request)
+    public function editMovie(Request $request, $id)
     {
 
       $userRec = $request->session()->get('user_recs');
@@ -99,7 +99,7 @@ class UserRecsController extends Controller
         $userRec->save();
       }
 
-     return redirect()->route('profile_show.show');
+     return redirect()->route('profile.index');
     }
 
     /**

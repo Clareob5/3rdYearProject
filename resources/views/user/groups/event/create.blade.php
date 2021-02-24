@@ -19,7 +19,7 @@
                               </ul>
                           </div>
                       @endif
-                      <form method="POST" action="{{ route('user.groups.event.store') }}">
+                      <form method="POST" action="{{ route('user.groups.event.store', $group->id) }}">
                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
                           <div class="form-group">
                               <label for="date">Date</label>
@@ -30,8 +30,8 @@
                               <input type="time" class="form-control" id="time" name="time" value="{{ old('time') }}" />
                           </div>
                           <div class="form-group">
-                              <label for="group">Group</label>
-                              <input type="text" class="form-control" id="text" name="text" value="{{ $group->group_name }}" />
+                              <label for="group_id">Group</label>
+                              <input type="text" class="form-control" id="group_id" name="group_id" value="{{ $group->id }}" />
                           </div>
                             <a href="{{ route('user.home') }}" class="btn btn-default">Cancel</a>
                           <button type="submit" class="btn btn-primary pull-right">Submit</button>

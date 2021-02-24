@@ -54,14 +54,14 @@ class GroupController extends Controller
       return redirect()->route('user.groups.event.create', $group->id);
   }
 
-  public function createEvent(Request $request)
+  public function createEvent(Request $request, $id)
   {
     $group = $request->session()->get('groups');
     $users = User::All();
-    $groups = Groups::All();
+    $group = Group::findOrFail($id);
     return view('user.groups.event.create',compact('group'), [
       'users' => $users,
-      'groups' => $groups
+      'group' => $group
     ]);
   }
 
@@ -70,17 +70,17 @@ class GroupController extends Controller
       $request ->validate([
         'date' => 'required',
         'time' => 'required',
-        'group_id' => 'required',
+        'group_id' => '',
         ]);
 
-      if(empty($request->session()->get('user_recs'))){
+      if(empty($request->session()->get('groups'))){
       $event = new Event();
       $event->date = $request->input('date');
       $event->time = $request->input('time');
       $event->group_id = $request->input('group_id');
       $event->save();
 }
-      return redirect()->route('user.groups.show');
+      return redirect()->route('user.groups.show', $event->group_id);
   }
 
   public function showGroup($id)

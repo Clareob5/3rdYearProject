@@ -42,6 +42,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // public static $laracombee = ['name' => 'string', 'dob' => 'date', 'email' => 'string'];
+    //
+    // $client->send(new AddUser(3));
+
     public function reviews()
     {
       //user has many reviews

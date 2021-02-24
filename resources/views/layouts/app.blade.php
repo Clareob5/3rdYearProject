@@ -84,7 +84,7 @@
                                     Dashboard
                                 </a>
 
-                                <a class="dropdown-item" href="{{ route('profile_show.show') }}">
+                                <a class="dropdown-item" href="{{ route('profile.index') }}">
                                     Profile
                                 </a>
 
