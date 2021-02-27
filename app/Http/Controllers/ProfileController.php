@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Movie;
+use App\Models\UserRecs;
 use Auth;
 use Hash;
 use Storage;
@@ -19,8 +20,11 @@ class ProfileController extends Controller
     }
 
     public function show(){
+      //$id = Auth::user()->id;
+      //$user_rec = UserRecs::findOrFail($id);
       $movies = Movie::All();
         return view('user.profile_show', [
+          //'user_rec' => $user_rec,
           'movies' => $movies
         ]);
     }

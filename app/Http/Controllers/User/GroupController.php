@@ -12,12 +12,14 @@ class GroupController extends Controller
 {
   public function __construct(){
     $this->middleware('auth');
+    $this->middleware('role:user');
   }
 
-  public function create()
+  public function createGroup(Request $request)
   {
+    $group = $request->session()->get('groups');
     $users = User::All();
-    return view('user.groups.create', [
+    return view('user.groups.create',compact('group'), [
       'users' => $users
     ]);
   }
@@ -28,22 +30,60 @@ class GroupController extends Controller
   * @param  \Illuminate\Http\Request  $request
   * @return \Illuminate\Http\Response
   */
-  public function store(Request $request)
+  public function storeGroup(Request $request)
   {
       $request ->validate([
         'group_name' => 'required|max:191',
-        'user_id' => 'required'
-        ]);
 
-      $group = new Group();
-      $group->group_name = $request->input('group_name');
-      $group->user_id = $request->input('user_id');
-      $group->save();
+        ]);
+      if(empty($request->session()->get('groups'))){
+        $group = new Group();
+        $group->user_id = $request->input('user_id');
+        $group->group_name = $request->input('group_name');
+        $group->save();
+        //$group->users()->attach($request->input['users']);
+
+      }else{
+        $group = $request->session()->get('groups');
+        $group = new Group();
+        $group->user_id = $request->Auth::user()->id;
+        $group->group_name = $request->input('group_name');
+        $group->save();
+      }
 
       return redirect()->route('user.groups.event.create', $group->id);
   }
 
-  public function show($id)
+  public function createEvent(Request $request, $id)
+  {
+    $group = $request->session()->get('groups');
+    $users = User::All();
+    $group = Group::findOrFail($id);
+    return view('user.groups.event.create',compact('group'), [
+      'users' => $users,
+      'group' => $group
+    ]);
+  }
+
+  public function storeEvent(Request $request)
+  {
+      $request ->validate([
+        'date' => 'required',
+        'time' => 'required',
+        'group_id' => '',
+        ]);
+
+      if(empty($request->session()->get('groups'))){
+      $event = new Event();
+      $event->date = $request->input('date');
+      $event->time = $request->input('time');
+      $event->group_id = $request->input('group_id');
+      $event->save();
+}
+      return redirect()->route('user.groups.show', $event->group_id);
+  }
+
+  public function showGroup($id)
   {
       $group = Group::findOrFail($id);
       $groups = Group::All();
@@ -51,7 +91,7 @@ class GroupController extends Controller
       $users = User::All();
       return view('user.groups.show', [
         'group' => $group,
-          'groups' => $groups,
+        'groups' => $groups,
         'events' => $events,
         'users' => $users
       ]);

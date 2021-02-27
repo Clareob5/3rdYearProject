@@ -22,14 +22,18 @@
                       <form method="POST" action="{{ route('user.groups.store') }}">
                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
                           <div class="form-group">
+                              <label for="user_id">Admin {{ Auth::user()->name}}</label>
+                          <input type="hidden" class="form-control" id="user_id" name="user_id" value="{{ Auth::user()->id}}"/>
+                          </div>
+                          <div class="form-group">
                               <label for="group_name">Name</label>
                               <input type="text" class="form-control" id="group_name" name="group_name" value="{{ old('group_name') }}" />
                           </div>
                           <div class="form-group">
-                              <label for="user">Members</label>
-                              <select class="form-control col-6" name='user_id'>
+                              <label for="users">Members</label>
+                              <select class="form-control col-5" name='users'>
                                 @foreach ($users as $user)
-                                  <option value="{{ $user->id }}" {{ ($user->id) ? "selected" : "" }}>{{ $user->name }}</option>
+                                  <option type="checkbox" name="users[]" value="{{ $user->id }}" >{{ $user->name }}</option>
                                 @endforeach
                               </select>
                           <a href="{{ route('user.home') }}" class="btn btn-default">Cancel</a>

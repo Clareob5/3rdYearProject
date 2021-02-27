@@ -19,8 +19,9 @@
                     </div>
                     @endif
 
-                    <form method="POST" action="{{ route('user.recs.genres.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('user.recs.genres.update', Auth::user()->id) }}" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="_method" value="PUT">
                         <fieldset>
                             <legend>Select</legend>
                             <input type="checkbox" name="genres[]" value="Action">Action<br>
@@ -29,7 +30,7 @@
                             <input type="checkbox" name="genres[]" value="Comedy">Comedy<br>
                             <br>
                             <button type="submit" class="btn btn-primary pull-right">Next</button>
-                            <a href="{{ route('profile_show.show')}}" class="btn pull-right">Skip</button>
+                            <a href="{{ route('profile.index')}}" class="btn pull-right">Skip</button>
                         </fieldset>
                     </form>
                 </div>

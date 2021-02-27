@@ -71,15 +71,16 @@
             @endif
         </div>
         <button type="submit" class="btn btn-primary mt-3">Update Details</button>
+        <a href="{{route('user.recs.genres', Auth::user()->id)}}" class="btn btn-primary mt-3">Update Recommedations</a>
     </form>
   </div>
 
 
   <div class="col-4 bt_space">
-    <button type="button" class="btn btn-success">View Watchlist</button>
+    <a href="{{route('user.watchlist', Auth::user()->id)}}" type="button" class="btn btn-success">View Watchlist</a>
     <br>
     <br>
-    <button type="button" class="btn btn-success">Create Group<i class="fas fa-plus-circle"></i></button>
+    <a href="{{route('user.groups.create', Auth::user()->id)}}" type="button" class="btn btn-success">Create Group<i class="fas fa-plus-circle"></i></a>
     <br>
     <br>
     <button type="button" class="btn btn-success">View Groups</button>

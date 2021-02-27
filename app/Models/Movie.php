@@ -9,6 +9,8 @@ class Movie extends Model
 {
     use HasFactory;
 
+    // public static $laracombee = ['title' => 'string', 'director' => 'string', 'cast' => 'string', 'country' => 'string', 'release_year' => 'integer', 'rating' => 'string', 'duration' => 'string', 'listed_in' => 'string'];
+
     public function reviews()
     {
       //user has many reviews
