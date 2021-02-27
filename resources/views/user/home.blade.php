@@ -3,6 +3,7 @@
 @section('content')
 <div class="container background-dark">
     <div class="row justify-content-center">
+
         <div class="col-md-12">
 
           <div class="row justify-content-center">
@@ -132,13 +133,10 @@
                             </div>
                       </section>
 
-                      <br>
-                      <br>
-
                       <section>
                         <br>
                         <br>
-                      <div class="row justify-content-center push2">
+                      <div class="row justify-content-center">
                         <img src="/assets/img/midbanner.png">
 
                       </div>
@@ -243,6 +241,45 @@
                                           </div>
                                           </div>
                                       </div>
+                                </section>
+
+
+                                <section>
+                                  <br>
+                                  <br>
+                                  <div class="container-fluid">
+                                  <div class="row">
+                                  <div class="col-12">
+
+                                  <table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Groups</th>
+      <th scope="col">Upcoming</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Group 1</td>
+      <td>Thursday, 8:00pm</td>
+    </tr>
+    <tr>
+      <td>Group 2</td>
+      <td>no events</td>
+    </tr>
+    <tr>
+      <td>Group 3</td>
+      <td>no events</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+</div>
+
+</div>
                                 </section>
 
 

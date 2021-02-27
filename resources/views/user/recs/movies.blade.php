@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header"> Choose Movies</div>
+            <div class="card box_style">
+                <h2 class="center_text"> Choose Movies</h2>
 
                 <div class="card-body">
                     @if ($errors->any())

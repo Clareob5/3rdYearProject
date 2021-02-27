@@ -84,8 +84,12 @@
                                     Dashboard
                                 </a>
 
-                                <a class="dropdown-item" href="{{ route('profile_show.show') }}">
+                                <a class="dropdown-item" href="{{ route('profile.index') }}">
                                     Profile
+                                </a>
+
+                                <a class="dropdown-item" href="{{ route('user.watchlist') }}">
+                                    Watchlist
                                 </a>
 
                                 <a class="dropdown-item" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
