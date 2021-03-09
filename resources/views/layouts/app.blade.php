@@ -172,6 +172,44 @@
     });
   }
 
+  function createEvent() {
+//    console.log("Checking create event")
+    var date = $('#date').val();
+    var time = $('#time').val();
+    var id = $('#group_id').val();
+
+    let _url     = `event/store`;
+    let _token   = $('meta[name="csrf_token"]').attr('content');
+
+      $.ajax({
+        url: _url,
+        type: "POST",
+        data: {
+          id: id,
+          date: date,
+          time: time,
+          _token: _token
+        },
+        success: function(response) {
+            if(response.code == 200) {
+              if(id != ""){
+                $("#row_"+id+" td:nth-child(2)").html(response.data.date);
+                $("#row_"+id+" td:nth-child(3)").html(response.data.time);
+              } else {
+                $('table tbody').prepend('<tr id="row_'+response.data.id+'"><td>'+response.data.id+'</td><td>'+response.data.date+'</td><td>'+response.data.time+'</td><td><a href="javascript:void(0)" data-id="'+response.data.id+'" onclick="editGroup(event.target)" class="btn btn-info">Edit</a></td><td><a href="javascript:void(0)" data-id="'+response.data.id+'" class="btn btn-danger" onclick="deleteGroup(event.target)">Delete</a></td></tr>');
+              }
+              $('#date').val('');
+              $('#time').val('');
+
+              $('#group-modal').modal('hide');
+            }
+        },
+        error: function(response) {
+          $('#dateError').text(response.responseJSON.errors.date);
+          $('#timeError').text(response.responseJSON.errors.time);
+        }
+      });
+  }
 
   function deleteGroup(event) {
     var id  = $(event).data("id");
@@ -189,6 +227,7 @@
         }
       });
   }
+</script>
 </script>
   @yield('javascript')
 
