@@ -14,6 +14,11 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <!-- Ajax-->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+     <script src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
+
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -132,10 +137,59 @@
         </main>
     </div>
 </body>
+
 <script>
     setTimeout(function() {
         $('.flash').alert('close')
     }, 3000);
+
+
+    $('#laravel_crud').DataTable();
+
+  function addEvent() {
+    console.log("Checking modal add event")
+    $("#group_id").val('');
+    $('#group-modal').modal('show');
+  }
+
+  function editGroup(event) {
+    var id  = $(event).data("id");
+    let _url = `/groups/${id}`;
+    $('#dateError').text('');
+    $('#timeError').text('');
+
+    $.ajax({
+      url: _url,
+      type: "GET",
+      success: function(response) {
+          if(response) {
+            $("#date").val(response.date);
+            $("#time").val(response.time);
+	    $("#group_id").val(response.id);
+            $('#group-modal').modal('show');
+          }
+      }
+    });
+  }
+
+
+  function deleteGroup(event) {
+    var id  = $(event).data("id");
+    let _url = `/groups/${id}`;
+    let _token   = $('meta[name="csrf-token"]').attr('content');
+
+      $.ajax({
+        url: _url,
+        type: 'DELETE',
+        data: {
+          _token: _token
+        },
+        success: function(response) {
+          $("#row_"+id).remove();
+        }
+      });
+  }
 </script>
+  @yield('javascript')
 
 </html>

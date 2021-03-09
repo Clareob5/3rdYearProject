@@ -22,6 +22,8 @@ class GroupController extends Controller
     return view('user.groups.create',compact('group'), [
       'users' => $users
     ]);
+
+    return response()->json(['code'=>200, 'message'=>'Group Created successfully','data' => $group], 200);
   }
 
  /**
@@ -63,6 +65,9 @@ class GroupController extends Controller
       'users' => $users,
       'group' => $group
     ]);
+
+    return response()->json(['code'=>200, 'message'=>'Event Created successfully','data' => $group], 200);
+
   }
 
   public function storeEvent(Request $request)
@@ -74,12 +79,12 @@ class GroupController extends Controller
         ]);
 
       if(empty($request->session()->get('groups'))){
-      $event = new Event();
-      $event->date = $request->input('date');
-      $event->time = $request->input('time');
-      $event->group_id = $request->input('group_id');
-      $event->save();
-}
+            $event = new Event();
+            $event->date = $request->input('date');
+            $event->time = $request->input('time');
+            $event->group_id = $request->input('group_id');
+            $event->save();
+      }
       return redirect()->route('user.groups.show', $event->group_id);
   }
 

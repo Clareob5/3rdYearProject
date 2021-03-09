@@ -3,8 +3,10 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-2 card">
-            <h3>Groups</h3>
+        <div class="col-md-3 card box_style_two">
+          <div class="card-header">
+            Groups
+          </div>
             <div class="card-body">
                 <table class="table">
                     <tbody>
@@ -18,8 +20,8 @@
             </div>
         </div>
 
-        <div class="col-md-8">
-            <div class="card">
+        <div class="col-md-6">
+            <div class="card box_style_two">
                 <div class="card-header">
                   Group Details
                 </div>
@@ -64,7 +66,8 @@
 
                                 <tr>
                                     <td><a href="{{ route('user.home') }}" class="btn btn-default">Back</a>
-                                        {{-- <a href="{{ route('user.groups.event.edit', $group->event->id) }}" class="btn btn-warning">Edit</a> --}}
+                                        <a href="javascript:void(0)" class="btn btn-success" id="create-new-event" onclick="addEvent()">Add</a>
+                                      <a href="" class="btn btn-warning" data-id="{{ $group->id }}" onclick="editGroup(event.target)">Edit</a>
 
                                     </td>
                                 </tr>
@@ -74,9 +77,11 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-2 card">
+        <div class="col-md-3 card box_style_two">
             <div class="card-body">
-                <h3>Members</h3>
+              <div class="card-header">
+                Members
+              </div>
                 <p>{{ $group->user->name}}</p>
                 <p>Ben Teck</p>
 
@@ -92,4 +97,80 @@
         </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="group-modal" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+          <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
+          <!-- <form method="POST" action="{{ route('user.groups.event.store', $group->id) }}"> -->
+          <form method="POST" action="">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="group_id" value="{{ $group->id }}">
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="date" class="form-control" id="date" name="date" value="{{ old('date') }}" />
+                      <span id="dateError" class="alert-message"></span>
+                  </div>
+
+              <div class="form-group">
+                  <label for="time">Time</label>
+                       <input type="time" class="form-control" id="time" name="time" value="{{ old('time') }}" />
+                      <span id="timeError" class="alert-message"></span>
+                  </div>
+
+          </form>
+      </div>
+      <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" onclick="createEvent()">Save</button>
+      </div>
+  </div>
+</div>
+</div>
+@endsection
+
+@section('javascript')
+<script>
+function createEvent() {
+    console.log("Checking create event")
+  var date = $('#date').val();
+  var time = $('#time').val();
+  var id = $('#group_id').val();
+
+  let _url     = `event/store`;
+  let _token   = $('meta[name="csrf_token"]').attr('content');
+
+    $.ajax({
+      url: _url,
+      type: "POST",
+      data: {
+        id: id,
+        date: date,
+        time: time,
+        _token: _token
+      },
+      success: function(response) {
+          if(response.code == 200) {
+            if(id != ""){
+              $("#row_"+id+" td:nth-child(2)").html(response.data.date);
+              $("#row_"+id+" td:nth-child(3)").html(response.data.time);
+            } else {
+              $('table tbody').prepend('<tr id="row_'+response.data.id+'"><td>'+response.data.id+'</td><td>'+response.data.date+'</td><td>'+response.data.time+'</td><td><a href="javascript:void(0)" data-id="'+response.data.id+'" onclick="editGroup(event.target)" class="btn btn-info">Edit</a></td><td><a href="javascript:void(0)" data-id="'+response.data.id+'" class="btn btn-danger" onclick="deleteGroup(event.target)">Delete</a></td></tr>');
+            }
+            $('#date').val('');
+            $('#time').val('');
+
+            $('#group-modal').modal('hide');
+          }
+      },
+      error: function(response) {
+        $('#dateError').text(response.responseJSON.errors.date);
+        $('#timeError').text(response.responseJSON.errors.time);
+      }
+    });
+}
+</script>
 @endsection
