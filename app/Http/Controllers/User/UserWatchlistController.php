@@ -25,7 +25,7 @@ class UserWatchlistController extends Controller
         $item_id = $interacion['movie_id'];
         $time = $interacion['created_at'];
 
-        $r = new Reqs\AddDetailsView($user_id, $item_id,
+        $r = new Reqs\AddDetailView($user_id, $item_id,
                                         ['timestamp' => $time, 'cascadeCreate' => true]);
 
        array_push($requests, $r);
