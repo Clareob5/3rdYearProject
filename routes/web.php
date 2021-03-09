@@ -43,7 +43,6 @@ Route::get('/', [PageController::class, 'welcome'])->name('welcome'); //when use
 Route::get('/about', [PageController::class, 'about'])->name('about'); //when user goes to /about , it uses welcome method to take them to about view
 
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //routes to admin and user home dashboards

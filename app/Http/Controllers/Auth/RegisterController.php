@@ -7,6 +7,9 @@ use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\Register;
+use App\Models\UserRecs;
+use Recombee\RecommApi\Client;
+use Recombee\RecommApi\Requests as Reqs;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -67,17 +70,36 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'dob' => $data['dob'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
 
-        $user->roles()->attach(Role::where('name','user')->first()); //attach new user to user role
+      $user = new User();
+      $user->name = $data['name'];
+      $user->dob = $data['dob'];
+      $user->email = $data['email'];
+      $user->password = Hash::make($data['password']);
 
-        return $user; //returns new user. By default, new users will have a user role, not admin
+
+      $user->save();
+      $user->roles()->attach(Role::where('name','user')->first());//using  where query to attach the patietn role to the user
+
+    //   $client -> send(new Reqs\SetUserValues("$user->id",
+    //   // values
+    //   [
+    //   "name" => "$user->name",
+    //   "email" => "$user->email"
+    //   ],
+    //   //optional parameters
+    //   [
+    //   "cascadeCreate" => true
+    //   ]
+    // ));
+
+
+
+
+      return $user; //returns new user. By default, new users will have a user role, not admin
     }
+
+
 
 
 }

@@ -227,6 +227,7 @@
         }
       });
   }
+  </script>
 </script>
 </script>
   @yield('javascript')

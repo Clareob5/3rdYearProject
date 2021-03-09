@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Group;
 use App\Models\Event;
 use Auth;
+use Illuminate\Support\Facades\Validator;
+
 class GroupController extends Controller
 {
   public function __construct(){
@@ -53,7 +55,7 @@ class GroupController extends Controller
         $group->save();
       }
 
-      return redirect()->route('user.groups.event.create', $group->id);
+      return redirect()->route('user.groups.show', $group->id);
   }
 
   public function createEvent(Request $request, $id)
@@ -72,11 +74,19 @@ class GroupController extends Controller
 
   public function storeEvent(Request $request)
   {
-      $request ->validate([
+      $rules = [
         'date' => 'required',
         'time' => 'required',
         'group_id' => '',
-        ]);
+        ];
+
+        //making a validator that will follow the rules above
+        $validator = Validator::make($request->all(), $rules);
+
+        //if validator fails, return an error
+        if ($validator->fails()) {
+          return response()->json($validator->errors(), 422); //422 unprocessable entity
+        }
 
       if(empty($request->session()->get('groups'))){
             $event = new Event();
@@ -85,7 +95,16 @@ class GroupController extends Controller
             $event->group_id = $request->input('group_id');
             $event->save();
       }
-      return redirect()->route('user.groups.show', $event->group_id);
+      return response()->json([
+        'ok' => 'ok',
+        'success' => true,
+        'data' => $event
+      ], 200);
+      // return [
+      //   'success' => true,
+      //   'data' => $event
+      // ];
+      // return redirect()->route('user.groups.show', $event->group_id);
   }
 
   public function showGroup($id)

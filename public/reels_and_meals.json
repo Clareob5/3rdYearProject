@@ -1,0 +1,182 @@
+[
+{"type":"header","version":"5.0.2","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"reels_and_meals"},
+{"type":"table","name":"events","database":"reels_and_meals","data":
+[
+
+]
+}
+,{"type":"table","name":"groups","database":"reels_and_meals","data":
+[
+
+]
+}
+,{"type":"table","name":"movies","database":"reels_and_meals","data":
+[
+{"id":"1","title":"Lost","director":"Steven Spielberg","cast":"Jennifer Lawrence, Matt Damon, Adam Sandler","country":"United States","date_added":"2021-02-27","release_year":"2019","rating":"6.70","duration":"190 min","genre":"Action","description":"Before planning an awesome wedding for his grandfather, a polar bear king must take back a stolen artifact from an evil archaeologist first.","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44","cover":"image.jpg"},
+{"id":"2","title":"Found","director":"Steven Spielberg","cast":"Jennifer Lawrence, Matt Damon, Adam Sandler","country":"United States","date_added":"2021-02-27","release_year":"2019","rating":"7.45","duration":"190 min","genre":"Drama","description":"Before planning an awesome wedding for his grandfather, a polar bear king must take back a stolen artifact from an evil archaeologist first.","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44","cover":"image2.jpg"},
+{"id":"3","title":"Destination","director":"Steven Spielberg","cast":"Jennifer Lawrence, Matt Damon, Adam Sandler","country":"United States","date_added":"2021-02-27","release_year":"2019","rating":"6.40","duration":"190 min","genre":"Horror","description":"Before planning an awesome wedding for his grandfather, a polar bear king must take back a stolen artifact from an evil archaeologist first.","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44","cover":"image3.jpg"},
+{"id":"4","title":"Roadtrip","director":"Steven Spielberg","cast":"Jennifer Lawrence, Matt Damon, Adam Sandler","country":"United States","date_added":"2021-02-27","release_year":"2019","rating":"8.90","duration":"190 min","genre":"Comedy","description":"Before planning an awesome wedding for his grandfather, a polar bear king must take back a stolen artifact from an evil archaeologist first.","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44","cover":"image4.jpg"},
+{"id":"5","title":"1917","director":"Sam Mendes","cast":"Richard Madden, Matt Damon, Adam Sandler","country":"United States","date_added":"2021-02-27","release_year":"2019","rating":"7.50","duration":"190 min","genre":"Action","description":"During World War I, two British soldiers -- Lance Cpl. Schofield and Lance Cpl. Blake -- receive seemingly impossible orders.","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44","cover":"image.jpg"},
+{"id":"6","title":"Jojo Rabbit","director":"Taika Waititi","cast":"Scarlett Johansson, Roman Griffin Davis","country":"New Zealand","date_added":"2021-02-27","release_year":"2020","rating":"8.70","duration":"108 min","genre":"Comedy","description":"Hitler Youth cadet Jojo Betzler firmly believes in the ideals of Nazism manifested by his imaginary friend, Adolf Hitler. ","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44","cover":"image2.jpg"},
+{"id":"7","title":"1917","director":"Sam Mendes","cast":"Richard Madden, Matt Damon, Adam Sandler","country":"United States","date_added":"2021-02-27","release_year":"2019","rating":"4.70","duration":"190 min","genre":"Action","description":"During World War I, two British soldiers -- Lance Cpl. Schofield and Lance Cpl. Blake -- receive seemingly impossible orders.","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44","cover":"image.jpg"},
+{"id":"8","title":"Norm of the North: King Sized Adventure","director":"Richard Finn","cast":"Alan Marriott, Andrew Toth, Brian Dobson, Cole Howard, Jennifer Cameron, Jonathan Holmes, Lee Tockar, Lisa Durupt, Maya Kay, Michael Dobson","country":"United States","date_added":"2021-02-27","release_year":"2019","rating":"5.60","duration":"90 min","genre":"Comedy","description":"Before planning an awesome wedding for his grandfather, a polar bear king must take back a stolen artifact from an evil archaeologist first.\t","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44","cover":"image2.jpg"},
+{"id":"9","title":"Jandino: Whatever it Takes","director":"Jandino Asporaat","cast":"Jandino Asporaat","country":"United States","date_added":"2021-02-27","release_year":"2016","rating":"8.30","duration":"94 min","genre":"Stand-Up Comedy","description":"Jandino Asporaat riffs on the challenges of raising kids and serenades the audience with a rousing rendition of Sex on Fire in his comedy show.","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44","cover":"image2.jpg"},
+{"id":"10","title":"#realityhigh","director":"Fernando Lebrija","cast":"Nesta Cooper, Kate Walsh, John Michael Higgins, Keith Powers, Alicia Sanz, Jake Borelli, Kid Ink, Yousef Erakat, Rebekah Graf, Anne Winters, Peter Gilroy, Patrick Davis","country":"United States","date_added":"2021-02-27","release_year":"2017","rating":"5.45","duration":"99 min","genre":"Comedy","description":"When nerdy high schooler Dani finally attracts the interest of her longtime crush, she lands in the cross hairs of his ex, a social media celebrity. ","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44","cover":"image2.jpg"},
+{"id":"11","title":"Automata","director":"Gabe IbÃez","cast":"Antonio Banderas, Dylan McDermott, Melanie Griffith, Birgitte Hjort SÃ¸rensen, Robert Forster, Christa Campbell, Tim McInnerny, Andy Nyman, David Ryall","country":"Bulgaria","date_added":"2021-02-27","release_year":"2020","rating":"5.60","duration":"108 min","genre":"Comedy","description":"Hitler Youth cadet Jojo Betzler firmly believes in the ideals of Nazism manifested by his imaginary friend, Adolf Hitler. ","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44","cover":"image2.jpg"},
+{"id":"12","title":"Good People","director":"Henrik Ruben Genz","cast":"James Franco, Kate Hudson, Tom Wilkinson, Omar Sy, Sam Spruell, Anna Friel, Thomas Arnold, Oliver Dimsdale, Diana Hardcastle","country":"United States","date_added":"2021-02-27","release_year":"2014","rating":"9.00","duration":"90 min","genre":"Action & Adventure","description":"A struggling couple can't believe their luck when they find a stash of money in the apartment of a neighbor who was recently murdered. ","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44","cover":"image2.jpg"},
+{"id":"13","title":"Kidnapping Mr. Heineken","director":"Daniel Alfredson","cast":"Antonio Banderas, Dylan McDermott, Melanie Griffith, Birgitte Hjort SÃ¸rensen, Robert Forster, Christa Campbell, Tim McInnerny, Andy Nyman, David Ryall","country":"Netherlands","date_added":"2021-02-27","release_year":"2015","rating":"9.50","duration":"95 min","genre":"Action & Adventure","description":"When beer magnate Alfred \"Freddy\" Heineken is kidnapped in 1983, his abductors make the largest ransom demand in history.","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44","cover":"image2.jpg"},
+{"id":"14","title":"Krish Trish and Baltiboy","director":"Gabe IbÃez","cast":"Damandeep Singh Baggan, Smita Malhotra, Baba Sehgal","country":"Bulgaria","date_added":"2021-02-27","release_year":"2009","rating":"6.30","duration":"58 min","genre":"Children & Family","description":"A team of minstrels, including a monkey, cat and donkey, narrate folktales from the Indian regions of Rajasthan, Kerala and Punjab.","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44","cover":"image2.jpg"},
+{"id":"15","title":"Next Gen","director":"evin R. Adams","cast":"John Krasinski, Charlyne Yi, Jason Sudeikis, Michael PeÃ±a, David Cross, Constance Wu","country":"China","date_added":"2021-02-27","release_year":"2018","rating":"6.80","duration":"106 min","genre":"Sci-Fi & Fantasy","description":"When lonely Mai forms an unlikely bond with a top-secret robot, they embark on an intense, action-packed adventure to foil the plot of a vicious villain.","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44","cover":"image2.jpg"},
+{"id":"16","title":"Sierra Burgess Is A Loser","director":"Ian Samuels","cast":"Shannon Purser, Kristine Froseth, RJ Cyler, Noah Centineo, Loretta Devine, Giorgia Whigham, Alice Lee, Lea Thompson, Alan Ruck, Mary Pat Gleason, Chrissy Metz","country":"United States","date_added":"2021-02-27","release_year":"2018","rating":"7.90","duration":"106 min","genre":"Comedy","description":"A wrong-number text sparks a virtual romance between a smart but unpopular teen and a sweet jock who thinks he's talking to a gorgeous cheerleader.","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44","cover":"image2.jpg"},
+{"id":"17","title":"Love","director":"Gaspar NoÃ©","cast":"Karl Glusman, Klara Kristin, Aomi Muyock, Ugo Fox, Juan Saavedra, Gaspar NoÃ©, Isabelle Nicou","country":"France","date_added":"2021-02-27","release_year":"2015","rating":"8.50","duration":"135 min","genre":"Drama","description":"A man in an unsatisfying marriage recalls the details of an intense past relationship with an ex-girlfriend when he gets word that she may be missing.","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44","cover":"image2.jpg"},
+{"id":"18","title":"Manhattan Romance","director":"Tom O'Brien","cast":"Tom O'Brien, Katherine Waterston, Caitlin Fitzgerald, Gaby Hoffmann, Louis Cancelmi, Zach Grenier","country":"United States","date_added":"2021-02-27","release_year":"2014","rating":"9.00","duration":"98 min","genre":"Comedy","description":"A filmmaker working on a documentary about love in modern Manhattan becomes personally entangled in the romantic lives of his subjects.","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44","cover":"image2.jpg"},
+{"id":"19","title":"Moonwalkers","director":"Antoine Bardou-Jacquet","cast":"Ron Perlman, Rupert Grint, Robert Sheehan, Stephen Campbell Moore, Eric Lampaert, Kevin Bishop, Tom Audenaert, Erika Sainte","country":"France","date_added":"2021-02-27","release_year":"2015","rating":"7.60","duration":"96 min","genre":"Action & Adventure","description":"A brain-addled war vet, a failing band manager and a Stanley Kubrick impersonator help the CIA construct an epic scam by faking the 1969 moon landing.","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44","cover":"image2.jpg"},
+{"id":"20","title":"The Runner","director":"Austin Stark","cast":"Nicolas Cage, Sarah Paulson, Connie Nielsen, Wendell Pierce, Bryan Batt, Peter Fonda, Dana Gourrier","country":"United States","date_added":"2021-02-27","release_year":"2015","rating":"5.80","duration":"90 min","genre":"Drama","description":"A New Orleans politician finds his idealistic plans for rebuilding after a toxic oil spill unraveling thanks to a sex scandal.","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44","cover":"image2.jpg"}
+]
+}
+,{"type":"table","name":"reviews","database":"reels_and_meals","data":
+[
+{"id":"1","review":"Good movie","rating":"4.50","user_id":"2","movie_id":"1","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"2","review":"Great movie","rating":"5.00","user_id":"2","movie_id":"1","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"3","review":"Ok movie","rating":"3.50","user_id":"2","movie_id":"1","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"}
+]
+}
+,{"type":"table","name":"roles","database":"reels_and_meals","data":
+[
+{"id":"1","name":"admin","description":"An administrator user","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44"},
+{"id":"2","name":"user","description":"An oridnary user","created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44"}
+]
+}
+,{"type":"table","name":"users","database":"reels_and_meals","data":
+[
+{"id":"1","name":"Viv Bir","dob":"2000-02-22","email":"admin@reelsandmeals.ie","email_verified_at":null,"password":"$2y$10$e8D.UsZbnjEVmizUL.Mst.HDCjO9Nz9Lfic9ms72eR0KYWFXH0bpK","remember_token":null,"created_at":"2021-02-28 21:03:44","updated_at":"2021-02-28 21:03:44","image":"image.png"},
+{"id":"2","name":"Clare OB","dob":"1998-02-22","email":"admin2@reelsandmeals.ie","email_verified_at":null,"password":"$2y$10$GzdAStV6hOBjZgxJ0MGxAedostZM4fcxCbBuubH6wdZ\/erzwdS37a","remember_token":null,"created_at":"2021-02-28 21:03:45","updated_at":"2021-02-28 21:03:45","image":"image.png"},
+{"id":"3","name":"Ted Bo","dob":"2000-04-05","email":"user@reelsandmeals.ie","email_verified_at":null,"password":"$2y$10$tL6s43izFTvG6Nxo12OFkuNW1Dre91ksKWy6von7CY4mCVyNKm8vy","remember_token":null,"created_at":"2021-02-28 21:03:45","updated_at":"2021-02-28 21:03:45","image":"image.png"},
+{"id":"4","name":"Kayleigh Mraz","dob":"1982-07-25","email":"satterfield.steve@example.com","email_verified_at":"2021-02-28 21:03:45","password":"$2y$10$gapDn2n5ZUW27JQsTeflXOpdcSxNfl1.cozPG3oZXmLpJufY5WWNK","remember_token":"RXVq0dsHYl","created_at":"2021-02-28 21:03:45","updated_at":"2021-02-28 21:03:45","image":"image.png"},
+{"id":"5","name":"Hank West IV","dob":"1999-10-20","email":"ernest.bailey@example.com","email_verified_at":"2021-02-28 21:03:45","password":"$2y$10$Oqc4fkkkU9YRM8\/rv.tx5.3Th8vSZuxoQ\/5MZD\/DH6P.ktZXjrZsy","remember_token":"H6DZOz3Ahw","created_at":"2021-02-28 21:03:45","updated_at":"2021-02-28 21:03:45","image":"image.png"},
+{"id":"6","name":"Aiden Pagac","dob":"1973-01-18","email":"rolando.mosciski@example.org","email_verified_at":"2021-02-28 21:03:45","password":"$2y$10$dLFkuv7CMsfP0.GgsMW.4unjUbDFxpU68HjjdndP1r6rHs9659qW2","remember_token":"1FamWpg9kE","created_at":"2021-02-28 21:03:45","updated_at":"2021-02-28 21:03:45","image":"image.png"},
+{"id":"7","name":"Kenneth Kunze","dob":"1997-05-14","email":"zena.will@example.org","email_verified_at":"2021-02-28 21:03:45","password":"$2y$10$aVuEsCYPS9Fk5qEL4Rd7W.iAWFMRj7pOBdnf8wByti8lJ1McsJCty","remember_token":"3Fgt3cYjJp","created_at":"2021-02-28 21:03:46","updated_at":"2021-02-28 21:03:46","image":"image.png"},
+{"id":"8","name":"Rigoberto Luettgen DVM","dob":"1987-01-05","email":"walton.west@example.org","email_verified_at":"2021-02-28 21:03:46","password":"$2y$10$uwEcDdlnr082qdAJUZb3J.pEGuK.BqlmPwnQ1Rn557am4DgoTO9Ni","remember_token":"czMaysJQaP","created_at":"2021-02-28 21:03:46","updated_at":"2021-02-28 21:03:46","image":"image.png"},
+{"id":"9","name":"Remington Leuschke","dob":"1997-03-30","email":"orville.smitham@example.net","email_verified_at":"2021-02-28 21:03:46","password":"$2y$10$R3dDPtAFqw9SCyKJNVaM3e0o3RH\/pzGeMYNfHYg6q4I70ZtRxlEQG","remember_token":"oSVu3RBc8q","created_at":"2021-02-28 21:03:46","updated_at":"2021-02-28 21:03:46","image":"image.png"},
+{"id":"10","name":"Angie Glover","dob":"1977-01-05","email":"lera27@example.com","email_verified_at":"2021-02-28 21:03:46","password":"$2y$10$keOcrGfk\/5x75TuRe7kc2uG6MiyZbSgHO1J\/bR8fosYOINeCXhqB2","remember_token":"rcI2ZtQVCw","created_at":"2021-02-28 21:03:46","updated_at":"2021-02-28 21:03:46","image":"image.png"},
+{"id":"11","name":"Guiseppe Balistreri","dob":"1973-11-07","email":"chesley26@example.com","email_verified_at":"2021-02-28 21:03:46","password":"$2y$10$Wv2A9lCK\/uNcnmW2OlpZQe4Lxnsn06lDX75okvMCyqlDdNvo38F0e","remember_token":"4ak7IWc3Ba","created_at":"2021-02-28 21:03:46","updated_at":"2021-02-28 21:03:46","image":"image.png"},
+{"id":"12","name":"Prof. Soledad Beahan","dob":"1972-01-05","email":"dewayne.ledner@example.org","email_verified_at":"2021-02-28 21:03:46","password":"$2y$10$diHLGW\/yMHF18e4W3ry56.pd7VwfCdFTTM0wLPedin6sxBOv6b1NG","remember_token":"Yt0ycB3n2D","created_at":"2021-02-28 21:03:46","updated_at":"2021-02-28 21:03:46","image":"image.png"},
+{"id":"13","name":"Mr. Maximus Kshlerin III","dob":"1989-08-09","email":"emmy16@example.org","email_verified_at":"2021-02-28 21:03:46","password":"$2y$10$b3G2PJ50T\/mg.kNjlO14luCOANnbJ0UqpNAoDLlZhkuHO99HHIvOS","remember_token":"WZh9XO8D3A","created_at":"2021-02-28 21:03:46","updated_at":"2021-02-28 21:03:46","image":"image.png"},
+{"id":"14","name":"Benny Bednar","dob":"1999-12-04","email":"janie15@example.net","email_verified_at":"2021-02-28 21:03:46","password":"$2y$10$iykKY\/Sua2U1yZQdmEFso.Svm4wDXPRog8dZxPxdJouRqbncEYpS.","remember_token":"kZVWjUrknK","created_at":"2021-02-28 21:03:47","updated_at":"2021-02-28 21:03:47","image":"image.png"},
+{"id":"15","name":"Dr. Edyth Bins","dob":"1984-10-30","email":"gorczany.guy@example.net","email_verified_at":"2021-02-28 21:03:47","password":"$2y$10$xzBXqxbNl1aZnuatZU8y0uxmZutL2mH3iXUdRL4iVq9tKTThv9sIe","remember_token":"YpremVS7aS","created_at":"2021-02-28 21:03:47","updated_at":"2021-02-28 21:03:47","image":"image.png"},
+{"id":"16","name":"Deja Crona","dob":"1990-09-28","email":"althea.ortiz@example.net","email_verified_at":"2021-02-28 21:03:47","password":"$2y$10$thgzzmcPJgCmpMikq3N0WeMFPhyqUCph0qzGQ.fPldUTx1.kR2fNO","remember_token":"10dqjuu72m","created_at":"2021-02-28 21:03:47","updated_at":"2021-02-28 21:03:47","image":"image.png"},
+{"id":"17","name":"Josie Wiegand","dob":"1982-08-21","email":"stark.vladimir@example.net","email_verified_at":"2021-02-28 21:03:47","password":"$2y$10$NneGJTUXskDJyM2WYw.YFeDyJZZ9PrwNR7rGEr3WxcYII1j\/f\/1Sy","remember_token":"88Q8OINh7l","created_at":"2021-02-28 21:03:47","updated_at":"2021-02-28 21:03:47","image":"image.png"},
+{"id":"18","name":"Cristobal Kub","dob":"1988-05-06","email":"halvorson.carolyn@example.net","email_verified_at":"2021-02-28 21:03:47","password":"$2y$10$repcmP\/0gbLmEXwE.bioZuD8WGK8EXuE6GxkUT4RlKrcyQzSxirfG","remember_token":"RwaCQIhr11","created_at":"2021-02-28 21:03:47","updated_at":"2021-02-28 21:03:47","image":"image.png"},
+{"id":"19","name":"Letha Roberts","dob":"1978-12-18","email":"geraldine38@example.net","email_verified_at":"2021-02-28 21:03:47","password":"$2y$10$sLiixdrePt5ORmItITe.DOZJUS7oi0hGmXnYFUwRYg2tHhs6cOO82","remember_token":"tX6ckkQeB6","created_at":"2021-02-28 21:03:47","updated_at":"2021-02-28 21:03:47","image":"image.png"},
+{"id":"20","name":"Gladys Hickle","dob":"1971-07-14","email":"myrtis.auer@example.com","email_verified_at":"2021-02-28 21:03:47","password":"$2y$10$.vYKIvwCSUH45LqrsnUZKetNv4eEQS3srwYo\/E9lTyOJRdA7cN\/TW","remember_token":"MRm2luVnns","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48","image":"image.png"},
+{"id":"21","name":"Mr. Orland McGlynn II","dob":"1977-11-10","email":"cassandre.dubuque@example.net","email_verified_at":"2021-02-28 21:03:48","password":"$2y$10$P15ndPtcCPpUoUp7mHV7pev4SA9byvHEsMYheNMY0N18NdHAi8Ie6","remember_token":"CEYHMn8jay","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48","image":"image.png"},
+{"id":"22","name":"Della Kilback","dob":"1992-01-11","email":"feeney.cornell@example.com","email_verified_at":"2021-02-28 21:03:48","password":"$2y$10$lJFB4By36T5AaUA\/JunHTezUssPm9oseYiQ8CYuuvZSeA4VduFvzS","remember_token":"MLlRMmQPCG","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48","image":"image.png"},
+{"id":"23","name":"Corine Heller","dob":"1993-06-25","email":"jakayla.goyette@example.net","email_verified_at":"2021-02-28 21:03:48","password":"$2y$10$I0vyt9GXQ2MDUYrQfFly0Ou4zs9OpOLAPjQ9hDIaZsxBECc.TNBjG","remember_token":"ReSXgaNYpD","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48","image":"image.png"}
+]
+}
+,{"type":"table","name":"user_group","database":"reels_and_meals","data":
+[
+
+]
+}
+,{"type":"table","name":"user_recs","database":"reels_and_meals","data":
+[
+{"id":"1","genres":"[\"Horror\",\"Drama\"]","movie_ids":"[\"3\",\"4\"]","user_id":"3","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"2","genres":"[\"Horror\",\"Drama\"]","movie_ids":"[\"1\",\"7\",\"5\"]","user_id":"4","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"3","genres":"[\"Sci-Fi & Fantasy\",\"Action & Adventure\"]","movie_ids":"[\"3\",\"8\"]","user_id":"5","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"4","genres":"[\"Drama\",\"Romance\"]","movie_ids":"[\"6\",\"4\",\"7\"]","user_id":"6","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"5","genres":"[\"Thriller\"]","movie_ids":"[\"3\",\"7\"]","user_id":"8","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"6","genres":"[\"Horror\",\"Drama\"]","movie_ids":"[\"1\",\"2\"]","user_id":"9","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"7","genres":"[\"Horror\",\"Comedy\",\"Action & Adventure\"]","movie_ids":"[\"2\",\"5\"]","user_id":"12","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"8","genres":"[\"Horror\",\"Thriller\"]","movie_ids":"[\"3\",\"8\"]","user_id":"11","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"9","genres":"[\"Comedy\",\"Drama\"]","movie_ids":"[\"3\",\"4\"]","user_id":"10","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"10","genres":"[\"Thriller\"]","movie_ids":"[\"3\",\"7\"]","user_id":"7","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"11","genres":"[\"Horror\",\"Drama\"]","movie_ids":"[\"1\",\"2\",\"15\",\"18\",\"20\"]","user_id":"13","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"12","genres":"[\"Horror\",\"Comedy\",\"Action & Adventure\"]","movie_ids":"[\"2\",\"5\",\"11\"]","user_id":"14","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"13","genres":"[\"Horror\",\"Thriller\"]","movie_ids":"[\"3\",\"18\"]","user_id":"15","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"14","genres":"[\"Comedy\",\"Drama\"]","movie_ids":"[\"13\",\"14\"]","user_id":"16","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"}
+]
+}
+,{"type":"table","name":"user_role","database":"reels_and_meals","data":
+[
+{"id":"1","user_id":"1","role_id":"1","created_at":null,"updated_at":null},
+{"id":"2","user_id":"2","role_id":"1","created_at":null,"updated_at":null},
+{"id":"3","user_id":"3","role_id":"2","created_at":null,"updated_at":null},
+{"id":"4","user_id":"4","role_id":"2","created_at":null,"updated_at":null},
+{"id":"5","user_id":"5","role_id":"2","created_at":null,"updated_at":null},
+{"id":"6","user_id":"6","role_id":"2","created_at":null,"updated_at":null},
+{"id":"7","user_id":"7","role_id":"2","created_at":null,"updated_at":null},
+{"id":"8","user_id":"8","role_id":"2","created_at":null,"updated_at":null},
+{"id":"9","user_id":"9","role_id":"2","created_at":null,"updated_at":null},
+{"id":"10","user_id":"10","role_id":"2","created_at":null,"updated_at":null},
+{"id":"11","user_id":"11","role_id":"2","created_at":null,"updated_at":null},
+{"id":"12","user_id":"12","role_id":"2","created_at":null,"updated_at":null},
+{"id":"13","user_id":"13","role_id":"2","created_at":null,"updated_at":null},
+{"id":"14","user_id":"14","role_id":"2","created_at":null,"updated_at":null},
+{"id":"15","user_id":"15","role_id":"2","created_at":null,"updated_at":null},
+{"id":"16","user_id":"16","role_id":"2","created_at":null,"updated_at":null},
+{"id":"17","user_id":"17","role_id":"2","created_at":null,"updated_at":null},
+{"id":"18","user_id":"18","role_id":"2","created_at":null,"updated_at":null},
+{"id":"19","user_id":"19","role_id":"2","created_at":null,"updated_at":null},
+{"id":"20","user_id":"20","role_id":"2","created_at":null,"updated_at":null},
+{"id":"21","user_id":"21","role_id":"2","created_at":null,"updated_at":null},
+{"id":"22","user_id":"22","role_id":"2","created_at":null,"updated_at":null},
+{"id":"23","user_id":"23","role_id":"2","created_at":null,"updated_at":null}
+]
+}
+,{"type":"table","name":"user_watchlists","database":"reels_and_meals","data":
+[
+{"id":"1","user_id":"6","movie_id":"14","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"2","user_id":"8","movie_id":"20","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"3","user_id":"4","movie_id":"2","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"4","user_id":"10","movie_id":"9","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"5","user_id":"5","movie_id":"12","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"6","user_id":"7","movie_id":"2","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"7","user_id":"9","movie_id":"16","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"8","user_id":"4","movie_id":"15","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"9","user_id":"6","movie_id":"12","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"10","user_id":"11","movie_id":"20","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"11","user_id":"10","movie_id":"9","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"12","user_id":"3","movie_id":"10","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"13","user_id":"4","movie_id":"2","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"14","user_id":"10","movie_id":"19","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"15","user_id":"11","movie_id":"4","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"16","user_id":"9","movie_id":"19","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"17","user_id":"3","movie_id":"9","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"18","user_id":"4","movie_id":"20","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"19","user_id":"8","movie_id":"8","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"20","user_id":"4","movie_id":"12","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"21","user_id":"6","movie_id":"15","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"22","user_id":"4","movie_id":"12","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"23","user_id":"4","movie_id":"20","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"24","user_id":"5","movie_id":"7","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"25","user_id":"7","movie_id":"4","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"26","user_id":"9","movie_id":"2","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"27","user_id":"8","movie_id":"9","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"28","user_id":"4","movie_id":"14","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"29","user_id":"4","movie_id":"8","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"30","user_id":"5","movie_id":"7","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"31","user_id":"7","movie_id":"3","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"32","user_id":"11","movie_id":"19","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"33","user_id":"4","movie_id":"1","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"34","user_id":"5","movie_id":"9","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"35","user_id":"8","movie_id":"14","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"36","user_id":"11","movie_id":"7","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"37","user_id":"8","movie_id":"17","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"38","user_id":"9","movie_id":"5","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"39","user_id":"5","movie_id":"2","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"40","user_id":"8","movie_id":"17","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"41","user_id":"5","movie_id":"1","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"42","user_id":"8","movie_id":"20","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"43","user_id":"8","movie_id":"9","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"44","user_id":"6","movie_id":"10","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"45","user_id":"3","movie_id":"5","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"46","user_id":"9","movie_id":"8","created_at":"2021-02-28 21:03:48","updated_at":"2021-02-28 21:03:48"},
+{"id":"47","user_id":"8","movie_id":"2","created_at":"2021-02-28 21:03:49","updated_at":"2021-02-28 21:03:49"},
+{"id":"48","user_id":"5","movie_id":"17","created_at":"2021-02-28 21:03:49","updated_at":"2021-02-28 21:03:49"},
+{"id":"49","user_id":"11","movie_id":"11","created_at":"2021-02-28 21:03:49","updated_at":"2021-02-28 21:03:49"},
+{"id":"50","user_id":"5","movie_id":"9","created_at":"2021-02-28 21:03:49","updated_at":"2021-02-28 21:03:49"}
+]
+}
+]

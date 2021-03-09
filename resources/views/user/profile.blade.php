@@ -11,7 +11,7 @@
           </div>
 
       <div class="col-4">
-    <h3 class="text-center">Ted Bo</h3>
+    <h3 class="text-center">{{ Auth::user()->name }}</h3>
   </div>
 
 </div>
@@ -96,99 +96,27 @@
   <p class="text-light">YOUR MOVIE RECOMMENDATIONS</p>
   <div class="row">
     <div class="card-group">
-          <div class="col-md-2 active">
+        @foreach ($movies as $movie)
+          @for ($i=0; $i < 6; $i++)
+            @if ($movie->id == $recomms[$i]['id']) <div class="col-md-2 active">
               <div class="card">
-                  <img class="card-img-top img-top" src="/assets/img/moonrise.jpg" height="240" alt="Card image cap">
+                  <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" height="240" alt="Card image cap">
                   <div class="card-img-overlay">
-                    <h3 class="card-title"><i class="fas fa-heart"></i></h3>
+                      <h3 class="card-title"><i class="fas fa-heart"></i></h3>
                   </div>
                   <div class="bg-dark text-white">
-                  <h6>Moonrise Kingdom <br>(2019)</h6>
-                  <div>
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                </div>
-              </div>
-
-              </div>
-          </div>
-          <div class=" col-md-2">
-              <div class="card">
-                  <img class="card-img-top img-top" src="/assets/img/image2.jpg" height="240" alt="Card image cap">
-                  <div class="card-img-overlay">
-                    <h3 class="card-title"><i class="fas fa-heart"></i></h3>
+                      <h6>{{ $movie->title }}<br>{{ $movie->release_year }}</h6>
+                      <div>
+                          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                      </div>
                   </div>
-                  <div class="bg-dark text-white">
-                  <h6>The IO <br>(2019)</h6>
-                  <div>
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                </div>
-              </div>
-
               </div>
           </div>
-          <div class=" col-md-2">
-              <div class="card">
-                  <img class="card-img-top img-top" src="/assets/img/image4.jpg" height="240" alt="Card image cap">
-                  <div class="card-img-overlay">
-                    <h3 class="card-title"><i class="fas fa-heart"></i></h3>
-                  </div>
-                  <div class="bg-dark text-white">
-                  <h6>The Equalizer 2 <br>(2019)</h6>
-                  <div>
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                </div>
-              </div>
-
-              </div>
-          </div>
-          <div class="col-md-2">
-              <div class="card">
-                  <img class="card-img-top img-top" src="/assets/img/shedies.jpg" height="240" alt="Card image cap">
-                  <div class="card-img-overlay">
-                    <h3 class="card-title"><i class="fas fa-heart"></i></h3>
-                  </div>
-                  <div class="bg-dark text-white">
-                  <h6>She Dies Tomorrow <br>(2019)</h6>
-                  <div>
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                </div>
-              </div>
-
-              </div>
-          </div>
-          <div class="col-md-2">
-              <div class="card">
-                  <img class="card-img-top img-top" src="/assets/img/cheaper.jpg" height="240" alt="Card image cap">
-                  <div class="card-img-overlay">
-                    <h3 class="card-title"><i class="fas fa-heart"></i></h3>
-                  </div>
-                  <div class="bg-dark text-white">
-                  <h6>Cheaper by the Dozen <br>(2019)</h6>
-                  <div>
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                </div>
-              </div>
-
-
-              </div>
-          </div>
-          <div class="col-md-2">
-              <div class="card">
-                  <img class="card-img-top img-top" src="/assets/img/apocalypse.jpg" height="240" alt="Card image cap">
-                  <div class="card-img-overlay">
-                    <h3 class="card-title"><i class="fas fa-heart"></i></h3>
-                  </div>
-                  <div class="bg-dark text-white">
-                  <h6>Apocalypse Now <br>(2019)</h6>
-                  <div>
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                </div>
-              </div>
-
-              </div>
-              </div>
-          </div>
-    </section>
+          @endif
+        @endfor
+      @endforeach
+    </div>
+  </section>
 
 
       <br>

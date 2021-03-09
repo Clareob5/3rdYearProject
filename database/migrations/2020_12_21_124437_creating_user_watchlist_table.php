@@ -13,14 +13,14 @@ class CreatingUserWatchlistTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_watchlist', function (Blueprint $table) {
+        Schema::create('user_watchlists', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('movie_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('movie_id')->references('id')->on('movies');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');;
+            $table->foreign('movie_id')->references('id')->on('movies')->onUpdate('cascade')->onDelete('restrict');;
         });
     }
 
@@ -31,6 +31,15 @@ class CreatingUserWatchlistTable extends Migration
      */
     public function down()
     {
-          Schema::dropIfExists('user_watchlist');
+
+          Schema::table('user_watchlists', function (Blueprint $table) {
+                $table->dropForeign(['user_id']);
+                $table->dropForeign(['movie_id']);
+                $table->dropIfExists('user_watchlists');
+
+
+          });
+
+
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Recombee\RecommApi\Client;
+use Recombee\RecommApi\Requests as Reqs;
 use App\Models\Movie;
 use App\Models\UserRecs;
 use Auth;
@@ -16,15 +18,39 @@ class ProfileController extends Controller
     }
 
     public function index(){
-      return view('user.profile');
+      $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
+      $user_id = Auth::user()->id;
+      $count = 6;
+
+
+      $results = $client->send(
+        new Reqs\RecommendItemsToUser($user_id, $count, ['scenario' => 'Top_recommendations'])
+      );
+
+      $recomms =  $results['recomms'];
+
+      $movies = Movie::All();
+        return view('user.profile', [
+          'movies' => $movies,
+          'recomms' => $recomms
+        ]);
+
     }
 
     public function show(){
-      //$id = Auth::user()->id;
-      //$user_rec = UserRecs::findOrFail($id);
+      $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
+      $user_id = Auth::user()->id;
+      $count = 6;
+
+
+      $results = $client->send(
+        new RecommendItemsToUser($user_id, $count, ['scenario' => 'Top_recommendations'])
+      );
+
+      $recomms =  $results['recomms'];
+
       $movies = Movie::All();
         return view('user.profile_show', [
-          //'user_rec' => $user_rec,
           'movies' => $movies
         ]);
     }
