@@ -24,10 +24,13 @@
                         <input type="hidden" name="_method" value="PUT">
                         <fieldset>
                             <legend>Select</legend>
-                            <input type="checkbox" name="genres[]" value="Action">Action<br>
+                            <input type="checkbox" name="genres[]" value="Action & Adventure">Action & Adventure<br>
                             <input type="checkbox" name="genres[]" value="Horror">Horror<br>
                             <input type="checkbox" name="genres[]" value="Drama">Drama<br>
                             <input type="checkbox" name="genres[]" value="Comedy">Comedy<br>
+                            <input type="checkbox" name="genres[]" value="Sci-Fi & Fantasy">Sci-Fi & Fantasy<br>
+                            <input type="checkbox" name="genres[]" value="Thriller">Thriller<br>
+                            <input type="checkbox" name="genres[]" value="Children & Family">Children & Family<br>
                             <br>
                             <button type="submit" class="btn btn-primary pull-right">Next</button>
                             <a href="{{ route('profile.index')}}" class="btn pull-right">Skip</button>

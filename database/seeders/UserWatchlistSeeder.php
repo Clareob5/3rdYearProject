@@ -14,7 +14,7 @@ class UserWatchlistSeeder extends Seeder
      */
     public function run()
     {
-      for($i = 1; $i <= 20; $i++) {
+      for($i = 1; $i <= 50; $i++) {
         $user = UserWatchlist::factory()->create();
 
       }

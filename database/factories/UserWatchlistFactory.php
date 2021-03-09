@@ -23,7 +23,7 @@ class UserWatchlistFactory extends Factory
     {
         return [
             'user_id' => $this->faker->numberBetween($min = 3, $max = 11),
-            'movie_id' => $this->faker->numberBetween($min = 1, $max = 25)
+            'movie_id' => $this->faker->numberBetween($min = 1, $max = 20)
         ];
     }
 }
