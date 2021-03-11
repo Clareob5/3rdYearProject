@@ -36,6 +36,7 @@ class GroupController extends Controller
   */
   public function storeGroup(Request $request)
   {
+
       $request ->validate([
         'group_name' => 'required|max:191',
 
@@ -45,7 +46,11 @@ class GroupController extends Controller
         $group->user_id = $request->input('user_id');
         $group->group_name = $request->input('group_name');
         $group->save();
-        //$group->users()->attach($request->input['users']);
+
+        $members = $request->input('users');
+        $group->users()->sync($members);
+        //$group->fill($request->input('users'))->save();
+        // $group->users()->attach($users);
 
       }else{
         $group = $request->session()->get('groups');

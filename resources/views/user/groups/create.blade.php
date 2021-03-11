@@ -31,13 +31,13 @@
                           </div>
                           <div class="form-group">
                               <label for="users">Members</label>
-                              <select class="form-control col-5" name='users'>
+                              <fieldset class="form-control col-5">
                                 @foreach ($users as $user)
-                                  <option type="checkbox" name="users[]" value="{{ $user->id }}" >{{ $user->name }}</option>
+                                  <input type="checkbox" name="users[]" value="{{ $user->id }}" />{{ $user->name }}
                                 @endforeach
-                              </select>
+                              </fieldset>
                           <a href="{{ route('user.home') }}" class="btn btn-default">Cancel</a>
-                          <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                          <button type="submit" class="btn btn-primary float-right">Submit</button>
                       </form>
                   </div>
               </div>
