@@ -60,8 +60,8 @@
                     <input type="text" class="form-control" name="duration" id="duration" value="{{ old('duration') }}" />
                 </div>
                 <div class="form-group">
-                    <label for="listed_in">Listed In</label>
-                    <input type="text" class="form-control" name="listed_in" id="listed_in" value="{{ old('listed_in') }}" />
+                    <label for="genre">Genre</label>
+                    <input type="text" class="form-control" name="genre" id="genre" value="{{ old('genre') }}" />
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>

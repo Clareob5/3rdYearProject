@@ -27,7 +27,7 @@
                           <th>Release Year</th>
                           <th>Rating</th>
                           <th>Duration</th>
-                          <th>Listed In</th>
+                          <th>Genre</th>
                           <th>Description</th>
                           <th>Actions</th>
                         </thead>
@@ -42,7 +42,7 @@
                               <td>{{ $movie->release_year }}</td>
                               <td>{{ $movie->rating }}</td>
                               <td>{{ $movie->duration }}</td>
-                              <td>{{ $movie->listed_in }}</td>
+                              <td>{{ $movie->genre }}</td>
                               <td>{{ $movie->description }}</td>
                               <td>
                                 <a href="{{ route('admin.movies.show', $movie->id )}}" class="btn btn-primary">View</a>

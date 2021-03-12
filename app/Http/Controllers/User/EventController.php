@@ -4,9 +4,13 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Recombee\RecommApi\Client;
+use Recombee\RecommApi\Requests as Reqs;
+use Auth;
 use App\Models\User;
 use App\Models\Group;
 use App\Models\Event;
+use App\Models\Movie;
 
 
 class EventController extends Controller
@@ -52,9 +56,46 @@ class EventController extends Controller
    */
   public function show($id)
   {
+    $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
+    $user_id = Auth::user()->id;
+    $count = 3;
+
+    $results = $client->send(
+      new Reqs\RecommendItemsToUser($user_id, $count)
+    );
+
+    $recomms_1 =  $results['recomms'];
+
     $event = Event::findOrFail($id);
+    $group = Group::find($event->group_id);
+
+    foreach ($group->users as $user) {
+      $results_mem = $client->send(
+        new Reqs\RecommendItemsToUser($user->id, $count)
+      );
+
+      $recomms_2 =  $results_mem['recomms'];
+
+    }
+    $name = 'group-' . $group->id;
+
+    $group_recs = array_merge($recomms_2,$recomms_1);
+
+    for ($i=0; $i<count($group_recs); $i++) {
+      $book = $client -> send(new Reqs\AddBookmark($name, $group_recs[$i]['id']));
+    }
+
+    $result = $client->send(
+      new Reqs\RecommendItemsToUser($name, 1)
+      );
+
+    $final_mov = $result['recomms'];
+
+    $movies = Movie::All();
     return view('user.groups.event.show', [
-      'event' => $event
+      'event' => $event,
+      'final_mov' => $final_mov,
+      'movies' => $movies
     ]);
   }
 

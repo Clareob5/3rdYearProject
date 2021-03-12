@@ -22,7 +22,7 @@
         <form action="{{ route('admin.movies.update', $movie->id) }}" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="_method" value="PUT">
-                <img src="{{ asset('storage/covers/' . $movie->cover ) }}" width="150" />
+                <img src="{{ asset('img/' . $movie->cover ) }}" width="150" />
                 <div class="form-group">
                     <label for="cover">Cover</label>
                     <input type="file" class="form-control" name="cover" id="cover" />
@@ -60,8 +60,8 @@
                     <input type="text" class="form-control" name="duration" id="duration" value="{{ old('duration', $movie->duration) }}" />
                 </div>
                 <div class="form-group">
-                    <label for="listed_in">Listed In</label>
-                    <input type="text" class="form-control" name="listed_in" id="listed_in" value="{{ old('listed_in', $movie->listed_in) }}" />
+                    <label for="genre">Genre</label>
+                    <input type="text" class="form-control" name="genre" id="genre" value="{{ old('genre', $movie->genre) }}" />
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>

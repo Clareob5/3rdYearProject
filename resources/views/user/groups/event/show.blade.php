@@ -35,7 +35,7 @@
                             </tr>
 
                       <tr>
-                      <td><a href="{{ route('user.home') }}" class="btn btn-default">Back</a>
+                      <td><a href="{{ route('user.groups.show', $event->group_id) }}" class="btn btn-default">Back</a>
                       <a href="{{ route('user.groups.event.edit', $event->id) }}" class="btn btn-warning">Edit</a>
                       <form style="display:inline-block" method="POST" action="{{ route('user.groups.event.destroy', $event->id) }}">
                           <input type="hidden" name="_method" value="DELETE">
@@ -48,6 +48,24 @@
                     </table>
 
                 </div>
+                <div class="card-body">  @foreach ($movies as $movie)
+                    @if ($movie->id == $final_mov[0]['id']) <div class="col-md-6 active">
+                      <div class="card">
+                          <a href="{{ route('user.movies.show', $movie->id) }}">
+                              <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" height="240" alt="Card image cap"></a>
+                          <div class="card-img-overlay">
+                              <h3 class="card-title"><i class="fas fa-heart"></i></h3>
+                          </div>
+                          <div class="bg-dark text-white">
+                              <h6>{{ $movie->title }}<br>{{ $movie->release_year }}</h6>
+                              <div>
+                                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  @endif
+                  @endforeach</div>
             </div>
       </div>
       <div class="col-md-2 card">

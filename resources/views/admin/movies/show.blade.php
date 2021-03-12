@@ -60,8 +60,8 @@
                             </tr>
 
                             <tr>
-                              <td>Listed In</td>
-                              <td>{{ $movie->listed_in }}</td>
+                              <td>Genre</td>
+                              <td>{{ $movie->genre }}</td>
                             </tr>
 
                             <tr>

@@ -53,7 +53,8 @@
                                         <tr>
                                             <td>{{ $event->date }}</td>
                                             <td>{{ $event->time }}</td>
-                                            <td><form style="display:inline-block" method="POST" action="{{ route('user.groups.event.destroy', $event->id) }}">
+                                            <td><a href="{{ route('user.groups.event.show', $event->id) }}" class="btn btn-secondary">View</a>
+                                              <form style="display:inline-block" method="POST" action="{{ route('user.groups.event.destroy', $event->id) }}">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <button type="submit" class="btn btn-danger">Delete</a>
@@ -83,7 +84,10 @@
                 Members
               </div>
                 <p>{{ $group->user->name}}</p>
-                <p>Ben Teck</p>
+                {{-- @foreach ($iterable as $key => $value)
+
+                @endforeach
+                <p>{{ $group->user_group->user->name }}</p> --}}
 
                 <a href="" class="btn btn-warning">Edit</a>
                 <div>
