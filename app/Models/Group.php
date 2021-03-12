@@ -11,7 +11,6 @@ class Group extends Model
 
     public function user()
     {
-
       return $this->belongsTo('App\Models\User');
     }
 
@@ -21,7 +20,6 @@ class Group extends Model
 
     public function events()
     {
-
       return $this->hasMany('App\Models\Event');
     }
 }

@@ -191,7 +191,7 @@
 
                         <div class="col-md-1">
                             <div class="card">
-                                <img class="card-img-top img-top" src="assets/img/image.jpg" alt="Card image cap">
+                                <img class="card-img-top img-top" src="assets/img/lost.jpg" alt="Card image cap">
 
 
                             </div>
@@ -199,7 +199,7 @@
 
                         <div class="col-md-1">
                             <div class="card">
-                                <img class="card-img-top img-top" src="assets/img/image2.jpg" alt="Card image cap">
+                                <img class="card-img-top img-top" src="assets/img/jojo.jpg" alt="Card image cap">
 
 
                             </div>
@@ -207,7 +207,7 @@
 
                         <div class="col-md-1">
                             <div class="card">
-                                <img class="card-img-top img-top" src="assets/img/image3.jpg" alt="Card image cap">
+                                <img class="card-img-top img-top" src="assets/img/norm_north.jpg" alt="Card image cap">
 
 
                             </div>
@@ -215,7 +215,7 @@
 
                         <div class="col-md-1">
                             <div class="card">
-                                <img class="card-img-top img-top" src="assets/img/image4.jpg" alt="Card image cap">
+                                <img class="card-img-top img-top" src="assets/img/IO.jpg" alt="Card image cap">
 
 
                             </div>
@@ -223,7 +223,7 @@
 
                         <div class="col-md-1">
                             <div class="card">
-                                <img class="card-img-top img-top" src="assets/img/image5.jpeg" alt="Card image cap">
+                                <img class="card-img-top img-top" src="assets/img/moonrise.jpg" alt="Card image cap">
 
 
                             </div>
@@ -231,7 +231,7 @@
 
                         <div class="col-md-1">
                             <div class="card">
-                                <img class="card-img-top img-top" src="assets/img/image6.jpeg" alt="Card image cap">
+                                <img class="card-img-top img-top" src="assets/img/next_gen.jpg" alt="Card image cap">
 
 
                             </div>

@@ -56,30 +56,43 @@ class EventController extends Controller
    */
   public function show($id)
   {
+    $event = Event::findOrFail($id);
+    $group = Group::find($event->group_id);
+
     $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
     $user_id = Auth::user()->id;
-    $count = 3;
+    $count = 5;
 
     $results = $client->send(
       new Reqs\RecommendItemsToUser($user_id, $count)
     );
 
     $recomms_1 =  $results['recomms'];
+    $recomms_2 =  [];
+    $recs = [];
+    $name = 'group-' . $group->id;
 
-    $event = Event::findOrFail($id);
-    $group = Group::find($event->group_id);
+    // $client->send(new Reqs\AddUser($name));
 
     foreach ($group->users as $user) {
+      // $client->send("Hello WOrld");
+
       $results_mem = $client->send(
         new Reqs\RecommendItemsToUser($user->id, $count)
       );
-
-      $recomms_2 =  $results_mem['recomms'];
+      array_push($recomms_2, $results_mem['recomms']);
 
     }
-    $name = 'group-' . $group->id;
+    for ($i=0; $i <count($recomms_2) ; $i++) {
+      for ($j=0; $j < count($recomms_2[$i]) ; $j++) {
+          array_push($recs, $recomms_2[$i][$j]);
+        }
+    }
 
-    $group_recs = array_merge($recomms_2,$recomms_1);
+    $group_recs = array_merge($recs,$recomms_1);
+    print_r($recomms_2);
+
+    print_r($group_recs);
 
     for ($i=0; $i<count($group_recs); $i++) {
       $book = $client -> send(new Reqs\AddBookmark($name, $group_recs[$i]['id']));

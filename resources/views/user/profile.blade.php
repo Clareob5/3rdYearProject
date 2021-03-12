@@ -83,7 +83,7 @@
     <a href="{{route('user.groups.create', Auth::user()->id)}}" type="button" class="btn btn-success">Create Group<i class="fas fa-plus-circle"></i></a>
     <br>
     <br>
-    <button type="button" class="btn btn-success">View Groups</button>
+    <a href="{{route('user.groups.show', $group->id)}}" type="button" class="btn btn-success">View Groups</a>
   </div>
 
 </div>

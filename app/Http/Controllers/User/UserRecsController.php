@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\UserRecs;
 use App\Models\Movie;
+use Auth;
 
 class UserRecsController extends Controller
 {
@@ -17,14 +18,91 @@ class UserRecsController extends Controller
 
     public function index()
     {
-        //
+      
+    }
+
+    public function createGenre(Request $request)
+    {
+
+      $userRec = $request->session()->get('user_recs');
+      return view('user.recs.create_genres',compact('userRec'));
+
+    }
+
+    public function storeGenre(Request $request)
+    {
+
+      $id = Auth::user()->id;
+      $validatedData = $request->validate([
+        'user_id' => 'integer',
+        'genres' => 'nullable',
+      ]);
+
+      if(empty($request->session()->get('user_recs'))){
+        $userRec = new UserRecs();
+        $userRec->user_id = $id;
+        $userRec['genres'] = $request->input('genres');
+        $request->session()->put('user_recs', $userRec);
+        $userRec->save();
+      }else{
+        $userRec = $request->session()->get('user_recs');
+        $userRec = new UserRecs();
+        $userRec->user_id = $id;
+        $userRec['genres'] = $request->input('genres');
+        //$userRec->fill($validatedData);
+        $request->session()->put('user_recs', $userRec);
+        $userRec->save();
+      }
+
+     return redirect()->route('user.recs.create_movies', $id);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display the specified resource.
      *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function createMovie(Request $request, $id)
+    {
+
+
+      $userRec = $request->session()->get('user_recs');
+      $movies = Movie::All();
+      return view('user.recs.create_movies',compact('userRec'), [
+        'movies' => $movies
+      ]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function storeMovie(Request $request)
+    {
+      $id = Auth::user()->id;
+
+      $validatedData = $request->validate([
+        'movie_ids' => 'nullable',
+      ]);
+
+      if(empty($request->session()->get('user_recs'))){
+        $userRec = UserRecs::findOrFail($id);
+        $userRec['movie_ids'] = $request->input('movie_ids');
+        $request->session()->put('user_recs', $userRec);
+        $userRec->save();
+      }else{
+        $userRec = $request->session()->get('user_recs');
+        $userRec['movie_ids'] = $request->input('movie_ids');
+        $request->session()->put('user_recs', $userRec);
+        $userRec->save();
+      }
+
+     return redirect()->route('profile.index');
+    }
+
     public function editGenre(Request $request, $id)
     {
         $userRec = $request->session()->get('user_recs');
@@ -51,7 +129,10 @@ class UserRecsController extends Controller
         $userRec->save();
       }else{
         $userRec = $request->session()->get('user_recs');
-        $userRec->fill($validatedData);
+        $userRec = new UserRecs();
+        $userRec->user_id = $id;
+        $userRec['genres'] = $request->input('genres');
+        //$userRec->fill($validatedData);
         $request->session()->put('user_recs', $userRec);
         $userRec->save();
       }
@@ -102,24 +183,8 @@ class UserRecsController extends Controller
      return redirect()->route('profile.index');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         //

@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(ReviewSeeder::class);
         $this->call(UserRecsSeeder::class);
-       $this->call(UserWatchlistSeeder::class);
+        $this->call(UserWatchlistSeeder::class);
+        //$this->call(GroupSeeder::class);
+        //$this->call(EventSeeder::class);
     }
 }

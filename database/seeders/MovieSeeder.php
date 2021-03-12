@@ -25,7 +25,7 @@ class MovieSeeder extends Seeder
       $movie->duration = "190 min";
       $movie->genre = "Action";
       $movie->description = "Before planning an awesome wedding for his grandfather, a polar bear king must take back a stolen artifact from an evil archaeologist first.";
-      $movie->cover = "image.jpg";
+      $movie->cover = "Lost_in_Translation.jpg";
       $movie->save();
 
       $movie = new Movie();
@@ -81,7 +81,7 @@ class MovieSeeder extends Seeder
       $movie->duration = "190 min";
       $movie->genre = "Action";
       $movie->description = "During World War I, two British soldiers -- Lance Cpl. Schofield and Lance Cpl. Blake -- receive seemingly impossible orders.";
-      $movie->cover = "image.jpg";
+      $movie->cover = "1917.jpg";
       $movie->save();
 
       $movie = new Movie();
@@ -109,7 +109,7 @@ class MovieSeeder extends Seeder
       $movie->duration = "190 min";
       $movie->genre = "Action";
       $movie->description = "During World War I, two British soldiers -- Lance Cpl. Schofield and Lance Cpl. Blake -- receive seemingly impossible orders.";
-      $movie->cover = "image.jpg";
+      $movie->cover = "1917.jpg";
       $movie->save();
 
       $movie = new Movie();
@@ -123,7 +123,7 @@ class MovieSeeder extends Seeder
       $movie->duration = "90 min";
       $movie->genre = "Comedy";
       $movie->description = "Before planning an awesome wedding for his grandfather, a polar bear king must take back a stolen artifact from an evil archaeologist first.	";
-      $movie->cover = "image2.jpg";
+      $movie->cover = "norm_north.jpg";
       $movie->save();
 
       $movie = new Movie();
@@ -137,7 +137,7 @@ class MovieSeeder extends Seeder
       $movie->duration = "94 min";
       $movie->genre = "Stand-Up Comedy";
       $movie->description = "Jandino Asporaat riffs on the challenges of raising kids and serenades the audience with a rousing rendition of Sex on Fire in his comedy show.";
-      $movie->cover = "image2.jpg";
+      $movie->cover = "jandino.jpg";
       $movie->save();
 
       $movie = new Movie();
@@ -151,7 +151,7 @@ class MovieSeeder extends Seeder
       $movie->duration = "99 min";
       $movie->genre = "Comedy";
       $movie->description = "When nerdy high schooler Dani finally attracts the interest of her longtime crush, she lands in the cross hairs of his ex, a social media celebrity. ";
-      $movie->cover = "image2.jpg";
+      $movie->cover = "reality.jpg";
       $movie->save();
 
       $movie = new Movie();
@@ -165,7 +165,7 @@ class MovieSeeder extends Seeder
       $movie->duration = "108 min";
       $movie->genre = "Comedy";
       $movie->description = "Hitler Youth cadet Jojo Betzler firmly believes in the ideals of Nazism manifested by his imaginary friend, Adolf Hitler. ";
-      $movie->cover = "image2.jpg";
+      $movie->cover = "automata.jpg";
       $movie->save();
 
       $movie = new Movie();
@@ -179,7 +179,7 @@ class MovieSeeder extends Seeder
       $movie->duration = "90 min";
       $movie->genre = "Action & Adventure";
       $movie->description = "A struggling couple can't believe their luck when they find a stash of money in the apartment of a neighbor who was recently murdered. ";
-      $movie->cover = "image2.jpg";
+      $movie->cover = "good_people.jpg";
       $movie->save();
 
       $movie = new Movie();
@@ -193,7 +193,7 @@ class MovieSeeder extends Seeder
       $movie->duration = "95 min";
       $movie->genre = "Action & Adventure";
       $movie->description = "When beer magnate Alfred \"Freddy\" Heineken is kidnapped in 1983, his abductors make the largest ransom demand in history.";
-      $movie->cover = "image2.jpg";
+      $movie->cover = "kidnapping.jpg";
       $movie->save();
 
       $movie = new Movie();
@@ -207,12 +207,12 @@ class MovieSeeder extends Seeder
       $movie->duration = "58 min";
       $movie->genre = "Children & Family";
       $movie->description = "A team of minstrels, including a monkey, cat and donkey, narrate folktales from the Indian regions of Rajasthan, Kerala and Punjab.";
-      $movie->cover = "image2.jpg";
+      $movie->cover = "krish.jpg";
       $movie->save();
 
       $movie = new Movie();
       $movie->title = "Next Gen";
-      $movie->director = "evin R. Adams";
+      $movie->director = "Kevin R. Adams";
       $movie->cast = "John Krasinski, Charlyne Yi, Jason Sudeikis, Michael PeÃ±a, David Cross, Constance Wu";
       $movie->country = "China";
       $movie->date_added = "2021-02-27";
@@ -221,7 +221,7 @@ class MovieSeeder extends Seeder
       $movie->duration = "106 min";
       $movie->genre = "Sci-Fi & Fantasy";
       $movie->description = "When lonely Mai forms an unlikely bond with a top-secret robot, they embark on an intense, action-packed adventure to foil the plot of a vicious villain.";
-      $movie->cover = "image2.jpg";
+      $movie->cover = "next_gen.jpg";
       $movie->save();
 
       $movie = new Movie();
@@ -235,11 +235,11 @@ class MovieSeeder extends Seeder
       $movie->duration = "106 min";
       $movie->genre = "Comedy";
       $movie->description = "A wrong-number text sparks a virtual romance between a smart but unpopular teen and a sweet jock who thinks he's talking to a gorgeous cheerleader.";
-      $movie->cover = "image2.jpg";
+      $movie->cover = "sierra.jpg";
       $movie->save();
 
       $movie = new Movie();
-      $movie->title = "Love";
+      $movie->title = "A Star Is Born";
       $movie->director = "Gaspar NoÃ©";
       $movie->cast = "Karl Glusman, Klara Kristin, Aomi Muyock, Ugo Fox, Juan Saavedra, Gaspar NoÃ©, Isabelle Nicou";
       $movie->country = "France";
@@ -249,7 +249,7 @@ class MovieSeeder extends Seeder
       $movie->duration = "135 min";
       $movie->genre = "Drama";
       $movie->description = "A man in an unsatisfying marriage recalls the details of an intense past relationship with an ex-girlfriend when he gets word that she may be missing.";
-      $movie->cover = "image2.jpg";
+      $movie->cover = "a_star_is_born.jpg";
       $movie->save();
 
       $movie = new Movie();
@@ -263,7 +263,7 @@ class MovieSeeder extends Seeder
       $movie->duration = "98 min";
       $movie->genre = "Comedy";
       $movie->description = "A filmmaker working on a documentary about love in modern Manhattan becomes personally entangled in the romantic lives of his subjects.";
-      $movie->cover = "image2.jpg";
+      $movie->cover = "manhattan_romance.jpg";
       $movie->save();
 
       $movie = new Movie();
@@ -277,7 +277,7 @@ class MovieSeeder extends Seeder
       $movie->duration = "96 min";
       $movie->genre = "Action & Adventure";
       $movie->description = "A brain-addled war vet, a failing band manager and a Stanley Kubrick impersonator help the CIA construct an epic scam by faking the 1969 moon landing.";
-      $movie->cover = "image2.jpg";
+      $movie->cover = "moonwalkers.jpg";
       $movie->save();
 
       $movie = new Movie();
@@ -291,10 +291,10 @@ class MovieSeeder extends Seeder
       $movie->duration = "90 min";
       $movie->genre = "Drama";
       $movie->description = "A New Orleans politician finds his idealistic plans for rebuilding after a toxic oil spill unraveling thanks to a sex scandal.";
-      $movie->cover = "image2.jpg";
+      $movie->cover = "the_runner.jpg";
       $movie->save();
 
-    
+
 
     }
 }

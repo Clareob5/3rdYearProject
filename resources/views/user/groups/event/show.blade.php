@@ -3,21 +3,21 @@
 @section('content')
   <div class="container">
       <div class="row">
-        <div class="col-md-2 card">
+        <div class="col-md-2 box_style_two card">
           <h3>Groups</h3>
           <div class="card-body">
             <p>Group name<p>
         </div>
       </div>
 
-          <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
+          <div class="col-md-8 ">
+            <div class="card box_style_two">
+                <div class="card-header text-light">
                   Event Details
                 </div>
 
-                <div class="card-body">
-                      <table class="table table-hover">
+                <div class="card-body ">
+                      <table class="table table-hover text-light">
                         <tbody>
                             <tr>
                               <td>Date</td>
@@ -29,13 +29,8 @@
                               <td>{{ $event->time }}</td>
                             </tr>
 
-                            <tr>
-                              <td>Group Members</td>
-                              <td>{{ $event->group_id }}</td>
-                            </tr>
-
                       <tr>
-                      <td><a href="{{ route('user.groups.show', $event->group_id) }}" class="btn btn-default">Back</a>
+                      <td class="text-light"><a href="{{ route('user.groups.show', $event->group_id) }}" class="btn btn-outline-light">Back</a>
                       <a href="{{ route('user.groups.event.edit', $event->id) }}" class="btn btn-warning">Edit</a>
                       <form style="display:inline-block" method="POST" action="{{ route('user.groups.event.destroy', $event->id) }}">
                           <input type="hidden" name="_method" value="DELETE">
@@ -52,7 +47,7 @@
                     @if ($movie->id == $final_mov[0]['id']) <div class="col-md-6 active">
                       <div class="card">
                           <a href="{{ route('user.movies.show', $movie->id) }}">
-                              <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" height="240" alt="Card image cap"></a>
+                              <img class="card-img-top img-top" src="{{ '/assets/img/' . $movie->cover }}" height="240" alt="Card image cap"></a>
                           <div class="card-img-overlay">
                               <h3 class="card-title"><i class="fas fa-heart"></i></h3>
                           </div>
@@ -68,16 +63,11 @@
                   @endforeach</div>
             </div>
       </div>
-      <div class="col-md-2 card">
+      <div class="col-md-2 box_style_two card">
         <div class="card-body">
           <h3>Members</h3>
           <p>user 1</p>
-            <a href="" class="btn btn-warning">Edit</a>
-            <div><form style="display:inline-block" method="POST" action=""> {{-- {{ route('user.group.destroy') }} --}}
-                <input type="hidden" name="_method" value="DELETE">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <button type="submit" class="btn btn-danger">Delete</a>
-            </form></div>
+
       </div>
   </div>
 </div>

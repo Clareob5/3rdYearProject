@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Hash;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Group;
 
 class UserSeeder extends Seeder
 {
@@ -48,6 +49,7 @@ class UserSeeder extends Seeder
         for($i = 1; $i <= 20; $i++) {
           $user = User::factory()->create();
           $user->roles()->attach($role_user);
+            // $user = Group::factory()->create();
         }
 
     }

@@ -81,15 +81,17 @@ Route::post('/user/group/store', [UserGroupController::class, 'storeGroup'])->na
 Route::get('/user/group/{id}', [UserGroupController::class, 'showGroup'])->name('user.groups.show');
 Route::post('/user/group/{id}', [UserGroupController::class, 'showEvent'])->name('user.groups.show');
 
+Route::get('/user/event/show/{id}', [UserEventController::class, 'show'])->name('user.groups.event.show');
 Route::get('/user/event/{id}', [UserGroupController::class, 'createEvent'])->name('user.groups.event.create');
 Route::post('/user/event/store', [UserGroupController::class, 'storeEvent'])->name('user.groups.event.store');
-Route::get('/user/event/{id}', [UserEventController::class, 'show'])->name('user.groups.event.show');
 Route::get('/user/event/{id}/edit', [UserGroupController::class, 'edit'])->name('user.groups.event.edit');
 Route::put('/user/event/{id}', [UserEventController::class, 'update'])->name('user.groups.event.update');
 Route::delete('/user/event/{id}', [UserEventController::class, 'destroy'])->name('user.groups.event.destroy');
 
-// Route::get('/user/genres/create', [UserRecsController::class, 'create'])->name('user.recs.genres');
-// Route::post('/user/genres/store', [UserRecsController::class, 'store'])->name('user.recs.genres.store');
+Route::get('/user/genres/create', [UserRecsController::class, 'createGenre'])->name('user.recs.create_genres');
+Route::post('/user/genres/store', [UserRecsController::class, 'storeGenre'])->name('user.recs.create_genres.store');
+Route::get('/user/movies/create/{id}', [UserRecsController::class, 'createMovie'])->name('user.recs.create_movies');
+Route::post('/user/movies/store', [UserRecsController::class, 'storeMovie'])->name('user.recs.create_movies.store');
 
 Route::get('/user/genres/edit/{id}', [UserRecsController::class, 'editGenre'])->name('user.recs.genres');
 Route::put('/user/genres/{id}', [UserRecsController::class, 'updateGenre'])->name('user.recs.genres.update');
