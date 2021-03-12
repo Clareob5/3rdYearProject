@@ -45,7 +45,7 @@
                             <div class="col-md-2 active">
                                 <div class="card">
                                     <img class="card-img-top img-top" src="assets/img/promising.jpg" height="240" alt="Card image cap">
-                                    <div class="bg-dark text-white">
+                                    <div class="bgcardcolor text-white">
                                     <h6>Promising Young Woman (2019)</h6>
                                     <div>
                                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
@@ -57,7 +57,7 @@
                             <div class=" col-md-2">
                                 <div class="card">
                                     <img class="card-img-top img-top" src="assets/img/shadow.png" alt="Card image cap">
-                                    <div class="bg-dark text-white">
+                                    <div class="bgcardcolor text-white">
                                     <h6>Shadow in the Cloud (2019)</h6>
                                     <div>
                                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
@@ -69,7 +69,7 @@
                             <div class=" col-md-2">
                                 <div class="card">
                                     <img class="card-img-top img-top" src="assets/img/onenight.jpg" height="240" alt="Card image cap">
-                                    <div class="bg-dark text-white">
+                                    <div class="bgcardcolor text-white">
                                     <h6>One Night in Miamii (2019)</h6>
                                     <div>
                                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
@@ -81,7 +81,7 @@
                             <div class="col-md-2">
                                 <div class="card">
                                     <img class="card-img-top img-top" src="assets/img/pieces.jpg" alt="Card image cap">
-                                    <div class="bg-dark text-white">
+                                    <div class="bgcardcolor text-white">
                                     <h6>Pieces of a Woman (2019)</h6>
                                     <div>
                                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
@@ -93,7 +93,7 @@
                             <div class="col-md-2">
                                 <div class="card">
                                     <img class="card-img-top img-top" src="assets/img/soul.jpeg" alt="Card image cap">
-                                    <div class="bg-dark text-white">
+                                    <div class="bgcardcolor text-white">
                                     <h6>Soul <br>(2019)</h6>
                                     <div>
                                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -106,7 +106,7 @@
                             <div class="col-md-2">
                                 <div class="card">
                                     <img class="card-img-top img-top" src="assets/img/wolfwalkers.jpg" alt="Card image cap">
-                                    <div class="bg-dark text-white">
+                                    <div class="bgcardcolor text-white">
                                     <h6>Wolfwalkers <br>(2019)</h6>
                                     <div>
                                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
@@ -143,7 +143,7 @@
 
                         <div class="row row-cols-1 row-cols-md-2 g-4">
   <div class="col">
-    <div class="card text-white bg-dark mb-3">
+    <div class="card text-white bgcardcolor mb-3">
       <div class="card-body">
         <h5 class="card-title">
          </i>Keep track of every film you've ever watched(or just start from the day you join)</h5>
@@ -151,21 +151,21 @@
     </div>
   </div>
   <div class="col">
-    <div class="card text-white bg-dark mb-3">
+    <div class="card text-white bgcardcolor mb-3">
       <div class="card-body">
         <h5 class="card-title">Show some love for you favourite films, lists and reviews with a "like"</h5>
       </div>
     </div>
   </div>
   <div class="col">
-    <div class="card text-white bg-dark mb-3">
+    <div class="card text-white bgcardcolor mb-3">
       <div class="card-body">
         <h5 class="card-title">Write and share reveiws, and read other members reviews. And also rate each film on a five star scale</h5>
       </div>
     </div>
   </div>
   <div class="col">
-    <div class="card text-white bg-dark mb-3">
+    <div class="card text-white bgcardcolor mb-3">
       <div class="card-body">
         <h5 class="card-title">Create groups to add your friends to where you can choose films together! Have a group watchlist which everyone can add to</h5>
       </div>
@@ -344,7 +344,7 @@
 
 
                         <div class="card-group">
-  <div class="card text-white bg-dark mb-3">
+  <div class="card text-white bgcardcolor mb-3">
     <img src="assets/img/jason.png" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Life in Film: Jason Isaacs</h5>
@@ -354,7 +354,7 @@
       <small class="text-light">Last updated 3 mins ago</small>
     </div>
   </div>
-  <div class="card text-white bg-dark mb-3">
+  <div class="card text-white bgcardcolor mb-3">
     <img src="assets/img/deepend.png" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Deep End</h5>
@@ -364,7 +364,7 @@
       <small class="text-light">Last updated 1 hour ago</small>
     </div>
   </div>
-  <div class="card text-white bg-dark mb-3">
+  <div class="card text-white bgcardcolor mb-3">
     <img src="assets/img/sculpting.png" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Sculpting in TIme</h5>

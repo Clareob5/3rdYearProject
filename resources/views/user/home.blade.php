@@ -45,7 +45,7 @@
                     <div class="card-img-overlay">
                         <h3 class="card-title"><i class="fas fa-heart"></i></h3>
                     </div>
-                    <div class="bg-dark text-white">
+                    <div class="bgcardcolor text-white">
                         <h6>{{ $movie->title }}<br>{{ $movie->release_year }}</h6>
                         <div>
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
@@ -86,7 +86,7 @@
                             <div class="card-img-overlay">
                                 <h3 class="card-title"><i class="fas fa-heart"></i></h3>
                             </div>
-                            <div class="bg-dark text-white">
+                            <div class="bgcardcolor text-white">
                                 <h6>Promising Young Woman <br>(2019)</h6>
                                 <div>
                                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
@@ -101,7 +101,7 @@
                             <div class="card-img-overlay">
                                 <h3 class="card-title"><i class="fas fa-heart"></i></h3>
                             </div>
-                            <div class="bg-dark text-white">
+                            <div class="bgcardcolor text-white">
                                 <h6>Soul <br>(2021)</h6>
                                 <div>
                                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
@@ -116,7 +116,7 @@
                             <div class="card-img-overlay">
                                 <h3 class="card-title"><i class="fas fa-heart"></i></h3>
                             </div>
-                            <div class="bg-dark text-white">
+                            <div class="bgcardcolor text-white">
                                 <h6>One Night in Miami <br>(2019)</h6>
                                 <div>
                                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
@@ -131,7 +131,7 @@
                             <div class="card-img-overlay">
                                 <h3 class="card-title"><i class="fas fa-heart"></i></h3>
                             </div>
-                            <div class="bg-dark text-white">
+                            <div class="bgcardcolor text-white">
                                 <h6>Euphoria <br>(2019)</h6>
                                 <div>
                                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
@@ -146,7 +146,7 @@
                             <div class="card-img-overlay">
                                 <h3 class="card-title"><i class="fas fa-heart"></i></h3>
                             </div>
-                            <div class="bg-dark text-white">
+                            <div class="bgcardcolor text-white">
                                 <h6>Sound of Metal <br>(2019)</h6>
                                 <div>
                                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
@@ -162,7 +162,7 @@
                             <div class="card-img-overlay">
                                 <h3 class="card-title"><i class="fas fa-heart"></i></h3>
                             </div>
-                            <div class="bg-dark text-white">
+                            <div class="bgcardcolor text-white">
                                 <h6>Parasite <br>(2019)</h6>
                                 <div>
                                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
@@ -181,7 +181,7 @@
 
             <p>LATEST NEWS</p>
 
-            <div class="card mb-3 bg-dark" style="max-width: 1140px;">
+            <div class="card mb-3 bgcardcolor" style="max-width: 1140px;">
                 <div class="row no-gutters">
                     <div class="col-md-4">
                         <img src="/assets/img/rose.png" class="card-img" alt="...">
@@ -192,7 +192,7 @@
                             <p class="card-text">The writer-director of long-awaited A24 horror Saint Maud tells us about finding comfort in psychological thrillers, being terrified of gremlins, and drawing from Joan of Arc’s story for her
                                 expressive,
                                 bold debut.</p>
-                            <p class="card-text"><small class="text-muted"><b>READ MORE<b></small></p>
+                            <p class="card-text"><small>READ MORE</small></p>
                         </div>
                     </div>
                 </div>
@@ -214,7 +214,7 @@
 
                     <div class="col-6">
 
-                        <div class="card mb-3 bg-dark" style="max-width: 540px;">
+                        <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
                             <div class="row no-gutters">
                                 <div class="col-md-4">
                                     <img src="/assets/img/notebook.jpg" class="card-img" alt="...">
@@ -229,7 +229,7 @@
                             </div>
                         </div>
 
-                        <div class="card mb-3 bg-dark" style="max-width: 540px;">
+                        <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
                             <div class="row no-gutters">
                                 <div class="col-md-4">
                                     <img src="/assets/img/whiplash.jpg" class="card-img" alt="...">
@@ -248,7 +248,7 @@
 
                     <div class="col-6">
 
-                        <div class="card mb-3 bg-dark" style="max-width: 540px;">
+                        <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
                             <div class="row no-gutters">
                                 <div class="col-md-4">
                                     <img src="/assets/img/parasite.jpg" height="260" class="card-img" alt="...">
@@ -263,7 +263,7 @@
                             </div>
                         </div>
 
-                        <div class="card mb-3 bg-dark" style="max-width: 540px;">
+                        <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
                             <div class="row no-gutters">
                                 <div class="col-md-4">
                                     <img src="/assets/img/moonrise.jpg" height="270" class="card-img" alt="...">
@@ -331,28 +331,28 @@
 
         <div class="card-deck">
             <div class="card-group">
-                <div class="card text-white bg-dark mb-3">
+                <div class="card text-white bgcardcolor mb-3">
                     <img src="/assets/img/modest.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Modest Heroes</h5>
                         <p>Best Indie animated films</p>
                     </div>
                 </div>
-                <div class="card text-white bg-dark mb-3">
+                <div class="card text-white bgcardcolor mb-3">
                     <img src="/assets/img/spirited.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Spirited Away</h5>
                         <p>Best ASMR films</p>
                     </div>
                 </div>
-                <div class="card text-white bg-dark mb-3">
+                <div class="card text-white bgcardcolor mb-3">
                     <img src="/assets/img/unforgiven.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Unforgiven</h5>
                         <p>Best revenge films</p>
                     </div>
                 </div>
-                <div class="card text-white bg-dark mb-3">
+                <div class="card text-white bgcardcolor mb-3">
                     <img src="/assets/img/sundance.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Sundance</h5>
@@ -376,7 +376,7 @@
 
         <div class="card-group">
 
-            <div class="card text-white bg-dark mb-3">
+            <div class="card text-white bgcardcolor mb-3">
                 <img src="/assets/img/chame.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Chameleon</h5>
@@ -386,7 +386,7 @@
                     <small class="text-light">Last updated 2 hours ago</small>
                 </div>
             </div>
-            <div class="card text-white bg-dark mb-3">
+            <div class="card text-white bgcardcolor mb-3">
                 <img src="/assets/img/jason.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Life in Film: Jason Isaacs</h5>
@@ -396,7 +396,7 @@
                     <small class="text-light">Last updated 3 mins ago</small>
                 </div>
             </div>
-            <div class="card text-white bg-dark mb-3">
+            <div class="card text-white bgcardcolor mb-3">
                 <img src="/assets/img/deepend.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Deep End</h5>

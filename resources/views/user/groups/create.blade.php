@@ -23,15 +23,15 @@
                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
                           <div class="form-group">
                               <label for="user_id">Admin {{ Auth::user()->name}}</label>
-                          <input type="hidden" class="form-control" id="user_id" name="user_id" value="{{ Auth::user()->id}}"/>
+                          <input type="hidden" class="form-control text-light" id="user_id" name="user_id" value="{{ Auth::user()->id}}"/>
                           </div>
                           <div class="form-group">
                               <label for="group_name">Name</label>
-                              <input type="text" class="form-control" id="group_name" name="group_name" value="{{ old('group_name') }}" />
+                              <input type="text" class="form-control text-light" id="group_name" name="group_name" value="{{ old('group_name') }}" />
                           </div>
                           <div class="form-group">
                               <label for="users">Members</label>
-                              <fieldset class="form-control col-5">
+                              <fieldset class="form-control col-5 text-light">
                                 @foreach ($users as $user)
                                   <input type="checkbox" name="users[]" value="{{ $user->id }}" />{{ $user->name }}
                                 @endforeach

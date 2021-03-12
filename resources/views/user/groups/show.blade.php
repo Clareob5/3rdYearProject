@@ -12,7 +12,7 @@
                     <tbody>
                         @foreach ($groups as $group)
                         <tr>
-                            <td>{{ $group->group_name }}</td>
+                            <td class="text-light">{{ $group->group_name }}</td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -30,18 +30,18 @@
                     <table class="table table-hover">
                         <tbody>
                           <tr>
-                              <td>Name</td>
-                              <td>{{ $group->group_name}}<td>
+                              <td class="text-light">Name:</td>
+                              <td class="text-light">{{ $group->group_name}}<td>
 
                           </tr>
                             <tr>
-                                <td>Admin</td>
-                                <td>{{ $group->user->name }}</td>
+                                <td class="text-light">Admin:</td>
+                                <td class="text-light">{{ $group->user->name }}</td>
                             </tr>
 
                             <div class="card-body">
                                 @if (count($group->events) == 0)
-                                <p>There are no events for this group.</p>
+                                <p class="text-light">There are no events for this group.</p>
                                 @else
                                 <table class="table">
                                     <thead>
@@ -51,8 +51,8 @@
                                     <tbody id="tbody">
                                         @foreach ($group->events as $event)
                                         <tr>
-                                            <td>{{ $event->date }}</td>
-                                            <td>{{ $event->time }}</td>
+                                            <td class="text-light">{{ $event->date }}</td>
+                                            <td class="text-light">{{ $event->time }}</td>
                                             <td><a href="{{ route('user.groups.event.show', $event->id) }}" class="btn btn-secondary">View</a>
                                               <form style="display:inline-block" method="POST" action="{{ route('user.groups.event.destroy', $event->id) }}">
                                                 <input type="hidden" name="_method" value="DELETE">
@@ -66,7 +66,7 @@
                                 @endif
 
                                 <tr>
-                                    <td><a href="{{ route('user.home') }}" class="btn btn-default">Back</a>
+                                    <td><a href="{{ route('user.home') }}" class="btn btn-default text-light">Back</a>
                                         <a href="javascript:void(0)" class="btn btn-success" id="create-new-event" onclick="addEvent()">Add</a>
                                       <a href="" class="btn btn-warning" data-id="{{ $group->id }}" onclick="editGroup(event.target)">Edit</a>
 
@@ -105,7 +105,7 @@
 
 <div class="modal fade" id="group-modal" aria-hidden="true">
 <div class="modal-dialog">
-  <div class="modal-content">
+  <div class="modal-content box_style">
       <div class="modal-header">
           <h4 class="modal-title"></h4>
       </div>
@@ -116,13 +116,13 @@
 
                         <div class="form-group">
                             <label for="date">Date</label>
-                            <input type="date" class="form-control" id="date" name="date" value="{{ old('date') }}" />
+                            <input type="date" class="form-control text-light" id="date" name="date" value="{{ old('date') }}" />
                       <span id="dateError" class="alert-message"></span>
                   </div>
 
               <div class="form-group">
                   <label for="time">Time</label>
-                       <input type="time" class="form-control" id="time" name="time" value="{{ old('time') }}" />
+                       <input type="time" class="form-control text-light" id="time" name="time" value="{{ old('time') }}" />
                       <span id="timeError" class="alert-message"></span>
                   </div>
 

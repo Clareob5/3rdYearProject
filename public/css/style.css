@@ -18,21 +18,23 @@ h1{
   color: #E3E6EB;
 }
 
-/* p{
-  color: #E3E6EB;
-} */
 
+.btn{border-radius: 20px;}
 
 .topspace{
-  padding-top: 50px;
-}
-
-.letterspace{
-  padding-left: 30px;
+  padding-top: 10px;
 }
 
 .bgcardcolor{
-  background-color: blue;
+  background-color: #223F6B;
+}
+
+.btcolor{
+  background-color: #94B4B1;
+}
+
+.filtercolor{
+  background-color: #182132;
 }
 
 .bt_space{

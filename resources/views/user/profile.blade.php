@@ -27,7 +27,7 @@
         @method('PUT')
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" name="name" id="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" value="{{ old('name') ? : Auth::user()->name }}" placeholder="Enter Name">
+            <input type="text" name="name" id="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }} text-light" value="{{ old('name') ? : Auth::user()->name }}" placeholder="Enter Name">
             @if($errors->has('name'))
                 <span class="invalid-feedback">
                     {{$errors->first('name')}}
@@ -36,7 +36,7 @@
         </div>
         <div class="form-group">
             <label for="date">Date of Birth</label>
-            <input type="date" name="date" id="dob" class="form-control {{ $errors->has('date') ? 'is-invalid' : '' }}" value="{{ old('dob') ? : Auth::user()->dob }}" placeholder="Enter DOB">
+            <input type="date" name="date" id="dob" class="form-control {{ $errors->has('date') ? 'is-invalid' : '' }} text-light" value="{{ old('dob') ? : Auth::user()->dob }}" placeholder="Enter DOB">
             @if($errors->has('dob'))
                 <span class="invalid-feedback">
                     {{$errors->first('dob')}}
@@ -45,7 +45,7 @@
         </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" value="{{ old('email') ? : Auth::user()->email }}" placeholder="Enter Email">
+            <input type="email" name="email" id="email" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }} text-light" value="{{ old('email') ? : Auth::user()->email }}" placeholder="Enter Email">
             @if($errors->has('email'))
                 <span class="invalid-feedback">
                     {{$errors->first('email')}}
@@ -54,7 +54,7 @@
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" name="password" id="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" placeholder="Enter New Password">
+            <input type="password" name="password" id="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }} text-light" placeholder="Enter New Password">
             @if($errors->has('password'))
                 <span class="invalid-feedback">
                     {{$errors->first('password')}}
@@ -62,7 +62,7 @@
             @endif
         </div>
         <div class="custom-file">
-            <input type="file" name="image" class="custom-file-input {{$errors->has('image') ? 'is-invalid' : ''}}" id="image">
+            <input type="file" name="image" class="custom-file-input {{$errors->has('image') ? 'is-invalid' : ''}} text-light" id="image">
             <label class="custom-file-label" for="image">Profile Image</label>
             @if($errors->has('image'))
                 <span class="invalid-feedback">
@@ -70,8 +70,8 @@
                 </span>
             @endif
         </div>
-        <button type="submit" class="btn btn-primary mt-3">Update Details</button>
-        <a href="{{route('user.recs.genres', Auth::user()->id)}}" class="btn btn-primary mt-3">Update Recommedations</a>
+        <button type="submit" class="btn btcolor mt-3">Update Details</button>
+        <a href="{{route('user.recs.genres', Auth::user()->id)}}" class="btn btcolor mt-3">Update Recommedations</a>
     </form>
   </div>
 

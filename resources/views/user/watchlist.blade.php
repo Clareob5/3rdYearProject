@@ -11,7 +11,7 @@
 
       <div class="col-md-4">
         <div class="row justify-content-center">
-          <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="btn filtercolor dropdown-toggle text-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Filter
           </button>
           <div class="dropdown-menu">
@@ -26,7 +26,7 @@
 
       <form class="form-inline my-2 my-lg-0">
 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+<button class="btn filtercolor my-2 my-sm-0 text-light" type="submit">Search</button>
 </form>
 
 
@@ -82,7 +82,7 @@
 
                   <div class="col-6">
 
-                    <div class="card mb-3 bg-dark" style="max-width: 540px;">
+                    <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
 <div class="row no-gutters">
 <div class="col-md-4">
 <img src="/assets/img/notebook.jpg" class="card-img" alt="...">
@@ -92,17 +92,16 @@
 <h5 class="card-title">The Notebook (2012)</h5>
 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 <div class="row justify-content-center">
-<button type="button" class="btn btn-info">View More</button>
+<button type="button" class="btn btcolor">View More</button>
 </div>
-<br>
 <h5 class="card-text topspace"><small class="text-light">GENRE: Romance</small></h5>
-<h5 class="card-text topspace"><small class="text-light">RATING: 91.5% 3.5</small></h5>
+<h5 class="card-text"><small class="text-light">RATING: 91.5% 3.5</small></h5>
 </div>
 </div>
 </div>
 </div>
 
-<div class="card mb-3 bg-dark" style="max-width: 540px;">
+<div class="card mb-3 bgcardcolor" style="max-width: 540px;">
 <div class="row no-gutters">
 <div class="col-md-4">
 <img src="/assets/img/whiplash.jpg" class="card-img" alt="...">
@@ -112,11 +111,10 @@
 <h5 class="card-title">Whiplash (2016)</h5>
 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 <div class="row justify-content-center">
-<button type="button" class="btn btn-info">View More</button>
+<button type="button" class="btn btcolor">View More</button>
 </div>
-<br>
 <h5 class="card-text topspace"><small class="text-light">GENRE: Drama</small></h5>
-<h5 class="card-text topspace"><small class="text-light">RATING: 91.5% 3.5</small></h5>
+<h5 class="card-text"><small class="text-light">RATING: 91.5% 3.5</small></h5>
 </div>
 </div>
 </div>
@@ -126,7 +124,7 @@
 
 <div class="col-6">
 
-<div class="card mb-3 bg-dark" style="max-width: 540px;">
+<div class="card mb-3 bgcardcolor" style="max-width: 540px;">
 <div class="row no-gutters">
 <div class="col-md-4">
 <img src="/assets/img/parasite.jpg" height="260" class="card-img" alt="...">
@@ -136,17 +134,16 @@
 <h5 class="card-title">Parasite (2019)</h5>
 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 <div class="row justify-content-center">
-<button type="button" class="btn btn-info">View More</button>
+<button type="button" class="btn btcolor">View More</button>
 </div>
-<br>
 <h5 class="card-text topspace"><small class="text-light">GENRE: Drama</small></h5>
-<h5 class="card-text topspace"><small class="text-light">RATING: 91.5% 3.5</small></h5>
+<h5 class="card-text"><small class="text-light">RATING: 91.5% 3.5</small></h5>
 </div>
 </div>
 </div>
 </div>
 
-<div class="card mb-3 bg-dark" style="max-width: 540px;">
+<div class="card mb-3 bgcardcolor" style="max-width: 540px;">
 <div class="row no-gutters">
 <div class="col-md-4">
 <img src="/assets/img/moonrise.jpg" height="270" class="card-img" alt="...">
@@ -156,11 +153,10 @@
 <h5 class="card-title">Moonrise Kingdom (2014)</h5>
 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 <div class="row justify-content-center">
-<button type="button" class="btn btn-info">View More</button>
+<button type="button" class="btn btcolor">View More</button>
 </div>
-<br>
 <h5 class="card-text topspace"><small class="text-light">GENRE: Coming of Age</small></h5>
-<h5 class="card-text topspace"><small class="text-light">RATING: 91.5% 3.5</small></h5>
+<h5 class="card-text"><small class="text-light">RATING: 91.5% 3.5</small></h5>
 </div>
 </div>
 </div>
@@ -171,7 +167,7 @@
 
 <div class="col-6">
 
-  <div class="card mb-3 bg-dark" style="max-width: 540px;">
+  <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
 <div class="row no-gutters">
 <div class="col-md-4">
 <img src="/assets/img/arriety.jpg" class="card-img" alt="...">
@@ -181,17 +177,16 @@
 <h5 class="card-title">Arriety (2011)</h5>
 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 <div class="row justify-content-center">
-<button type="button" class="btn btn-info">View More</button>
+<button type="button" class="btn btcolor">View More</button>
 </div>
-<br>
 <h5 class="card-text topspace"><small class="text-light">GENRE: Anime</small></h5>
-<h5 class="card-text topspace"><small class="text-light">RATING: 91.5% 3.5</small></h5>
+<h5 class="card-text"><small class="text-light">RATING: 91.5% 3.5</small></h5>
 </div>
 </div>
 </div>
 </div>
 
-<div class="card mb-3 bg-dark" style="max-width: 540px;">
+<div class="card mb-3 bgcardcolor" style="max-width: 540px;">
 <div class="row no-gutters">
 <div class="col-md-4">
 <img src="/assets/img/cheaper.jpg" class="card-img" alt="...">
@@ -201,11 +196,10 @@
 <h5 class="card-title">Cheaper by the Dozen (2005)</h5>
 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 <div class="row justify-content-center">
-<button type="button" class="btn btn-info">View More</button>
+<button type="button" class="btn btcolor">View More</button>
 </div>
-<br>
 <h5 class="card-text topspace"><small class="text-light">GENRE: Comedy</small></h5>
-<h5 class="card-text topspace"><small class="text-light">RATING: 91.5% 3.5</small></h5>
+<h5 class="card-text"><small class="text-light">RATING: 91.5% 3.5</small></h5>
 </div>
 </div>
 </div>
@@ -215,7 +209,7 @@
 
 <div class="col-6">
 
-<div class="card mb-3 bg-dark" style="max-width: 540px;">
+<div class="card mb-3 bgcardcolor" style="max-width: 540px;">
 <div class="row no-gutters">
 <div class="col-md-4">
 <img src="/assets/img/godfather.jpg" height="260" class="card-img" alt="...">
@@ -225,17 +219,16 @@
 <h5 class="card-title">Godfather (1999)</h5>
 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 <div class="row justify-content-center">
-<button type="button" class="btn btn-info">View More</button>
+<button type="button" class="btn btcolor">View More</button>
 </div>
-<br>
 <h5 class="card-text topspace"><small class="text-light">GENRE: Drama</small></h5>
-<h5 class="card-text topspace"><small class="text-light">RATING: 91.5% 3.5</small></h5>
+<h5 class="card-text"><small class="text-light">RATING: 91.5% 3.5</small></h5>
 </div>
 </div>
 </div>
 </div>
 
-<div class="card mb-3 bg-dark" style="max-width: 540px;">
+<div class="card mb-3 bgcardcolor" style="max-width: 540px;">
 <div class="row no-gutters">
 <div class="col-md-4">
 <img src="/assets/img/heathers.jpg" height="270" class="card-img" alt="...">
@@ -245,11 +238,10 @@
 <h5 class="card-title">Heathers (1998)</h5>
 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 <div class="row justify-content-center">
-<button type="button" class="btn btn-info">View More</button>
+<button type="button" class="btn btcolor">View More</button>
 </div>
-<br>
 <h5 class="card-text topspace"><small class="text-light">GENRE: Dark Comedy</small></h5>
-<h5 class="card-text topspace"><small class="text-light">RATING: 91.5% 3.5</small></h5>
+<h5 class="card-text"><small class="text-light">RATING: 91.5% 3.5</small></h5>
 </div>
 </div>
 </div>

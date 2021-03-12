@@ -69,11 +69,11 @@ Ireland
 
 
 
-Skype: random.org
+<br>Skype: random.org
 
-Web: www.random.org
+<br>Web: www.random.org
 
-Email: contact@random.org</p>
+<br>Email: contact@random.org</p>
 
                 </div>
 
@@ -85,7 +85,7 @@ Email: contact@random.org</p>
                       <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                       <div class="col">
-                          <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                          <input id="email" type="email" class="form-control @error('email') is-invalid @enderror text-light" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                           @error('email')
                               <span class="invalid-feedback" role="alert">
@@ -99,7 +99,7 @@ Email: contact@random.org</p>
                       <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                       <div class="col">
-                          <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                          <input id="name" type="text" class="form-control @error('name') is-invalid @enderror text-light" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                           @error('name')
                               <span class="invalid-feedback" role="alert">
@@ -111,8 +111,10 @@ Email: contact@random.org</p>
 
                   <div class="form-group">
       <label for="exampleFormControlTextarea1">Type your query below</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <textarea class="form-control text-light" id="exampleFormControlTextarea1" rows="3"></textarea>
     </div>
+
+    <button type="submit" class="btn btcolor text-light">Submit</button>
 
                 </div>
 
