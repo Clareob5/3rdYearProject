@@ -79,6 +79,7 @@ Route::post('/user/movies/{id}/reviews/store', [UserReviewController::class, 'st
 Route::get('/user/group/create', [UserGroupController::class, 'createGroup'])->name('user.groups.create');
 Route::post('/user/group/store', [UserGroupController::class, 'storeGroup'])->name('user.groups.store');
 Route::get('/user/group/{id}', [UserGroupController::class, 'showGroup'])->name('user.groups.show');
+Route::post('/user/group/{id}', [UserGroupController::class, 'showEvent'])->name('user.groups.show');
 
 Route::get('/user/event/{id}', [UserGroupController::class, 'createEvent'])->name('user.groups.event.create');
 Route::post('/user/event/store', [UserGroupController::class, 'storeEvent'])->name('user.groups.event.store');

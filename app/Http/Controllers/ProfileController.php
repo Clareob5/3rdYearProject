@@ -74,7 +74,7 @@ class ProfileController extends Controller
         //get just extension
         $extension = $image->getClientOriginalExtension();
         //make a unique name
-        $filename = uniqid().'.'.$extension;
+        $filename = uniqid() .'.'. $extension;
         //upload the image
         $path = $image->storeAs('public/images', $filename);
         //delete the previous image

@@ -95,11 +95,17 @@ class GroupController extends Controller
             $event->group_id = $request->input('group_id');
             $event->save();
       }
-      return response()->json([
-        'ok' => 'ok',
-        'success' => true,
-        'data' => $event
-      ], 200);
+
+      return response()->json(['code'=>200, 'success'=>true, 'message'=>'Event Created successfully','data' => $event], 200);
+
+      // return response()->json(['ok' => 'ok']);
+
+      // return response()->json([
+      //   'ok' => 'ok',
+      //   'success' => true,
+      //   'data' => $event
+      // ], 200);
+
       // return [
       //   'success' => true,
       //   'data' => $event
@@ -108,6 +114,20 @@ class GroupController extends Controller
   }
 
   public function showGroup($id)
+  {
+      $group = Group::findOrFail($id);
+      $groups = Group::All();
+      $events = Event::All();
+      $users = User::All();
+      return view('user.groups.show', [
+        'group' => $group,
+        'groups' => $groups,
+        'events' => $events,
+        'users' => $users
+      ]);
+  }
+
+  public function showEvent($id)
   {
       $group = Group::findOrFail($id);
       $groups = Group::All();

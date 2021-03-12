@@ -13,9 +13,27 @@ h2{
   color: #E3E6EB;
 }
 
+h1{
+  font-family: 'PT Serif', serif;
+  color: #E3E6EB;
+}
+
 /* p{
   color: #E3E6EB;
 } */
+
+
+.topspace{
+  padding-top: 50px;
+}
+
+.letterspace{
+  padding-left: 30px;
+}
+
+.bgcardcolor{
+  background-color: blue;
+}
 
 .bt_space{
   padding-left: 150px;

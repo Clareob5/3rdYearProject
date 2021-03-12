@@ -37,11 +37,11 @@ class HomeController extends Controller
 
 
     $results = $client->send(
-      new RecommendItemsToUser($user_id, $count, ['scenario' => 'Top_recommendations'])
+      new Reqs\RecommendItemsToUser($user_id, $count, ['scenario' => 'Top_recommendations'])
     );
 
     $recomms =  $results['recomms'];
-    // 
+    //
     //   for ($i = 0; $i < 6; $i++) {
     //   echo $recomms[$i]['id'];
     // }
