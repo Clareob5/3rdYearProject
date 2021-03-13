@@ -81,7 +81,7 @@ class EventController extends Controller
         new Reqs\RecommendItemsToUser($user->id, $count)
       );
       array_push($recomms_2, $results_mem['recomms']);
-
+        $request->setTimeout(5000);
     }
     for ($i=0; $i <count($recomms_2) ; $i++) {
       for ($j=0; $j < count($recomms_2[$i]) ; $j++) {
@@ -90,9 +90,7 @@ class EventController extends Controller
     }
 
     $group_recs = array_merge($recs,$recomms_1);
-    print_r($recomms_2);
 
-    print_r($group_recs);
 
     for ($i=0; $i<count($group_recs); $i++) {
       $book = $client -> send(new Reqs\AddBookmark($name, $group_recs[$i]['id']));
@@ -101,6 +99,7 @@ class EventController extends Controller
     $result = $client->send(
       new Reqs\RecommendItemsToUser($name, 1)
       );
+      $request->setTimeout(5000);
 
     $final_mov = $result['recomms'];
 

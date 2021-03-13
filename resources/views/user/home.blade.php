@@ -43,12 +43,15 @@
                     <a href="{{ route('user.movies.show', $movie->id) }}">
                         <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" height="240" alt="Card image cap"></a>
                     <div class="card-img-overlay">
-                        <h3 class="card-title"><i class="fas fa-heart"></i></h3>
+                        <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}"><i class="fas fa-heart"></i></h3>
                     </div>
-                    <div class="bgcardcolor text-white">
+                    <div class=" card body bgcardcolor text-white">
                         <h6>{{ $movie->title }}<br>{{ $movie->release_year }}</h6>
                         <div>
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        </div>
+                        <div class="col-6">
+                          <a href="{{ route('user.movies.show', $movie->id)  }}" type="button" class="btn btn-outline-light">Read more</a>
                         </div>
                     </div>
                 </div>
@@ -422,4 +425,47 @@
 </div>
 </div>
 </div>
+@endsection
+
+@section('javascript')
+<script>
+  $(document).on('click','.add_to_wishlist',function(e){
+    e.preventDefault();
+    var movie_id=$(this).data('id');
+    var movie_qty=$(this).data('quantity');
+    console.log(movie_id);
+
+    var token="{{csrf_token()}}";
+    var path="{{route('user.watchlist.store')}}";
+
+    $.ajax({
+      url:path,
+      type:"POST",
+      dataType:"JSON",
+      data:{
+        movie_id:movie_id,
+        movie_qty:movie_qty,
+        _token:token,
+      },
+      beforeSend:function () {
+        $('#add_to_wishlist_'+movie_id).html('<i class="fas fa-heart"></i>');
+      },
+      complete:function () {
+        $('#add_to_wishlist_'+movie_id);
+      },
+      success:function (data) {
+        console.log(data);
+
+        if(data['status']){
+          $('body #header-ajax').html(data['header']);
+          $('body #cart_counter').html(data['cart_count']);
+          swal({
+            title: "Good job!",
+            text: data['message'],
+          })
+        }
+      }
+    })
+  })
+</script>
 @endsection

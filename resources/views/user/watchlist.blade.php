@@ -72,36 +72,36 @@
         <section>
           <br>
           <br>
-                  <div class="container-fluid">
-                  <p>POPULAR REVIEWS</p>
+                  {{-- <div class="container-fluid">
+                  {{-- //<p>POPULAR REVIEWS</p>
+                </div> --}}
+
+
+  <div class="container-fluid">
+      <div class="row">
+        @foreach (Auth::user()->movies as $movie)
+          <div class="col-6">
+            <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
                 </div>
-
-
-                  <div class="container-fluid">
-                    <div class="row">
-
-                  <div class="col-6">
-
-                    <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
-<div class="row no-gutters">
-<div class="col-md-4">
-<img src="/assets/img/notebook.jpg" class="card-img" alt="...">
-</div>
-<div class="col-md-8">
-<div class="card-body">
-<h5 class="card-title">The Notebook (2012)</h5>
-<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-<div class="row justify-content-center">
-<button type="button" class="btn btcolor">View More</button>
-</div>
-<h5 class="card-text topspace"><small class="text-light">GENRE: Romance</small></h5>
-<h5 class="card-text"><small class="text-light">RATING: 91.5% 3.5</small></h5>
-</div>
-</div>
-</div>
-</div>
-
-<div class="card mb-3 bgcardcolor" style="max-width: 540px;">
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ $movie->title }}</h5>
+                      <p class="card-text">{{ $movie->description }}</p>
+                        <div class="row justify-content-center">
+                          <a href="{{ route('user.movies.show', $movie->id)  }}" type="button" class="btn btcolor">View More</a>
+                        </div>
+                        <h5 class="card-text topspace"><small class="text-light">GENRE: {{ $movie->genre }}</small></h5>
+                        <h5 class="card-text"><small class="text-light">RATING: {{ $movie->rating }}</small></h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            @endforeach
+{{-- <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
 <div class="row no-gutters">
 <div class="col-md-4">
 <img src="/assets/img/whiplash.jpg" class="card-img" alt="...">
@@ -245,7 +245,7 @@
 </div>
 </div>
 </div>
-</div>
+</div> --}}
 
 
 </div>

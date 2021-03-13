@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Movie;
 use App\Models\Group;
+use App\Models\User;
 use Auth;
 use Recombee\RecommApi\Client;
 use Recombee\RecommApi\Requests as Reqs;
@@ -39,6 +40,8 @@ class HomeController extends Controller
     $results = $client->send(
       new Reqs\RecommendItemsToUser($user_id, $count, ['scenario' => 'Top_recommendations'])
     );
+    //$results->setTimeout(5000);
+    //$client->send($request);
 
     $recomms =  $results['recomms'];
     //
@@ -71,7 +74,10 @@ class HomeController extends Controller
          'movie' => $movie
        ]);
    }
+
+
 }
+
 
 // $client -> send(new Reqs\SetItemValues("3",
 //     // values

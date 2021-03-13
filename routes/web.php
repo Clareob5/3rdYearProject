@@ -48,6 +48,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //routes to admin and user home dashboards
 Route::get('/admin/home', [AdminHomeController::class, 'index'])->name('admin.home');
 Route::get('/user/home', [UserHomeController::class, 'index'])->name('user.home');
+//Route::get('/user/add', [UserHomeController::class, 'addToWatchlist'])->name('user.addToWatchlist');
 
 
 Route::get('/profile',[ProfileController::class, 'index'])->name('profile.index');
@@ -55,6 +56,7 @@ Route::put('/profile',[ProfileController::class, 'update'])->name('profile.updat
 Route::get('/profile/show',[ProfileController::class, 'show'])->name('profile_show.show');
 
 Route::get('/watchlist',[UserWatchlistController::class, 'index'])->name('user.watchlist');
+Route::post('/watchlist/add',[UserWatchlistController::class, 'store'])->name('user.watchlist.store');
 
 
 Route::get('/user/movies', [UserMovieController::class, 'index'])->name('user.movies.index');
