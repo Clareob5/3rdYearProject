@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/89c132bd15.js" crossorigin="anonymous"></script>
 
+
+    @livewireStyles
+
+    <link href="/css/tailwind.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.1/dist/alpine.min.js" defer></script>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -138,6 +144,7 @@
             @yield('content')
         </main>
     </div>
+@livewireScripts
 </body>
 
 <script>

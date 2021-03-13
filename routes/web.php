@@ -52,7 +52,7 @@ Route::get('/user/home', [UserHomeController::class, 'index'])->name('user.home'
 
 Route::get('/profile',[ProfileController::class, 'index'])->name('profile.index');
 Route::put('/profile',[ProfileController::class, 'update'])->name('profile.update');
-Route::get('/profile/show',[ProfileController::class, 'show'])->name('profile_show.show');
+Route::get('/profile/show',[ProfileController::class, 'show'])->name('profile.show');
 
 Route::get('/watchlist',[UserWatchlistController::class, 'index'])->name('user.watchlist');
 

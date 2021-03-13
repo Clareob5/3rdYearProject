@@ -8,8 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Movie extends Model
 {
     use HasFactory;
+    use Search;
 
-    // public static $laracombee = ['title' => 'string', 'director' => 'string', 'cast' => 'string', 'country' => 'string', 'release_year' => 'integer', 'rating' => 'string', 'duration' => 'string', 'listed_in' => 'string'];
+    protected $searchable = [
+      'title',
+      'director',
+      'cast',
+      'country',
+      'duration',
+      'genre',
+      'description',
+    ];
+
+    // public static $laracombee = ['title' => 'string', 'director' => 'string', 'cast' => 'string', 'country' => 'string', 'release_year' => 'integer', 'rating' => 'string', 'duration' => 'string', 'genre' => 'string'];
 
     public function reviews()
     {

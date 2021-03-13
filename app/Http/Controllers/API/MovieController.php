@@ -43,7 +43,7 @@ class MovieController extends Controller
           'release_year' => 'required|integer|min:1900',
           'rating' => 'required|max:50',
           'duration' => 'required|max:50',
-          'listed_in' => 'required|max:191',
+          'genre' => 'required|max:191',
           'description' => 'required|max:555'
         ];
 
@@ -76,7 +76,7 @@ class MovieController extends Controller
         $movie->release_year = $request->input('release_year');
         $movie->rating = $request->input('rating');
         $movie->duration = $request->input('duration');
-        $movie->listed_in = $request->input('listed_in');
+        $movie->genre = $request->input('genre');
         $movie->description = $request->input('description');
         $movie->save();
 
@@ -141,7 +141,7 @@ class MovieController extends Controller
         'release_year' => 'required|integer|min:1900',
         'rating' => 'required|max:50',
         'duration' => 'required|max:50',
-        'listed_in' => 'required|max:191',
+        'genre' => 'required|max:191',
         'description' => 'required|max:555'
       ];
 
@@ -156,7 +156,7 @@ class MovieController extends Controller
       $movie->release_year = $request->input('release_year');
       $movie->rating = $request->input('rating');
       $movie->duration = $request->input('duration');
-      $movie->listed_in = $request->input('listed_in');
+      $movie->genre = $request->input('genre');
       $movie->description = $request->input('description');
       $movie->save();
 

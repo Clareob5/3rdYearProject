@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container background-dark">
+<div class="container-fluid background-dark">
     <div class="row justify-content-center">
 
       <div class="col-md-8">
@@ -24,10 +24,12 @@
 
       </div>
 
-      <form class="form-inline my-2 my-lg-0">
+      <!-- <form class="form-inline my-2 my-lg-0">
 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 <button class="btn filtercolor my-2 my-sm-0 text-light" type="submit">Search</button>
-</form>
+</form> -->
+
+<!-- s -->
 
 
         <!-- <div class="col-md-12">

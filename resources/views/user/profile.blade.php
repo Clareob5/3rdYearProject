@@ -71,7 +71,7 @@
             @endif
         </div>
         <button type="submit" class="btn btcolor mt-3">Update Details</button>
-        <a href="{{route('user.recs.genres', Auth::user()->id)}}" class="btn btcolor mt-3">Update Recommedations</a>
+        <a href="{{route('profile.show', Auth::user()->id)}}" class="btn btcolor mt-3">Update Recommedations</a>
     </form>
   </div>
 
@@ -117,18 +117,6 @@
       @endforeach
     </div>
   </section>
-
-
-      <br>
-      <br>
-
-      <div class="container-fluid see_more">
-      <div class="row justify-content-center">
-
-        <p><u>See More<u></p>
-
-        </div>
-      </div>
 
 
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Recombee\RecommApi\Client;
 use Recombee\RecommApi\Requests as Reqs;
 use App\Models\Movie;
+use App\Models\User;
 use App\Models\UserRecs;
 use Auth;
 use Hash;
@@ -50,7 +51,7 @@ class ProfileController extends Controller
       $recomms =  $results['recomms'];
 
       $movies = Movie::All();
-        return view('user.profile_show', [
+        return view('user.profile', [
           'movies' => $movies
         ]);
     }
@@ -76,20 +77,23 @@ class ProfileController extends Controller
         //make a unique name
         $filename = uniqid() .'.'. $extension;
         //upload the image
-        $path = $image->storeAs('public/images', $filename);
+        $image->storeAs('public/images', $filename);
         //delete the previous image
         Storage::delete("public/images/{$user->image}");
         //this col has a default value so we dont need to set it empty
         $user->image = $filename;
+
+        $user->image->save();
       }
 
       if($request->password){
         $user->password = Hash::make($request->password);
+        $user->save();
       }
 
       $user->save();
       return redirect()
-          ->route('profile_show.show')
+          ->route('profile.show')
           ->with('status','Your profile has been updated!');
 
     }

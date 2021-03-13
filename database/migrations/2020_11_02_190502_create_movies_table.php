@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateMoviesTable extends Migration
@@ -27,6 +28,10 @@ class CreateMoviesTable extends Migration
             $table->string('description');
             $table->timestamps();
         });
+
+        DB::statement(
+            'ALTER TABLE movies ADD FULLTEXT fulltext_index(title, director, cast, country, duration, genre, description)'
+        );
     }
 
     /**

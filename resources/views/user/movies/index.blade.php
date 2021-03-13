@@ -9,6 +9,9 @@
                   Movies
                 </div>
 
+                <livewire:search-watchlist />
+                
+
 
 
                 <div class="card-group">
