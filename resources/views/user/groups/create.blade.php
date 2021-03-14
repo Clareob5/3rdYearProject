@@ -31,15 +31,16 @@
                           </div>
                           <div class="form-group">
                               <label for="users">Members</label>
-                              <fieldset class="form-control col-5 text-light">
+                              <select class="form-control col-5 text-light" multiple>
                                 @foreach ($users as $user)
-                                  <input type="checkbox" name="users[]" value="{{ $user->id }}" />{{ $user->name }}
+                                  <option  value="{{ $user->id }}">{{ $user->name }}</option>
                                 @endforeach
-                              </fieldset>
-                          <a href="{{ route('user.home') }}" class="btn btn-default">Cancel</a>
+                              </select>
+                              <a href="{{ route('user.home') }}" class="btn btn-default">Cancel</a>
                           <button type="submit" class="btn btn-primary float-right">Submit</button>
+                            </div>
                       </form>
-                  </div>
+
               </div>
           </div>
       </div>

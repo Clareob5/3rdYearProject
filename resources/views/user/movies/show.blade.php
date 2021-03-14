@@ -13,7 +13,7 @@
                         <div class="col-4">
 
 
-                            <img src="{{ asset('storage/covers/' . $movie->cover ) }}" />
+                            <img src="{{ asset('assets/img/' . $movie->cover ) }}" width="300px"/>
                             <br>
                             <br>
 

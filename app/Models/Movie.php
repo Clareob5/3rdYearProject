@@ -31,6 +31,6 @@ class Movie extends Model
     public function users()
     {
       //user has many user watchlist
-      return $this->belongsToMany('App\Models\UserWatchlist');
+      return $this->belongsToMany('App\Models\User', 'user_watchlists', 'movie_id', 'user_id');
     }
 }

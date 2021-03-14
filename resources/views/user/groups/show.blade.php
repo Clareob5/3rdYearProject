@@ -89,14 +89,14 @@
                 @endforeach
                 <p>{{ $group->user_group->user->name }}</p> --}}
 
-                <a href="" class="btn btn-warning">Edit</a>
+                {{-- <a href="" class="btn btn-warning">Edit</a>
                 <div>
-                    <form style="display:inline-block" method="POST" action=""> {{-- {{ route('user.group.destroy') }} --}}
+                    <form style="display:inline-block" method="POST" action=""> {{-- {{ route('user.group.destroy') }}
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <button type="submit" class="btn btn-danger">Delete</a>
                     </form>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

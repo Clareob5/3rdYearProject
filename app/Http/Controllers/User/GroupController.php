@@ -47,6 +47,8 @@ class GroupController extends Controller
         $group->group_name = $request->input('group_name');
         $group->save();
 
+        print_r($request->input('users'));
+
         $members = $request->input('users');
         $group->users()->sync($members);
         //$group->fill($request->input('users'))->save();

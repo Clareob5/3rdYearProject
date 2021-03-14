@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Recombee\RecommApi\Client;
 use Recombee\RecommApi\Requests as Reqs;
 use App\Models\Movie;
+use App\Models\Group;
 use App\Models\User;
 use App\Models\UserRecs;
 use Auth;
@@ -29,11 +30,13 @@ class ProfileController extends Controller
       );
 
       $recomms =  $results['recomms'];
-
+      $request->setTimeout(5000);
       $movies = Movie::All();
+      $group = Group::findOrFail(1);
         return view('user.profile', [
           'movies' => $movies,
-          'recomms' => $recomms
+          'recomms' => $recomms,
+          'group' => $group
         ]);
 
     }
