@@ -102,13 +102,16 @@
               <div class="card">
                   <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" height="240" alt="Card image cap">
                   <div class="card-img-overlay">
-                      <h3><a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}"><i class="fas fa-heart"></i></h3>
+                    <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}">  <h3><i class="fas fa-heart"></i></h3></a>
                   </div>
                   <div class="bg-dark text-white">
-                      <h6>{{ $movie->title }}<br>{{ $movie->release_year }}</h6>
-                      <div>
-                          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                      <h6>{{ $movie->title }}</h6><p>{{ $movie->release_year }}</p>
+                      <div class="col-12">
+                        <a href="{{ route('user.movies.show', $movie->id)  }}" type="button" class="btn btcolor mt-3"><h6>Read more</h6></a>
                       </div>
+                      {{-- <div>
+                          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                      </div> --}}
                   </div>
               </div>
           </div>
@@ -170,4 +173,4 @@
     })
   })
 </script>
-@endsectionghyj
+@endsection

@@ -43,15 +43,16 @@
                     <a href="{{ route('user.movies.show', $movie->id) }}">
                         <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" height="240" alt="Card image cap"></a>
                     <div class="card-img-overlay">
-                        <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}"><i class="fas fa-heart"></i></h3>
+                        <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}"><h3><i class="fas fa-heart"></i></h3></a>
                     </div>
                     <div class=" card body bgcardcolor text-white">
-                        <h6>{{ $movie->title }}<br>{{ $movie->release_year }}</h6>
-                        <div>
+                        <h6>{{ $movie->title }}</h6>
+                        <p>{{ $movie->release_year }}</p>
+                        {{-- <div>
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                        </div>
-                        <div class="col-6">
-                          <a href="{{ route('user.movies.show', $movie->id)  }}" type="button" class="btn btn-outline-light">Read more</a>
+                        </div> --}}
+                        <div class="col-12">
+                          <a href="{{ route('user.movies.show', $movie->id)  }}" type="button" class="btn btn-outline-light"><h6>Read more</h6></a>
                         </div>
                     </div>
                 </div>
@@ -83,97 +84,23 @@
             <p class="text-light">POPULAR ON ALPHA FILMS</p>
             <div class="row">
                 <div class="card-group">
-                    <div class="col-md-2 active">
-                        <div class="card">
-                            <img class="card-img-top img-top" src="/assets/img/promising.jpg" height="240" alt="Card image cap">
-                            <div class="card-img-overlay">
-                                <h3 class="card-title"><i class="fas fa-heart"></i></h3>
-                            </div>
-                            <div class="bgcardcolor text-white">
-                                <h6>Promising Young Woman <br>(2019)</h6>
-                                <div>
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                </div>
-                            </div>
+                  @foreach ($pop_movies as $movie)
+                      <div class="col-md-2 active">
+                          <div class="card">
+                              <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" height="240" alt="Card image cap">
+                              <div class="card-img-overlay">
+                                  <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}"><h3><i class="fas fa-heart"></i></h3></a>
+                              </div>
+                              <div class="bgcardcolor text-white">
+                              <h6>{{ $movie->title }}</h6><p>{{ $movie->release_year }}</p>
+                              <div class="col-12">
+                                <a href="{{ route('user.movies.show', $movie->id)  }}" type="button" class="btn btcolor mt-3"><h6>Read more</h6></a>
+                              </div>
+                          </div>
 
-                        </div>
-                    </div>
-                    <div class=" col-md-2">
-                        <div class="card">
-                            <img class="card-img-top img-top" src="/assets/img/soul.jpeg" height="240" alt="Card image cap">
-                            <div class="card-img-overlay">
-                                <h3 class="card-title"><i class="fas fa-heart"></i></h3>
-                            </div>
-                            <div class="bgcardcolor text-white">
-                                <h6>Soul <br>(2021)</h6>
-                                <div>
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class=" col-md-2">
-                        <div class="card">
-                            <img class="card-img-top img-top" src="/assets/img/onenight.jpg" height="240" alt="Card image cap">
-                            <div class="card-img-overlay">
-                                <h3 class="card-title"><i class="fas fa-heart"></i></h3>
-                            </div>
-                            <div class="bgcardcolor text-white">
-                                <h6>One Night in Miami <br>(2019)</h6>
-                                <div>
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card">
-                            <img class="card-img-top img-top" src="/assets/img/euphoria.jpg" alt="Card image cap">
-                            <div class="card-img-overlay">
-                                <h3 class="card-title"><i class="fas fa-heart"></i></h3>
-                            </div>
-                            <div class="bgcardcolor text-white">
-                                <h6>Euphoria <br>(2019)</h6>
-                                <div>
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card">
-                            <img class="card-img-top img-top" src="/assets/img/sound.jpg" alt="Card image cap">
-                            <div class="card-img-overlay">
-                                <h3 class="card-title"><i class="fas fa-heart"></i></h3>
-                            </div>
-                            <div class="bgcardcolor text-white">
-                                <h6>Sound of Metal <br>(2019)</h6>
-                                <div>
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card">
-                            <img class="card-img-top img-top" src="/assets/img/parasite.jpg" height="245" alt="Card image cap">
-                            <div class="card-img-overlay">
-                                <h3 class="card-title"><i class="fas fa-heart"></i></h3>
-                            </div>
-                            <div class="bgcardcolor text-white">
-                                <h6>Parasite <br>(2019)</h6>
-                                <div>
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                          </div>
+                      </div>
+                    @endforeach            
                 </div>
         </section>
 

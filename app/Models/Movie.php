@@ -25,7 +25,7 @@ class Movie extends Model
     public function reviews()
     {
       //user has many reviews
-      return $this->hasMany('App\Models\Reviews');
+      return $this->hasMany('App\Models\Review');
     }
 
     public function users()

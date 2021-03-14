@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ReviewSeeder::class);
         $this->call(UserRecsSeeder::class);
         $this->call(UserWatchlistSeeder::class);
-        //$this->call(GroupSeeder::class);
-        //$this->call(EventSeeder::class);
+        $this->call(ReviewSeeder::class);
     }
 }

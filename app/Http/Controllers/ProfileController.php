@@ -30,7 +30,7 @@ class ProfileController extends Controller
       );
 
       $recomms =  $results['recomms'];
-      $request->setTimeout(5000);
+
       $movies = Movie::All();
       $group = Group::findOrFail(1);
         return view('user.profile', [

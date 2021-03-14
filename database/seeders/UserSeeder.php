@@ -7,6 +7,7 @@ use Hash;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\Group;
+use App\Models\Review;
 
 class UserSeeder extends Seeder
 {
@@ -47,7 +48,8 @@ class UserSeeder extends Seeder
 
         //users
         for($i = 1; $i <= 20; $i++) {
-          $user = User::factory()->create();
+          $user = User::factory()->hasReviews(rand(1,3))->create();
+          //$user = User::factory()->hasGroups(rand(1,3))->create();
           $user->roles()->attach($role_user);
             // $user = Group::factory()->create();
         }

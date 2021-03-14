@@ -10,7 +10,7 @@
             <div class="card-body">
                 <table class="table">
                     <tbody>
-                        @foreach ($groups as $group)
+                        @foreach (Auth::user()->groups as $group)
                         <tr>
                             <td class="text-light">{{ $group->group_name }}</td>
                         </tr>
