@@ -30,6 +30,7 @@ class ProfileController extends Controller
       );
 
       $recomms =  $results['recomms'];
+      echo 'Loaded';
 
       $movies = Movie::All();
       $group = Group::findOrFail(1);
@@ -48,18 +49,17 @@ class ProfileController extends Controller
 
 
       $results = $client->send(
-        new Reqs\RecommendItemsToUser($user_id, $count, ['scenario' => 'Top_recommendations'])
+        new RecommendItemsToUser($user_id, $count, ['scenario' => 'Top_recommendations'])
       );
 
       $recomms =  $results['recomms'];
 
       $movies = Movie::All();
-      $group = Group::findOrFail(1);
-        return view('profile.index', [
-          'movies' => $movies,
-          'group' => $group
+        return view('user.profile', [
+          'movies' => $movies
         ]);
     }
+
     public function update(Request $request){
       $rules = [
         'name'       => 'required|string|min:3|max:191',

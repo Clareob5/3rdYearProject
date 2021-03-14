@@ -19,34 +19,34 @@ class EventController extends Controller
     $this->middleware('auth');
   }
 
-  public function create()
-  {
-    $id = 4;
-    $users = User::All();
-    $group = Group::findOrFail($id);
-    return view('user.groups.event.create', [
-      'users' => $users,
-      'group' => $group
-    ]);
-  }
-
-  public function store(Request $request)
-  {
-      $id = 4;
-      $request ->validate([
-        'date' => 'required',
-        'time' => 'required',
-        'group_id' => '',
-        ]);
-
-      $event = new Event();
-      $event->date = $request->input('date');
-      $event->time = $request->input('time');
-      $event->group_id = $id;
-      $event->save();
-
-      return redirect()->route('user.groups.event.show', $event->id);
-  }
+  // public function create()
+  // {
+  //   $id = 4;
+  //   $users = User::All();
+  //   $group = Group::findOrFail($id);
+  //   return view('user.groups.event.create', [
+  //     'users' => $users,
+  //     'group' => $group
+  //   ]);
+  // }
+  //
+  // public function store(Request $request)
+  // {
+  //     $id = 4;
+  //     $request ->validate([
+  //       'date' => 'required',
+  //       'time' => 'required',
+  //       'group_id' => '',
+  //       ]);
+  //
+  //     $event = new Event();
+  //     $event->date = $request->input('date');
+  //     $event->time = $request->input('time');
+  //     $event->group_id = $id;
+  //     $event->save();
+  //
+  //     return redirect()->route('user.groups.event.show', $event->id);
+  // }
 
   /**
    * Display the specified resource.

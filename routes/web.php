@@ -48,7 +48,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //routes to admin and user home dashboards
 Route::get('/admin/home', [AdminHomeController::class, 'index'])->name('admin.home');
 Route::get('/user/home', [UserHomeController::class, 'index'])->name('user.home');
-//Route::get('/user/add', [UserHomeController::class, 'addToWatchlist'])->name('user.addToWatchlist');
 
 
 Route::get('/profile',[ProfileController::class, 'index'])->name('profile.index');

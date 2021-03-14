@@ -347,7 +347,7 @@ class MovieSeeder extends Seeder
       $movie->duration = "190 min";
       $movie->genre = "Action";
       $movie->description = "A female WWII pilot traveling with top secret documents on a B-17 Flying Fortress encounters an evil presence on board the flight.";
-      $movie->cover = "shadow.jpg";
+      $movie->cover = "shadow.png";
       $movie->save();
 
       $movie = new Movie();
@@ -417,7 +417,7 @@ class MovieSeeder extends Seeder
       $movie->duration = "99 min";
       $movie->genre = "Action";
       $movie->description = "Eight years after the Joker's reign of anarchy, Batman, with the help of the enigmatic Catwoman, is forced from his exile to save Gotham City from the brutal guerrilla terrorist Bane.";
-      $movie->cover = "theDKR.jpg";
+      $movie->cover = "theDKR.jpeg";
       $movie->save();
 
       $movie = new Movie();
@@ -501,7 +501,7 @@ class MovieSeeder extends Seeder
       $movie->duration = "106 min";
       $movie->genre = "Comedy";
       $movie->description = "A wrong-number text sparks a virtual romance between a smart but unpopular teen and a sweet jock who thinks he's talking to a gorgeous cheerleader.";
-      $movie->cover = "Equaizer.jpg";
+      $movie->cover = "Equalizer.jpg";
       $movie->save();
 
       $movie = new Movie();

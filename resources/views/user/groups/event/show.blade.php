@@ -43,6 +43,9 @@
                     </table>
 
                 </div>
+                <div class="card-header text-light">
+                  Chosen Movie for event
+                </div>
                 <div class="card-body">  @foreach ($movies as $movie)
                     @if ($movie->id == $final_mov[0]['id']) <div class="col-md-6 active">
                       <div class="card">
