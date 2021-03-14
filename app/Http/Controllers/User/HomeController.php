@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Movie;
+use App\Models\Review;
 use App\Models\Group;
 use App\Models\User;
 use Auth;
@@ -55,10 +56,13 @@ class HomeController extends Controller
     // print_r($recomms[0]['id']);
 
       $movies = Movie::All();
+      // $review->review = Review::All();
+      // $review->rating = Review::All();
       $pop_movies = Movie::orderBy('rating','DESC')->limit(6)->get();
       $groups = Group::ALL();
       return view('user.home', [
         'movies' => $movies,
+        // 'review' => $review,
         'groups' => $groups,
         'pop_movies' => $pop_movies,
         'recomms' => $recomms

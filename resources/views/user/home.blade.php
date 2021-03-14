@@ -100,7 +100,7 @@
 
                           </div>
                       </div>
-                    @endforeach            
+                    @endforeach
                 </div>
         </section>
 
@@ -147,11 +147,11 @@
                         <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
                             <div class="row no-gutters">
                                 <div class="col-md-4">
-                                    <img src="/assets/img/notebook.jpg" class="card-img" alt="...">
+                                  <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <h5 class="card-title">The Notebook</h5>
+                                        <h5 class="card-title">{{ $movie->title }}</h5>
                                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                         <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
                                     </div>
@@ -162,11 +162,11 @@
                         <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
                             <div class="row no-gutters">
                                 <div class="col-md-4">
-                                    <img src="/assets/img/whiplash.jpg" class="card-img" alt="...">
+                                  <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <h5 class="card-title">Whiplash</h5>
+                                        <h5 class="card-title">{{ $movie->title }}</h5>
                                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                         <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
                                     </div>
@@ -181,11 +181,11 @@
                         <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
                             <div class="row no-gutters">
                                 <div class="col-md-4">
-                                    <img src="/assets/img/parasite.jpg" height="260" class="card-img" alt="...">
+                                  <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <h5 class="card-title">Parasite</h5>
+                                        <h5 class="card-title">{{ $movie->title }}</h5>
                                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                         <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
                                     </div>
@@ -196,11 +196,11 @@
                         <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
                             <div class="row no-gutters">
                                 <div class="col-md-4">
-                                    <img src="/assets/img/moonrise.jpg" height="270" class="card-img" alt="...">
+                                  <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <h5 class="card-title">Moonrise Kingdom</h5>
+                                        <h5 class="card-title">{{ $movie->title }}</h5>
                                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                         <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
                                     </div>

@@ -33,7 +33,7 @@ class ProfileController extends Controller
 
       $movies = Movie::All();
       $group = Group::findOrFail(1);
-        return view('user.profile', [
+        return view('profile.index', [
           'movies' => $movies,
           'recomms' => $recomms,
           'group' => $group
@@ -48,24 +48,27 @@ class ProfileController extends Controller
 
 
       $results = $client->send(
-        new RecommendItemsToUser($user_id, $count, ['scenario' => 'Top_recommendations'])
+        new Reqs\RecommendItemsToUser($user_id, $count, ['scenario' => 'Top_recommendations'])
       );
 
       $recomms =  $results['recomms'];
 
       $movies = Movie::All();
-        return view('user.profile', [
-          'movies' => $movies
+      $group = Group::findOrFail(1);
+        return view('profile.index', [
+          'movies' => $movies,
+          'group' => $group
         ]);
     }
     public function update(Request $request){
-      $request->validate([
+      $rules = [
         'name'       => 'required|string|min:3|max:191',
         'dob'        => 'required|date',
         'email'      => 'required|email|min:3|max:191',
         'password'   => 'nullable|string|min:5|max:191',
-        'image'      => 'file|image', //formats jpg, png, bmp etc
-      ]);
+        'image'      => 'nullable|image|max:1999', //formats jpg, png, bmp etc
+      ];
+      $request->validate($rules);
 
       $user = Auth::user();
       $user->name = $request->name;
@@ -74,30 +77,30 @@ class ProfileController extends Controller
 
       if($request->hasFile('image')){
         //get image file
-        $image = $request->file('image');
+        $image = $request->image;
         //get just extension
-        $extension = $image->getClientOriginalExtension();
+        $ext = $image->getClientOriginalExtension();
         //make a unique name
-        $filename = uniqid() .'.'. $extension;
+        $filename = uniqid().'.'.$ext;
         //upload the image
-        $image->storeAs('public/images', $filename);
+        $image->storeAs('public/images',$filename);
         //delete the previous image
         Storage::delete("public/images/{$user->image}");
         //this col has a default value so we dont need to set it empty
         $user->image = $filename;
 
-        $user->image->save();
       }
 
       if($request->password){
         $user->password = Hash::make($request->password);
-        $user->save();
       }
 
       $user->save();
       return redirect()
-          ->route('profile.show')
+          ->route('profile.index')
           ->with('status','Your profile has been updated!');
 
     }
+
+
 }

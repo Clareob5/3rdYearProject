@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Http\Controllers\MovieController;
+use App\Models\Movie;
 
 trait Search
 {
@@ -30,7 +32,6 @@ trait Search
         $columns = implode(',', $this->searchable);
 
         // Boolean mode allows us to match john* for words starting with john
-        // (https://dev.mysql.com/doc/refman/5.6/en/fulltext-boolean.html)
         $query->whereRaw(
             "MATCH ({$columns}) AGAINST (? IN BOOLEAN MODE)",
             $this->buildWildCards($term)
