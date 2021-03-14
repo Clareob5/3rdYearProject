@@ -5,7 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Movie;
-use App\Models\Reviews;
+use App\Models\Review;
 use Auth;
 
 class ReviewController extends Controller
@@ -53,7 +53,7 @@ class ReviewController extends Controller
      */
     public function store(Request $request, $id)
     {
-      $review = new Reviews();
+      $review = new Review();
       $review->review = $request->input('review');
       $review->rating = $request->input('rating');
       $review->user_id = Auth::id();

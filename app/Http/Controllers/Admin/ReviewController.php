@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Reviews;
+use App\Models\Review;
 
 class ReviewController extends Controller
 {
@@ -92,7 +92,7 @@ class ReviewController extends Controller
      */
     public function destroy(Request $request, $id, $rid)
     {
-      $review = Reviews::findOrFail($rid);
+      $review = Review::findOrFail($rid);
 
       $review->delete();
 

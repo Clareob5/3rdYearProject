@@ -17,24 +17,15 @@
                             <br>
                             <br>
 
-
-                            <h4>Director:</h4>
-                            <p>{{ $movie->director }}</p>
-
-
-
-                            <h4>Cast:</h4>
-                            <p>{{ $movie->cast }}</p>
+                            <p>Rate</p>
+                            <h1><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </h1>
+                            <br>
 
 
-                            <h4>Country:</h4>
-                            <p>{{ $movie->country }}</p>
+                            <a href="#" target="_blank"><button type="button" class="btn btn-success"><i class="fas fa-play-circle"></i>Trailer</button></a>
 
 
-                            <h4>Date Added:</h4>
-                            <p>{{ $movie->date_added }}</p>
-
-                            <a href="https://www.youtube.com/watch?v=_eOI3AamSm8" target="_blank"><button type="button" class="btn btn-success"><i class="fas fa-play-circle"></i>Trailer</button></a>
                             <br>
                             <br>
 
@@ -57,8 +48,23 @@
                             <p>{{ $movie->duration }}</p>
 
 
-                            <h4>Listed In:</h4>
+                            <h4>Genre:</h4>
                             <p>{{ $movie->genre }}</p>
+
+
+                            <h4>Director:</h4>
+                            <p>{{ $movie->director }}</p>
+
+                            <h4>Cast:</h4>
+                            <p>{{ $movie->cast }}</p>
+
+
+                            <h4>Country:</h4>
+                            <p>{{ $movie->country }}</p>
+
+
+                            <h4>Date Added:</h4>
+                            <p>{{ $movie->date_added }}</p>
 
 
 
@@ -68,12 +74,8 @@
                             <p>Add to Watchlist</p>
                             <h1><i class="fas fa-heart"></i></h1>
 
-                            <p>Rate</p>
-                            <h1><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </h1>
 
-                            <p>Similar Movies</p>
-                            <img src="/assets/img/poplist1.png">
+
 
                         </div>
 
@@ -81,11 +83,6 @@
                 </div>
             </section>
 
-
-
-            <div class="justify-content-center">
-                <a href="{{ route('user.home')}}" class="btn btn-danger ">Back</a>
-            </div>
 
             <br>
             <br>
@@ -97,17 +94,38 @@
 
             </h2>
 
+            <div class="card-deck">
+              @if (count($movie->reviews) == 0)
+              <p>There are no reviews for this movie</p>
+              @else
+              @foreach ($movie->reviews as $review)
+  <div class="card box_style_two">
+    <div class="card-body">
 
-            <ul>
-                @if (count($movie->reviews) == 0)
-                <p>There are no reviews for this movie</p>
-                @else
-                @foreach ($movie->reviews as $review)
-                <li>{{ $review->review }}</li>
-                <li>{{ $review->rating }}</li>
-                @endforeach
-                @endif
-            </ul>
+
+      <h5 class="card-title">Reviews</h5>
+      <p class="card-text">{{ $review->review }}</p>
+
+      <h5>Rating</h5>
+      <p class="card-text">{{ $review->rating }}</p>
+
+
+
+    </div>
+  </div>
+
+
+
+  @endforeach
+  @endif
+</div>
+
+<br>
+
+<div class="justify-content-center">
+    <a href="{{ route('user.home')}}" class="btn btcolor ">Back</a>
+</div>
+
 
 
         </div>

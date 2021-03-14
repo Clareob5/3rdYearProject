@@ -70,11 +70,11 @@ public function __construct()
      {
        $movie = Movie::findOrFail($id);
 
-       $time = $movie->created_at;
+      // $time = $movie->created_at;
        $user_id = Auth::user()->id;
 
        $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
-       $client -> send(new Reqs\AddDetailView($user_id, "$id", ['timestamp' => $time, 'cascadeCreate' => true]));
+       $client -> send(new Reqs\AddDetailView($user_id, "$id", ['cascadeCreate' => true]));
 
 
 
