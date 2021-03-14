@@ -30,6 +30,7 @@ class ProfileController extends Controller
       );
 
       $recomms =  $results['recomms'];
+      echo 'Loaded';
 
       $movies = Movie::All();
       $group = Group::findOrFail(1);
@@ -41,23 +42,23 @@ class ProfileController extends Controller
 
     }
 
-    public function show(){
-      $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
-      $user_id = Auth::user()->id;
-      $count = 6;
-
-
-      $results = $client->send(
-        new RecommendItemsToUser($user_id, $count, ['scenario' => 'Top_recommendations'])
-      );
-
-      $recomms =  $results['recomms'];
-
-      $movies = Movie::All();
-        return view('user.profile', [
-          'movies' => $movies
-        ]);
-    }
+    // public function show(){
+    //   $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
+    //   $user_id = Auth::user()->id;
+    //   $count = 6;
+    //
+    //
+    //   $results = $client->send(
+    //     new RecommendItemsToUser($user_id, $count, ['scenario' => 'Top_recommendations'])
+    //   );
+    //
+    //   $recomms =  $results['recomms'];
+    //
+    //   $movies = Movie::All();
+    //     return view('user.profile', [
+    //       'movies' => $movies
+    //     ]);
+    // }
     public function update(Request $request){
       $request->validate([
         'name'       => 'required|string|min:3|max:191',
