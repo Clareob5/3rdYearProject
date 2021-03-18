@@ -22,7 +22,7 @@
       <div class="row">
 
       <div class="col-8">
-    <form action="{{route('profile.update')}}" method="post" enctype="multipart/form-data">
+      <form action="{{route('user.profile')}}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group">
@@ -71,7 +71,7 @@
             @endif
         </div>
         <button type="submit" class="btn btcolor mt-3">Update Details</button>
-        <a href="{{route('profile.show', Auth::user()->id)}}" class="btn btcolor mt-3">Update Recommedations</a>
+      <a href="{{route('profile.show', Auth::user()->id)}}" class="btn btcolor mt-3">Update Recommedations</a>
     </form>
   </div>
 
@@ -83,7 +83,7 @@
     <a href="{{route('user.groups.create', Auth::user()->id)}}" type="button" class="btn btn-success">Create Group<i class="fas fa-plus-circle"></i></a>
     <br>
     <br>
-    <a href="{{route('user.groups.show', $group->id)}}" type="button" class="btn btn-success">View Groups</a>
+    {{-- <a href="{{route('user.groups.show', $group->id)}}" type="button" class="btn btn-success">View Groups</a> --}}
   </div>
 
 </div>
@@ -109,9 +109,9 @@
                       <div class="col-12">
                         <a href="{{ route('user.movies.show', $movie->id)  }}" type="button" class="btn btcolor mt-3"><h6>Read more</h6></a>
                       </div>
-                      {{-- <div>
+                      <div>
                           <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                      </div> --}}
+                      </div>
                   </div>
               </div>
           </div>

@@ -20,10 +20,10 @@ class ProfileController extends Controller
     }
 
     public function index(){
+
       $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
       $user_id = Auth::user()->id;
       $count = 6;
-
 
       $results = $client->send(
         new Reqs\RecommendItemsToUser($user_id, $count, ['scenario' => 'Top_recommendations'])
@@ -33,32 +33,31 @@ class ProfileController extends Controller
       echo 'Loaded';
 
       $movies = Movie::All();
-      $group = Group::findOrFail(1);
-        return view('profile.index', [
+      //$group = Group::findOrFail(1);
+        return view('user.profile', [
           'movies' => $movies,
           'recomms' => $recomms,
-          'group' => $group
-        ]);
-
-    }
-
-    public function show(){
-      $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
-      $user_id = Auth::user()->id;
-      $count = 6;
-
-
-      $results = $client->send(
-        new RecommendItemsToUser($user_id, $count, ['scenario' => 'Top_recommendations'])
-      );
-
-      $recomms =  $results['recomms'];
-
-      $movies = Movie::All();
-        return view('user.profile', [
-          'movies' => $movies
+          //'group' => $group
         ]);
     }
+
+    // public function show(){
+    //   // $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
+    //   // $user_id = Auth::user()->id;
+    //   // $count = 6;
+    //   //
+    //   //
+    //   // $results = $client->send(
+    //   //   new RecommendItemsToUser($user_id, $count, ['scenario' => 'Top_recommendations'])
+    //   // );
+    //   //
+    //   // $recomms =  $results['recomms'];
+    //   //
+    //   // $movies = Movie::All();
+    //   //   return view('user.profile', [
+    //   //     'movies' => $movies
+    //   //   ]);
+    // }
 
     public function update(Request $request){
       $rules = [
