@@ -99,7 +99,7 @@ class EventController extends Controller
     $result = $client->send(
       new Reqs\RecommendItemsToUser($name, 1)
       );
-      $request->setTimeout(5000);
+      //$request->setTimeout(5000);
 
     $final_mov = $result['recomms'];
 

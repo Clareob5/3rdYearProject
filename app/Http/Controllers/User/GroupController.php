@@ -124,12 +124,12 @@ class GroupController extends Controller
   {
 
     $user = Auth::user();
-    $groups = $user->groups()->orderBy('date', 'asc')->paginate(8);
 
+    //$groups = $user->groups()->orderBy('date', 'asc')->paginate(8);
   //  $events = $group->events()->orderBy('date', 'asc')->paginate(8); //displatying only visits relevant to authorised patient viewing the page
 
       $group = Group::findOrFail($id);
-    //  $groups = Group::All();
+      $groups = Group::All();
       $events = Event::All();
       $users = User::All();
       return view('user.groups.show', [
@@ -144,11 +144,11 @@ class GroupController extends Controller
   {
 
     $user = Auth::user();
-    $events = $group->events()->orderBy('date', 'asc')->paginate(8); //displatying only visits relevant to authorised patient viewing the page
+    //$events = $group->events()->orderBy('date', 'asc')->paginate(8); //displatying only visits relevant to authorised patient viewing the page
 
       $group = Group::findOrFail($id);
       $groups = Group::All();
-  //    $events = Event::All();
+      $events = Event::All();
       $users = User::All();
       return view('user.groups.show', [
         'group' => $group,
