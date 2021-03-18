@@ -36,7 +36,7 @@ class ProfileController extends Controller
       //$group = Group::findOrFail(1);
         return view('user.profile', [
           'movies' => $movies,
-          'recomms' => $recomms,
+          'recomms' => $recomms
           //'group' => $group
         ]);
     }

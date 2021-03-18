@@ -18,7 +18,7 @@ class UserRecsController extends Controller
 
     public function index()
     {
-      
+
     }
 
     public function createGenre(Request $request)
@@ -100,7 +100,7 @@ class UserRecsController extends Controller
         $userRec->save();
       }
 
-     return redirect()->route('profile.index');
+     return redirect()->route('user.profile');
     }
 
     public function editGenre(Request $request, $id)
@@ -180,7 +180,7 @@ class UserRecsController extends Controller
         $userRec->save();
       }
 
-     return redirect()->route('profile.index');
+     return redirect()->route('user.profile');
     }
 
 
