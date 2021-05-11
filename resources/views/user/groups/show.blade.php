@@ -107,7 +107,7 @@
 <div class="modal-dialog">
   <div class="modal-content box_style">
       <div class="modal-header">
-          <h4 class="modal-title"></h4>
+          <h4 class="modal-title">Add an Event</h4>
       </div>
       <div class="modal-body">
           <!-- <form method="POST" action="// route('user.groups.event.store', $group->id) }}"> -->

@@ -4,17 +4,18 @@
 <div class="container-fluid background-dark">
     <div class="row justify-content-center">
 
-      <div class="col-md-8">
+      <div class="col-md-12">
         <h1 class="text-light">User Watchlist</h1>
 
       </div>
 
-      <div class="col-md-4">
+<!-- search bar component not working -->
+      <!-- <div class="col-md-4">
 
         <livewire:search-watchlist />
 
 
-      </div>
+      </div> -->
 
 
 

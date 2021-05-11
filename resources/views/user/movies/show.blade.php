@@ -90,11 +90,11 @@
             <h2>
                 Reviews
 
-                <a href="{{ route('user.reviews.create', $movie->id) }}" class="btn btn-primary ">Add</a>
+                <a href="{{ route('user.reviews.create', $movie->id) }}" class="btn btn-primary">Add</a>
 
             </h2>
 
-            <div class="card-deck">
+            <div class="card-deck topspace">
               @if (count($movie->reviews) == 0)
               <p>There are no reviews for this movie</p>
               @else
@@ -123,7 +123,7 @@
 <br>
 
 <div class="justify-content-center">
-    <a href="{{ route('user.home')}}" class="btn btcolor ">Back</a>
+    <a href="{{ route('user.home')}}" class="btn btcolor">Back</a>
 </div>
 
 

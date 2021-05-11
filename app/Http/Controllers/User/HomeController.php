@@ -8,6 +8,7 @@ use App\Models\Movie;
 use App\Models\Review;
 use App\Models\Group;
 use App\Models\User;
+use App\Models\UserWatchlist;
 use Auth;
 use Recombee\RecommApi\Client;
 use Recombee\RecommApi\Requests as Reqs;
@@ -59,13 +60,21 @@ class HomeController extends Controller
       // $review->review = Review::All();
       // $review->rating = Review::All();
       $pop_movies = Movie::orderBy('rating','DESC')->limit(6)->get();
-      $groups = Group::ALL();
+      $groups = Group::All();
       return view('user.home', [
         'movies' => $movies,
         // 'review' => $review,
         'groups' => $groups,
         'pop_movies' => $pop_movies,
         'recomms' => $recomms
+      ]);
+
+      $id = Auth::user()->id;
+      $movies = User::find($id)->movies;
+      echo $movies;
+      echo $id;
+      return view('user.watchlist', [
+        'movies' => $movies
       ]);
   }
 

@@ -15,7 +15,8 @@
             <br>
             <br>
             <div class="row justify-content-center">
-                <h4 class="text-muted">The social network for film lovers. Also available on ...</h4>
+                <h4 class="text-muted">Alpha Films lets you keep track of movies you've watched, create groups and choose movies with friends!</h4>
+
             </div>
         </div>
 
@@ -30,15 +31,15 @@
             </div>
             @endif
             <div>
-                <h3>Popular Movies</h3>
+                <h5>POPULAR MOVIES</h5>
             </div>
             <div class="row">
                 <div class="card-group">
                     @foreach ($movies as $movie)
                     <div class="col-md-2 active">
-                        <div class="card">
+                        <div class="card bgcardcolor">
                             <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" height="240" alt="Card image cap">
-                            <div class="bgcardcolor text-white">
+                            <div class="bgcardcolor text-white push2 topspace">
                                 <h6>{{ $movie->title }}</h6>
                                 <p>{{ $movie->release_year }}</p>
 
@@ -61,11 +62,11 @@
             </div>
         </section>
 
-        <section>
+        <!-- <section>
             <br>
             <br>
             <br>
-            <p class="text-light">ALPHA FILMS LETS YOU....</p>
+            <h5 class="text-light">ALPHA FILMS LETS YOU....</h5>
             <div class="row row-cols-1 row-cols-md-2 g-4">
                 <div class="col">
                     <div class="card text-white bgcardcolor mb-3">
@@ -97,16 +98,18 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <section>
-            <p class="text-light">JUST REVIEWED....</p>
+          <br>
+          <br>
+            <h5 class="text-light">JUST REVIEWED....</h5>
             <div class="row">
                 <div class="card-group">
                     @foreach ($recent_reviews as $recent_review)
                     <div class="col-md-1">
-                        <div class="card">
-                            <img class="card-img-top img-top" src="{{ '../assets/img/' . $recent_review->cover }}" alt="Card image cap">
+                        <div class="card bgcardcolor">
+                            <img class="card-img-top img-top" src="{{ '../assets/img/' . $recent_review->cover }}" alt="Card image cap" height="240">
                         </div>
                     </div>
                     @endforeach
@@ -122,7 +125,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        <p class="text-light">Recently Added</p>
+                        <h5 class="text-light">RECENTLY ADDED</h5>
 
                         <ul class="list-unstyled">
                             <div class="container-fluid">
@@ -146,15 +149,15 @@
                                 <p>POPULAR PUBLIC WATCHLISTS</p>
                                 <img src="assets/img/poplist1.png">
                                 <p><i class="fas fa-heart"></i>Candy Cinema</p>
-                                <P>1,089,678 likes</p>
+                                <p>1,089,678 likes</p>
                                 <br>
                                 <img src="assets/img/poplist2.png">
                                 <p><i class="fas fa-heart"></i>Movies for boredom</p>
-                                <P>635,467 likes</p>
+                                <p>635,467 likes</p>
                                 <br>
                                 <img src="assets/img/poplist3.png">
                                 <p><i class="fas fa-heart"></i>The greatest list on Earth</p>
-                                <P>483,795 likes</p>
+                                <p>483,795 likes</p>
                             </div> --}}
 
                     </div>
@@ -165,10 +168,10 @@
 
         <section>
 
-            <p class="text-light">RECENT NEWS</p>
+            <h5 class="text-light">RECENT NEWS</h5>
 
 
-            <div class="card-group">
+            <div class="card-deck">
                 <div class="card text-white bgcardcolor mb-3">
                     <img src="assets/img/jason.png" class="card-img-top" alt="...">
                     <div class="card-body">

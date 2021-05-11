@@ -1,8 +1,47 @@
 @extends('layouts.app')
 
 @section('content')
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span>Toggle Sidebar</span>
+                </button>
+            </div>
+        </nav> -->
+
+<!-- <div class="wrapper">
+
+<nav id="sidebar">
+
+  <ul class="list-unstyled commponents">
+
+
+  <div class="sidebar-header">
+    <h3>Your Groups</h3>
+  </div>
+
+  <li>
+    @foreach ($groups as $group)
+
+    @if($group->user_id == Auth::user()->id)
+
+        <a class="text-light">{{ $group->group_name }}</a>
+
+        @endif
+
+    @endforeach
+  </li>
+
+</ul>
+</nav>
+</div> -->
+
 <div class="container background-dark">
     <div class="row justify-content-center">
+
 
         <div class="col-md-12">
 
@@ -22,7 +61,10 @@
             <div class="row justify-content-center">
                 <p class="text-light">This page will become more active as you add more movies to your watchlist</p>
 
+
             </div>
+
+
         </div>
 
         <br>
@@ -31,30 +73,24 @@
 
         <section>
 
-    </div>
 
-    <p class="text-light">YOUR MOVIE RECOMMENDATIONS</p>
-    <div class="row">
+
+    <h5 class="text-light">YOUR MOVIE RECOMMENDATIONS</h5>
         <div class="card-group">
             @foreach ($movies as $movie)
             @for ($i=0; $i < 6; $i++)
               @if ($movie->id == $recomms[$i]['id']) <div class="col-md-2 active">
-                <div class="card">
+                <div class="card bgcardcolor">
                     <a href="{{ route('user.movies.show', $movie->id) }}">
-                        <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" height="240" alt="Card image cap"></a>
-                    <div class="card-img-overlay">
-                        <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}"><h3><i class="fas fa-heart"></i></h3></a>
+                        <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" alt="Card image cap"></a>
+
+                        <div class="  bgcardcolor text-white push2 topspace">
+                        <p class="card-text">{{ $movie->title }} ({{ $movie->release_year }})</p>
+                        <hr>
+                       <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}"><h6><i class="fas fa-heart"></i> Add to Watchlist </h6></a>
+
                     </div>
-                    <div class=" card body bgcardcolor text-white">
-                        <h6>{{ $movie->title }}</h6>
-                        <p>{{ $movie->release_year }}</p>
-                        {{-- <div>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                        </div> --}}
-                        <div class="col-12">
-                          <a href="{{ route('user.movies.show', $movie->id)  }}" type="button" class="btn btn-outline-light"><h6>Read more</h6></a>
-                        </div>
-                    </div>
+
                 </div>
             </div>
             @endif
@@ -71,37 +107,40 @@
         <section>
             <br>
             <br>
-            <div class="row justify-content-center push2">
+            <div class="row justify-content-center">
                 <img src="/assets/img/midbanner.png">
 
             </div>
         </section>
 
-        <section>
-            <br>
-            <br>
+        <section class="sectionSpacing">
 
-            <p class="text-light">POPULAR ON ALPHA FILMS</p>
-            <div class="row">
+          <br>
+          <br>
+
+
+            <h5>POPULAR ON ALPHA FILMS</h5>
                 <div class="card-group">
                   @foreach ($pop_movies as $movie)
                       <div class="col-md-2 active">
-                          <div class="card">
-                              <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" height="240" alt="Card image cap">
-                              <div class="card-img-overlay">
-                                  <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}"><h3><i class="fas fa-heart"></i></h3></a>
-                              </div>
-                              <div class="bgcardcolor text-white">
-                              <h6>{{ $movie->title }}</h6><p>{{ $movie->release_year }}</p>
-                              <div class="col-12">
-                                <a href="{{ route('user.movies.show', $movie->id)  }}" type="button" class="btn btcolor mt-3"><h6>Read more</h6></a>
-                              </div>
+                          <div class="card bgcardcolor">
+                              <a href="{{ route('user.movies.show', $movie->id) }}">
+                              <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" height="240" alt="Card image cap"></a>
+
+                              <div class="  bgcardcolor text-white push2 topspace">
+                              <p class="card-text">{{ $movie->title }} ({{ $movie->release_year }})</p>
+                              <hr>
+                             <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}"><h6><i class="fas fa-heart"></i> Add to Watchlist </h6></a>
+
                           </div>
 
                           </div>
                       </div>
                     @endforeach
                 </div>
+
+
+
         </section>
 
 
@@ -109,7 +148,7 @@
             <br>
             <br>
 
-            <p>LATEST NEWS</p>
+            <h5>LATEST NEWS</h5>
 
             <div class="card mb-3 bgcardcolor" style="max-width: 1140px;">
                 <div class="row no-gutters">
@@ -128,21 +167,20 @@
                 </div>
             </div>
 
-            <section>
-                <br>
-                <br>
-                <p>POPULAR REVIEWS</p>
-            </section>
 
-        </section>
+
+
 
         <section>
 
+          <br>
+          <br>
 
             <div class="container-fluid">
                 <div class="row">
 
                     <div class="col-6">
+                      <h5>POPULAR REVIEWS</h5>
 
                         <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
                             <div class="row no-gutters">
@@ -214,42 +252,8 @@
                 </div>
             </div>
 
-
-    </div>
-
     </section>
 
-    <section>
-        <br>
-        <br>
-
-        <p>POPULAR LISTS</p>
-
-        <div class="container-fluid">
-            <div class="row">
-
-                <div class="col-4">
-                    <img src="/assets/img/poplist1.png">
-                    <p><i class="fas fa-heart"></i>Candy Cinema</p>
-                    <P>1,089,678 likes</p>
-                </div>
-
-                <div class="col-4">
-                    <img src="/assets/img/poplist2.png">
-                    <p><i class="fas fa-heart"></i>Movies for boredom</p>
-                    <P>635,467 likes</p>
-                </div>
-
-                <div class="col-4">
-                    <img src="/assets/img/poplist3.png">
-                    <p><i class="fas fa-heart"></i>The greatest list on Earth</p>
-                    <P>483,795 likes</p>
-                </div>
-
-            </div>
-        </div>
-
-    </section>
 
 
     <section>
@@ -257,10 +261,9 @@
         <br>
         <br>
 
-        <p>RECENT SHOWDOWNS</p>
+        <h5>RECENT SHOWDOWNS</h5>
 
         <div class="card-deck">
-            <div class="card-group">
                 <div class="card text-white bgcardcolor mb-3">
                     <img src="/assets/img/modest.png" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -290,7 +293,6 @@
                     </div>
                 </div>
 
-            </div>
 
         </div>
     </section>
@@ -302,9 +304,15 @@
         <br>
         <br>
 
-        <p>RECENT NEWS</p>
 
-        <div class="card-group">
+
+        <div class="containe-fluid">
+
+        <div class="row">
+
+            <h5>RECENT NEWS</h5>
+
+        <div class="card-deck">
 
             <div class="card text-white bgcardcolor mb-3">
                 <img src="/assets/img/chame.png" class="card-img-top" alt="...">
@@ -338,24 +346,66 @@
             </div>
         </div>
 
+</div>
+</div>
 
 
     </section>
 
 
+<!-- </div>
 </div>
 </div>
 </div>
-</div>
-</div>
+</div> -->
 
-</div>
+<!-- </div> -->
+
+
 </div>
 </div>
 @endsection
 
 @section('javascript')
 <script>
+
+$(document).ready(function() {
+            $('#sidebarCollapse').on('click', function() {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+
+        $(document).ready(function () {
+
+    $("#sidebar").mCustomScrollbar({
+         theme: "minimal"
+    });
+
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+    });
+
+});
+
+$(document).ready(function () {
+
+    $("#sidebar").mCustomScrollbar({
+         theme: "minimal"
+    });
+
+    $('#sidebarCollapse').on('click', function () {
+        // open or close navbar
+        $('#sidebar').toggleClass('active');
+        // close dropdowns
+        $('.collapse.in').toggleClass('in');
+        // and also adjust aria-expanded attributes we use for the open/closed arrows
+        // in our CSS
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+    });
+
+});
+
+
   $(document).on('click','.add_to_wishlist',function(e){
     e.preventDefault();
     var movie_id=$(this).data('id');

@@ -3,11 +3,13 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card box_style">
                 <h2 class="center_text"> Choose Movies</h2>
 
-                <div>
+                <h4>Select Multiple Movies You Have Watched or Recognise!</h4>
+
+                <div class="topspace">
                     @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -24,10 +26,16 @@
                           <div class="container-fluid">
                           <div class="row">
                           @foreach($movies as $movie)
-                            <div style="margin-bottom: 10px;">
-                              <input type="checkbox" name="movie_ids[]" value="{{ $movie->id }}"><img src="{{ '/assets/img/' . $movie->cover }}" width="120px" height='120px'/><br>
+                            <div class="spacingMovies">
+                              <inputs type="checkbox" name="movie_ids[]" value="{{ $movie->id }}">
+
+                              <img  src="{{ '/assets/img/' . $movie->cover }}" width="120px" height='120px'/><br>
+
+                              <p> {{ $movie->title }} {{ $movie->release_year }} </p>
                             </div>
+
                           @endforeach
+
                         </div>
                       </div>
                             <br>

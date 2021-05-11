@@ -57,11 +57,11 @@ Route::get('/profile/show',[ProfileController::class, 'show'])->name('profile.sh
 Route::get('/watchlist',[UserWatchlistController::class, 'index'])->name('user.watchlist');
 Route::post('/watchlist/add',[UserWatchlistController::class, 'store'])->name('user.watchlist.store');
 
-
+//USER VIEW MOVIE ROUTES
 Route::get('/user/movies', [UserMovieController::class, 'index'])->name('user.movies.index');
 Route::get('/user/movies/{id}', [UserMovieController::class, 'show'])->name('user.movies.show');
 
-//ADMIN CRDU ROUTES
+//ADMIN CRUD ROUTES
 Route::get('/admin/movies', [AdminMovieController::class, 'index'])->name('admin.movies.index');
 Route::get('/admin/movies/create', [AdminMovieController::class, 'create'])->name('admin.movies.create');
 Route::get('/admin/movies/{id}', [AdminMovieController::class, 'show'])->name('admin.movies.show');
