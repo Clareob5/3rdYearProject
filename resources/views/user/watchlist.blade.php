@@ -21,9 +21,6 @@
 
         </div>
         </div>
-
-
-
         <section>
           <br>
           <br>
@@ -43,45 +40,39 @@
                   <div class="card-body">
                     <h5 class="card-title">{{ $movie->title }}</h5>
                       <p class="card-text">{{ $movie->description }}</p>
-                        <div class="row justify-content-center">
-                          <a href="{{ route('user.movies.show', $movie->id)  }}" type="button" class="btn btcolor">View More</a>
-                        </div>
                         <h5 class="card-text topspace"><small class="text-light">GENRE: {{ $movie->genre }}</small></h5>
                         <h5 class="card-text"><small class="text-light">RATING: {{ $movie->rating }}</small></h5>
+                        <div class="justify-content-center">
+                          <a href="{{ route('user.movies.show', $movie->id)  }}" type="button" class="btn btcolor">View More</a>
+                          <form style="display:inline-block" method="POST" action="{{ route('user.watchlist.destroy', $movie->id) }}">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <button type="submit" class="btn btn-danger">Remove</a>
+                        </form>
+                        </div>
+
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             @endforeach
+          </div>
+        </div>
+      </div>
+    </section>
 
-
-
+    <section>
+    <br>
+      <div class="justify-content-center">
+        <a href="{{ route('user.home')}}" class="btn btcolor ">Back</a>
+      </div>
+    </section>
+  </div>
 </div>
-
 </div>
 </div>
-                  </section>
-
-                  <section>
-                    <br>
-                    <div class="justify-content-center">
-                        <a href="{{ route('user.home')}}" class="btn btcolor ">Back</a>
-                    </div>
-                  </section>
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-            </div>
-
-    </div>
+</div>
 </div>
 </div>
 @endsection

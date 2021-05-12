@@ -74,9 +74,10 @@ public function __construct()
        $user_id = Auth::user()->id;
 
        $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
-       $client -> send(new Reqs\AddDetailView($user_id, "$id", ['cascadeCreate' => true]));
+       $request = new Reqs\AddDetailView($user_id, "$id", ['cascadeCreate' => true]);
 
-
+       $request->setTimeout(5000);
+       $client->send($request);
 
          return view('user.movies.show', [
            'movie' => $movie

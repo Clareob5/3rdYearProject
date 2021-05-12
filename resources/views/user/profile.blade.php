@@ -71,7 +71,7 @@
             @endif
         </div>
         <button type="submit" class="btn btcolor mt-3">Update Details</button>
-      <a href="{{route('profile.show', Auth::user()->id)}}" class="btn btcolor mt-3">Update Recommedations</a>
+      <a href="{{route('user.recs.genres', Auth::user()->id)}}" class="btn btcolor mt-3">Update Recommedations</a>
     </form>
   </div>
 
@@ -83,7 +83,7 @@
     <a href="{{route('user.groups.create', Auth::user()->id)}}" type="button" class="btn btn-success">Create Group<i class="fas fa-plus-circle"></i></a>
     <br>
     <br>
-    {{-- <a href="{{route('user.groups.show', $group->id)}}" type="button" class="btn btn-success">View Groups</a> --}}
+    <a href="{{route('user.groups.show', 1)}}" type="button" class="btn btn-success">View Groups</a>
   </div>
 
 </div>

@@ -109,7 +109,7 @@
                     @foreach ($recent_reviews as $recent_review)
                     <div class="col-md-1">
                         <div class="card bgcardcolor">
-                            <img class="card-img-top img-top" src="{{ '../assets/img/' . $recent_review->cover }}" alt="Card image cap" height="240">
+                            <img class="card-img-top img-top" src="{{ '../assets/img/' . $recent_review->cover }}" alt="Card image cap" height="100">
                         </div>
                     </div>
                     @endforeach

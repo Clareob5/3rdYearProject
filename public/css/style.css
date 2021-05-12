@@ -178,72 +178,6 @@ img{
   font-size: 13px !important;
 }
 
-/* @media (min-width: 768px) { */
-
-    /* show 3 items */
-    /* .carousel-inner .active,
-    .carousel-inner .active + .carousel-item,
-    .carousel-inner .active + .carousel-item + .carousel-item {
-        display: block;
-    }
-
-    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
-    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
-    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
-        -webkit-transition: none;
-        transition: none;
-    }
-
-    .carousel-inner .carousel-item-next,
-    .carousel-inner .carousel-item-prev {
-        position: relative;
-        -webkit-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0);
-    }
-
-    .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item {
-        position: absolute;
-        top: 0;
-        right: -33.3333%;
-        z-index: -1;
-        display: block;
-        visibility: visible;
-    } */
-
-    /* left or forward direction */
-    /* .active.carousel-item-left + .carousel-item-next.carousel-item-left,
-    .carousel-item-next.carousel-item-left + .carousel-item,
-    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
-    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
-        position: relative;
-        -webkit-transform: translate3d(-100%, 0, 0);
-        transform: translate3d(-100%, 0, 0);
-        visibility: visible; */
-    /* } */
-
-    /* farthest right hidden item must be abso position for animations */
-    /* .carousel-inner .carousel-item-prev.carousel-item-right {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        display: block;
-        visibility: visible;
-    } */
-
-    /* right or prev direction */
-    /* .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
-    .carousel-item-prev.carousel-item-right + .carousel-item,
-    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
-    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
-        position: relative;
-        -webkit-transform: translate3d(100%, 0, 0);
-        transform: translate3d(100%, 0, 0);
-        visibility: visible;
-        display: block;
-        visibility: visible;
-    }
-} */
 
 .center_text {
     margin: 20px;
@@ -256,20 +190,39 @@ img{
 .padding {
     padding: 20px;
 }
-
-.box_style_two {
-  color: #E3E6EB !important;
-  background: rgba(84, 127, 162, 0.6);
-}
-
-
-
+/*
 .box_style {
   color:#E3E6EB !important;
   padding: 100px;
   border-radius: 0;
   background: rgba(84, 127, 162, 0.6);
+} */
+
+.box_style_two {
+  border-radius: 0;
+  color: #E3E6EB !important;
+  background: rgba(84, 127, 162, 0.6);
 }
+
+.box_style {
+  color:#E3E6EB !important;
+  padding: 100px;
+  background: rgba(84, 127, 162, 0.6);
+}
+
+.box_style_three {
+  border-radius: 0;
+  color: #E3E6EB !important;
+  background: #182132 !important;
+  border: 1px solid #fff;
+}
+
+.box_style_four {
+  border-radius: 0;
+  color: #E3E6EB !important;
+  background-color: #3B2D47;
+}
+
 
 .col-form-label {
     font-size: 15px;
@@ -300,7 +253,29 @@ img{
 .login_btn{
   background-color: #1F6C64;
 }
+.create_btn{
+  background-color: #1F6C64;
+  color: #E3E6EB
+}
 
+.light_button{
+  background-color: #69C0B8;
+  margin: 10px;
+}
 .light-link{
   color: #fff !important;
+}
+.title{
+  padding: 0px;
+}
+
+.dropdown {list-style: none; padding: 10px; display: inline-block;}
+.dropdown .nav-link {color:#fff; text-decoration: none;}
+.dropdown .dropdown-menu a{color: #000; text-decoration: none;}
+.dropdown-menu .dropdown-item {display: inline-block; width: 100%; padding: 10px 5px;}
+.container .dropdown .dropdown-menu a:hover
+{
+  color: #fff;
+  background-color: #b91773;
+  border-color: #fff;
 }

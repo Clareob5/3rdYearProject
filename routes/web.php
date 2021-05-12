@@ -56,6 +56,7 @@ Route::get('/profile/show',[ProfileController::class, 'show'])->name('profile.sh
 
 Route::get('/watchlist',[UserWatchlistController::class, 'index'])->name('user.watchlist');
 Route::post('/watchlist/add',[UserWatchlistController::class, 'store'])->name('user.watchlist.store');
+Route::delete('/watchlist/{id}', [UserWatchlistController::class, 'destroy'])->name('user.watchlist.destroy');
 
 //USER VIEW MOVIE ROUTES
 Route::get('/user/movies', [UserMovieController::class, 'index'])->name('user.movies.index');
@@ -81,6 +82,11 @@ Route::get('/user/group/create', [UserGroupController::class, 'createGroup'])->n
 Route::post('/user/group/store', [UserGroupController::class, 'storeGroup'])->name('user.groups.store');
 Route::get('/user/group/{id}', [UserGroupController::class, 'showGroup'])->name('user.groups.show');
 Route::post('/user/group/{id}', [UserGroupController::class, 'showEvent'])->name('user.groups.show');
+Route::get('/user/group/{id}/edit', [UserGroupController::class, 'edit'])->name('user.groups.edit');
+Route::put('/user/group/{id}', [UserGroupController::class, 'update'])->name('user.groups.update');
+Route::delete('/user/group/{id}', [UserGroupController::class, 'destroy'])->name('user.groups.destroy');
+
+//Route::get('/user/group/{id}', [UserGroupController::class, 'refresh'])->name('user.groups.refresh');
 
 Route::get('/user/event/show/{id}', [UserEventController::class, 'show'])->name('user.groups.event.show');
 Route::get('/user/event/{id}', [UserGroupController::class, 'createEvent'])->name('user.groups.event.create');
@@ -88,6 +94,7 @@ Route::post('/user/event/store', [UserGroupController::class, 'storeEvent'])->na
 Route::get('/user/event/{id}/edit', [UserGroupController::class, 'edit'])->name('user.groups.event.edit');
 Route::put('/user/event/{id}', [UserEventController::class, 'update'])->name('user.groups.event.update');
 Route::delete('/user/event/{id}', [UserEventController::class, 'destroy'])->name('user.groups.event.destroy');
+Route::post('/user/selected/{id}', [UserEventController::class, 'selected'])->name('user.groups.event.selected');
 
 Route::get('/user/genres/create', [UserRecsController::class, 'createGenre'])->name('user.recs.create_genres');
 Route::post('/user/genres/store', [UserRecsController::class, 'storeGenre'])->name('user.recs.create_genres.store');

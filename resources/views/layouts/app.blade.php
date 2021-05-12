@@ -149,7 +149,7 @@
             @yield('content')
         </main>
     </div>
-@livewireScripts
+{{-- @livewireScripts --}}
 </body>
 
 <script>

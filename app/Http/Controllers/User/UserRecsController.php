@@ -4,6 +4,9 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Recombee\RecommApi\Client;
+use Recombee\RecommApi\Requests as Reqs;
+use Recombee\RecommApi\Requests\AddPurchase;
 use App\Models\UserRecs;
 use App\Models\Movie;
 use Auth;
@@ -65,8 +68,6 @@ class UserRecsController extends Controller
      */
     public function createMovie(Request $request, $id)
     {
-
-
       $userRec = $request->session()->get('user_recs');
       $movies = Movie::All();
       return view('user.recs.create_movies',compact('userRec'), [
@@ -74,12 +75,6 @@ class UserRecsController extends Controller
       ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function storeMovie(Request $request)
     {
       $id = Auth::user()->id;
@@ -87,17 +82,33 @@ class UserRecsController extends Controller
       $validatedData = $request->validate([
         'movie_ids' => 'nullable',
       ]);
-
+      // $movies = $request->input('movie_ids');;
+      // $movies
+      var_dump('movie_ids'[1]);
       if(empty($request->session()->get('user_recs'))){
         $userRec = UserRecs::findOrFail($id);
         $userRec['movie_ids'] = $request->input('movie_ids');
         $request->session()->put('user_recs', $userRec);
         $userRec->save();
+
+        $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
+        for ($i=0; $i <= count($userRec['movie_ids']); $i++) {
+          $request = new Reqs\AddPurchase($id, 'movie_ids'[$i], ['cascadeCreate' => true]);
+         }
+        $request->setTimeout(5000);
+        $client->send($request);
       }else{
         $userRec = $request->session()->get('user_recs');
         $userRec['movie_ids'] = $request->input('movie_ids');
         $request->session()->put('user_recs', $userRec);
         $userRec->save();
+
+        $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
+        for ($i=0; $i <= count($userRec['movie_ids']); $i++) {
+          $request = new Reqs\AddPurchase($id, 'movie_ids'[$i], ['cascadeCreate' => true]);
+        }
+        $request->setTimeout(5000);
+        $client->send($request);
       }
 
      return redirect()->route('user.profile');
@@ -105,16 +116,15 @@ class UserRecsController extends Controller
 
     public function editGenre(Request $request, $id)
     {
+        $user = UserRecs::findOrFail($id)->where('user_id' == $id);
         $userRec = $request->session()->get('user_recs');
-        return view('user.recs.genres',compact('userRec'));
+        return view('user.recs.genres',[
+          'user' => $user,
+          'userRec' => $userRec
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function updateGenre(Request $request, $id)
     {
       $validatedData = $request->validate([
@@ -122,14 +132,14 @@ class UserRecsController extends Controller
       ]);
 
       if(empty($request->session()->get('user_recs'))){
-        $userRec = new UserRecs();
+        $userRec = UserRecs::findOrFail($id);
         $userRec->user_id = $id;
         $userRec['genres'] = $request->input('genres');
         $request->session()->put('user_recs', $userRec);
         $userRec->save();
       }else{
+        $userRec = UserRecs::findOrFail($id);
         $userRec = $request->session()->get('user_recs');
-        $userRec = new UserRecs();
         $userRec->user_id = $id;
         $userRec['genres'] = $request->input('genres');
         //$userRec->fill($validatedData);
@@ -150,9 +160,11 @@ class UserRecsController extends Controller
     {
 
       $userRec = $request->session()->get('user_recs');
+      $user = UserRecs::findOrFail($id)->where('user_id' == $id);
       $movies = Movie::All();
       return view('user.recs.movies',compact('userRec'), [
-        'movies' => $movies
+        'movies' => $movies,
+        'user' => $user
       ]);
     }
 
@@ -164,20 +176,35 @@ class UserRecsController extends Controller
      */
     public function updateMovie(Request $request, $id)
     {
+      $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
       $validatedData = $request->validate([
         'movie_ids' => 'nullable',
       ]);
 
       if(empty($request->session()->get('user_recs'))){
-        $userRec = UserRecs::findOrFail($id);
+        $userRec = UserRecs::findOrFail($id)->where('user_id' == $id);
         $userRec['movie_ids'] = $request->input('movie_ids');
         $request->session()->put('user_recs', $userRec);
         $userRec->save();
+
+        for ($i=0; $i <= count($userRec['movie_ids']); $i++) {
+          $request = new Reqs\AddPurchase($id, 'movie_ids'[$i], ['cascadeCreate' => true]);
+         }
+        $request->setTimeout(5000);
+        $client->send($request);
       }else{
+        $userRec = UserRecs::findOrFail($id)->where('user_id' == $id);
         $userRec = $request->session()->get('user_recs');
         $userRec['movie_ids'] = $request->input('movie_ids');
         $request->session()->put('user_recs', $userRec);
         $userRec->save();
+
+        for ($i=0; $i <= count($userRec['movie_ids']); $i++) {
+          $request = new Reqs\AddPurchase($id, 5, ['cascadeCreate' => true]);
+         }
+        $request->setTimeout(5000);
+        $client->send($request);
+
       }
 
      return redirect()->route('user.profile');
