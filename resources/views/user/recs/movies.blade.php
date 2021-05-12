@@ -34,7 +34,7 @@
                             <br>
                             </fieldset>
                             <button type="submit" class="btn btn-primary pull-right">Next</button>
-                            <a href="{{ route('profile_user_show.show', Auth::user()->id)}}" class="btn pull-right">Skip</button>
+                            <a href="{{ route('user.profile', Auth::user()->id)}}" class="btn pull-right">Skip</button>
 
                     </form>
                 </div>

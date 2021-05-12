@@ -72,10 +72,7 @@
 
                         <div class="col-4">
                             <p>Add to Watchlist</p>
-                            <h1><i class="fas fa-heart"></i></h1>
-
-
-
+                            <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}"><h1><i class="fas fa-heart"></i> </h1></a>
 
                         </div>
 
@@ -131,4 +128,64 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('javascript')
+<script>
+
+    $(document).on('click', '.add_to_wishlist', function(e) {
+        e.preventDefault();
+        var movie_id = $(this).data('id');
+        var movie_qty = $(this).data('quantity');
+        console.log(movie_id);
+
+        var token = "{{csrf_token()}}";
+        var path = "{{route('user.watchlist.store')}}";
+
+        $.ajax({
+            url: path,
+            type: "POST",
+            dataType: "JSON",
+            data: {
+                movie_id: movie_id,
+                movie_qty: movie_qty,
+                _token: token,
+            },
+            beforeSend: function() {
+                $('#add_to_wishlist_' + movie_id).html('<i class="fas fa-heart"></i>');
+            },
+            complete: function() {
+                $('#add_to_wishlist_' + movie_id);
+            },
+            success: function(data) {
+                console.log(data);
+                console.log('I work');
+
+                if (data['status']) {
+                    $('body #header-ajax').html(data['header']);
+                    swal({
+                        title: "Movie Added",
+                        text: data['message'],
+                        icon: "success",
+                        button: "OK!"
+                    })
+                } else if (data['present']) {
+                    swal({
+                        title: "Warning",
+                        text: data['message'],
+                        icon: "warning",
+                        button: "OK!"
+                    })
+                } else {
+                    swal({
+                        title: "Sorry!",
+                        text: "you can't add that",
+                        icon: "error",
+                        button: "OK!"
+                    })
+                }
+            }
+        })
+    })
+</script>
 @endsection

@@ -33,7 +33,7 @@
                             <input type="checkbox" name="genres[]" value="Children & Family">Children & Family<br>
                             <br>
                             <button type="submit" class="btn btn-primary pull-right">Next</button>
-                            <a href="{{ route('profile.index')}}" class="btn pull-right">Skip</button>
+                            <a href="{{ route('user.profile')}}" class="btn pull-right">Skip</button>
                         </fieldset>
                     </form>
                 </div>

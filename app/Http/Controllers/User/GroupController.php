@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Group;
 use App\Models\Event;
 use Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Validator;
 
 class GroupController extends Controller
@@ -28,17 +29,13 @@ class GroupController extends Controller
     return response()->json(['code'=>200, 'message'=>'Group Created successfully','data' => $group], 200);
   }
 
- /**
-  * Store a newly created resource in storage.
-  *
-  * @param  \Illuminate\Http\Request  $request
-  * @return \Illuminate\Http\Response
-  */
   public function storeGroup(Request $request)
   {
-
+      //var_dump($request->input('members[]'));
       $request ->validate([
         'group_name' => 'required|max:191',
+        'members' => 'required',
+        'member2' => 'nullable'
 
         ]);
       if(empty($request->session()->get('groups'))){
@@ -47,10 +44,10 @@ class GroupController extends Controller
         $group->group_name = $request->input('group_name');
         $group->save();
 
-        print_r($request->input('users'));
-
-        $members = $request->input('users');
-        $group->users()->sync($members);
+        $members = $request->input('members');
+        $group->users()->attach($members);
+        $member2 = $request->input('member2');
+        $group->users()->attach($member2);
         //$group->fill($request->input('users'))->save();
         // $group->users()->attach($users);
 
@@ -60,9 +57,108 @@ class GroupController extends Controller
         $group->user_id = $request->Auth::user()->id;
         $group->group_name = $request->input('group_name');
         $group->save();
+
+        $members = $request->input('members');
+        $group->users()->attach($members);
+        $member2 = $request->input('member2');
+        $group->users()->attach($member2);
       }
 
       return redirect()->route('user.groups.show', $group->id);
+  }
+
+
+  public function showGroup($id)
+  {
+
+    $user = Auth::user();
+    $group = Group::findOrFail($id);
+    //$members = Group::with('users')->get();
+
+    $members = $group->users()->paginate(8);
+    //$events = $group->events()->orderBy('date', 'asc')->paginate(8); //displatying only visits relevant to authorised patient viewing the page
+
+
+      $groups = Group::All();
+      $events = Event::All();
+      return view('user.groups.show', [
+        'group' => $group,
+        'groups' => $groups,
+        'events' => $events,
+        'members' => $members
+      ]);
+  }
+
+  public function edit($id)
+  {
+    $group = Group::findOrFail($id);
+    $users = User::All();
+    return view('user.groups.edit', [
+      'group' => $group,
+      'users' => $users
+    ]);
+
+    return response()->json(['code'=>200, 'message'=>'Group Edited successfully','data' => $group], 200);
+  }
+
+  /**
+  * Update the specified resource in storage.
+  *
+  * @param  \Illuminate\Http\Request  $request
+  * @param  int  $id
+  * @return \Illuminate\Http\Response
+  */
+  public function update(Request $request, $id)
+  {
+
+    $request ->validate([
+      'group_name' => 'required|max:191',
+      'members' => 'required',
+      'member2' => 'nullable'
+
+      ]);
+      $group = Group::findOrFail($id);
+      $group->user_id = Auth::user()->id;
+      $group->group_name = $request->input('group_name');
+      $group->save();
+
+      if($request->input('members') == 0){
+        return redirect()->route('user.groups.show', $group->id);
+      }else{
+        $members = $request->input('members');
+        $group->users()->attach($members);
+      }
+      if($request->input('members2') == 0){
+
+      }else{
+        $members = $request->input('members2');
+        $group->users()->attach($members);
+      }
+
+    return redirect()->route('user.groups.show', $group->id);
+  }
+
+  public function refresh($id){
+      $group = Group::findOrFail($id);
+    return redirect()->route('user.groups.show', $group->id);
+  }
+
+  public function showEvent($id)
+  {
+
+    $user = Auth::user();
+    $members = Group::with('users')->get();
+    //$events = $group->events()->orderBy('date', 'asc')->paginate(8); //displatying only visits relevant to authorised patient viewing the page
+
+      $group = Group::findOrFail($id);
+      $groups = Group::All();
+      $events = Event::All();
+      return view('user.groups.show', [
+        'group' => $group,
+        'groups' => $groups,
+        'events' => $events,
+        'members' => $members
+      ]);
   }
 
   public function createEvent(Request $request, $id)
@@ -70,9 +166,11 @@ class GroupController extends Controller
     $group = $request->session()->get('groups');
     $users = User::All();
     $group = Group::findOrFail($id);
-    return view('user.groups.event.create',compact('group'), [
+    $members = $group->users()->paginate(8);
+    return view('user.groups.event.create',compact('group','members'), [
       'users' => $users,
-      'group' => $group
+      'group' => $group,
+      'members'=> $members
     ]);
 
     return response()->json(['code'=>200, 'message'=>'Event Created successfully','data' => $group], 200);
@@ -120,45 +218,6 @@ class GroupController extends Controller
       // return redirect()->route('user.groups.show', $event->group_id);
   }
 
-  public function showGroup($id)
-  {
-
-    $user = Auth::user();
-
-    //$groups = $user->groups()->orderBy('date', 'asc')->paginate(8);
-  //  $events = $group->events()->orderBy('date', 'asc')->paginate(8); //displatying only visits relevant to authorised patient viewing the page
-
-      $group = Group::findOrFail($id);
-      $groups = Group::All();
-      $events = Event::All();
-      $users = User::All();
-      return view('user.groups.show', [
-        'group' => $group,
-        'groups' => $groups,
-        'events' => $events,
-        'users' => $users
-      ]);
-  }
-
-  public function showEvent($id)
-  {
-
-    $user = Auth::user();
-    //$events = $group->events()->orderBy('date', 'asc')->paginate(8); //displatying only visits relevant to authorised patient viewing the page
-
-      $group = Group::findOrFail($id);
-      $groups = Group::All();
-      $events = Event::All();
-      $users = User::All();
-      return view('user.groups.show', [
-        'group' => $group,
-        'groups' => $groups,
-        'events' => $events,
-        'users' => $users
-      ]);
-  }
-}
-
 // public function show()
 // {
 //     $groups = Group::All();
@@ -173,34 +232,19 @@ class GroupController extends Controller
 // * @param  int  $id
 // * @return \Illuminate\Http\Response
 // */
-// public function edit($id)
-// {
-//    //
-// }
-//
-// /**
-// * Update the specified resource in storage.
-// *
-// * @param  \Illuminate\Http\Request  $request
-// * @param  int  $id
-// * @return \Illuminate\Http\Response
-// */
-// public function update(Request $request, $id)
-// {
-//    //
-// }
-//
+
 // /**
 // * Remove the specified resource from storage.
 // *
 // * @param  int  $id
 // * @return \Illuminate\Http\Response
 // */
-// public function destroy($id)
-// {
-//   $group = Group::findOrFail($id);
-//   $group->delete();
-//
-//   return redirect()->route('user.home');
-// }
-// }
+public function destroy($id)
+{
+  $group = Group::findOrFail($id);
+  $group->users()->detach();
+  $group->delete();
+
+  return redirect()->route('user.home');
+}
+}

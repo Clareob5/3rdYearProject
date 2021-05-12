@@ -36,17 +36,20 @@ class HomeController extends Controller
 
 
   {
+    //sends the request to the API
     $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
     $user_id = Auth::user()->id;
     $count = 6;
 
+    // $results = NULL;
 
 
     $results = $client->send(
       new Reqs\RecommendItemsToUser($user_id, $count, ['scenario' => 'Top_recommendations'])
     );
-    //$results->setTimeout(5000);
-    //$client->send($request);
+    // $results->setTimeout(5000);
+    // //$request
+    // //$client->send($request);
 
     $recomms =  $results['recomms'];
     //

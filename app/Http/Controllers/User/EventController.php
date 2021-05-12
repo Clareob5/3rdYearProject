@@ -19,45 +19,11 @@ class EventController extends Controller
     $this->middleware('auth');
   }
 
-  // public function create()
-  // {
-  //   $id = 4;
-  //   $users = User::All();
-  //   $group = Group::findOrFail($id);
-  //   return view('user.groups.event.create', [
-  //     'users' => $users,
-  //     'group' => $group
-  //   ]);
-  // }
-  //
-  // public function store(Request $request)
-  // {
-  //     $id = 4;
-  //     $request ->validate([
-  //       'date' => 'required',
-  //       'time' => 'required',
-  //       'group_id' => '',
-  //       ]);
-  //
-  //     $event = new Event();
-  //     $event->date = $request->input('date');
-  //     $event->time = $request->input('time');
-  //     $event->group_id = $id;
-  //     $event->save();
-  //
-  //     return redirect()->route('user.groups.event.show', $event->id);
-  // }
-
-  /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
   public function show($id)
   {
     $event = Event::findOrFail($id);
     $group = Group::find($event->group_id);
+    $members = $group->users()->paginate(8);
 
     $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
     $user_id = Auth::user()->id;
@@ -81,7 +47,7 @@ class EventController extends Controller
         new Reqs\RecommendItemsToUser($user->id, $count)
       );
       array_push($recomms_2, $results_mem['recomms']);
-        $request->setTimeout(5000);
+        //$request->setTimeout(5000);
     }
     for ($i=0; $i <count($recomms_2) ; $i++) {
       for ($j=0; $j < count($recomms_2[$i]) ; $j++) {
@@ -97,18 +63,40 @@ class EventController extends Controller
     }
 
     $result = $client->send(
-      new Reqs\RecommendItemsToUser($name, 1)
+      new Reqs\RecommendItemsToUser($name, 5)
       );
       //$request->setTimeout(5000);
 
     $final_mov = $result['recomms'];
 
     $movies = Movie::All();
+    $groups = Group::ALL();
     return view('user.groups.event.show', [
       'event' => $event,
       'final_mov' => $final_mov,
-      'movies' => $movies
+      'movies' => $movies,
+      'groups' => $groups,
+      'group' => $group,
+      'members' => $members
     ]);
+  }
+
+  function selected(Request $request, $id){
+
+    $mov_id = $request->input('id');
+    $movie = Movie::findOrFail($mov_id);
+    $event = Event::findOrFail($id);
+
+    $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
+    $request = new Reqs\AddPurchase(Auth::user()->id, $id, ['cascadeCreate' => true]);
+    $request->setTimeout(5000);
+    $client->send($request);
+
+    return view('user.groups.event.selected', [
+      'movie' => $movie,
+      'event' => $event
+    ]);
+
   }
 
   /**
@@ -134,7 +122,6 @@ class EventController extends Controller
    */
   public function update(Request $request, $id)
   {
-    $id = 4;
     $request ->validate([
       'date' => 'required',
       'time' => 'required',
@@ -159,8 +146,45 @@ class EventController extends Controller
   public function destroy($id)
   {
     $event = Event::findOrFail($id);
+    $group = $event->group_id;
     $event->delete();
 
-    return redirect()->route('user.home');
+    return redirect()->route('user.groups.show',$group);
   }
 }
+
+// public function create()
+// {
+//   $id = 4;
+//   $users = User::All();
+//   $group = Group::findOrFail($id);
+//   return view('user.groups.event.create', [
+//     'users' => $users,
+//     'group' => $group
+//   ]);
+// }
+//
+// public function store(Request $request)
+// {
+//     $id = 4;
+//     $request ->validate([
+//       'date' => 'required',
+//       'time' => 'required',
+//       'group_id' => '',
+//       ]);
+//
+//     $event = new Event();
+//     $event->date = $request->input('date');
+//     $event->time = $request->input('time');
+//     $event->group_id = $id;
+//     $event->save();
+//
+//     return redirect()->route('user.groups.event.show', $event->id);
+// }
+
+/**
+ * Display the specified resource.
+ *
+ * @param  int  $id
+ * @return \Illuminate\Http\Response
+ */

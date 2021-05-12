@@ -1,78 +1,135 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container">
-      <div class="row">
-        <div class="col-md-2 box_style_two card">
+<div class="container">
+    <div class="row">
+      <div class="title col-md-2">
           <h3>Groups</h3>
-          <div class="card-body">
-            <p>Group name<p>
-        </div>
-      </div>
-
-          <div class="col-md-8 ">
-            <div class="card box_style_two">
-                <div class="card-header text-light">
-                  Event Details
+            <div class="box_style_three card h-100">
+                <div class="card-body">
+                    <table class="table">
+                        <tbody>
+                            @foreach ($groups as $group)
+                            @if($group->user_id == Auth::user()->id)
+                                <tr>
+                                    <td><a href="{{route('user.groups.show', $group->id)}}" class="text-light">{{ $group->group_name }}</a></td>
+                                </tr>
+                                @endif
+                                @endforeach
+                                <tr>
+                                    <td><a href="{{ route('user.groups.create') }}" class="btn light_button">Create Group</a></td>
+                                </tr>
+                        </tbody>
+                    </table>
                 </div>
+            </div>
+            </div>
 
-                <div class="card-body ">
-                      <table class="table table-hover text-light">
+          <div class="col-md-8 title">
+              <h3>{{$group->group_name}}</h3>
+            <div class="card box_style_four h-100">
+                <div class="card-body">
+                    <table class="table table-hover text-light">
                         <tbody>
                             <tr>
-                              <td>Date</td>
-                              <td>{{ $event->date }}</td>
+                                <td>Date</td>
+                                <td>{{ $event->date }}</td>
                             </tr>
 
                             <tr>
-                              <td>Time</td>
-                              <td>{{ $event->time }}</td>
+                                <td>Time</td>
+                                <td>{{ $event->time }}</td>
                             </tr>
-
-                      <tr>
-                      <td class="text-light"><a href="{{ route('user.groups.show', $event->group_id) }}" class="btn btn-outline-light">Back</a>
-                      <a href="{{ route('user.groups.event.edit', $event->id) }}" class="btn btn-warning">Edit</a>
-                      <form style="display:inline-block" method="POST" action="{{ route('user.groups.event.destroy', $event->id) }}">
-                          <input type="hidden" name="_method" value="DELETE">
-                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                          <button type="submit" class="btn btn-danger">Delete</a>
-                      </form>
-                    </td>
-                    </tr>
-                    </tbody>
+                        </tbody>
                     </table>
+                    <div class="text-light"><a href="{{ route('user.groups.show', $event->group_id) }}" class="btn btn-outline-light">Back to Events</a>
+                        <a href="{{ route('user.groups.event.edit', $event->id) }}" class="btn light_button">Edit Event</a>
+                        <form style="display:inline-block" method="POST" action="{{ route('user.groups.event.destroy', $event->id) }}">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <button type="submit" class="btn btn-danger">Delete Event</a>
+                        </form>
+                    </div>
+                </div>
+                <div class="text-light padding">
+                    <h5>Choose one of the Following</h5>
+                </div>
+                {{-- <div class="row"> --}}
+                    <div class="card-group padding">
+                        @foreach ($movies as $movie)
+                        @for ($i=0; $i < 5; $i++)
+                        @if ($movie->id == $final_mov[$i]['id'])
+                        {{-- <div class="active"> --}}
+                          <div class="card bg-dark">
+                            <a href="{{ route('user.movies.show', $movie->id) }}">
+                                <img class="card-img-top img-top" src="{{ '/assets/img/' . $movie->cover }}" alt="Card image cap"></a>
+                            <div class="card body bg-dark text-white">
+                                <h6>{{ $movie->title }}</h6>
+                                <h6>{{ $movie->release_year }}</h6>
+                                <div>
+                                    <form style="display:inline-block" method="POST" action="{{ route('user.groups.event.selected', $event->id) }}">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="hidden" name="id" value="{{$movie->id}}">
+                                        <button type="submit" class="btn  create_btn">Select</button>
+                                    </form>
+                                </div>
 
-                </div>
-                <div class="card-header text-light">
-                  Chosen Movie for event
-                </div>
-                <div class="card-body">  @foreach ($movies as $movie)
-                    @if ($movie->id == $final_mov[0]['id']) <div class="col-md-6 active">
-                      <div class="card">
-                          <a href="{{ route('user.movies.show', $movie->id) }}">
-                              <img class="card-img-top img-top" src="{{ '/assets/img/' . $movie->cover }}" height="240" alt="Card image cap"></a>
-                          <div class="card-img-overlay">
-                              <h3 class="card-title"><i class="fas fa-heart"></i></h3>
-                          </div>
-                          <div class="bg-dark text-white">
-                              <h6>{{ $movie->title }}<br>{{ $movie->release_year }}</h6>
-                              <div>
-                                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                              </div>
-                          </div>
+
+                            </div>
+                        </div>
+                      {{-- </div> --}}
+                        @endif
+                        @endfor
+                        @endforeach
+                      </div>
+                    </div>
+                {{-- </div> --}}
+                  {{-- <div class="card-header text-light">
+                    Chosen Movie for event
+                  </div>
+                  <div class="card-body">
+                      <div class="col-md-6 active">
+                        <div class="card">
+                            <a href="{{ route('user.movies.show', $movie->id) }}">
+                  <img class="card-img-top img-top" src="{{ '/assets/img/' . $movie->cover }}" height="240" alt="Card image cap"></a>
+                  <div class="card-img-overlay">
+                      <h3 class="card-title"><i class="fas fa-heart"></i></h3>
+                  </div>
+                  <div class="bg-dark text-white">
+                      <h6>{{ $movie->title }}<br>{{ $movie->release_year }}</h6>
+                      <div>
+                          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
                       </div>
                   </div>
-                  @endif
-                  @endforeach</div>
-            </div>
-      </div>
-      <div class="col-md-2 box_style_two card">
-        <div class="card-body">
-          <h3>Members</h3>
-          <p>user 1</p>
+              </div>
+          </div>
+        </div> --}}
+      {{-- @endif --}}
 
+    </div>
+    <div class="col-md-2 title">
+        <h3>Members</h3>
+
+  <div class="card box_style_three h-100">
+      <div class="card-body">
+          <p>Admin: {{ $group->user->name}}</p>
+
+          @foreach ($members as $member)
+
+          <p>{{ $member->name }}</p>
+
+          @endforeach
+
+
+          <a href="{{ route('user.groups.edit', $group->id) }}" class="btn light_button">Edit Group</a>
+          <form style="display:inline-block" method="POST" action="{{ route('user.groups.destroy', $group->id) }}">
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+              <button type="submit" class="btn btn-danger">Delete Group</a>
       </div>
   </div>
+  </div>
 </div>
+
 </div>
 @endsection

@@ -94,8 +94,30 @@
                         <hr>
                        <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}"><h6><i class="fas fa-heart"></i> Add to Watchlist </h6></a>
 
+{{--
+            @for ($i=0; $i< 6; $i++)
+              @if ($movie->id == $recomms[$i]['id'])
+                <div class="col-md-2 active">
+                <div class="card">
+                    <a href="{{ route('user.movies.show', $movie->id) }}">
+                        <img class="card-img-top img-top" src="{{ '/assets/img/' . $movie->cover }}" height="240" alt="Card image cap"></a>
+                    <div class="card-img-overlay">
+                        <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}">
+                            <h3><i class="fas fa-heart"></i></h3>
+                        </a>
                     </div>
-
+                    <div class=" card body bgcardcolor text-white">
+                        <h6>{{ $movie->title }}</h6>
+                        <p>{{ $movie->release_year }}</p>
+                        {{-- <div>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        </div> -
+                        <div class="col-12">
+                            <a href="{{ route('user.movies.show', $movie->id)  }}" type="button" class="btn btn-outline-light">
+                                <h6>Read more</h6>
+                            </a>
+                        </div> --}}
+                    </div>
                 </div>
             </div>
             @endif
@@ -114,7 +136,6 @@
             <br>
             <div class="row justify-content-center">
                 <img src="/assets/img/midbanner.png">
-
             </div>
         </section>
 
@@ -147,7 +168,6 @@
 
 
         </section>
-
 
         <section>
             <br>
@@ -193,7 +213,7 @@
                         <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
                             <div class="row no-gutters">
                                 <div class="col-md-4">
-                                  <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
+                                    <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
@@ -208,7 +228,7 @@
                         <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
                             <div class="row no-gutters">
                                 <div class="col-md-4">
-                                  <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
+                                    <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
@@ -219,15 +239,13 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                     <div class="col-6">
-
                         <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
                             <div class="row no-gutters">
                                 <div class="col-md-4">
-                                  <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
+                                    <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
@@ -242,7 +260,7 @@
                         <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
                             <div class="row no-gutters">
                                 <div class="col-md-4">
-                                  <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
+                                    <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
@@ -304,10 +322,6 @@
 
         </div>
     </section>
-
-
-
-
     <section>
         <br>
         <br>
@@ -358,16 +372,7 @@
 </div>
 
 
-    </section>
-
-
-<!-- </div>
-</div>
-</div>
-</div>
-</div> -->
-
-<!-- </div> -->
+</section>
 
 
 </div>
@@ -413,44 +418,96 @@ $(document).ready(function () {
 
 });
 
+  //
+  // $(document).on('click','.add_to_wishlist',function(e){
+  //   e.preventDefault();
+  //   var movie_id=$(this).data('id');
+  //   var movie_qty=$(this).data('quantity');
+  //   console.log(movie_id);
+  //
+  //   var token="{{csrf_token()}}";
+  //   var path="{{route('user.watchlist.store')}}";
+  //
+  //   $.ajax({
+  //     url:path,
+  //     type:"POST",
+  //     dataType:"JSON",
+  //     data:{
+  //       movie_id:movie_id,
+  //       movie_qty:movie_qty,
+  //       _token:token,
+  //     },
+  //     beforeSend:function () {
+  //       $('#add_to_wishlist_'+movie_id).html('<i class="fas fa-heart"></i>');
+  //     },
+  //     complete:function () {
+  //       $('#add_to_wishlist_'+movie_id);
+  //     },
+  //     success:function (data) {
+  //       console.log(data);
+  //
+  //       if(data['status']){
+  //         $('body #header-ajax').html(data['header']);
+  //         $('body #cart_counter').html(data['cart_count']);
+  //         swal({
+  //           title: "Good job!",
+  //           text: data['message'],
+  //         })
+  //       }
+  //     }
+    $(document).on('click', '.add_to_wishlist', function(e) {
+        e.preventDefault();
+        var movie_id = $(this).data('id');
+        var movie_qty = $(this).data('quantity');
+        console.log(movie_id);
 
-  $(document).on('click','.add_to_wishlist',function(e){
-    e.preventDefault();
-    var movie_id=$(this).data('id');
-    var movie_qty=$(this).data('quantity');
-    console.log(movie_id);
+        var token = "{{csrf_token()}}";
+        var path = "{{route('user.watchlist.store')}}";
 
-    var token="{{csrf_token()}}";
-    var path="{{route('user.watchlist.store')}}";
+        $.ajax({
+            url: path,
+            type: "POST",
+            dataType: "JSON",
+            data: {
+                movie_id: movie_id,
+                movie_qty: movie_qty,
+                _token: token,
+            },
+            beforeSend: function() {
+                $('#add_to_wishlist_' + movie_id).html('<i class="fas fa-heart"></i>');
+            },
+            complete: function() {
+                $('#add_to_wishlist_' + movie_id);
+            },
+            success: function(data) {
+                console.log(data);
+                console.log('I work');
 
-    $.ajax({
-      url:path,
-      type:"POST",
-      dataType:"JSON",
-      data:{
-        movie_id:movie_id,
-        movie_qty:movie_qty,
-        _token:token,
-      },
-      beforeSend:function () {
-        $('#add_to_wishlist_'+movie_id).html('<i class="fas fa-heart"></i>');
-      },
-      complete:function () {
-        $('#add_to_wishlist_'+movie_id);
-      },
-      success:function (data) {
-        console.log(data);
-
-        if(data['status']){
-          $('body #header-ajax').html(data['header']);
-          $('body #cart_counter').html(data['cart_count']);
-          swal({
-            title: "Good job!",
-            text: data['message'],
-          })
-        }
-      }
+                if (data['status']) {
+                    $('body #header-ajax').html(data['header']);
+                    swal({
+                        title: "Movie Added",
+                        text: data['message'],
+                        icon: "success",
+                        button: "OK!"
+                    })
+                } else if (data['present']) {
+                    swal({
+                        title: "Warning",
+                        text: data['message'],
+                        icon: "warning",
+                        button: "OK!"
+                    })
+                } else {
+                    swal({
+                        title: "Sorry!",
+                        text: "you can't add that",
+                        icon: "error",
+                        button: "OK!"
+                    })
+                }
+            }
+        })
     })
-  })
 </script>
 @endsection
