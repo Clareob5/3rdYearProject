@@ -64,6 +64,10 @@
 
             </div>
 
+            <div class="d-grid gap-2 col-4 mx-auto slightPush5">
+                <a class="nav-link" href="{{ route('user.watchlist') }}"><button type="button" class="btn btn-success btn-md">GO TO WATCHLIST</button></a>
+            </div>
+
 
         </div>
 

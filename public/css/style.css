@@ -145,6 +145,10 @@ hr{
   padding-left: 150px;
 }
 
+.slightPush5{
+  padding-left: 100px;
+}
+
 .fa-heart:hover {
     color: red !important;
 }
