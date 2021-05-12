@@ -3,9 +3,18 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+
+
+
+      <div class="col-md-4">
+        <img src="https://cdn.dribbble.com/users/77121/screenshots/15400050/media/699c1f5a6056287affa8febc6eeeda92.gif" height="440" width="550">
+      </div>
+
+
+
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+            <div class="card box_style">
+                <h1 class="slightPush4">{{ __('Reset Password') }}</h1>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -37,6 +46,12 @@
                                     {{ __('Send Password Reset Link') }}
                                 </button>
                             </div>
+
+                            <div class="col-md-6 offset-md-4">
+                                <a href="{{ route('login') }}" class="btn btn-default">Cancel</a>
+                            </div>
+
+
                         </div>
                     </form>
                 </div>

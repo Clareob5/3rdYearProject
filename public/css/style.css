@@ -65,6 +65,10 @@ hr{
   padding-top: 30px;
 }
 
+.white{
+  color: #ffffff;
+}
+
 .spacingMovies{
   margin-bottom: 10px;
   padding-left: 10px;
@@ -87,6 +91,15 @@ hr{
   padding-top: 10px;
 }
 
+.topspace2{
+  padding-top: 20px;
+}
+
+.textMove{
+  padding-left: 50px;
+  padding-top: 50px;
+}
+
 .bgcardcolor{
   background-color: #223F6B;
 }
@@ -100,15 +113,38 @@ hr{
 }
 
 
+.bt_space2{
+  padding-left: 150px;
+  padding-top: 250px;
+}
+
+
 .bt_space{
   padding-left: 150px;
   padding-top: 220px;
 }
 
 .see_more{
-  padding-top: 50px;
-  padding-left: center;
+  padding-top: 250px;
+  padding-left: 450px;
 }
+
+.slightPush{
+  padding-left: 120px;
+}
+
+.slightPush2{
+  padding-left: 50px;
+}
+
+.slightPush3{
+  padding-left: 80px;
+}
+
+.slightPush4{
+  padding-left: 150px;
+}
+
 .fa-heart:hover {
     color: red !important;
 }
@@ -130,8 +166,12 @@ hr{
   padding-left: 10px;
 }
 
+.push3{
+  padding-left: 600px;
+}
+
 .bold{
-  font-weight: bold;
+  font-weight: 500px;
 }
 
 option{
@@ -160,9 +200,11 @@ option{
   border-radius: 0;
   margin: 0 0 25px 0;
 }
+
 img{
   border-radius: 0 !important;
 }
+
 .my_card {
   margin-top: 10px;
   border-style: none !important;

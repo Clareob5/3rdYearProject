@@ -21,6 +21,9 @@ use App\Http\Controllers\User\UserRecsController as UserRecsController;
 use App\Http\Controllers\User\UserWatchlistController as UserWatchlistController;
 
 
+use App\Http\Controllers\User\MovieCatalogueController as UserMovieCatalogueController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +64,10 @@ Route::delete('/watchlist/{id}', [UserWatchlistController::class, 'destroy'])->n
 //USER VIEW MOVIE ROUTES
 Route::get('/user/movies', [UserMovieController::class, 'index'])->name('user.movies.index');
 Route::get('/user/movies/{id}', [UserMovieController::class, 'show'])->name('user.movies.show');
+
+
+//USER MOVIE CATALOGUE
+Route::get('/catalogue', [UserMovieCatalogueController::class, 'index'])->name('user.catalogue');
 
 //ADMIN CRUD ROUTES
 Route::get('/admin/movies', [AdminMovieController::class, 'index'])->name('admin.movies.index');

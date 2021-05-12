@@ -3,7 +3,22 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+
+
+      <div class="col-md-4">
+
+        <div class="card bgcardcolor text-white">
+        <img src="https://cdn.dribbble.com/users/77121/screenshots/15402129/media/fd4784204641d8a2279d2476950ccbda.gif" height="565" width="570">
+
+
+        <div class="card-img-overlay bt_space">
+          <h1 class="card-title bold">Welcome Back to Alpha Films</h1>
+        </div>
+      </div>
+      </div>
+
+
+        <div class="col-md-8">
             <div class="card box_style">
                 <h2 class="center_text">{{ __('Login') }}</h2>
                 <div class="card-body">
@@ -57,7 +72,7 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-link text-light" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
@@ -67,6 +82,8 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 </div>
 @endsection

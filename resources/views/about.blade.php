@@ -6,7 +6,7 @@
 
       <div class="col-md-12">
           <div class="card header">
-              <img src="assets/img/headerimg2.jpg" class="img-fluid" alt="...">
+              <img src="https://cdn.dribbble.com/users/1731254/screenshots/14576082/media/43ef38c0fcb2cf4e492f0afdf7cbad5b.png?compress=1&resize=1400x400" alt="...">
               <div class="card-img-overlay">
                   <h1 class="card-title titlea">About Us</h1>
               </div>
@@ -22,14 +22,13 @@
                 <div class="col-8">
                   <h4>WHAT WE DO</h4>
                   <br>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt quam sed ipsum pulvinar, in mattis
-                    velit interdum. Vestibulum laoreet ornare orci ut scelerisque. Vivamus arcu diam, accumsan vel venenatis ac,
-                     pretium ut eros. Ut eget felis erat. Integer dapibus rutrum porta. Aliquam fringilla dignissim urna in
-                     aliquet.
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt quam sed ipsum pulvinar, in mattis
-                       velit interdum. Vestibulum laoreet ornare orci ut scelerisque. Vivamus arcu diam, accumsan vel venenatis ac,
-                        pretium ut eros. Ut eget felis erat. Integer dapibus rutrum porta. Aliquam fringilla dignissim urna in
-                        aliquet.</p>
+                  <p>Alpha Films is a movie guide website that allows users to keep track of movies they would like to
+                    watch and have watched, create groups where they can add friends and choose movies together remotely.
+                    Alpha Films offers a range of movies across different genres such as Action, Drama, Horror and so on. The site aims to offer accurate
+                    recommendations for a user to make the task of searching for a movie to watch much easier.
+
+                  </p>
+                  <p>  Creators: Vivian Birungi and Clare O'Brien</p>
                 </div>
 
                 <div class="col-4">
@@ -74,6 +73,10 @@ Ireland
 <br>Web: www.random.org
 
 <br>Email: contact@random.org</p>
+
+<div class="topspace2">
+<a href="{{ route('user.home')}}" class="btn btcolor">Back</a>
+</div>
 
                 </div>
 

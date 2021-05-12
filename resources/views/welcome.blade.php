@@ -109,7 +109,7 @@
                     @foreach ($recent_reviews as $recent_review)
                     <div class="col-md-1">
                         <div class="card bgcardcolor">
-                            <img class="card-img-top img-top" src="{{ '../assets/img/' . $recent_review->cover }}" alt="Card image cap" height="100">
+                            <img class="card-img-top img-top" src="{{ '../assets/img/' . $recent_review->cover }}" alt="Card image cap">
                         </div>
                     </div>
                     @endforeach
@@ -133,7 +133,7 @@
                                     @foreach ($recent_movies as $movie)
 
                                     <li class="media col-6">
-                                        <img src="{{ '../assets/img/' . $movie->cover }}" class="mr-3" height="240" width="180" alt="...">
+                                        <img src="{{ '../assets/img/' . $movie->cover }}" class="mr-3 topspace" height="240" width="160" alt="...">
                                         <div class="media-body">
                                             <h5 class="mt-0 mb-1">{{$movie->title}}</h5>
                                             <p>{{$movie->description}}</p>
@@ -167,6 +167,9 @@
         </section>
 
         <section>
+
+          <br>
+          <br>
 
             <h5 class="text-light">RECENT NEWS</h5>
 
