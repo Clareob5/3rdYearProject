@@ -7,10 +7,10 @@
       <div class="col-md-4">
 
         <div class="card bgcardcolor text-white">
-        <img src="https://cdn.dribbble.com/users/77121/screenshots/15400050/media/828f7829e5b8d44669b444754bc82757.gif" height="705" width="605">
+        <img src="https://cdn.dribbble.com/users/77121/screenshots/15400050/media/828f7829e5b8d44669b444754bc82757.gif" height="737" width="605">
 
 
-        <div class="card-img-overlay bt_space">
+        <div class="card-img-overlay bt_space2">
           <h1 class="card-title bold">New to the Site? Register Now!</h1>
         </div>
       </div>
@@ -90,9 +90,12 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
+                              <a class="text-light" href="{{ route('login') }}">Already have an account? Login</a>
+                              <div class="topspace">
                                 <button type="submit" class="btn login_btn btn-success">
                                     {{ __('Register') }}
                                 </button>
+                              </div>
                             </div>
                         </div>
                     </form>

@@ -113,6 +113,12 @@ hr{
 }
 
 
+.bt_space2{
+  padding-left: 150px;
+  padding-top: 250px;
+}
+
+
 .bt_space{
   padding-left: 150px;
   padding-top: 220px;
@@ -133,6 +139,10 @@ hr{
 
 .slightPush3{
   padding-left: 80px;
+}
+
+.slightPush4{
+  padding-left: 150px;
 }
 
 .fa-heart:hover {
