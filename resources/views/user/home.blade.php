@@ -67,11 +67,12 @@
 
         </div>
 
-        <br>
-        <br>
+
 
 
         <section>
+          <br>
+          <br>
 
 
 
@@ -82,9 +83,9 @@
               @if ($movie->id == $recomms[$i]['id']) <div class="col-md-2 active">
                 <div class="card bgcardcolor">
                     <a href="{{ route('user.movies.show', $movie->id) }}">
-                        <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" alt="Card image cap"></a>
+                        <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" alt="Card image cap" height="240"></a>
 
-                        <div class="  bgcardcolor text-white push2 topspace">
+                        <div class="bgcardcolor text-white push2 topspace">
                         <p class="card-text">{{ $movie->title }} ({{ $movie->release_year }})</p>
                         <hr>
                        <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}"><h6><i class="fas fa-heart"></i> Add to Watchlist </h6></a>
@@ -129,7 +130,7 @@
 
                               <div class="  bgcardcolor text-white push2 topspace">
                               <p class="card-text">{{ $movie->title }} ({{ $movie->release_year }})</p>
-                              <hr>
+                              <hr class="white">
                              <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}"><h6><i class="fas fa-heart"></i> Add to Watchlist </h6></a>
 
                           </div>
@@ -176,11 +177,14 @@
           <br>
           <br>
 
+          <h5>POPULAR REVIEWS</h5>
+
             <div class="container-fluid">
                 <div class="row">
 
+
                     <div class="col-6">
-                      <h5>POPULAR REVIEWS</h5>
+
 
                         <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
                             <div class="row no-gutters">
@@ -190,7 +194,7 @@
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $movie->title }}</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <p class="card-text">{{ $movie->description }}</p>
                                         <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
                                     </div>
                                 </div>
@@ -205,7 +209,7 @@
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $movie->title }}</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <p class="card-text">{{ $movie->description }}</p>
                                         <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
                                     </div>
                                 </div>
@@ -224,7 +228,7 @@
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $movie->title }}</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <p class="card-text">{{ $movie->description }}</p>
                                         <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
                                     </div>
                                 </div>
@@ -239,7 +243,7 @@
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $movie->title }}</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <p class="card-text">{{ $movie->description }}</p>
                                         <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
                                     </div>
                                 </div>

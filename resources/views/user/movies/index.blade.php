@@ -9,10 +9,7 @@
                   Movies
                 </div>
 
-                <livewire:search-watchlist />
                 
-
-
 
                 <div class="card-group">
                     @if (count($movies) === 0)

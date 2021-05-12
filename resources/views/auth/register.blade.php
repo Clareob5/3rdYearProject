@@ -3,6 +3,20 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+
+      <div class="col-md-4">
+
+        <div class="card bgcardcolor text-white">
+        <img src="https://cdn.dribbble.com/users/77121/screenshots/15400050/media/828f7829e5b8d44669b444754bc82757.gif" height="705" width="605">
+
+
+        <div class="card-img-overlay bt_space">
+          <h1 class="card-title bold">New to the Site? Register Now!</h1>
+        </div>
+      </div>
+      </div>
+
+
         <div class="col-md-8">
             <div class="card box_style">
                 <h2 class="center_text">{{ __('Register') }}</h2>

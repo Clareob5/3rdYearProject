@@ -90,7 +90,7 @@
             <h2>
                 Reviews
 
-                <a href="{{ route('user.reviews.create', $movie->id) }}" class="btn btn-primary">Add</a>
+                <a href="{{ route('user.reviews.create', $movie->id) }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i>Add</a>
 
             </h2>
 
@@ -122,7 +122,7 @@
 
 <br>
 
-<div class="justify-content-center">
+<div class="justify-content-center push3">
     <a href="{{ route('user.home')}}" class="btn btcolor">Back</a>
 </div>
 

@@ -7,7 +7,6 @@
     <script src="https://kit.fontawesome.com/89c132bd15.js" crossorigin="anonymous"></script>
 
 
-    @livewireStyles
 
     <link href="/css/tailwind.css" rel="stylesheet">
 
@@ -149,7 +148,7 @@
             @yield('content')
         </main>
     </div>
-@livewireScripts
+
 </body>
 
 <script>

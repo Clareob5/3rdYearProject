@@ -80,7 +80,7 @@
     <a href="{{route('user.watchlist', Auth::user()->id)}}" type="button" class="btn btn-success">View Watchlist</a>
     <br>
     <br>
-    <a href="{{route('user.groups.create', Auth::user()->id)}}" type="button" class="btn btn-success">Create Group<i class="fas fa-plus-circle"></i></a>
+    <a href="{{route('user.groups.create', Auth::user()->id)}}" type="button" class="btn btn-success"><i class="fas fa-plus-circle"></i>Create Group</a>
     <br>
     <br>
     {{-- <a href="{{route('user.groups.show', $group->id)}}" type="button" class="btn btn-success">View Groups</a> --}}
@@ -99,22 +99,19 @@
         @foreach ($movies as $movie)
           @for ($i=0; $i < 6; $i++)
             @if ($movie->id == $recomms[$i]['id']) <div class="col-md-2 active">
-              <div class="card">
-                  <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" height="240" alt="Card image cap">
-                  <div class="card-img-overlay">
-                    <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}">  <h3><i class="fas fa-heart"></i></h3></a>
-                  </div>
-                  <div class="bg-dark text-white">
-                      <h6>{{ $movie->title }}</h6><p>{{ $movie->release_year }}</p>
-                      <div class="col-12">
-                        <a href="{{ route('user.movies.show', $movie->id)  }}" type="button" class="btn btcolor mt-3"><h6>Read more</h6></a>
-                      </div>
-                      <div>
-                          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                      </div>
+              <div class="card bgcardcolor">
+                <a href="{{ route('user.movies.show', $movie->id) }}">
+                  <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" height="240" alt="Card image cap"></a>
+
+                  <div class="bgcardcolor text-white push2 topspace">
+                      <p class="card-text">{{ $movie->title }} ({{ $movie->release_year }})</p>
+                      <hr>
+                        <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}"><h6><i class="fas fa-heart"></i> Add to Watchlist </h6></a>
+
                   </div>
               </div>
           </div>
+
           @endif
         @endfor
       @endforeach

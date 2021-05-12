@@ -11,7 +11,7 @@ use Recombee\RecommApi\Client;
 use Recombee\RecommApi\Requests as Reqs;
 use Recombee\RecommApi\Exceptions as Ex;
 
-class UserWatchlistController extends Controller
+class MovieCatalogueController extends Controller
 {
   public function index()
   {
@@ -20,7 +20,7 @@ class UserWatchlistController extends Controller
 
     $movies = Movie::all();
 
-    return view('user.movies.index', [
+    return view('user.catalogue', [
       'movies' => $movies
     ]);
   }

@@ -5,7 +5,19 @@
     <div class="row justify-content-center">
 
       <div class="col-md-12">
-        <h1 class="text-light">User Watchlist</h1>
+        <div class="row justify-content-center">
+
+          <div class="card bgcardcolor text-white">
+
+            <img class="card-img" src="https://cdn.dribbble.com/users/783623/screenshots/9135790/media/64454c75193afe21c6854641e7a92ded.jpg?compress=1&resize=1400x400">
+
+            <div class="card-img-overlay see_more">
+              <h1 class="card-title bold slightPush">User Watchlist</h1>
+              <h3 class="card-text bold slightPush3">Saved movies to watch later</h3>
+            </div>
+          </div>
+
+        </div>
 
       </div>
 
@@ -65,7 +77,7 @@
 
                   <section>
                     <br>
-                    <div class="justify-content-center">
+                    <div class="justify-content-center push3">
                         <a href="{{ route('user.home')}}" class="btn btcolor ">Back</a>
                     </div>
                   </section>
