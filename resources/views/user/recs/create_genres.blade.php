@@ -70,7 +70,7 @@
 
                             <div class="col-md-12">
                               <br>
-                            <button type="submit" class="btn btn-primary pull-right">Next</button>
+                            <button type="submit" class="btn create_btn pull-right">Proceed</button>
                             <a href="{{ route('user.profile')}}" class="btn pull-right">Skip</button>
                             </div>
                         </fieldset>

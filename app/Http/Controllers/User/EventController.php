@@ -83,9 +83,11 @@ class EventController extends Controller
 
   function selected(Request $request, $id){
 
+    $user = User::findOrFail(Auth::user()->id);
     $mov_id = $request->input('id');
     $movie = Movie::findOrFail($mov_id);
     $event = Event::findOrFail($id);
+    $user->movies()->attach($mov_id);
 
     $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
     $request = new Reqs\AddPurchase(Auth::user()->id, $id, ['cascadeCreate' => true]);
@@ -125,13 +127,12 @@ class EventController extends Controller
     $request ->validate([
       'date' => 'required',
       'time' => 'required',
-      'group_id' => '',
       ]);
 
-    $event = new Event();
+    $event = Event::findOrFail($id);
     $event->date = $request->input('date');
     $event->time = $request->input('time');
-    $event->group_id = $id;
+    //$event->group_id = $event->id;
     $event->save();
 
     return redirect()->route('user.groups.event.show', $event->id);

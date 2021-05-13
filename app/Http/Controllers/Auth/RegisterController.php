@@ -70,6 +70,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+      $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
 
       $user = new User();
       $user->name = $data['name'];
@@ -81,6 +82,7 @@ class RegisterController extends Controller
       $user->save();
       $user->roles()->attach(Role::where('name','user')->first());//using  where query to attach the patietn role to the user
 
+      //$client->send(new Reqs\AddUser(26));
     //   $client -> send(new Reqs\SetUserValues("$user->id",
     //   // values
     //   [
