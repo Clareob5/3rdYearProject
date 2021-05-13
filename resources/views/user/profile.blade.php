@@ -16,15 +16,13 @@
 
 </div>
   </div>
-
-
     <div class="container-fluid">
       <div class="row">
 
       <div class="col-8">
-      <form action="{{route('user.profile')}}" method="post" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
+      <form action="{{route('user.profile.update')}}" method="PUT" enctype="multipart/form-data">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="_method" value="PUT">
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" name="name" id="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }} text-light" value="{{ old('name') ? : Auth::user()->name }}" placeholder="Enter Name">
@@ -102,20 +100,17 @@
               <div class="card bgcardcolor">
                 <a href="{{ route('user.movies.show', $movie->id) }}">
                   <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" height="240" alt="Card image cap"></a>
-
                   <div class="bgcardcolor text-white push2 topspace">
                       <p class="card-text">{{ $movie->title }} ({{ $movie->release_year }})</p>
                       <hr>
                         <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}"><h6><i class="fas fa-heart"></i> Add to Watchlist </h6></a>
-
                   </div>
               </div>
           </div>
-
-          @endif
-        @endfor
-      @endforeach
-    </div>
+        @endif
+      @endfor
+    @endforeach
+  </div>
   </section>
 
 
@@ -150,7 +145,7 @@
         _token:token,
       },
       beforeSend:function () {
-        $('#add_to_wishlist_'+movie_id).html('<i class="fas fa-heart"></i>');
+        $('#add_to_wishlist_'+movie_id).html('<h6 class="heartColor"><i class="fas fa-heart"></i> Added </h6>');
       },
       complete:function () {
         $('#add_to_wishlist_'+movie_id);

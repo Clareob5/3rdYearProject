@@ -8,7 +8,6 @@
        <div class="card-header">
          Edit movie
        </div>
-
        <div class="card-body">
          @if($errors->any())
              <div class="alert alert-danger">

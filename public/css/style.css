@@ -70,11 +70,11 @@ hr{
 }
 
 .spacingMovies{
-  margin-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .spacingMovies2{
@@ -157,6 +157,10 @@ hr{
   color: #FFC300  !important;
 }
 
+.heartColor{
+  color: red !important;
+}
+
 .titlea{
   padding-left: 450px;
   padding-top: 200px;
@@ -198,6 +202,9 @@ option{
     position: relative;
 
 }
+.selected_img{
+  max-height: 600px;
+}
 
 .header {
   border-style: none !important;
@@ -236,13 +243,14 @@ img{
 .padding {
     padding: 20px;
 }
-/*
-.box_style {
+
+.box_style_select {
   color:#E3E6EB !important;
-  padding: 100px;
+  padding: 20px;
   border-radius: 0;
+  border: 1px solid #3B2D47;
   background: rgba(84, 127, 162, 0.6);
-} */
+}
 
 .box_style_two {
   border-radius: 0;
@@ -269,6 +277,11 @@ img{
   background-color: #3B2D47;
 }
 
+.checkbox_large {
+  margin: 10px;
+  width: 40px;
+  height: 40px;
+}
 
 .col-form-label {
     font-size: 15px;

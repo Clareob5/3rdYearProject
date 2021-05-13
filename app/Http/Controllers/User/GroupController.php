@@ -239,6 +239,20 @@ class GroupController extends Controller
 // * @param  int  $id
 // * @return \Illuminate\Http\Response
 // */
+
+public function memberRemove(Request $request, $id)
+{
+  var_dump($id);
+  $group_id=$request->input('group_id');
+  $group = Group::find($group_id);
+  $group->users()->detach($id);
+  //
+  // $user = User::find(Auth::user()->id);
+  // $user->movies()->detach($id);
+
+  return redirect()->route('user.groups.show',$group);
+}
+
 public function destroy($id)
 {
   $group = Group::findOrFail($id);

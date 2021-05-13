@@ -104,7 +104,11 @@
                       @foreach ($members as $member)
 
                       <p>{{ $member->name }}</p>
-
+                      {{-- <form style="display:inline-block" method="POST" action="{{ route('user.groups.removeMember', $member->id) }}">
+                          <input type="hidden" name="group_id" value="{{ $group->id }}">
+                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                          <button type="submit" class="btn btn-danger">Remove</a>
+                      </form> --}}
                       @endforeach
 
 

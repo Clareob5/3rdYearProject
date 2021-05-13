@@ -69,10 +69,10 @@ class ProfileController extends Controller
       ];
       $request->validate($rules);
 
-      $user = Auth::user();
-      $user->name = $request->name;
-      $user->dob = $request->dob;
-      $user->email = $request->email;
+      $user = User::findOrFail(Auth::user()->id);
+      $user->name = $request->input('name');
+      $user->dob = $request->input('dob');
+      $user->email = $request->input('email');
 
       if($request->hasFile('image')){
         //get image file
@@ -91,14 +91,13 @@ class ProfileController extends Controller
       }
 
       if($request->password){
-        $user->password = Hash::make($request->password);
+        // $user->password = Hash::make($request->password);
+        $user->password = Hash::make($request->input('password'));
+
       }
 
       $user->save();
-      return redirect()
-          ->route('profile.index')
-          ->with('status','Your profile has been updated!');
-
+      return redirect()->route('user.profile.index');
     }
 
 

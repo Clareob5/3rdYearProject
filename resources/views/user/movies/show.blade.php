@@ -16,7 +16,6 @@
                             <img src="{{ asset('assets/img/' . $movie->cover ) }}" width="300px"/>
                             <br>
                             <br>
-
                             <p>Rate</p>
                             <h1><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             </h1>
@@ -70,8 +69,8 @@
 
                         </div>
 
-                        <div class="col-4">
-                            <p>Add to Watchlist</p>
+                        <div class="col-4 padding">
+                            <h3>Add to Watchlist</h3>
                             <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}"><h1><i class="fas fa-heart"></i> </h1></a>
 
                         </div>
@@ -152,7 +151,7 @@
                 _token: token,
             },
             beforeSend: function() {
-                $('#add_to_wishlist_' + movie_id).html('<i class="fas fa-heart"></i>');
+                $('#add_to_wishlist_' + movie_id).html('<h1> Added to your Watchlist</h1>');
             },
             complete: function() {
                 $('#add_to_wishlist_' + movie_id);

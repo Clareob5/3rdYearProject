@@ -33,11 +33,11 @@ class UserWatchlistController extends Controller
 
     $movie_id=$request->input('movie_id');
     $movie_qty=$request->input('movie_qty');
-    //$user->movies()->attach($movie_id);
+    $user->movies()->attach($movie_id);
     $watchlist=[];
 
     $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
-    $request = new Reqs\AddPurchase($id, $movie_id, ['cascadeCreate' => true]);
+    $request = new Reqs\AddDetailView($id, $movie_id, ['cascadeCreate' => true]);
 
     $request->setTimeout(5000);
     $client->send($request);
