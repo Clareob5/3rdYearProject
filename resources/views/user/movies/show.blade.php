@@ -87,7 +87,10 @@
             <h2>
                 Reviews
 
+              
                 <a href="{{ route('user.reviews.create', $movie->id) }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i>Add</a>
+
+
 
             </h2>
 

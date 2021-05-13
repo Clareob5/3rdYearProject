@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="card box_style">
                 <h2 class="center_text"> Choose Movies</h2>
 
@@ -27,9 +27,9 @@
                           <div class="row">
                           @foreach($movies as $movie)
                             <div class="spacingMovies">
-                              <inputs type="checkbox" name="movie_ids[]" value="{{ $movie->id }}">
+                              <input type="checkbox" name="movie_ids[]" value="{{ $movie->id }}">
 
-                              <img  src="{{ '/assets/img/' . $movie->cover }}" width="120px" height='120px'/><br>
+                              <img  src="{{ '/assets/img/' . $movie->cover }}" width="200px" height='240px'/><br>
 
                               <p> {{ $movie->title }} {{ $movie->release_year }} </p>
                             </div>

@@ -2,7 +2,61 @@
 
 @section('content')
 
-<!-- <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+
+
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Your Groups</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <p>View Groups and Members below</p>
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="#">Home 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Home 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Home 3</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="#">Page 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 3</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Portfolio</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+
+    </nav>
+    <!-- Page Content -->
+    <!-- <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
 
                 <button type="button" id="sidebarCollapse" class="btn btn-info">
@@ -10,34 +64,13 @@
                     <span>Toggle Sidebar</span>
                 </button>
             </div>
-        </nav> -->
-
-<!-- <div class="wrapper">
-
-<nav id="sidebar">
-
-  <ul class="list-unstyled commponents">
+        </nav>
+    </div> -->
+</div>
 
 
-  <div class="sidebar-header">
-    <h3>Your Groups</h3>
-  </div>
 
-  <li>
-    @foreach ($groups as $group)
-
-    @if($group->user_id == Auth::user()->id)
-
-        <a class="text-light">{{ $group->group_name }}</a>
-
-        @endif
-
-    @endforeach
-  </li>
-
-</ul>
-</nav>
-</div> -->
+<!-- end sidebar -->
 
 <div class="container background-dark">
     <div class="row justify-content-center">
@@ -50,22 +83,21 @@
 
             </div>
 
-            <br>
-            <br>
 
-            <div class="row justify-content-center">
-                <h4 class="text-light">Welcome back {{ Auth::user()->name }}</h4>
+
+            <div class="row justify-content-center topPadding">
+                <h1 class="text-light">Welcome back {{ Auth::user()->name }}</h1>
 
             </div>
 
             <div class="row justify-content-center">
-                <p class="text-light">This page will become more active as you add more movies to your watchlist</p>
+                <h4 class="text-light">This page will become more active as you add more movies to your watchlist</h4>
 
 
             </div>
 
             <div class="d-grid gap-2 col-4 mx-auto slightPush5">
-                <a class="nav-link" href="{{ route('user.watchlist') }}"><button type="button" class="btn btn-success btn-md">GO TO WATCHLIST</button></a>
+                <a class="nav-link" href="{{ route('user.watchlist') }}"><button type="button" class="btn btcolor btn-md">GO TO WATCHLIST</button></a>
             </div>
 
 
@@ -74,13 +106,12 @@
 
 
 
-        <section>
-          <br>
-          <br>
+        <section class="topPadding">
 
 
 
-    <h5 class="text-light">YOUR MOVIE RECOMMENDATIONS</h5>
+
+    <h5 class="text-light push4">YOUR MOVIE RECOMMENDATIONS</h5>
         <div class="card-group">
             @foreach ($movies as $movie)
             @for ($i=0; $i < 6; $i++)
@@ -128,24 +159,21 @@
         </div>
         </section>
 
-        <br>
-        <br>
 
-        <section>
-            <br>
-            <br>
+
+        <section class="topPadding">
+
             <div class="row justify-content-center">
                 <img src="/assets/img/midbanner.png">
             </div>
         </section>
 
-        <section class="sectionSpacing">
-
-          <br>
-          <br>
+        <section class="topPadding">
 
 
-            <h5>POPULAR ON ALPHA FILMS</h5>
+
+
+            <h5 class="push4">POPULAR ON ALPHA FILMS</h5>
                 <div class="card-group">
                   @foreach ($pop_movies as $movie)
                       <div class="col-md-2 active">
@@ -169,9 +197,8 @@
 
         </section>
 
-        <section>
-            <br>
-            <br>
+        <section class="topPadding">
+
 
             <h5>LATEST NEWS</h5>
 
@@ -196,12 +223,11 @@
 
 
 
-        <section>
+        <section class="topPadding">
 
-          <br>
-          <br>
 
-          <h5>POPULAR REVIEWS</h5>
+
+          <h5 class="push4">POPULAR REVIEWS</h5>
 
             <div class="container-fluid">
                 <div class="row">
@@ -282,49 +308,28 @@
 
 
 
-    <section>
-
-        <br>
-        <br>
-
-        <h5>RECENT SHOWDOWNS</h5>
-
-        <div class="card-deck">
-                <div class="card text-white bgcardcolor mb-3">
-                    <img src="/assets/img/modest.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Modest Heroes</h5>
-                        <p>Best Indie animated films</p>
-                    </div>
-                </div>
-                <div class="card text-white bgcardcolor mb-3">
-                    <img src="/assets/img/spirited.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Spirited Away</h5>
-                        <p>Best ASMR films</p>
-                    </div>
-                </div>
-                <div class="card text-white bgcardcolor mb-3">
-                    <img src="/assets/img/unforgiven.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Unforgiven</h5>
-                        <p>Best revenge films</p>
-                    </div>
-                </div>
-                <div class="card text-white bgcardcolor mb-3">
-                    <img src="/assets/img/sundance.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Sundance</h5>
-                        <p>Best upcoming films</p>
-                    </div>
-                </div>
+    <section class="topPadding">
 
 
+        <div class="card bgcardcolor text-white">
+
+          <img class="card-img" src="https://cdn.dribbble.com/users/155265/screenshots/11082839/media/16ec3348bcf2895a6647263f0a5a002f.gif" height="400" width="400">
+
+          <div class="card-img-overlay see_more2">
+            <h1 class="card-title bold">VISIT OUR MOVIE CATALOGUE</h1>
+            <h3 class="card-text bold slightPush2">View every movie available on the site!</h3>
+
+            <div class="slightPush4">
+              <a class="nav-link" href="{{ route('user.catalogue') }}"><button type="button" class="btn btn-warning btn-md">GO TO CATALOGUE</button></a>
+            </div>
+          </div>
         </div>
+
     </section>
-    <section>
-        <br>
-        <br>
+
+
+    <section class="topPadding">
+
 
 
 
@@ -382,13 +387,9 @@
 @section('javascript')
 <script>
 
-$(document).ready(function() {
-            $('#sidebarCollapse').on('click', function() {
-                $('#sidebar').toggleClass('active');
-            });
-        });
+// trigger sidebar toggle
 
-        $(document).ready(function () {
+$(document).ready(function () {
 
     $("#sidebar").mCustomScrollbar({
          theme: "minimal"
@@ -418,43 +419,7 @@ $(document).ready(function () {
 
 });
 
-  //
-  // $(document).on('click','.add_to_wishlist',function(e){
-  //   e.preventDefault();
-  //   var movie_id=$(this).data('id');
-  //   var movie_qty=$(this).data('quantity');
-  //   console.log(movie_id);
-  //
-  //   var token="{{csrf_token()}}";
-  //   var path="{{route('user.watchlist.store')}}";
-  //
-  //   $.ajax({
-  //     url:path,
-  //     type:"POST",
-  //     dataType:"JSON",
-  //     data:{
-  //       movie_id:movie_id,
-  //       movie_qty:movie_qty,
-  //       _token:token,
-  //     },
-  //     beforeSend:function () {
-  //       $('#add_to_wishlist_'+movie_id).html('<i class="fas fa-heart"></i>');
-  //     },
-  //     complete:function () {
-  //       $('#add_to_wishlist_'+movie_id);
-  //     },
-  //     success:function (data) {
-  //       console.log(data);
-  //
-  //       if(data['status']){
-  //         $('body #header-ajax').html(data['header']);
-  //         $('body #cart_counter').html(data['cart_count']);
-  //         swal({
-  //           title: "Good job!",
-  //           text: data['message'],
-  //         })
-  //       }
-  //     }
+
     $(document).on('click', '.add_to_wishlist', function(e) {
         e.preventDefault();
         var movie_id = $(this).data('id');

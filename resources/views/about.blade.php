@@ -8,7 +8,7 @@
           <div class="card header">
               <img src="https://cdn.dribbble.com/users/1731254/screenshots/14576082/media/43ef38c0fcb2cf4e492f0afdf7cbad5b.png?compress=1&resize=1400x400" alt="...">
               <div class="card-img-overlay">
-                  <h1 class="card-title titlea">About Us</h1>
+                  <h1 class="card-title titlea bold">ABOUT US</h1>
               </div>
 
           </div>

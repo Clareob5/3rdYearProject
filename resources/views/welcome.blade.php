@@ -2,48 +2,67 @@
 
 @section('content')
 <div class="container background-dark">
+
+  <!-- settng background as dark and centering content -->
     <div class="row justify-content-center">
         <div class="col-md-12">
+
+          <!-- creating a banner within a card -->
             <div class="card header">
-                <img src="assets/img/bigguestbanner.png" class="img-fluid" alt="...">
+                <img src="assets/img/bigguestbanner.png" class="img-fluid" alt="Main Banner">
             </div>
-            <div class="row justify-content-center">
+
+            <!-- Join Now button for guests to encourage new users to join, centering button and linking to register page. -->
+            <div class="row justify-content-center topPadding">
                 <div class="d-grid gap-2 col-2 mx-auto">
                     <a class="nav-link" href="{{ route('register') }}"><button type="button" class="btn btn-success btn-lg">JOIN NOW</button></a>
                 </div>
             </div>
-            <br>
-            <br>
-            <div class="row justify-content-center">
+
+            <!-- small blurb to describe what the site does. centered and text is muted to not distract too much from overall page. topPadding used to space between button -->
+            <div class="row justify-content-center topPadding">
                 <h4 class="text-muted">Alpha Films lets you keep track of movies you've watched, create groups and choose movies with friends!</h4>
 
             </div>
         </div>
 
-        <br>
-        <br>
-        <section>
-            <br>
-            <br>
+        <!-- topPadding used to space between content -->
+        <!-- listening for the sessiong status -->
+        <section class="topPadding">
+
             @if (session('status'))
             <div class="alert alert-success" role="alert">
                 {{ session('status') }}
             </div>
             @endif
+
+            <!-- creating card group of popular movies on the site -->
+            <!-- guests can rollover cards to read movie description. option to click button to sign up if they want to read more. -->
+            <!-- looping through movies in backend to display 6 movies on page along with movies title and release year -->
             <div>
                 <h5>POPULAR MOVIES</h5>
             </div>
             <div class="row">
                 <div class="card-group">
                     @foreach ($movies as $movie)
-                    <div class="col-md-2 active">
-                        <div class="card bgcardcolor">
+                    <div class="col-md-2 active fadeIn">
+                        <div class="card bgcardcolor" data-aos="zoom-in">
                             <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" height="240" alt="Card image cap">
                             <div class="bgcardcolor text-white push2 topspace">
                                 <h6>{{ $movie->title }}</h6>
                                 <p>{{ $movie->release_year }}</p>
-
                             </div>
+                            <!-- creating overlay of text over card when mouse hovers over -->
+                            <div class="overlay">
+                              <h5 class="text topspace push4 bold">Film Description:</h5>
+                            <div class="text push2">{{ $movie->description }}</div>
+                            <!-- topspace used for button to space between content. Button links to register to encourage new potential users to join -->
+                            <div class="topspace2">
+                          <a class="push2" href="{{ route('register') }}">  <button type="button" class="btn btn-warning btn-sm">Sign up now for more!</button> </a>
+                        </div>
+                            </div>
+
+
                         </div>
                     </div>
                     @endforeach
@@ -51,10 +70,9 @@
             </div>
         </section>
 
-        <section>
-            <br>
-            <br>
-            <br>
+<!-- small banner to space between sections and change format slightly -->
+        <section class="topPadding">
+
             <div class="col-md-12">
                 <div>
                     <img src="assets/img/smallbanner.png" class="img-fluid" alt="...">
@@ -62,47 +80,11 @@
             </div>
         </section>
 
-        <!-- <section>
-            <br>
-            <br>
-            <br>
-            <h5 class="text-light">ALPHA FILMS LETS YOU....</h5>
-            <div class="row row-cols-1 row-cols-md-2 g-4">
-                <div class="col">
-                    <div class="card text-white bgcardcolor mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                </i>Keep track of every film you've ever watched(or just start from the day you join)</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card text-white bgcardcolor mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">Show some love for you favourite films, lists and reviews with a "like"</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card text-white bgcardcolor mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">Write and share reveiws, and read other members reviews. And also rate each film on a five star scale</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card text-white bgcardcolor mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">Create groups to add your friends to where you can choose films together! Have a group watchlist which everyone can add to</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
 
-        <section>
-          <br>
-          <br>
+<!-- just reviewed section displays movies recently reviewed by users on the site. -->
+<!-- looping through revent reviews in backend using foreach loop to display recently reviewes film -->
+        <section class="topPadding">
+
             <h5 class="text-light">JUST REVIEWED....</h5>
             <div class="row">
                 <div class="card-group">
@@ -117,15 +99,16 @@
             </div>
         </section>
 
-        <section>
-            <br>
-            <br>
-            <br>
+
+<!-- recently added section lets guests know what movies have been recently added on the site. -->
+<!-- movies are all being retrieved from the back end using a foreach loop and movie title and description accompanying the movie -->
+<!-- movies displayed within a list - bootstrap component -->
+        <section class="topPadding">
 
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        <h5 class="text-light">RECENTLY ADDED</h5>
+                        <h5 class="text-light push4">RECENTLY ADDED</h5>
 
                         <ul class="list-unstyled">
                             <div class="container-fluid">
@@ -145,20 +128,7 @@
                                 </div>
                             </div>
 
-                            {{-- <div class="col-4">
-                                <p>POPULAR PUBLIC WATCHLISTS</p>
-                                <img src="assets/img/poplist1.png">
-                                <p><i class="fas fa-heart"></i>Candy Cinema</p>
-                                <p>1,089,678 likes</p>
-                                <br>
-                                <img src="assets/img/poplist2.png">
-                                <p><i class="fas fa-heart"></i>Movies for boredom</p>
-                                <p>635,467 likes</p>
-                                <br>
-                                <img src="assets/img/poplist3.png">
-                                <p><i class="fas fa-heart"></i>The greatest list on Earth</p>
-                                <p>483,795 likes</p>
-                            </div> --}}
+
 
                     </div>
                 </div>
@@ -166,10 +136,10 @@
 
         </section>
 
-        <section>
 
-          <br>
-          <br>
+
+<!-- last section showing what recent news about films is available. currently recent news is being hardcoded. -->
+        <section class="topPadding">
 
             <h5 class="text-light">RECENT NEWS</h5>
 
@@ -206,8 +176,6 @@
                     </div>
                 </div>
             </div>
-
-
 
         </section>
 

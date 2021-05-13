@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<!-- default home page for when user is logged in -->
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
