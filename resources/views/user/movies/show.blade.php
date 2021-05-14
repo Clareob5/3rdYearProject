@@ -9,33 +9,21 @@
             <section>
                 <div class="container-fluid">
                     <div class="row">
-
                         <div class="col-4">
-
-
                             <img src="{{ asset('assets/img/' . $movie->cover ) }}" width="300px"/>
                             <br>
                             <br>
-                            <p>Rate</p>
-                            <h1><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </h1>
-                            <br>
-
-
+                            <div>
                             <a href="#" target="_blank"><button type="button" class="btn btn-success"><i class="fas fa-play-circle"></i>Trailer</button></a>
-
-
+                          </div>
                             <br>
                             <br>
-
                         </div>
-
 
                         <div class="col-4">
 
-
                             <h1>{{ $movie->title }}</h1>
-                            <p>{{ $movie->release_year }}</p>
+                            <p>Released in {{ $movie->release_year }}</p>
 
                             <p>{{ $movie->description }}</p>
 
@@ -77,19 +65,11 @@
                     </div>
                 </div>
             </section>
-
-
             <br>
             <br>
-
             <h2>
                 Reviews
-
-
                 <a href="{{ route('user.reviews.create', $movie->id) }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i>Add</a>
-
-
-
             </h2>
 
             <div class="card-deck topspace">
@@ -100,19 +80,14 @@
   <div class="card box_style_two">
     <div class="card-body">
 
-
       <h5 class="card-title">Reviews</h5>
       <p class="card-text">{{ $review->review }}</p>
 
       <h5>Rating</h5>
       <p class="card-text">{{ $review->rating }}</p>
 
-
-
     </div>
   </div>
-
-
 
   @endforeach
   @endif
@@ -153,7 +128,7 @@
                 _token: token,
             },
             beforeSend: function() {
-                $('#add_to_wishlist_' + movie_id).html('<h1> Added to your Watchlist</h1>');
+                $('#add_to_wishlist_' + movie_id).html('<h1><i class="heartColor fas fa-heart"></i> </h1><h3>Movie Added</h3>');
             },
             complete: function() {
                 $('#add_to_wishlist_' + movie_id);

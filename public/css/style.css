@@ -400,3 +400,8 @@ img{
   padding: 8px !important;
   margin: 10px;
 }
+
+footer{
+  position:absolute;
+  border-top: 3px solid #E3E6EB;
+}

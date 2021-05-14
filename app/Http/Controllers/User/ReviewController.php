@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Movie;
 use App\Models\Review;
 use Auth;
+use Recombee\RecommApi\Client;
+use Recombee\RecommApi\Requests as Reqs;
+use Recombee\RecommApi\Exceptions as Ex;
 
 class ReviewController extends Controller
 {
@@ -53,12 +56,19 @@ class ReviewController extends Controller
      */
     public function store(Request $request, $id)
     {
+      $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
+
       $review = new Review();
       $review->review = $request->input('review');
       $review->rating = $request->input('rating');
       $review->user_id = Auth::id();
       $review->movie_id = $id;
       $review->save();
+
+      $rate = new Reqs\AddRating(Auth::id(), $id, ($review->rating/10), ['cascadeCreate' => true]);
+
+      $rate->setTimeout(5000);
+      $client->send($rate);
 
       return redirect()->route('user.movies.show', $id);
     }

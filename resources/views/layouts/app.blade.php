@@ -181,30 +181,28 @@
 
 
 </body>
-{{-- <footer class="margin-top container">  <div class="row">
-      <div class="col-md-4 margin-copy">
-          <p>copyright</p>
-          <ion-icon name="logo-facebook"></ion-icon>
-          <ion-icon name="logo-instagram"></ion-icon>
-          <ion-icon name="logo-linkedin"></ion-icon>
-          <ion-icon name="logo-googleplus"></ion-icon>
-      </div>
-      <div class="col-md-4 margin_top">
-          <h4 class="about_us">About us</h4>
-          <p>IN ADDITION to sustainable social change, we believe passionately in travel, naps, good food, great friends, long talks, broadened horizons + a spirit of adventure.
+<footer>
+  <div class="row">
+      <div class="col-md-4">
+          <p class="topspace">copyright</p>
+          <h5><i class="fab fa-linkedin-in"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-pinterest-p"></i></h5>
 
-              (We are also 100% positive the world would be a better place
-              if everyone spent 15 minutes a day in a hammock.)</p>
       </div>
-      <div class="col-md-4 margin_top">
-          <h4 class="contact_us">Contact Us</h4>
+      <div class="col-md-4">
+          <h4 class="topspace2">About us</h4>
+          <p>IN ADDITION to sustainable social change, we believe passionately in travel, naps, good food, great friends, long talks, broadened horizons + a spirit of adventure.</p>
+      </div>
+      <div class="col-md-4">
+          <h4 class="topspace2">Contact Us</h4>
           <p>Freephone: 0976846352</p>
           <p>123 Foxrock Avenue <br> Dun Laoghaire <br> Ireland</p>
       </div>
 
 
   </div>
-</footer> --}}
+</footer>
 
 <script>
 
