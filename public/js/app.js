@@ -1,8 +1,11 @@
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 91ac2431d74f0a4c09f9e2fb8a35dae2ef13037c
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
