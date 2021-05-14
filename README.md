@@ -8,18 +8,19 @@
 </p>
 
 How to Install the Project
-Download a zip of the project, unzip it into your LaravelProjects folder or wherever you run your homestead environment.
-Go into your 'Homestead.yaml' file and add the following map: alpha.films  to: /home/vagrant/WAF/MyLaravelProjects/AlphaFilms/public
-In the database part of the yaml file add - reels_and_meals
-Access your hosts file by running notepad as admin, click on open file and navigate to C:\Windows\System32\drivers\etc\hosts
-While in the hosts file add the url of your site there For example: 127.0.0.1       alpha.films
-Copy the 'example.env' and name it '.env'
-Open the .env file and set the DB_DATABASE to the database you created in the Homestead.yaml file and set the username and password to the necesssary credentials.
+* Download a zip of the project, unzip it into your LaravelProjects folder or wherever you run your homestead environment.
+* Go into your 'Homestead.yaml' file and add the following - map: alpha.films to: /home/vagrant/WAF/MyLaravelProjects/AlphaFilms/public
+* In the database part of the yaml file add - alpha_films
+* Access your hosts file by running notepad as admin, click on open file and navigate to C:\Users\clare\WAF\MyLaravelProjects\AlphaFilms\app\Http\Controllers\Admin
+* While in the hosts file add the url of your site there For example: 127.0.0.1 alpha.films
+* Copy the 'example.env' and name it '.env'
+* Open the .env file and set the DB_DATABASE to the database you created in the Homestead.yaml file and set the username and password to the necesssary credentials.
 Then refresh the Homestead environment with vagrant reload --provision. Go into the Homestead environment using vagrant up and vagrant ssh. Once in the Homestead environment, cd into your application folder and run these following commands:
 composer install
-composer require recombee/php-api-client
 npm install After that migrate and seed the database using php artisan migrate --seed Once that done initialise, add and commit to Git
-git init
-git add .
-git commit -am 'Initial commit
-You may need to create the db manually in phpMyAdmin if it doesnt automatically generate
+- git init
+- git add .
+- git commit -am 'Initial commit
+You may need to create the db for alpha_films manually in phpMyAdmin if it doesnt automatically generate
+All depencies needed should be installed but if recombee is not working correctly run:
+composer require recombee/php-api-client
