@@ -58,10 +58,10 @@
     </div>
 </section>
 
-<section>
-    <br>
-    <div class="justify-content-center push3 topspace2">
-        <a href="{{ route('user.home')}}" class="btn btcolor ">Back</a>
-    </div>
+ <section>
+<br>
+<div class="justify-content-center push3 topspace2">
+<a href="{{ route('user.home')}}" class="btn btcolor ">Back</a>
+</div>
 </section>
 @endsection

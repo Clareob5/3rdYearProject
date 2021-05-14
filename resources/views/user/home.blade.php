@@ -233,6 +233,8 @@
                         <p class="card-text">{{ $movie->title }} ({{ $movie->release_year }})</p>
                         <hr>
                        <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}"><h6><i class="fas fa-heart"></i> Add to Watchlist </h6></a>
+
+
                     </div>
                 </div>
             </div>
