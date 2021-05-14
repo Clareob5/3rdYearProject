@@ -1,9 +1,6 @@
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-
-window.AOS = require('AOS');
-AOS.init();
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {

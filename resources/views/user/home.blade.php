@@ -2,57 +2,6 @@
 
 @section('content')
 
-
-
-{{-- <div class="wrapper">
-    <!-- Sidebar -->
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <h3>Your Groups</h3>
-        </div>
-
-        <ul class="list-unstyled components">
-            <p>View Groups and Members below</p>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
-                        <a href="#">Home 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 3</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">About</a>
-            </li>
-            <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="#">Page 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 3</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">Portfolio</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
-            </li>
-        </ul>
-
-    </nav> --}}
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <div class="sidebar-header">
@@ -100,19 +49,6 @@
     <!-- Use any element to open the sidenav -->
     <span onclick="openNav()"><i class="fas fa-align-left"></i></span>
 
-    {{-- <!-- Page Content -->
-    <!-- <div id="content">
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-
-                <button type="button" id="sidebarCollapse" class="btn btn-info">
-                    <i class="fas fa-align-left"></i>
-                    <span>Toggle Sidebar</span>
-                </button>
-            </div>
-        </nav>
-    </div> --> --}}
 </div>
 
 
@@ -125,69 +61,7 @@
 
         <div class="col-md-12">
 
-            <div class="row justify-content-center   {{-- <div class="col-6">
-                  <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
-                      <div class="row no-gutters">
-                          <div class="col-md-4">
-                              <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
-                          </div>
-                          <div class="col-md-8">
-                              <div class="card-body">
-                                  <h5 class="card-title">{{ $movie->title }}</h5>
-                                  <p class="card-text">{{ $movie->description }}</p>
-                                  <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
-                      <div class="row no-gutters">
-                          <div class="col-md-4">
-                              <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
-                          </div>
-                          <div class="col-md-8">
-                              <div class="card-body">
-                                  <h5 class="card-title">{{ $movie->title }}</h5>
-                                  <p class="card-text">{{ $movie->description }}</p>
-                                  <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="col-6">
-                  <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
-                      <div class="row no-gutters">
-                          <div class="col-md-4">
-                              <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
-                          </div>
-                          <div class="col-md-8">
-                              <div class="card-body">
-                                  <h5 class="card-title">{{ $movie->title }}</h5>
-                                  <p class="card-text">{{ $movie->description }}</p>
-                                  <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
-                      <div class="row no-gutters">
-                          <div class="col-md-4">
-                              <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
-                          </div>
-                          <div class="col-md-8">
-                              <div class="card-body">
-                                  <h5 class="card-title">{{ $movie->title }}</h5>
-                                  <p class="card-text">{{ $movie->description }}</p>
-                                  <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
-                              </div>
-                          </div>
-                      </div>
-                  </div> --}}
-">
+            <div class="row justify-content-center">
                 <img src="/assets/img/coolbanner.png">
 
             </div>

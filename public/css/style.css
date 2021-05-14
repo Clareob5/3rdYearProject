@@ -402,6 +402,7 @@ img{
 }
 
 footer{
+  width: 100%;
   position:absolute;
   border-top: 3px solid #E3E6EB;
 }

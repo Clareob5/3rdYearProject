@@ -80,13 +80,14 @@
                     <h5><strong>Admin:</strong> {{ $group->user->name}}</h5>
 
                     @foreach ($members as $member)
-                    <p>
-                    <form method="POST" action="{{ route('user.groups.removeMember', $member->id) }}">
+                  <p>
+                    {{-- <form method="POST" action="{{ route('user.groups.memberRemove', $member->id) }}">
+                        <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="group_id" value="{{ $group->id }}">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
                         {{ $member->name }}
-                        <button type="submit" class="btn btn-outline-danger margin_left btn-sm">Remove</button>
-                    </form>
+                        {{-- <button type="submit" class="btn btn-outline-danger margin_left btn-sm">Remove</button>
+                    </form> --}}
                     </p>
                     @endforeach
 
@@ -142,7 +143,6 @@
 @section('javascript')
 <script>
     function createEv() {
-        // e.preventDefault();
         console.log("Checking create event")
         var date = $('#date').val();
         var time = $('#time').val();
@@ -161,10 +161,10 @@
             },
             dataType: "json",
             success: function(response) {
-                // console.log(response);
+                //console.log(response);
                 console.log(response.data.date);
                 console.log(response.data.time);
-                console.log(response.data.id);
+                console.log(response.data.group_id);
                 if (response.code == 200) {
 
                     if (id != "") {

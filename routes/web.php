@@ -77,8 +77,8 @@ Route::get('/user/group/{id}', [UserGroupController::class, 'showGroup'])->name(
 Route::post('/user/group/{id}', [UserGroupController::class, 'showEvent'])->name('user.groups.show');
 Route::get('/user/group/{id}/edit', [UserGroupController::class, 'edit'])->name('user.groups.edit');
 Route::put('/user/group/{id}', [UserGroupController::class, 'update'])->name('user.groups.update');
+//Route::delete('/user/group/{id}', [UserGroupController::class, 'memberRemove'])->name('user.groups.memberRemove');
 Route::delete('/user/group/{id}', [UserGroupController::class, 'destroy'])->name('user.groups.destroy');
-Route::post('/user/group/{id}', [UserGroupController::class, 'memberRemove'])->name('user.groups.removeMember');
 
 //USER event routes
 Route::get('/user/event/{id}', [UserGroupController::class, 'createEvent'])->name('user.groups.event.create');

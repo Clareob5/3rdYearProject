@@ -208,20 +208,44 @@ class GroupController extends Controller
 
       return response()->json(['code'=>200, 'success'=>true, 'message'=>'Event Created successfully','data' => $event], 200);
 
-      // return response()->json(['ok' => 'ok']);
-
-      // return response()->json([
-      //   'ok' => 'ok',
-      //   'success' => true,
-      //   'data' => $event
-      // ], 200);
-
-      // return [
-      //   'success' => true,
-      //   'data' => $event
-      // ];
-      // return redirect()->route('user.groups.show', $event->group_id);
   }
+
+public function memberRemove(Request $request, $id)
+{
+
+  $group_id=$request->input('group_id');
+  $group = Group::find($group_id);
+  $group->users()->detach($id);
+  //
+  // $user = User::find(Auth::user()->id);
+  // $user->movies()->detach($id);
+
+  return redirect()->route('user.groups.show',$group);
+}
+
+public function destroy($id)
+{
+  $group = Group::findOrFail($id);
+  $group->users()->detach();
+  $group->delete();
+
+  return redirect()->route('user.home');
+}
+}
+
+// return response()->json(['ok' => 'ok']);
+
+// return response()->json([
+//   'ok' => 'ok',
+//   'success' => true,
+//   'data' => $event
+// ], 200);
+
+// return [
+//   'success' => true,
+//   'data' => $event
+// ];
+// return redirect()->route('user.groups.show', $event->group_id);
 
 // public function show()
 // {
@@ -244,26 +268,3 @@ class GroupController extends Controller
 // * @param  int  $id
 // * @return \Illuminate\Http\Response
 // */
-
-public function memberRemove(Request $request, $id)
-{
-  var_dump($id);
-  $group_id=$request->input('group_id');
-  $group = Group::find($group_id);
-  $group->users()->detach($id);
-  //
-  // $user = User::find(Auth::user()->id);
-  // $user->movies()->detach($id);
-
-  return redirect()->route('user.groups.show',$group);
-}
-
-public function destroy($id)
-{
-  $group = Group::findOrFail($id);
-  $group->users()->detach();
-  $group->delete();
-
-  return redirect()->route('user.home');
-}
-}

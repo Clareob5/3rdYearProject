@@ -100,6 +100,62 @@ class EventController extends Controller
     ]);
 
   }
+  public function createEvent(Request $request, $id)
+  {
+    $group = $request->session()->get('groups');
+    $users = User::All();
+    $group = Group::findOrFail($id);
+    $members = $group->users()->paginate(8);
+    return view('user.groups.event.create',compact('group','members'), [
+      'users' => $users,
+      'group' => $group,
+      'members'=> $members
+    ]);
+
+    return response()->json(['code'=>200, 'message'=>'Event Created successfully','data' => $group], 200);
+
+  }
+
+  public function storeEvent(Request $request)
+  {
+      $rules = [
+        'date' => 'required',
+        'time' => 'required',
+        'group_id' => '',
+        ];
+
+        //making a validator that will follow the rules above
+        $validator = Validator::make($request->all(), $rules);
+
+        //if validator fails, return an error
+        if ($validator->fails()) {
+          return response()->json($validator->errors(), 422); //422 unprocessable entity
+        }
+
+      if(empty($request->session()->get('groups'))){
+            $event = new Event();
+            $event->date = $request->input('date');
+            $event->time = $request->input('time');
+            $event->group_id = $request->input('group_id');
+            $event->save();
+      }
+
+      return response()->json(['code'=>200, 'success'=>true, 'message'=>'Event Created successfully','data' => $event], 200);
+
+      // return response()->json(['ok' => 'ok']);
+
+      // return response()->json([
+      //   'ok' => 'ok',
+      //   'success' => true,
+      //   'data' => $event
+      // ], 200);
+
+      // return [
+      //   'success' => true,
+      //   'data' => $event
+      // ];
+      // return redirect()->route('user.groups.show', $event->group_id);
+  }
 
   /**
    * Show the form for editing the specified resource.
