@@ -10,7 +10,7 @@
 How to Install the Project
 * Download a zip of the project, unzip it into your LaravelProjects folder or wherever you run your homestead environment.
 * Go into your 'Homestead.yaml' file and add the following - map: alpha.films to: /home/vagrant/WAF/MyLaravelProjects/AlphaFilms/public
-* In the database part of the yaml file add - alpha_films
+* In the database part of the yaml file add - reels_and_meals
 * Access your hosts file by running notepad as admin, click on open file and navigate to C:\Users\clare\WAF\MyLaravelProjects\AlphaFilms\app\Http\Controllers\Admin
 * While in the hosts file add the url of your site there For example: 127.0.0.1 alpha.films
 * Copy the 'example.env' and name it '.env'
@@ -21,6 +21,6 @@ npm install After that migrate and seed the database using php artisan migrate -
 - git init
 - git add .
 - git commit -am 'Initial commit
-You may need to create the db for alpha_films manually in phpMyAdmin if it doesnt automatically generate
+You may need to create the db for reels_and_meals manually in phpMyAdmin if it doesnt automatically generate
 All depencies needed should be installed but if recombee is not working correctly run:
 composer require recombee/php-api-client
