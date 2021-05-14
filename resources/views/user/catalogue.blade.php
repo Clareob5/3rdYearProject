@@ -75,7 +75,7 @@
                 _token: token,
             },
             beforeSend: function() {
-                $('#add_to_wishlist_' + movie_id).html('<h6>Added to your Watchlist</h6>');
+                $('#add_to_wishlist_' + movie_id).html('<h6 class="heartColor"><i class="fas fa-heart"></i> Added </h6>');
             },
             complete: function() {
                 $('#add_to_wishlist_' + movie_id);

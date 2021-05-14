@@ -4,7 +4,7 @@
 
 
 
-<div class="wrapper">
+{{-- <div class="wrapper">
     <!-- Sidebar -->
     <nav id="sidebar">
         <div class="sidebar-header">
@@ -52,8 +52,55 @@
             </li>
         </ul>
 
-    </nav>
-    <!-- Page Content -->
+    </nav> --}}
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="sidebar-header">
+          <h3>Your Groups</h3>
+      </div>
+
+      <ul class="list-unstyled components">
+          <p>View Groups below</p>
+          <li class="active">
+              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Groups</a>
+              <ul class="collapse list-unstyled" id="homeSubmenu">
+                @foreach ($groups as $group)
+                @if($group->user_id == Auth::user()->id)
+                    <li>
+                      <p><a href="{{route('user.groups.show', $group->id)}}" class="text-light">{{ $group->group_name }}</a></p>
+                    </li>
+                    @endif
+                    @endforeach
+              </ul>
+          </li>
+          <li>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Upcomong Events</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                @foreach ($groups as $group)
+                @if($group->user_id == Auth::user()->id)
+                  @foreach ($group->events as $event)
+                    <li>
+                      <h6>{{ $event->group->group_name}}</h6>
+                      <p>{{ date('j F, Y', strtotime($event->date )) }}</p>
+                    </li>
+                  @endforeach
+                    @endif
+                    @endforeach
+              </ul>
+          </li>
+          <li>
+              <a href="{{ route('about') }}">About</a>
+          </li>
+          <li>
+              <a href="{{ route('user.catalogue') }}">Catalogue</a>
+          </li>
+      </ul>
+        <a href="{{ route('user.groups.create') }}" class="btn sidebar_btn btcolor btn-md">Create Group</a>
+    </div>
+    <!-- Use any element to open the sidenav -->
+    <span onclick="openNav()"><i class="fas fa-align-left"></i></span>
+
+    {{-- <!-- Page Content -->
     <!-- <div id="content">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -65,20 +112,82 @@
                 </button>
             </div>
         </nav>
-    </div> -->
+    </div> --> --}}
 </div>
 
 
 
 <!-- end sidebar -->
 
-<div class="container background-dark">
+<div class="container background-dark" id='main'>
     <div class="row justify-content-center">
 
 
         <div class="col-md-12">
 
-            <div class="row justify-content-center">
+            <div class="row justify-content-center   {{-- <div class="col-6">
+                  <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
+                      <div class="row no-gutters">
+                          <div class="col-md-4">
+                              <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
+                          </div>
+                          <div class="col-md-8">
+                              <div class="card-body">
+                                  <h5 class="card-title">{{ $movie->title }}</h5>
+                                  <p class="card-text">{{ $movie->description }}</p>
+                                  <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
+                      <div class="row no-gutters">
+                          <div class="col-md-4">
+                              <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
+                          </div>
+                          <div class="col-md-8">
+                              <div class="card-body">
+                                  <h5 class="card-title">{{ $movie->title }}</h5>
+                                  <p class="card-text">{{ $movie->description }}</p>
+                                  <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-6">
+                  <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
+                      <div class="row no-gutters">
+                          <div class="col-md-4">
+                              <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
+                          </div>
+                          <div class="col-md-8">
+                              <div class="card-body">
+                                  <h5 class="card-title">{{ $movie->title }}</h5>
+                                  <p class="card-text">{{ $movie->description }}</p>
+                                  <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
+                      <div class="row no-gutters">
+                          <div class="col-md-4">
+                              <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
+                          </div>
+                          <div class="col-md-8">
+                              <div class="card-body">
+                                  <h5 class="card-title">{{ $movie->title }}</h5>
+                                  <p class="card-text">{{ $movie->description }}</p>
+                                  <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
+                              </div>
+                          </div>
+                      </div>
+                  </div> --}}
+">
                 <img src="/assets/img/coolbanner.png">
 
             </div>
@@ -176,10 +285,7 @@
         </section>
 
         <section class="topPadding">
-
-
             <h5>LATEST NEWS</h5>
-
             <div class="card mb-3 bgcardcolor" style="max-width: 1140px;">
                 <div class="row no-gutters">
                     <div class="col-md-4">
@@ -197,91 +303,31 @@
                 </div>
             </div>
 
-
-
-
-
         <section class="topPadding">
-
-
-
-          <h5 class="push4">POPULAR REVIEWS</h5>
-
+          <h5 class="push4">TOP REVIEWS</h5>
             <div class="container-fluid">
                 <div class="row">
-
-
+                  @foreach ($reviews as $review)
                     <div class="col-6">
-
-
                         <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
                             <div class="row no-gutters">
                                 <div class="col-md-4">
-                                    <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
+                                    <img src="{{ '../assets/img/' . $review->movie->cover }}" class="card-img" alt="...">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ $movie->title }}</h5>
-                                        <p class="card-text">{{ $movie->description }}</p>
-                                        <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
-                            <div class="row no-gutters">
-                                <div class="col-md-4">
-                                    <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $movie->title }}</h5>
-                                        <p class="card-text">{{ $movie->description }}</p>
-                                        <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
+                                        <h4 class="card-title">{{ $review->movie->title }}</h4>
+                                        <h5 class="card-title">Top Review</h5>
+                                        <p class="card-text">{{ $review->review}}</p>
+                                        <p class="card-text"><small class="text-light">Rating: {{$review->rating}} out of 5</small></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-6">
-                        <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
-                            <div class="row no-gutters">
-                                <div class="col-md-4">
-                                    <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $movie->title }}</h5>
-                                        <p class="card-text">{{ $movie->description }}</p>
-                                        <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
-                            <div class="row no-gutters">
-                                <div class="col-md-4">
-                                    <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $movie->title }}</h5>
-                                        <p class="card-text">{{ $movie->description }}</p>
-                                        <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
+                  @endforeach
                     </div>
-
                 </div>
-            </div>
-
     </section>
 
 
@@ -367,35 +413,46 @@
 
 // trigger sidebar toggle
 
-$(document).ready(function () {
+// $(document).ready(function () {
 
-    $("#sidebar").mCustomScrollbar({
-         theme: "minimal"
-    });
+//     $("#sidebar").mCustomScrollbar({
+//          theme: "minimal"
+//     });
+//
+//     $('#sidebarCollapse').on('click', function () {
+//         $('#sidebar').toggleClass('active');
+//     });
+//
+// });
 
-    $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-    });
+// $(document).ready(function () {
 
-});
+  function openNav() {
+  document.getElementById("mySidenav").style.width = "15%";
+  document.getElementById("main").style.marginLeft = "10%";
+}
 
-$(document).ready(function () {
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft = "61.667";
+}
 
-    $("#sidebar").mCustomScrollbar({
-         theme: "minimal"
-    });
-
-    $('#sidebarCollapse').on('click', function () {
-        // open or close navbar
-        $('#sidebar').toggleClass('active');
-        // close dropdowns
-        $('.collapse.in').toggleClass('in');
-        // and also adjust aria-expanded attributes we use for the open/closed arrows
-        // in our CSS
-        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-    });
-
-});
+//     $("#sidebar").mCustomScrollbar({
+//          theme: "minimal"
+//     });
+//
+//     $('#sidebarCollapse').on('click', function () {
+//         // open or close navbar
+//         $('#sidebar').toggleClass('active');
+//         // close dropdowns
+//         $('.collapse.in').toggleClass('in');
+//         // and also adjust aria-expanded attributes we use for the open/closed arrows
+//         // in our CSS
+//         $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+//     });
+//
+// });
 
 
     $(document).on('click', '.add_to_wishlist', function(e) {
@@ -417,7 +474,7 @@ $(document).ready(function () {
                 _token: token,
             },
             beforeSend: function() {
-                $('#add_to_wishlist_' + movie_id).html('<i class="fas fa-heart"></i>');
+                $('#add_to_wishlist_' + movie_id).html('<h6 class="heartColor"><i class="fas fa-heart"></i> Added </h6>');
             },
             complete: function() {
                 $('#add_to_wishlist_' + movie_id);

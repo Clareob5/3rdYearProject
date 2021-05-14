@@ -30,11 +30,11 @@
                         <input type="hidden" name="_method" value="PUT">
                         <div class="form-group">
                             <label for="date">Date</label>
-                            <input type="text" class="form-control text-light" name="date" id="date" value="{{ old('date', $event->date) }}" />
+                            <input type="date" class="form-control text-light" name="date" id="date" value="{{ old('date', $event->date) }}" />
                         </div>
                         <div class="form-group">
                             <label for="time">Time</label>
-                            <input type="text" class="form-control text-light" name="time" id="time" value="{{ old('time', $event->time) }}" />
+                            <input type="time" class="form-control text-light" name="time" id="time" value="{{ old('time', $event->time) }}" />
                         </div>
                         {{-- <div class="form-group">
                     <label for="group_name">Group</label>

@@ -1,3 +1,22 @@
+// public function show(){
+//   // $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
+//   // $user_id = Auth::user()->id;
+//   // $count = 6;
+//   //
+//   //
+//   // $results = $client->send(
+//   //   new RecommendItemsToUser($user_id, $count, ['scenario' => 'Top_recommendations'])
+//   // );
+//   //
+//   // $recomms =  $results['recomms'];
+//   //
+//   // $movies = Movie::All();
+//   //   return view('user.profile', [
+//   //     'movies' => $movies
+//   //   ]);
+// }
+
+
 <div class="row">
   <div class="col-md-12">
     <div class="card">
@@ -500,3 +519,131 @@ show blade
 </div>
 </div>
 </div> --}}
+
+
+////////Homepage REVIEWS
+{{-- <div class="col-6">
+    <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $movie->title }}</h5>
+                    <p class="card-text">{{ $movie->description }}</p>
+                    <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $movie->title }}</h5>
+                    <p class="card-text">{{ $movie->description }}</p>
+                    <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-6">
+    <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $movie->title }}</h5>
+                    <p class="card-text">{{ $movie->description }}</p>
+                    <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $movie->title }}</h5>
+                    <p class="card-text">{{ $movie->description }}</p>
+                    <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+        </div>
+    </div> --}}
+
+    {{-- <div class="col-6">
+          <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
+              <div class="row no-gutters">
+                  <div class="col-md-4">
+                      <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                      <div class="card-body">
+                          <h5 class="card-title">{{ $movie->title }}</h5>
+                          <p class="card-text">{{ $movie->description }}</p>
+                          <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
+              <div class="row no-gutters">
+                  <div class="col-md-4">
+                      <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                      <div class="card-body">
+                          <h5 class="card-title">{{ $movie->title }}</h5>
+                          <p class="card-text">{{ $movie->description }}</p>
+                          <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-6">
+          <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
+              <div class="row no-gutters">
+                  <div class="col-md-4">
+                      <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                      <div class="card-body">
+                          <h5 class="card-title">{{ $movie->title }}</h5>
+                          <p class="card-text">{{ $movie->description }}</p>
+                          <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="card mb-3 bgcardcolor" style="max-width: 540px;">
+              <div class="row no-gutters">
+                  <div class="col-md-4">
+                      <img src="{{ '../assets/img/' . $movie->cover }}" class="card-img" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                      <div class="card-body">
+                          <h5 class="card-title">{{ $movie->title }}</h5>
+                          <p class="card-text">{{ $movie->description }}</p>
+                          <p class="card-text"><small class="text-light">Last updated 3 mins ago</small></p>
+                      </div>
+                  </div>
+              </div>
+          </div> --}}

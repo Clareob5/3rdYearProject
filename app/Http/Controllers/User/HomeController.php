@@ -34,25 +34,25 @@ class HomeController extends Controller
    */
   public function index()
 
-
   {
-    //sends the request to the API
+    //sets new client with public token to send request sot API
     $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
-    $user_id = Auth::user()->id;
-    $count = 6;
+    $user_id = Auth::user()->id; //user id is assigned the value od user->id
+    $count = 6; //the amount of movies i want displayed
 
-    // $results = NULL;
-
-
+    //assigns result of the client query to oci_get_implicit_resultset
+    //this retrieves values from a scenario made within recombee that will give out top recs for the user
     $results = $client->send(
       new Reqs\RecommendItemsToUser($user_id, $count, ['scenario' => 'Top_recommendations'])
     );
+    //blow is a request timeont chang that was used to try adn stop an error appear
     // $results->setTimeout(5000);
     // //$request
     // //$client->send($request);
 
+    //store the ids in an array
     $recomms =  $results['recomms'];
-    //
+
     //   for ($i = 0; $i < 6; $i++) {
     //   echo $recomms[$i]['id'];
     // }
@@ -60,13 +60,15 @@ class HomeController extends Controller
     // print_r($recomms[0]['id']);
 
       $movies = Movie::All();
-      // $review->review = Review::All();
+      $reviews = Review::orderBy('rating', 'DESC')->limit(4)->get();
       // $review->rating = Review::All();
       $pop_movies = Movie::orderBy('rating','DESC')->limit(6)->get();
       $groups = Group::All();
+
+
       return view('user.home', [
         'movies' => $movies,
-        // 'review' => $review,
+        'reviews' => $reviews,
         'groups' => $groups,
         'pop_movies' => $pop_movies,
         'recomms' => $recomms

@@ -34,7 +34,7 @@
         </div>
         <div class="form-group">
             <label for="date">Date of Birth</label>
-            <input type="date" name="date" id="dob" class="form-control {{ $errors->has('date') ? 'is-invalid' : '' }} text-light" value="{{ old('dob') ? : Auth::user()->dob }}" placeholder="Enter DOB">
+            <input type="date" name="dob" id="dob" class="form-control {{ $errors->has('date') ? 'is-invalid' : '' }} text-light" value="{{ old('dob') ? : Auth::user()->dob }}" placeholder="Enter DOB">
             @if($errors->has('dob'))
                 <span class="invalid-feedback">
                     {{$errors->first('dob')}}
@@ -75,13 +75,13 @@
 
 
   <div class="col-4 bt_space">
-    <a href="{{route('user.watchlist', Auth::user()->id)}}" type="button" class="btn btn-success">View Watchlist</a>
+    <a href="{{route('user.watchlist', Auth::user()->id)}}" type="button" class="btn btn-success btn-md">View Watchlist</a>
     <br>
     <br>
-    <a href="{{route('user.groups.create', Auth::user()->id)}}" type="button" class="btn btn-success"><i class="fas fa-plus-circle"></i>Create Group</a>
+    <a href="{{route('user.groups.create', Auth::user()->id)}}" type="button" class="btn btn-success"><i class="fas fa-plus-circle btn-md"></i>Create Group</a>
     <br>
     <br>
-    <a href="{{route('user.groups.show', 1)}}" type="button" class="btn btn-success">View Groups</a>
+    <a href="{{route('user.groups.show', 1)}}" type="button" class="btn btn-success btn-md">View your Groups</a>
   </div>
 
 </div>
@@ -126,6 +126,9 @@
 
 @section('javascript')
 <script>
+  //add to watchlist AJAX method
+  //sends the id to the controller to add it to the watchlist table
+  //refreshs the inner html
   $(document).on('click','.add_to_wishlist',function(e){
     e.preventDefault();
     var movie_id=$(this).data('id');

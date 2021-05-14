@@ -41,24 +41,6 @@ class ProfileController extends Controller
         ]);
     }
 
-    // public function show(){
-    //   // $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
-    //   // $user_id = Auth::user()->id;
-    //   // $count = 6;
-    //   //
-    //   //
-    //   // $results = $client->send(
-    //   //   new RecommendItemsToUser($user_id, $count, ['scenario' => 'Top_recommendations'])
-    //   // );
-    //   //
-    //   // $recomms =  $results['recomms'];
-    //   //
-    //   // $movies = Movie::All();
-    //   //   return view('user.profile', [
-    //   //     'movies' => $movies
-    //   //   ]);
-    // }
-
     public function update(Request $request){
       $rules = [
         'name'       => 'required|string|min:3|max:191',
@@ -73,6 +55,7 @@ class ProfileController extends Controller
       $user->name = $request->input('name');
       $user->dob = $request->input('dob');
       $user->email = $request->input('email');
+      $user->save();
 
       if($request->hasFile('image')){
         //get image file
@@ -96,7 +79,7 @@ class ProfileController extends Controller
 
       }
 
-      $user->save();
+
       return redirect()->route('user.profile.index');
     }
 

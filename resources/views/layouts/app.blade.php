@@ -68,10 +68,10 @@
                     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <div class="container-fluid">
 
-                            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                            {{-- <button type="button" id="sidebarCollapse" class="btn btn-info">
                                 <i class="fas fa-align-left"></i>
                                 <span>Toggle Sidebar</span>
-                            </button>
+                            </button> --}}
                         </div>
                     </nav>
                 </div>
@@ -109,11 +109,11 @@
                         </li>
                       @elseif( Auth::user()->hasRole('user') )
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('about') }}">{{ __('About') }}</a>
+                            <a class="nav-link topspace2" href="{{ route('about') }}">{{ __('About') }}</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('user.catalogue') }}">{{ __('Catalogue') }}</a>
+                            <a class="nav-link topspace2" href="{{ route('user.catalogue') }}">{{ __('Catalogue') }}</a>
                         </li>
                       @endif
                         <li class="nav-item dropdown">
