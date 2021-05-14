@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="row justify-content-center">
-    Edit Event
+  <h1>  Edit Event </h1>
 </div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <img src="https://cdn.dribbble.com/users/1731254/screenshots/14926309/media/d3657e8def0fe958cbb853f692f8dd97.png?compress=1&resize=550x550">
+            <img src="https://cdn.dribbble.com/users/1731254/screenshots/14163159/media/581b5ca79d278c72c5b951c5aff2fad5.png?compress=1&resize=550x480">
         </div>
         <div class="col-md-6 col-md-offset-2">
             <div class="card box_style">

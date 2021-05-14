@@ -125,29 +125,7 @@
                         <hr>
                        <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}"><h6><i class="fas fa-heart"></i> Add to Watchlist </h6></a>
 
-{{--
-            @for ($i=0; $i< 6; $i++)
-              @if ($movie->id == $recomms[$i]['id'])
-                <div class="col-md-2 active">
-                <div class="card">
-                    <a href="{{ route('user.movies.show', $movie->id) }}">
-                        <img class="card-img-top img-top" src="{{ '/assets/img/' . $movie->cover }}" height="240" alt="Card image cap"></a>
-                    <div class="card-img-overlay">
-                        <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}">
-                            <h3><i class="fas fa-heart"></i></h3>
-                        </a>
-                    </div>
-                    <div class=" card body bgcardcolor text-white">
-                        <h6>{{ $movie->title }}</h6>
-                        <p>{{ $movie->release_year }}</p>
-                        {{-- <div>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                        </div> -
-                        <div class="col-12">
-                            <a href="{{ route('user.movies.show', $movie->id)  }}" type="button" class="btn btn-outline-light">
-                                <h6>Read more</h6>
-                            </a>
-                        </div> --}}
+
                     </div>
                 </div>
             </div>

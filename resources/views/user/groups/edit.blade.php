@@ -1,13 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div class="row justify-content-center">
+<h1>  Edit Group </h1>
+</div>
+
   <div class="container">
       <div class="row justify-content-center">
-          <div class="col-md-8 col-md-offset-2">
+
+
+
+        <div class="col-md-6">
+          <img src="https://cdn.dribbble.com/users/1731254/screenshots/14820658/media/9c71d6d90a995169a42284238b740ba2.png?compress=1&resize=550x485">
+        </div>
+
+          <div class="col-md-6 col-md-offset-2">
               <div class="card box_style">
-                  <div class="center_text">
-                    Edit Group
-                  </div>
+
                   <div class="panel-body">
                       @if ($errors->any())
                           <div class="alert alert-danger">
@@ -22,7 +32,7 @@
                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
                           <input type="hidden" name="_method" value="PUT">
                           <div class="form-group">
-                              <label for="user_id">Admin: {{ Auth::user()->name}}</label>
+                              <h4 for="user_id">Admin: {{ Auth::user()->name}}</h4>
                           <input type=hidden class="form-control text-light" id="user_id" name="user_id" value="{{ Auth::user()->id}}"/>
                           </div>
                           <div class="form-group">
