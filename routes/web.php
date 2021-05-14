@@ -77,7 +77,6 @@ Route::get('/user/group/{id}', [UserGroupController::class, 'showGroup'])->name(
 Route::post('/user/group/{id}', [UserGroupController::class, 'showEvent'])->name('user.groups.show');
 Route::get('/user/group/{id}/edit', [UserGroupController::class, 'edit'])->name('user.groups.edit');
 Route::put('/user/group/{id}', [UserGroupController::class, 'update'])->name('user.groups.update');
-//Route::delete('/user/group/{id}', [UserGroupController::class, 'memberRemove'])->name('user.groups.memberRemove');
 Route::delete('/user/group/{id}', [UserGroupController::class, 'destroy'])->name('user.groups.destroy');
 
 //USER event routes
@@ -88,6 +87,7 @@ Route::get('/user/event/{id}/edit', [UserEventController::class, 'edit'])->name(
 Route::put('/user/event/{id}', [UserEventController::class, 'update'])->name('user.groups.event.update');
 Route::delete('/user/event/{id}', [UserEventController::class, 'destroy'])->name('user.groups.event.destroy');
 Route::post('/user/selected/{id}', [UserEventController::class, 'selected'])->name('user.groups.event.selected');
+//Route::post('/user/group/{id}', [UserEventController::class, 'memberRemove'])->name('user.groups.memberRemove');
 
 //user recs routes - create
 Route::get('/user/genres/create', [UserRecsController::class, 'createGenre'])->name('user.recs.create_genres');

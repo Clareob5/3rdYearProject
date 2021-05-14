@@ -81,17 +81,19 @@ class EventController extends Controller
     ]);
   }
 
+  //function for viewing the selected movie
   function selected(Request $request, $id){
 
     $user = User::findOrFail(Auth::user()->id);
     $mov_id = $request->input('id');
     $movie = Movie::findOrFail($mov_id);
     $event = Event::findOrFail($id);
-    $user->movies()->attach($mov_id);
+    $user->movies()->attach($mov_id); //adding the movie to the watchlist
 
+    //sending a purchase to the recommender
     $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
     $request = new Reqs\AddPurchase(Auth::user()->id, $id, ['cascadeCreate' => true]);
-    $request->setTimeout(5000);
+    $request->setTimeout(5000); //increasing the timeout
     $client->send($request);
 
     return view('user.groups.event.selected', [
@@ -100,8 +102,10 @@ class EventController extends Controller
     ]);
 
   }
+  //create event function
   public function createEvent(Request $request, $id)
   {
+    //requestint the group and users for the event
     $group = $request->session()->get('groups');
     $users = User::All();
     $group = Group::findOrFail($id);
@@ -118,6 +122,7 @@ class EventController extends Controller
 
   public function storeEvent(Request $request)
   {
+    //validating the inputs
       $rules = [
         'date' => 'required',
         'time' => 'required',
@@ -193,7 +198,18 @@ class EventController extends Controller
 
     return redirect()->route('user.groups.event.show', $event->id);
   }
-
+  // public function memberRemove(Request $request, $id)
+  // {
+  //
+  //   $group_id=$request->input('group_id');
+  //   $group = Group::find($group_id);
+  //   $group->users()->detach($id);
+  //   //
+  //   // $user = User::find(Auth::user()->id);
+  //   // $user->movies()->detach($id);
+  //
+  //   return redirect()->route('user.groups.event.show',$group);
+  // }
   /**
    * Remove the specified resource from storage.
    *
