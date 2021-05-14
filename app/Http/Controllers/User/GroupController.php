@@ -20,30 +20,33 @@ class GroupController extends Controller
 
   public function createGroup(Request $request)
   {
+    //start a session for cretaing a group
     $group = $request->session()->get('groups');
-    $users = User::All();
+    $users = User::All(); //get all users
+    //return view for creating grou[]
     return view('user.groups.create',compact('group'), [
       'users' => $users
     ]);
 
-    return response()->json(['code'=>200, 'message'=>'Group Created successfully','data' => $group], 200);
   }
 
   public function storeGroup(Request $request)
   {
-      //var_dump($request->input('members[]'));
+      //validate the inputs
       $request ->validate([
         'group_name' => 'required|max:191',
-        'members' => 'required',
-        'member2' => 'nullable'
+        'members' => 'required|integer',
+        'member2' => 'nullable|integer'
 
         ]);
+      //create a new group and save the data to the database
       if(empty($request->session()->get('groups'))){
         $group = new Group();
         $group->user_id = $request->input('user_id');
         $group->group_name = $request->input('group_name');
         $group->save();
 
+        //attach the inputted memebrs tothe group and save in pivot table
         $members = $request->input('members');
         $group->users()->attach($members);
         $member2 = $request->input('member2');
@@ -58,26 +61,26 @@ class GroupController extends Controller
         $group->group_name = $request->input('group_name');
         $group->save();
 
+        //attach the inputted memebrs tothe group and save in pivot table
         $members = $request->input('members');
         $group->users()->attach($members);
         $member2 = $request->input('member2');
         $group->users()->attach($member2);
       }
 
+      //redirect to the show page of the created group
       return redirect()->route('user.groups.show', $group->id);
   }
 
 
   public function showGroup($id)
   {
-
     $user = Auth::user();
     $group = Group::findOrFail($id);
     //$members = Group::with('users')->get();
 
     $members = $group->users()->paginate(8);
     //$events = $group->events()->orderBy('date', 'asc')->paginate(8); //displatying only visits relevant to authorised patient viewing the page
-
 
       $groups = Group::All();
       $events = Event::All();
@@ -91,14 +94,15 @@ class GroupController extends Controller
 
   public function edit($id)
   {
+    //find the group by the passed in id
     $group = Group::findOrFail($id);
     $users = User::All();
+    //return edit group view
     return view('user.groups.edit', [
       'group' => $group,
       'users' => $users
     ]);
 
-    return response()->json(['code'=>200, 'message'=>'Group Edited successfully','data' => $group], 200);
   }
 
   /**
@@ -110,13 +114,14 @@ class GroupController extends Controller
   */
   public function update(Request $request, $id)
   {
-
+    //validate the entered data
     $request ->validate([
       'group_name' => 'required|max:191',
-      'members' => 'required',
-      'member2' => 'nullable'
+      'members' => 'required|integer',
+      'member2' => 'nullable|integer'
 
       ]);
+      //find the group in the db adn b=pass data to it
       $group = Group::findOrFail($id);
       $group->user_id = Auth::user()->id;
       $group->group_name = $request->input('group_name');
@@ -132,7 +137,7 @@ class GroupController extends Controller
 
       }else{
         $members = $request->input('members2');
-        $group->users()->attach($members);
+        $group->users()->attach($members); //using attach to connect the user to the group in user_group table
       }
 
     return redirect()->route('user.groups.show', $group->id);

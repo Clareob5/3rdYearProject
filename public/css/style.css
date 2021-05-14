@@ -29,7 +29,7 @@ hr{
 }
 
 /* sidebar css */
-
+/*
 .wrapper {
     display: flex;
     width: 100%;
@@ -46,7 +46,7 @@ hr{
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
-}
+} */
 
 
 /* sidebar css ends */
@@ -371,7 +371,7 @@ img{
   padding: 0px;
 }
 
-.dropdown {list-style: none; padding: 10px; display: inline-block;}
+.dropdown {list-style: none; padding: 10px;}
 .dropdown .nav-link {color:#fff; text-decoration: none;}
 .dropdown .dropdown-menu a{color: #000; text-decoration: none;}
 .dropdown-menu .dropdown-item {display: inline-block; width: 100%; padding: 10px 5px;}
@@ -380,4 +380,47 @@ img{
   color: #fff;
   background-color: #b91773;
   border-color: #fff;
+}
+
+/* Sidebar */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #3B2D47;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  color: #E3E6EB;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  /* .sidenav a {font-size: 18px;} */
+}
+
+.sidebar_btn {
+  padding: 8px !important;
+  margin: 10px;
 }

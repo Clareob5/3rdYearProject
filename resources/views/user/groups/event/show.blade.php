@@ -33,12 +33,12 @@
                         <tbody>
                             <tr>
                                 <td>Date</td>
-                                <td>{{ $event->date }}</td>
+                                <td> <p>{{ date('j F, Y', strtotime($event->date )) }}</p></td>
                             </tr>
 
                             <tr>
                                 <td>Time</td>
-                                <td>{{ $event->time }}</td>
+                                <td>{{ date('G:i', strtotime($event->time)) }}</td>
                             </tr>
                         </tbody>
                     </table>

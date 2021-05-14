@@ -73,8 +73,8 @@
                             <tbody id="tbody">
                                 @foreach ($group->events as $event)
                                 <tr>
-                                    <td class="text-light">{{ $event->date }}</td>
-                                    <td class="text-light">{{ $event->time }}</td>
+                                    <td class="text-light">{{ date('j F, Y', strtotime($event->date )) }}</td>
+                                    <td class="text-light">{{ date('G:i', strtotime($event->time)) }}</td>
                                     <td><a href="{{ route('user.groups.event.show', $event->id) }}" class="btn btn-secondary">View</a>
                                         <form style="display:inline-block" method="POST" action="{{ route('user.groups.event.destroy', $event->id) }}">
                                             <input type="hidden" name="_method" value="DELETE">

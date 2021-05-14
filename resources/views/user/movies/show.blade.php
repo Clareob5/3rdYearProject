@@ -63,8 +63,7 @@
 
 
                             <h4>Date Added:</h4>
-                            <p>{{ $movie->date_added }}</p>
-
+                            <p>{{ date('j F, Y', strtotime($movie->date_added  )) }}</p>
 
 
                         </div>
@@ -86,7 +85,7 @@
             <h2>
                 Reviews
 
-              
+
                 <a href="{{ route('user.reviews.create', $movie->id) }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i>Add</a>
 
 

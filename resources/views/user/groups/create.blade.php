@@ -41,25 +41,28 @@
                           </div>
                           <div class="form-group dropdown">
                               <label for="users">Add Members</label>
-                              <select class="form-control col-7 text-light" name="members">
+                              <select class="form-control col-12 text-light" name="members">
+                                    <option value="0" selected>Choose One</option>
                                 @foreach ($users as $user)
                                   <option class="dropdown-item" value="{{ $user->id }}">{{ $user->name }}</option>
                                 @endforeach
                               </select>
-                              <select class="form-control dropdown col-7 text-light dropdown-menu-dark" name="member2">
+                              <select class="form-control dropdown col-12 text-light dropdown-menu-dark" name="member2">
+                                <option value="0" selected>Choose One</option>
                                 @foreach ($users as $user)
                                   <option class="dropdown-item" value="{{ $user->id }}">{{ $user->name }}</option>
                                 @endforeach
                               </select>
-                              <a href="{{ route('user.home') }}" class="btn btn-default">Cancel</a>
-                          <button type="submit" class="btn btn-primary float-right">Submit</button>
+                            </div>
+                              <div>
+                              <a href="{{ route('user.home') }}" class="btn btn-outline-dark">Cancel</a>
+                          <button type="submit" class="btn create_btn float-right">Submit</button>
                             </div>
                       </form>
-
               </div>
           </div>
       </div>
-
+</div>
 
   </div>
 @endsection
