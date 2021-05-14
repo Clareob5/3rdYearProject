@@ -89,10 +89,16 @@
             <div class="row">
                 <div class="card-group">
                     @foreach ($recent_reviews as $recent_review)
-                    <div class="col-md-1">
+                    <div class="col-md-1 fadeIn">
                         <div class="card bgcardcolor">
                             <img class="card-img-top img-top" src="{{ '../assets/img/' . $recent_review->cover }}" alt="Card image cap">
                         </div>
+
+                        <!-- creating overlay of text over card when mouse hovers over -->
+                        <div class="overlay">
+                          <p>Rating:</p>
+                          <p class="text topspace push4 bold">{{ $movie->rating }}</p></div>
+
                     </div>
                     @endforeach
                 </div>

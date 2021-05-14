@@ -175,43 +175,12 @@
             @yield('content')
         </main>
     </div>
-
-
-
-
-
 </body>
-<footer>
-  <div class="row">
-      <div class="col-md-4">
-          <p class="topspace">copyright</p>
-          <h5><i class="fab fa-linkedin-in"></i>
-          <i class="fab fa-instagram"></i>
-          <i class="fab fa-pinterest-p"></i></h5>
-
-      </div>
-      <div class="col-md-4">
-          <h4 class="topspace2">About us</h4>
-          <p>IN ADDITION to sustainable social change, we believe passionately in travel, naps, good food, great friends, long talks, broadened horizons + a spirit of adventure.</p>
-      </div>
-      <div class="col-md-4">
-          <h4 class="topspace2">Contact Us</h4>
-          <p>Freephone: 0976846352</p>
-          <p>123 Foxrock Avenue <br> Dun Laoghaire <br> Ireland</p>
-      </div>
-
-
-  </div>
-</footer>
-
 <script>
 
-AOS.init();
-
-
-    setTimeout(function() {
-        $('.flash').alert('close')
-    }, 3000);
+  setTimeout(function() {
+      $('.flash').alert('close')
+  }, 3000);
 
 
     // $('#laravel_crud').DataTable();
@@ -260,7 +229,6 @@ AOS.init();
       });
   }
   </script>
-</script>
   @yield('javascript')
 
 </html>
