@@ -101,7 +101,8 @@
                 <a href="{{ route('user.movies.show', $movie->id) }}">
                   <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" height="240" alt="Card image cap"></a>
                   <div class="bgcardcolor text-white push2 topspace">
-                      <p class="card-text">{{ $movie->title }} ({{ $movie->release_year }})</p>
+                    <h6>{{ $movie->title }}</h6>
+                    <h6>( {{ $movie->release_year }} )</h6>
                       <hr>
                         <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}"><h6><i class="fas fa-heart"></i> Add to Watchlist </h6></a>
                   </div>
