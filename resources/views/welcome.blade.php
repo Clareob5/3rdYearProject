@@ -49,8 +49,8 @@
                         <div class="card bgcardcolor" data-aos="zoom-in">
                             <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" height="240" alt="Card image cap">
                             <div class="bgcardcolor text-white push2 topspace">
-                                <h6>{{ $movie->title }}</h6>
-                                <p>{{ $movie->release_year }}</p>
+                              <h6>{{ $movie->title }}</h6>
+                              <h6 class="topspace">( {{ $movie->release_year }} )</h6>
                             </div>
                             <!-- creating overlay of text over card when mouse hovers over -->
                             <div class="overlay">
@@ -85,19 +85,19 @@
 <!-- looping through revent reviews in backend using foreach loop to display recently reviewes film -->
         <section class="topPadding">
 
-            <h5 class="text-light">JUST REVIEWED....</h5>
+            <h5 class="text-light">TOP RATED MOVIES</h5>
             <div class="row">
                 <div class="card-group">
                     @foreach ($recent_reviews as $recent_review)
-                    <div class="col-md-1 fadeIn">
+                    <div class="col-md-1 fadeIn shadow">
                         <div class="card bgcardcolor">
                             <img class="card-img-top img-top" src="{{ '../assets/img/' . $recent_review->cover }}" alt="Card image cap">
                         </div>
 
                         <!-- creating overlay of text over card when mouse hovers over -->
                         <div class="overlay">
-                          <p>Rating:</p>
-                          <p class="text topspace push4 bold">{{ $movie->rating }}</p></div>
+                          <p class="text topspace push4">Rating:</p>
+                          <p class="text topspace push4">{{ $movie->rating }} stars</p></div>
 
                     </div>
                     @endforeach

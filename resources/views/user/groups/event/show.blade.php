@@ -52,23 +52,25 @@
                         </form>
                     </div>
                 </div>
-                <div class="text-light padding">
-                    <h5>Choose one of the Following</h5>
+                <div class="text-light padding2">
+                    <h4>Select a movie to watch:</h4>
                 </div>
                 <div class="card-group padding">
                     @foreach ($movies as $movie)
                     @for ($i=0; $i < 5; $i++) @if ($movie->id == $final_mov[$i]['id'])
-                    <div class="card bg-dark">
+                    <div class="card bgcardcolor">
                         <a href="{{ route('user.movies.show', $movie->id) }}">
-                            <img class="card-img-top img-top" src="{{ '/assets/img/' . $movie->cover }}" alt="Card image cap"></a>
-                        <div class="card body bg-dark text-white">
+                            <img class="card-img-top img-top" src="{{ '/assets/img/' . $movie->cover }}" alt="Card image cap" height="240"></a>
+                        <div class="card body bgcardcolor text-white">
                             <h6>{{ $movie->title }}</h6>
-                            <h6>{{ $movie->release_year }}</h6>
+                            <h6>( {{ $movie->release_year }} )</h6>
                             <div>
                                 <form style="display:inline-block" method="POST" action="{{ route('user.groups.event.selected', $event->id) }}">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <input type="hidden" name="id" value="{{$movie->id}}">
-                                    <button type="submit" class="btn  create_btn">Select</button>
+                                    <div class="topspace">
+                                    <button type="submit" class="btn create_btn">Select</button>
+                                  </div>
                                 </form>
                             </div>
                         </div>

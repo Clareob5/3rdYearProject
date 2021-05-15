@@ -4,12 +4,14 @@
 
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <div class="sidebar-header">
-          <h3>Your Groups</h3>
+      <div class="sidebar-header push2">
+          <h3 class="bold">YOUR GROUPS</h3>
       </div>
 
-      <ul class="list-unstyled components">
-          <p>View Groups below</p>
+      <hr class="white">
+
+      <ul class="list-unstyled components push5">
+          <p>View Groups you are in below:</p>
           <li class="active">
               <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Groups</a>
               <ul class="collapse list-unstyled" id="homeSubmenu">
@@ -44,10 +46,11 @@
               <a href="{{ route('user.catalogue') }}">Catalogue</a>
           </li>
       </ul>
-        <a href="{{ route('user.groups.create') }}" class="btn sidebar_btn btcolor btn-md">Create Group</a>
+        <a href="{{ route('user.groups.create') }}" class="btn sidebar_btn filtercolor btn-md">CREATE GROUP</a>
     </div>
     <!-- Use any element to open the sidenav -->
-    <span onclick="openNav()"><i class="fas fa-align-left"></i></span>
+    <!-- <span onclick="openNav()"><i class="fas fa-align-left "><button type="button" class="btn btcolor btn-md push2">YOUR GROUPS INFO</button></i></span> -->
+      <span onclick="openNav()"><i class="fas fa-align-left push2 underline">OPEN GROUPS INFO</i></span>
 
 </div>
 
@@ -55,7 +58,7 @@
 
 <!-- end sidebar -->
 
-<div class="container background-dark" id='main'>
+<div class="container background-dark slightPush6" id='main'>
     <div class="row justify-content-center">
 
 
@@ -79,9 +82,7 @@
 
             </div>
 
-            <div class="d-grid gap-2 col-4 mx-auto slightPush5">
-                <a class="nav-link" href="{{ route('user.watchlist') }}"><button type="button" class="btn btcolor btn-md">GO TO WATCHLIST</button></a>
-            </div>
+
 
 
         </div>
@@ -104,7 +105,8 @@
                         <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" alt="Card image cap" height="240"></a>
 
                         <div class="bgcardcolor text-white push2 topspace">
-                        <p class="card-text">{{ $movie->title }} ({{ $movie->release_year }})</p>
+                          <h6>{{ $movie->title }}</h6>
+                          <h6>( {{ $movie->release_year }} )</h6>
                         <hr>
                        <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}"><h6><i class="fas fa-heart"></i> Add to Watchlist </h6></a>
 
@@ -122,16 +124,51 @@
 
 
 
-        <section class="topPadding">
+        <!-- <section class="topPadding">
 
             <div class="row justify-content-center">
                 <img src="/assets/img/midbanner.png">
             </div>
-        </section>
+        </section> -->
 
         <section class="topPadding">
 
+          <div class="card-deck">
+            <div class="card bgcardcolor text-white">
 
+              <img class="card-img" src="https://cdn.dribbble.com/users/5029463/screenshots/11247064/media/03dbc20dd8f31b32ebfe9c7b51792dca.gif" height="400" width="400">
+
+              <div class="card-img-overlay ">
+                <h1 class="card-title bold push6">CREATED A GROUP YET?</h1>
+                <h3 class="card-text bold slightPush2">Click here to create your group, add friends and family!</h3>
+
+                <div class="slightPush4">
+                  <a class="nav-link" href="{{ route('user.groups.create') }}"><button type="button" class="btn btn-warning btn-md">CREATE GROUP</button></a>
+                </div>
+              </div>
+            </div>
+
+              <div class="card bgcardcolor text-white">
+
+                <img class="card-img" src="https://cdn.dribbble.com/users/1338054/screenshots/15624764/media/4231ce390e547ff9b40cfd8e1ac62427.gif" height="400" width="400">
+
+                <div class="card-img-overlay ">
+                  <h1 class="card-title bold push6">VISIT YOUR WATCHLIST</h1>
+                  <h3 class="card-text bold slightPush2">Add movies to your watchlist and view them in one place!</h3>
+
+                  <div class="slightPush4">
+                    <a class="nav-link" href="{{ route('user.watchlist') }}"><button type="button" class="btn btn-warning btn-md">GO TO WATCHLIST</button></a>
+                  </div>
+                </div>
+              </div>
+
+
+          </div>
+        </section>
+
+
+        <!-- section to show popular movies on alpha films. FIltering through popmovies in backend to display on the site along with release year and title. -->
+        <section class="topPadding">
 
 
             <h5 class="push4">POPULAR ON ALPHA FILMS</h5>
@@ -143,8 +180,9 @@
                               <img class="card-img-top img-top" src="{{ '../assets/img/' . $movie->cover }}" height="240" alt="Card image cap"></a>
 
                               <div class="  bgcardcolor text-white push2 topspace">
-                              <p class="card-text">{{ $movie->title }} ({{ $movie->release_year }})</p>
-                              <hr class="white">
+                                <h6>{{ $movie->title }}</h6>
+                                <h6>( {{ $movie->release_year }} )</h6>
+                              <hr>
                              <a href="javascript:void();" class="card-title add_to_wishlist light-link" data-quantity="1" data-id="{{ $movie->id }}" id="add_to_wishlist_{{$movie->id}}"><h6><i class="fas fa-heart"></i> Add to Watchlist </h6></a>
 
                           </div>

@@ -128,9 +128,9 @@
                         <span id="timeError" class="alert-message"></span>
                     </div>
 
-                    <div class="modal-footer">
+                    <!-- <div class="modal-footer">
                         <button type="submit" class="btn btn-primary" onclick="createEv()">Save</button>
-                    </div>
+                    </div> -->
 
                 </form>
             </div>

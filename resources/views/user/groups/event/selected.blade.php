@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="col-md-8 text-light">
+    <div class="row justify-content-center">
         <h2>Chosen Movie for event {{$event->group->group_name}}</h2>
     </div>
     <div class="card-group">
@@ -12,7 +12,7 @@
         </div>
         <div class="box_style_four card">
             <div class="card-body">
-                <h5 class="card-title">{{ $movie->title }}</h5>
+                <h2 class="card-title">{{ $movie->title }}</h2>
                 <p class="card-text">{{ $movie->description }}</p>
                 <h5 class="card-text topspace"><small class="text-light">GENRE: {{ $movie->genre }}</small></h5>
                 <h5 class="card-text"><small class="text-light">RATING: {{ $movie->rating }}</small></h5>

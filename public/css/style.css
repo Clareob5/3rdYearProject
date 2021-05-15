@@ -35,6 +35,11 @@ hr{
   opacity: 1;
 }
 
+.shadow{
+  box-shadow: 2px 2px;
+
+}
+
 .cardText {
   color: white;
   font-size: 20px;
@@ -67,7 +72,7 @@ hr{
 }
 
 .white{
-  color: #ffffff;
+  background-color: #ffffff;
 }
 
 .spacingMovies{
@@ -132,7 +137,7 @@ hr{
 
 .see_more{
   padding-top: 250px;
-  padding-left: 450px;
+  padding-left: 440px;
 }
 
 .see_more2{
@@ -159,6 +164,13 @@ hr{
 .slightPush5{
   padding-left: 100px;
 }
+
+/* pushing overall content on user home page */
+.slightPush6{
+  padding-left: 40px;
+}
+
+
 .margin_left{
   margin-left: 5%;
 }
@@ -177,6 +189,7 @@ hr{
   color: red !important;
 }
 
+/* different padding needed for certain elements */
 .titlea{
   padding-left: 450px;
   padding-top: 200px;
@@ -197,6 +210,19 @@ hr{
 .push4{
   padding-left: 15px;
 }
+
+.push5{
+  padding-left: 25px;
+}
+
+.push6{
+  padding-left: 35px;
+}
+
+.underline{
+  text-decoration: underline;
+}
+
 
 .bold{
   font-weight: bold;
@@ -262,6 +288,11 @@ img{
 }
 .padding {
     padding: 20px;
+}
+
+.padding2 {
+    padding-left: 20px;
+    padding-top: 20px;
 }
 
 .box_style_select {

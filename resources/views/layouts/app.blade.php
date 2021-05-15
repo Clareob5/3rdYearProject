@@ -57,7 +57,8 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/user/home') }}">
-                    {{ config('Alpha Films', 'Alpha Films') }}
+                    <!-- {{ config('Alpha Films', 'Alpha Films') }} -->
+                    <img src="/assets/img/logo2.png" height="60" width="160">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
