@@ -152,10 +152,11 @@ class GroupController extends Controller
   public function showEvent($id)
   {
     $user = Auth::user();
-    $members = $group->users();
+    $group = Group::find($id);
+    $members = $group->users()->paginate(8);
     //$events = $group->events()->orderBy('date', 'asc')->paginate(8); //displatying only visits relevant to authorised patient viewing the page
 
-      $group = Group::find($id);
+
       $groups = Group::All();
       $events = $group->events;
       return view('user.groups.show', [
