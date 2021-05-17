@@ -29,11 +29,12 @@ class EventController extends Controller
     $user_id = Auth::user()->id;
     $count = 5;
 
+    //recommendedns 5 movies to user - admin
     $results = $client->send(
       new Reqs\RecommendItemsToUser($user_id, $count)
     );
 
-    $recomms_1 =  $results['recomms'];
+    $recomms_1 =  $results['recomms']; //setting teh array of movie id to their own array
     $recomms_2 =  [];
     $recs = [];
     $name = 'group-' . $group->id;
@@ -41,20 +42,20 @@ class EventController extends Controller
     // $client->send(new Reqs\AddUser($name));
 
     foreach ($group->users as $user) {
-      // $client->send("Hello WOrld");
-
+      //rem=commendeds 5 movies for the members
       $results_mem = $client->send(
         new Reqs\RecommendItemsToUser($user->id, $count)
       );
       array_push($recomms_2, $results_mem['recomms']);
         //$request->setTimeout(5000);
     }
+    //pushing all the recs into one array
     for ($i=0; $i <count($recomms_2) ; $i++) {
       for ($j=0; $j < count($recomms_2[$i]) ; $j++) {
           array_push($recs, $recomms_2[$i][$j]);
         }
     }
-
+    //merging members recs array with user recs array
     $group_recs = array_merge($recs,$recomms_1);
 
 
@@ -62,11 +63,13 @@ class EventController extends Controller
       $book = $client -> send(new Reqs\AddBookmark($name, $group_recs[$i]['id']));
     }
 
+    //sendign the request for recs for the group
     $result = $client->send(
       new Reqs\RecommendItemsToUser($name, 5)
       );
       //$request->setTimeout(5000);
 
+    //the decided movie
     $final_mov = $result['recomms'];
 
     $movies = Movie::All();
@@ -198,6 +201,7 @@ class EventController extends Controller
 
     return redirect()->route('user.groups.event.show', $event->id);
   }
+  //revove member functions - not fully working as routes get confused
   // public function memberRemove(Request $request, $id)
   // {
   //
@@ -225,39 +229,3 @@ class EventController extends Controller
     return redirect()->route('user.groups.show',$group);
   }
 }
-
-// public function create()
-// {
-//   $id = 4;
-//   $users = User::All();
-//   $group = Group::findOrFail($id);
-//   return view('user.groups.event.create', [
-//     'users' => $users,
-//     'group' => $group
-//   ]);
-// }
-//
-// public function store(Request $request)
-// {
-//     $id = 4;
-//     $request ->validate([
-//       'date' => 'required',
-//       'time' => 'required',
-//       'group_id' => '',
-//       ]);
-//
-//     $event = new Event();
-//     $event->date = $request->input('date');
-//     $event->time = $request->input('time');
-//     $event->group_id = $id;
-//     $event->save();
-//
-//     return redirect()->route('user.groups.event.show', $event->id);
-// }
-
-/**
- * Display the specified resource.
- *
- * @param  int  $id
- * @return \Illuminate\Http\Response
- */

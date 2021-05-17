@@ -17,7 +17,6 @@ class UserWatchlistController extends Controller
   {
       $id = Auth::user()->id;
       $movies = User::find($id)->movies;
-      // var_dump($movies);
       echo $id;
       return view('user.watchlist', [
         'movies' => $movies,
@@ -25,6 +24,7 @@ class UserWatchlistController extends Controller
       ]);
   }
 
+  //adds movie to watchlist
   public function store(Request $request){
 
     $id = Auth::user()->id;
@@ -36,6 +36,7 @@ class UserWatchlistController extends Controller
     $user->movies()->attach($movie_id);
     $watchlist=[];
 
+    //sends request to the recommender to show they like the movie
     $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
     $request = new Reqs\AddDetailView($id, $movie_id, ['cascadeCreate' => true]);
 
@@ -45,18 +46,19 @@ class UserWatchlistController extends Controller
     foreach ($movies as $movie) {
       $watchlist[]=$movie;
     }
-    if(in_array($movie_id,$watchlist)){
-      $response['present']=true;
-      $response['message']="Movie is already added to watchlist";
-    }else{
-      $user->movies()->attach($movie_id);
-      $response['status']=true;
-      $response['message']="Movie added to watchlist";
-    }
+    // if(in_array($movie_id,$watchlist)){
+    //   $response['present']=true;
+    //   $response['message']="Movie is already added to watchlist";
+    // }else{
+    //   $user->movies()->attach($movie_id);
+    //   $response['status']=true;
+    //   $response['message']="Movie added to watchlist";
+    // }
 
     return json_encode($response);
 }
 
+//remove item from watchlist method
 public function destroy(Request $request, $id)
 {
     $user = User::find(Auth::user()->id);

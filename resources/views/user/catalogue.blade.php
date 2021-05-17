@@ -55,7 +55,8 @@
 
 @section('javascript')
 <script>
-
+  //method sends movie id to the controller to add movie to Watchlist
+  //done with AJAX
     $(document).on('click', '.add_to_wishlist', function(e) {
         e.preventDefault();
         var movie_id = $(this).data('id');

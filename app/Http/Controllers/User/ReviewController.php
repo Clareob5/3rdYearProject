@@ -65,10 +65,11 @@ class ReviewController extends Controller
       $review->movie_id = $id;
       $review->save();
 
+      //send the rating to be stored in the API - mut be a value from 0 to 1 so rating is divided
       $rate = new Reqs\AddRating(Auth::id(), $id, ($review->rating/10), ['cascadeCreate' => true]);
 
-      $rate->setTimeout(5000);
-      $client->send($rate);
+      $rate->setTimeout(5000); //set timeout
+      $client->send($rate); //send request
 
       return redirect()->route('user.movies.show', $id);
     }
