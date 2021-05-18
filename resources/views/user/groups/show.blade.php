@@ -67,6 +67,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <!-- Add event button triggers addEvent ajax function which should open the modal -->
                         <a href="javascript:void(0)" class="btn create_btn btn-md" id="create-new-event" onclick="addEvent()">Add</a>
                     </div>
                     @endif
@@ -104,7 +105,7 @@
     </div>
 </div>
 
-
+<!-- pop up modal to allow user to enter date and time of the event. Event triggered with ajax function -->
 <div class="modal fade" id="group-modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content box_style">
@@ -141,6 +142,8 @@
 
 @section('javascript')
 <script>
+// createEv function which sends the data to the controller to be stored. If dara is entered corectly resposne code 200 is returned,
+// the data is stored and the event is added, the modal disappears also. Else if the process fails an error response is returned.
     function createEv() {
         console.log("Checking create event")
         var date = $('#date').val();

@@ -186,6 +186,7 @@
 
     // $('#laravel_crud').DataTable();
 
+// addEvent function triggered whena user clicks 'Add', opens the modal
   function addEvent() {
     console.log("Checking modal add event")
     $("#group_id").val('');

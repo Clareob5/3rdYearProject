@@ -149,6 +149,7 @@ class GroupController extends Controller
     return redirect()->route('user.groups.show', $group->id);
   }
 
+// function that shows the newly added event on the page with event info and saved to specific group using the group id.
   public function showEvent($id)
   {
     $user = Auth::user();
@@ -166,6 +167,7 @@ class GroupController extends Controller
       ]);
   }
 
+// function to allow a user to create an event for a certain group by ID. If successful it will return a success message to show group is created successfully.
   public function createEvent(Request $request, $id)
   {
     $group = $request->session()->get('groups');
@@ -182,6 +184,7 @@ class GroupController extends Controller
 
   }
 
+// function that stores inputted data from form into the databse and saving it to the specific group using the group id. 
   public function storeEvent(Request $request)
   {
       $rules = [

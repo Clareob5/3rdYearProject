@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<!-- user name and displayed at the top of the page -->
 <div class="container background-dark">
     <div class="row">
 
@@ -16,6 +17,8 @@
 
 </div>
   </div>
+
+  <!-- user is able to update their profile by editing the form with their information -->
     <div class="container-fluid">
       <div class="row">
 
@@ -87,7 +90,7 @@
 </div>
 </div>
 
-
+<!-- section to show movie recommendations for specific user after registration -->
 <section>
   <br>
   <br>
