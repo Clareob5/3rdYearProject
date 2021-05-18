@@ -89,7 +89,6 @@
                     <p>Admin: {{ $group->user->name}}</p>
 
                     @foreach ($members as $member)
-
                       <p>
                         {{-- <form method="POST" action="{{ route('user.groups.memberRemove', $member->id) }}">
                             <input type="hidden" name="group_id" value="{{ $group->id }}">
@@ -100,8 +99,6 @@
                         </p>
 
                     @endforeach
-
-
                     <a href="{{ route('user.groups.edit', $group->id) }}" class="btn light_button">Edit Group</a>
                     <form style="display:inline-block" method="POST" action="{{ route('user.groups.destroy', $group->id) }}">
                         <input type="hidden" name="_method" value="DELETE">
@@ -112,6 +109,5 @@
             </div>
         </div>
     </div>
-
 </div>
 @endsection

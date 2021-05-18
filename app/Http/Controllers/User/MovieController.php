@@ -73,6 +73,7 @@ public function __construct()
       // $time = $movie->created_at;
        $user_id = Auth::user()->id;
 
+       //add detail view if movie is clicked on 
        $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
        $request = new Reqs\AddDetailView($user_id, "$id", ['cascadeCreate' => true]);
 

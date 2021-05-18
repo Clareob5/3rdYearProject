@@ -24,35 +24,4 @@
                 </div>
             </div>
         </div>
-
-        {{-- <div class=" box_style_four card" style="width: 1000px;">
-      <div class="row no-gutters">
-      <div class="col-md-6">
-        <a href="{{ route('user.movies.show', $movie->id) }}">
-        <img class="card-img-top img-top" src="{{ '/assets/img/' . $movie->cover }}" alt="Card image cap"></a>
-    </div>
-    <div class="card mb-6">
-        <div class="card-body">
-            <h5 class="card-title">{{ $movie->title }}</h5>
-            <p class="card-text">{{ $movie->description }}</p>
-            <h5 class="card-text topspace"><small class="text-light">GENRE: {{ $movie->genre }}</small></h5>
-            <h5 class="card-text"><small class="text-light">RATING: {{ $movie->rating }}</small></h5>
-            {{-- <div class="justify-content-center">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> --}}
-            {{-- <div class="card-body">
-            <div class="col-md-6">
-                    <a href="{{ route('user.movies.show', $movie->id) }}">
-            <img class="card-img-top img-top" src="{{ '/assets/img/' . $movie->cover }}" alt="Card image cap"></a>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <h6>{{ $movie->title }}<br>{{ $movie->release_year }}</h6>
-    </div> --}}
-
-
-    {{-- </div> --}}
     @endsection

@@ -129,9 +129,9 @@
                         <span id="timeError" class="alert-message"></span>
                     </div>
 
-                    <!-- <div class="modal-footer">
+                    <div class="modal-footer">
                         <button type="submit" class="btn btn-primary" onclick="createEv()">Save</button>
-                    </div> -->
+                    </div>
 
                 </form>
             </div>
@@ -142,8 +142,12 @@
 
 @section('javascript')
 <script>
+
 // createEv function which sends the data to the controller to be stored. If dara is entered corectly resposne code 200 is returned,
 // the data is stored and the event is added, the modal disappears also. Else if the process fails an error response is returned.
+
+  //method for creating an event
+
     function createEv() {
         console.log("Checking create event")
         var date = $('#date').val();

@@ -72,7 +72,7 @@ class GroupController extends Controller
       return redirect()->route('user.groups.show', $group->id);
   }
 
-
+  //shows the groups members and events
   public function showGroup($id)
   {
     $user = Auth::user();
@@ -82,7 +82,7 @@ class GroupController extends Controller
     $members = $group->users()->paginate(8);
     //$events = $group->events()->orderBy('date', 'asc')->paginate(8); //displatying only visits relevant to authorised patient viewing the page
     $events = $group->events;
-      $groups = Group::All();
+    $groups = Group::All();
       //$events = Event::All();
       return view('user.groups.show', [
         'group' => $group,
@@ -153,12 +153,13 @@ class GroupController extends Controller
   public function showEvent($id)
   {
     $user = Auth::user();
-    $members = Group::with('users')->get();
+    $group = Group::find($id);
+    $members = $group->users()->paginate(8);
     //$events = $group->events()->orderBy('date', 'asc')->paginate(8); //displatying only visits relevant to authorised patient viewing the page
 
-      $group = Group::findOrFail($id);
+
       $groups = Group::All();
-        $events = $group->events;
+      $events = $group->events;
       return view('user.groups.show', [
         'group' => $group,
         'groups' => $groups,
@@ -224,39 +225,3 @@ public function destroy($id)
   return redirect()->route('user.home');
 }
 }
-
-// return response()->json(['ok' => 'ok']);
-
-// return response()->json([
-//   'ok' => 'ok',
-//   'success' => true,
-//   'data' => $event
-// ], 200);
-
-// return [
-//   'success' => true,
-//   'data' => $event
-// ];
-// return redirect()->route('user.groups.show', $event->group_id);
-
-// public function show()
-// {
-//     $groups = Group::All();
-//     return view('user.groups.event.show', [
-//       'groups' => $groups
-//     ]);
-// }
-//
-// /**
-// * Show the form for editing the specified resource.
-// *
-// * @param  int  $id
-// * @return \Illuminate\Http\Response
-// */
-
-// /**
-// * Remove the specified resource from storage.
-// *
-// * @param  int  $id
-// * @return \Illuminate\Http\Response
-// */

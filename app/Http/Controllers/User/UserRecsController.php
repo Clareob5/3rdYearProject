@@ -26,7 +26,7 @@ class UserRecsController extends Controller
 
     public function createGenre(Request $request)
     {
-
+      //start the session for the multi page form
       $userRec = $request->session()->get('user_recs');
       return view('user.recs.create_genres',compact('userRec'));
 
@@ -34,7 +34,7 @@ class UserRecsController extends Controller
 
     public function storeGenre(Request $request)
     {
-
+      //store the genres in the db and request the session
       $id = Auth::user()->id;
       $validatedData = $request->validate([
         'user_id' => 'integer',
@@ -68,6 +68,7 @@ class UserRecsController extends Controller
      */
     public function createMovie(Request $request, $id)
     {
+      //second part of multi page form
       $userRec = $request->session()->get('user_recs');
       $movies = Movie::All();
       return view('user.recs.create_movies',compact('userRec'), [
@@ -91,9 +92,10 @@ class UserRecsController extends Controller
         $request->session()->put('user_recs', $userRec);
         $userRec->save();
 
+        //send detail view to recommender for each movie chosen
         $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
-        for ($i=0; $i <= count($userRec['movie_ids']); $i++) {
-          $request = new Reqs\AddPurchase($id, 'movie_ids'[$i], ['cascadeCreate' => true]);
+        for ($i=0; $i <= 8; $i++) {
+          $request = new Reqs\AddDetailView($id, 'movie_ids'[$i], ['cascadeCreate' => true]);
          }
         $request->setTimeout(5000);
         $client->send($request);
@@ -104,8 +106,8 @@ class UserRecsController extends Controller
         $userRec->save();
 
         $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
-        for ($i=0; $i <= count($userRec['movie_ids']); $i++) {
-          $request = new Reqs\AddPurchase($id, 'movie_ids'[$i], ['cascadeCreate' => true]);
+        for ($i=0; $i <= 8; $i++) {
+          $request = new Reqs\AddDetailView($id, 'movie_ids'[$i], ['cascadeCreate' => true]);
         }
         $request->setTimeout(5000);
         $client->send($request);
@@ -113,7 +115,7 @@ class UserRecsController extends Controller
 
      return redirect()->route('user.profile');
     }
-
+    //updating recs methods
     public function editGenre(Request $request, $id)
     {
         $user = UserRecs::findOrFail($id)->where('user_id' == $id);
@@ -176,6 +178,7 @@ class UserRecsController extends Controller
      */
     public function updateMovie(Request $request, $id)
     {
+      //edits the values in the dba nd send the new movies to the recommender
       $client = new Client("alphafilms-dev", 'UCNc5SlThIUbZZMP3VCjMa9vhTXb60VpHps9TiBsD3oQXAKfpS1U8ugXEArsYTlR');
       $validatedData = $request->validate([
         'movie_ids' => 'nullable',
